@@ -24,6 +24,14 @@
     "expected_status": 200,
     "note": "core.telegram.org блокируется по SNI в РФ, поэтому 200 через прокси = Telegram доступен"
   },
+  "telegram_dc": {
+    "enabled": true,
+    "hosts": ["149.154.167.51", "149.154.175.53", "149.154.167.91"],
+    "port": 443,
+    "timeout_sec": 8.0,
+    "concurrency": 48,
+    "note": "TCP-коннект до дата-центров Telegram (DC2, DC1, DC4). HTTP-доступность core.telegram.org ещё не значит, что заработает сам мессенджер: Telegram блокирует часть хостинговых диапазонов, и у такого прокси коннект к DC не открывается. Настоящий TLS здесь не работает — на порту 443 у Telegram fake-TLS"
+  },
   "speed": {
     "url": "https://dl.google.com/android/repository/platform-tools-latest-windows.zip",
     "request_bytes": 3145728,
