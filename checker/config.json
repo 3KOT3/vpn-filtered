@@ -1,0 +1,49 @@
+{
+  "source": {
+    "repo": "DarkRoyalty/shnajder-vpn-configs",
+    "ref": "main",
+    "dir": "githubmirror",
+    "files": ["1", "6", "22", "23", "24", "25"]
+  },
+  "output": {
+    "plain": "1.txt",
+    "base64": "1-base64.txt",
+    "status": "status.json",
+    "report": "REPORT.md",
+    "repo": "3KOT3/vpn-filtered",
+    "branch": "main"
+  },
+  "youtube": {
+    "url": "https://www.youtube.com/generate_204",
+    "expected_status": 204,
+    "note": "204 = YouTube отвечает через этот прокси"
+  },
+  "telegram": {
+    "url": "https://core.telegram.org/",
+    "expected_status": 200,
+    "note": "core.telegram.org блокируется по SNI в РФ, поэтому 200 через прокси = Telegram доступен"
+  },
+  "speed": {
+    "url": "https://dl.google.com/android/repository/platform-tools-latest-windows.zip",
+    "request_bytes": 3145728,
+    "min_mbps": 2.0,
+    "deadline_sec": 12.0,
+    "concurrency": 48,
+    "retries": 1,
+    "note": "YouTube не отдаёт большие файлы без токена, поэтому скорость туннеля меряется на Google CDN (dl.google.com), а доступность YouTube — на самом YouTube"
+  },
+  "tcp_prefilter": {
+    "enabled": true,
+    "timeout_sec": 3.0,
+    "concurrency": 800
+  },
+  "delay": {
+    "timeout_ms": 5000,
+    "concurrency": 64,
+    "batch_size": 300
+  },
+  "limits": {
+    "max_keep": 0,
+    "time_budget_sec": 5400
+  }
+}
