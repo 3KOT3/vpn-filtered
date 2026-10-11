@@ -1,0 +1,141 @@
+# vpn-filtered
+
+Автоматически обновляемый список публичных VPN-конфигов, **через которые реально
+работают YouTube и Telegram**.
+
+Каждые 2 часа GitHub Actions скачивает исходные подписки, прогоняет каждый конфиг
+через настоящий прокси-клиент и оставляет только рабочие.
+
+## Готовые ссылки
+
+| Что | Ссылка |
+| --- | --- |
+| Обычный список (plain) | `https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1.txt` |
+| Base64-подписка | `https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1-base64.txt` |
+| Статистика прогона | `https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/status.json` |
+| Отчёт | [`REPORT.md`](./REPORT.md) |
+
+Ссылку на актуальный список всегда отдаёт Telegram-бот **@shishkin_vpn_bot**
+(инструкция по установке — в [`cloudflare-bot/README.md`](../cloudflare-bot/README.md)).
+
+## Откуда берутся конфиги
+
+Источник — публичное зеркало
+[`DarkRoyalty/shnajder-vpn-configs`](https://github.com/DarkRoyalty/shnajder-vpn-configs),
+файлы `githubmirror/{1,6,22,23,24,25}.txt` (около 13 500 строк, ~12 700 уникальных
+конфигов). Список файлов задаётся в [`checker/config.json`](./checker/config.json).
+
+## Как проходит проверка
+
+```
+строки в источниках
+      │  разбор URI -> outbound-конфиг sing-box
+      ▼
+  уникальные конфиги ──► отброшено: 463 (xhttp, mlkem, obfs-плагин, битые строки)
+      │  TCP-коннект к серверу, 3 с
+      ▼
+  endpoint отвечает
+      │  sing-box: GET https://www.youtube.com/generate_204  (ждём 204)
+      ▼
+  YouTube доступен
+      │  sing-box: GET https://core.telegram.org/             (ждём 200)
+      ▼
+  Telegram доступен
+      │  скачиваем 3 МБ с Google CDN, считаем Мбит/с
+      ▼
+  скорость ≥ 2 Мбит/с  ──►  1.txt
+```
+
+Каждый шаг меряется по-настоящему: трафик идёт **через сам прокси**, а не просто
+проверяется «сервер отвечает на ping».
+
+### Почему скорость меряется на Google CDN, а не на YouTube
+
+YouTube не отдаёт большие файлы без авторизации и подписи запроса: пробовал
+`youtubei/v1/player` с клиентами ANDROID, IOS, WEB, TVHTML5 — YouTube больше не
+возвращает прямых ссылок на `googlevideo.com` без расшифровки `nsig`. Поэтому:
+
+- **доступность YouTube** проверяется на самом YouTube (`generate_204`);
+- **скорость туннеля** — скачиванием 3 МБ с `dl.google.com` (та же
+  инфраструктура Google, стабильный публичный файл).
+
+## Что не проверяется
+
+- **Видимость из России.** Проверка идёт с раннеров GitHub Actions (США/Европа).
+  Это отвечает на вопрос «прокси рабочий и пропускает YouTube с Telegram», но не
+  отвечает на вопрос «не блокирует ли его РКН с вашего домашнего интернета».
+  Конфиг может пройти проверку и всё равно не подключиться из РФ.
+- **MTProto-доступность конкретных дата-центров Telegram.** Проверяется
+  HTTP-доступность `core.telegram.org` — этого достаточно, чтобы считать, что
+  Telegram через прокси не заблокирован.
+- **Конфиги, которые sing-box не умеет.** `xhttp` (297 шт.), VLESS-шифрование
+  `mlkem768x25519plus` (68), `obfs`-плагин Shadowsocks (3), битые строки зеркала
+  с испорченным параметром `type` (25). Они перечислены в `status.json` →
+  `unsupported_reasons`.
+
+Два случая отдельно, потому что они роняли **весь батч** (sing-box отказывался
+стартовать, а не просто пропускал конфиг):
+
+- `flow=xtls-rprx-vision-udp443` — вариант Xray, которого нет в sing-box.
+  Приводится к обычному `xtls-rprx-vision`. Любое другое неизвестное значение
+  `flow` отбрасывается, иначе sing-box падает с `unsupported flow`.
+- Ключ Shadowsocks-2022 неверной длины (`2022-blake3-*` требует ровно 16 или 32
+  байта в base64). Такие конфиги теперь отбраковываются заранее.
+
+На случай нового неизвестного дефекта чекер всё равно делит упавший батч пополам,
+пока не найдёт виновника, и продолжает работу.
+
+## Запуск вручную
+
+Actions → **Проверка VPN-конфигов** → **Run workflow**. Можно задать:
+
+- `limit` — проверить только первые N конфигов (для быстрой проверки изменений);
+- `min_mbps` — порог скорости;
+- `min_keep` — не публиковать список, если выжило меньше N конфигов.
+
+Локально:
+
+```bash
+# только разбор, без сети
+python checker/check.py --parse-only --out-dir /tmp/out
+
+# полная проверка на локальных файлах
+python checker/check.py \
+  --sources-dir ./sources \
+  --sing-box /usr/local/bin/sing-box \
+  --out-dir /tmp/out \
+  --limit 500
+```
+
+Требуется только Python 3.9+ (никаких pip-зависимостей) и бинарник
+[sing-box](https://github.com/SagerNet/sing-box/releases) (версия 1.14.x).
+
+## Тесты
+
+```bash
+python -m unittest discover -s checker -p 'test_*.py' -v
+```
+
+43 теста на конвертер URI: реальные строки из зеркала, кодирование `&amp;`,
+хвостовой слэш после порта, мусор в параметре `host`, поведение reality,
+отбраковка `xhttp` / `mlkem` / `obfs` / legacy-vmess. Сеть не нужна.
+
+## Файлы
+
+| Путь | Назначение |
+| --- | --- |
+| `checker/check.py` | весь пайплайн: скачивание, разбор, TCP-фильтр, тесты, вывод |
+| `checker/uris.py` | конвертер `vless/vmess/trojan/ss/socks/http/hysteria2/tuic` → sing-box |
+| `checker/test_uris.py` | тесты конвертера (43 шт., без сети) |
+| `checker/config.json` | источники, эндпоинты, пороги, параллельность |
+| `.github/workflows/check.yml` | расписание и публикация результата |
+| `1.txt`, `1-base64.txt` | результат (генерируются автоматически) |
+| `status.json` | машинная статистика для Telegram-бота |
+| `REPORT.md` | человекочитаемый отчёт (генерируется) |
+
+## Если GitHub Actions не может закоммитить
+
+**Settings** → **Actions** → **General** → **Workflow permissions** →
+**Read and write permissions** → **Save**.
+
+Без этого шага проверка пройдёт, но `git push` в конце упадёт с 403.
