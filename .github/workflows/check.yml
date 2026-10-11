@@ -1,0 +1,107 @@
+name: Проверка VPN-конфигов
+
+# Каждые 2 часа + возможность запустить вручную (в т.ч. из Telegram-бота).
+on:
+  schedule:
+    - cron: "0 */2 * * *"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Проверить только первые N конфигов (0 = все)"
+        required: false
+        default: "0"
+      min_mbps:
+        description: "Порог скорости, Мбит/с"
+        required: false
+        default: "2.0"
+      min_keep:
+        description: "Не публиковать список, если выжило меньше N конфигов"
+        required: false
+        default: "1"
+
+# Нужно, чтобы workflow мог коммитить результат встроенным GITHUB_TOKEN.
+permissions:
+  contents: write
+
+# Два прогона одновременно не нужны: они перезапишут друг другу результат.
+concurrency:
+  group: vpn-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    env:
+      SING_BOX_VERSION: "1.14.3"
+      # Необязательно: если в репозитории задан секрет NOTIFY_URL, бот получит
+      # пинг сразу после проверки и разошлёт ссылку, не дожидаясь cron.
+      NOTIFY_URL: ${{ secrets.NOTIFY_URL }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Установить sing-box
+        run: |
+          set -euo pipefail
+          url="https://github.com/SagerNet/sing-box/releases/download/v${SING_BOX_VERSION}/sing-box-${SING_BOX_VERSION}-linux-amd64.tar.gz"
+          curl -fsSL --retry 3 -o /tmp/sing-box.tar.gz "$url"
+          tar -xzf /tmp/sing-box.tar.gz -C /tmp
+          sudo install -m 0755 "/tmp/sing-box-${SING_BOX_VERSION}-linux-amd64/sing-box" /usr/local/bin/sing-box
+          sing-box version
+
+      - name: Тесты конвертера
+        run: python -m unittest discover -s checker -p "test_*.py" -v
+
+      - name: Проверить конфиги
+        id: run
+        env:
+          LIMIT: ${{ github.event.inputs.limit || '0' }}
+          MIN_MBPS: ${{ github.event.inputs.min_mbps || '2.0' }}
+          MIN_KEEP: ${{ github.event.inputs.min_keep || '1' }}
+        run: |
+          set -euo pipefail
+          python checker/check.py \
+            --sing-box /usr/local/bin/sing-box \
+            --out-dir . \
+            --limit "$LIMIT" \
+            --min-mbps "$MIN_MBPS" \
+            --min-keep "$MIN_KEEP" \
+            --cache-dir .cache/sources \
+            --work-dir .cache/singbox
+
+      - name: Показать итог
+        if: always()
+        run: |
+          if [ -f status.json ]; then
+            python -c "import json;s=json.load(open('status.json',encoding='utf-8'));print('воронка:',json.dumps(s['counts'],ensure_ascii=False));print('протоколы:',json.dumps(s['by_protocol'],ensure_ascii=False));print('ссылка:',s['link_plain'])"
+          else
+            echo "status.json не создан"
+          fi
+
+      - name: Закоммитить результат
+        if: success()
+        run: |
+          set -euo pipefail
+          git config user.name "vpn-checker[bot]"
+          git config user.email "vpn-checker@users.noreply.github.com"
+          git add 1.txt 1-base64.txt status.json REPORT.md
+          if git diff --cached --quiet; then
+            echo "Список не изменился — коммит не нужен."
+            exit 0
+          fi
+          kept=$(python -c "import json;print(json.load(open('status.json'))['counts']['kept'])")
+          git commit -m "Обновление списка: ${kept} рабочих конфигов [skip ci]"
+          git push
+
+      - name: Пинг бота
+        if: success() && env.NOTIFY_URL != ''
+        run: |
+          curl -fsS --max-time 60 "$NOTIFY_URL" || echo "бот не ответил, это не критично"
