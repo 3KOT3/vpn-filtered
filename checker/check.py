@@ -562,15 +562,8 @@ def throughput_probe(port: int, url: str, request_bytes: int, deadline: float):
             conn.close()
 
 
-def _speed_group(binary: str, workdir: str, group: list, cfg: dict, results: dict, stats: dict) -> None:
-    """Measure throughput for one group, one local proxy port per config."""
-    speed_cfg = cfg["speed"]
-    url = speed_cfg["url"]
-    request_bytes = speed_cfg["request_bytes"]
-    deadline = speed_cfg["deadline_sec"]
-
-    ports = allocate_ports(len(group))
-    api_port = free_port()
+def build_group_config(group: list, ports: list) -> dict:
+    """One local mixed inbound per config, each routed to its own outbound."""
     config = base_config(group[0]["tag"])
     config["outbounds"] = [c["outbound"] for c in group]
     config["inbounds"] = [
@@ -580,69 +573,133 @@ def _speed_group(binary: str, workdir: str, group: list, cfg: dict, results: dic
     config["route"]["rules"] = [
         {"inbound": [f"in{i:04d}"], "outbound": c["tag"]} for i, c in enumerate(group)
     ]
+    return config
 
-    instance = SingBox(binary, workdir, f"speed-{next(_INSTANCE_SEQ):04d}")
+
+def run_group(binary, workdir, name, group, worker, results, stats, max_workers=None) -> None:
+    """Run `worker(port, candidate)` for every config through its own local port.
+
+    A single malformed config makes sing-box refuse to start, which would kill the
+    whole group, so on a startup failure the group is bisected until the offender
+    stands alone.
+    """
+    ports = allocate_ports(len(group))
+    api_port = free_port()
+    config = build_group_config(group, ports)
+    instance = SingBox(binary, workdir, f"{name}-{next(_INSTANCE_SEQ):04d}")
     try:
         instance.start(config, api_port)
     except Exception as exc:  # noqa: BLE001
         instance.stop()
         if len(group) == 1:
             stats["drops"] += 1
-            log(f"speed: dropping 1 config ({group[0]['name'][:36]!r}): {str(exc)[:110]}")
+            log(f"{name}: dropping 1 config ({group[0]['name'][:36]!r}): {str(exc)[:110]}")
             return
         middle = len(group) // 2
-        log(f"speed: group of {len(group)} would not start, splitting: {str(exc)[:90]}")
-        _speed_group(binary, workdir, group[:middle], cfg, results, stats)
-        _speed_group(binary, workdir, group[middle:], cfg, results, stats)
+        log(f"{name}: group of {len(group)} would not start, splitting: {str(exc)[:90]}")
+        run_group(binary, workdir, name, group[:middle], worker, results, stats, max_workers)
+        run_group(binary, workdir, name, group[middle:], worker, results, stats, max_workers)
         return
 
     try:
-        with concurrent.futures.ThreadPoolExecutor(max_workers=len(group)) as pool:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers or len(group)) as pool:
             futures = {
-                pool.submit(throughput_probe, port, url, request_bytes, deadline): candidate
+                pool.submit(worker, port, candidate): candidate
                 for port, candidate in zip(ports, group)
             }
             for future in concurrent.futures.as_completed(futures):
                 candidate = futures[future]
                 try:
-                    _got, mbps, _error = future.result()
+                    value = future.result()
                 except Exception:  # noqa: BLE001
-                    mbps = None
-                if mbps:
-                    results[candidate["tag"]] = mbps
+                    value = None
+                if value is not None:
+                    results[candidate["tag"]] = value
     finally:
         instance.stop()
 
 
-def speed_stage(binary: str, workdir: str, candidates: list, cfg: dict) -> dict:
-    min_mbps = cfg["speed"]["min_mbps"]
-    concurrency = cfg["speed"]["concurrency"]
+def run_group_stage(binary, workdir, name, candidates, cfg, worker, concurrency) -> dict:
+    """Split the list into chunks and run `run_group` over each of them."""
     budget = cfg["limits"].get("time_budget_sec", 0)
-
     results = {}
     stats = {"drops": 0}
     drop_limit = max(25, int(0.05 * len(candidates)))
     chunks = [candidates[i : i + concurrency] for i in range(0, len(candidates), concurrency)]
-    log(f"speed: {len(candidates)} proxies in {len(chunks)} chunks (>= {min_mbps} Mbit/s)")
+    log(f"{name}: {len(candidates)} proxies in {len(chunks)} chunks")
 
     for index, chunk in enumerate(chunks, 1):
         if budget and time.time() - _START > budget:
-            log(f"speed: time budget exhausted after chunk {index - 1}")
+            log(f"{name}: time budget exhausted after chunk {index - 1}")
             break
         before = len(results)
-        _speed_group(binary, workdir, chunk, cfg, results, stats)
-        passed = sum(1 for v in results.values() if v >= min_mbps)
+        run_group(binary, workdir, name, chunk, worker, results, stats, concurrency)
         log(
-            f"speed: chunk {index}/{len(chunks)} -> +{len(results) - before} measured, "
-            f"{passed} at or above threshold"
+            f"{name}: chunk {index}/{len(chunks)} -> +{len(results) - before}, "
+            f"total {len(results)}"
         )
         if stats["drops"] > drop_limit:
             raise RuntimeError(
-                f"speed: {stats['drops']} конфигов подряд не дали sing-box стартовать "
+                f"{name}: {stats['drops']} конфигов подряд не дали sing-box стартовать "
                 f"(порог {drop_limit}) — похоже на системную проблему. Прогон остановлен."
             )
-
     return results
+
+
+def telegram_dc_probe(port: int, hosts: list, dc_port: int, timeout: float):
+    """TCP-коннект до дата-центра Telegram через локальный прокси.
+
+    Настоящее TLS-рукопожатие здесь не годится: на порту 443 у Telegram
+    «поддельный TLS» (fake-TLS framing), и сервер сбрасывает реальный handshake —
+    проверено экспериментально, все четыре DC отвечают ConnectionReset. Поэтому
+    проверяем именно TCP: Telegram блокирует часть хостинговых диапазонов, и у
+    заблокированного прокси коннект к DC просто не открывается.
+    """
+    last = "no-dc"
+    for host in hosts:
+        conn = http.client.HTTPConnection("127.0.0.1", port, timeout=timeout)
+        try:
+            conn.set_tunnel(host, dc_port)
+            conn.connect()
+            return host, None
+        except Exception as exc:  # noqa: BLE001
+            last = type(exc).__name__
+        finally:
+            with contextlib.suppress(Exception):
+                conn.close()
+    return None, last
+
+
+def telegram_dc_stage(binary, workdir, candidates, cfg) -> dict:
+    dc_cfg = cfg["telegram_dc"]
+    hosts = dc_cfg["hosts"]
+    dc_port = dc_cfg["port"]
+    timeout = dc_cfg["timeout_sec"]
+
+    def worker(port, candidate):
+        host, _error = telegram_dc_probe(port, hosts, dc_port, timeout)
+        return host
+
+    log(f"telegram-dc: проверяем дата-центры {', '.join(hosts)}")
+    return run_group_stage(
+        binary, workdir, "telegram-dc", candidates, cfg, worker, dc_cfg["concurrency"]
+    )
+
+
+def speed_stage(binary, workdir, candidates, cfg) -> dict:
+    speed_cfg = cfg["speed"]
+    url = speed_cfg["url"]
+    request_bytes = speed_cfg["request_bytes"]
+    deadline = speed_cfg["deadline_sec"]
+
+    def worker(port, candidate):
+        _got, mbps, _error = throughput_probe(port, url, request_bytes, deadline)
+        return mbps
+
+    log(f"speed: порог {speed_cfg['min_mbps']} Мбит/с")
+    return run_group_stage(
+        binary, workdir, "speed", candidates, cfg, worker, speed_cfg["concurrency"]
+    )
 
 
 # --------------------------------------------------------------------------- #
@@ -686,9 +743,15 @@ def write_report(path: str, cfg: dict, kept: list, stats: dict, status: dict) ->
         f"(ждём HTTP {cfg['youtube']['expected_status']}).",
         f"3. Через прокси открывается `{cfg['telegram']['url']}` "
         f"(ждём HTTP {cfg['telegram']['expected_status']}).",
-        f"4. Скорость туннеля к Google CDN не ниже **{cfg['speed']['min_mbps']} Мбит/с** "
+        f"4. Через прокси открывается TCP-соединение с дата-центром Telegram "
+        f"({', '.join(cfg['telegram_dc']['hosts'])}: {cfg['telegram_dc']['port']}) — "
+        f"это отсекает прокси, чей IP заблокирован самим Telegram.",
+        f"5. Скорость туннеля к Google CDN не ниже **{cfg['speed']['min_mbps']} Мбит/с** "
         f"(скачиваем {cfg['speed']['request_bytes'] // 1024} КБ "
         f"за не более {cfg['speed']['deadline_sec']:.0f} с).",
+        "",
+        "В список попадают только те конфиги, которые прошли **все** шаги: "
+        "и YouTube, и Telegram, и скорость.",
         "",
         "## Воронка",
         "",
@@ -699,8 +762,9 @@ def write_report(path: str, cfg: dict, kept: list, stats: dict, status: dict) ->
         f"| Уникальных | {counts['unique']} |",
         f"| Endpoint отвечает по TCP | {counts['tcp_alive']} |",
         f"| YouTube доступен | {counts['youtube_ok']} |",
-        f"| Telegram доступен | {counts['telegram_ok']} |",
-        f"| Скорость ≥ {cfg['speed']['min_mbps']} Мбит/с | {counts['speed_ok']} |",
+        f"| + Telegram (HTTP) доступен | {counts['telegram_ok']} |",
+        f"| + дата-центр Telegram доступен | {counts.get('telegram_dc_ok', 0)} |",
+        f"| + скорость ≥ {cfg['speed']['min_mbps']} Мбит/с | {counts['speed_ok']} |",
         f"| **В итоговом списке** | **{counts['kept']}** |",
         "",
         "## По протоколам",
@@ -861,6 +925,7 @@ def main(argv=None) -> int:
         "tcp_alive": 0,
         "youtube_ok": 0,
         "telegram_ok": 0,
+        "telegram_dc_ok": 0,
         "speed_ok": 0,
         "kept": 0,
     }
@@ -915,6 +980,18 @@ def main(argv=None) -> int:
     if not survivors:
         log("nothing passed the Telegram test")
         return 1
+
+    # --- stage 3c: Telegram data centres --------------------------------- #
+    if cfg.get("telegram_dc", {}).get("enabled"):
+        dc_ok = telegram_dc_stage(args.sing_box, args.work_dir, survivors, cfg)
+        log(f"telegram-dc: {len(dc_ok)} proxies reached a Telegram data centre")
+        survivors = [c for c in survivors if c["tag"] in dc_ok]
+        counts["telegram_dc_ok"] = len(survivors)
+        if not survivors:
+            log("nothing reached a Telegram data centre")
+            return 1
+    else:
+        counts["telegram_dc_ok"] = counts["telegram_ok"]
 
     # --- stage 4: throughput --------------------------------------------- #
     speeds = {}
