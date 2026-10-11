@@ -160,10 +160,13 @@ class SingBox:
 
     def __init__(self, binary: str, workdir: str, name: str):
         self.binary = binary
-        self.workdir = workdir
+        # absolute: sing-box is started with cwd=workdir, so a relative config
+        # path would be resolved a second time against that directory and the
+        # process would die with "read config ... no such file"
+        self.workdir = os.path.abspath(workdir)
         self.name = name
         self.proc = None
-        self.log_path = os.path.join(workdir, f"{name}.log")
+        self.log_path = os.path.join(self.workdir, f"{name}.log")
         self._logf = None
         self.api_port = None
 
@@ -434,7 +437,10 @@ def delay_probe(api_port: int, tag: str, url: str, timeout_ms: int):
 _INSTANCE_SEQ = itertools.count(1)
 
 
-def _delay_group(binary: str, workdir: str, group: list, cfg: dict, stage: str, url: str, results: dict) -> None:
+def _delay_group(
+    binary: str, workdir: str, group: list, cfg: dict, stage: str, url: str,
+    results: dict, stats: dict
+) -> None:
     """Test one group of outbounds inside a single sing-box instance.
 
     A single malformed config makes sing-box refuse to start, which would kill
@@ -450,12 +456,13 @@ def _delay_group(binary: str, workdir: str, group: list, cfg: dict, stage: str, 
     except Exception as exc:  # noqa: BLE001
         instance.stop()
         if len(group) == 1:
+            stats["drops"] += 1
             log(f"{stage}: dropping 1 config ({group[0]['name'][:36]!r}): {str(exc)[:110]}")
             return
         middle = len(group) // 2
         log(f"{stage}: group of {len(group)} would not start, splitting: {str(exc)[:90]}")
-        _delay_group(binary, workdir, group[:middle], cfg, stage, url, results)
-        _delay_group(binary, workdir, group[middle:], cfg, stage, url, results)
+        _delay_group(binary, workdir, group[:middle], cfg, stage, url, results, stats)
+        _delay_group(binary, workdir, group[middle:], cfg, stage, url, results, stats)
         return
 
     try:
@@ -480,8 +487,10 @@ def _delay_group(binary: str, workdir: str, group: list, cfg: dict, stage: str, 
 def proxy_stage(binary: str, workdir: str, candidates: list, cfg: dict, stage: str, url: str) -> dict:
     """Run the delay probe for every candidate, in batches. Returns {tag: delay}."""
     results = {}
+    stats = {"drops": 0}
     batch_size = cfg["delay"]["batch_size"]
     budget = cfg["limits"].get("time_budget_sec", 0)
+    drop_limit = max(25, int(0.05 * len(candidates)))
 
     batches = [candidates[i : i + batch_size] for i in range(0, len(candidates), batch_size)]
     log(f"{stage}: {len(candidates)} proxies in {len(batches)} batches")
@@ -491,8 +500,14 @@ def proxy_stage(binary: str, workdir: str, candidates: list, cfg: dict, stage: s
             log(f"{stage}: time budget exhausted after batch {index - 1}")
             break
         before = len(results)
-        _delay_group(binary, workdir, batch, cfg, stage, url, results)
+        _delay_group(binary, workdir, batch, cfg, stage, url, results, stats)
         log(f"{stage}: batch {index}/{len(batches)} -> +{len(results) - before}, total {len(results)}")
+        if stats["drops"] > drop_limit:
+            raise RuntimeError(
+                f"{stage}: {stats['drops']} конфигов подряд не дали sing-box стартовать "
+                f"(порог {drop_limit}) — это похоже на системную проблему, а не на битые "
+                f"конфиги. Прогон остановлен, чтобы не молотить впустую."
+            )
 
     return results
 
@@ -547,7 +562,7 @@ def throughput_probe(port: int, url: str, request_bytes: int, deadline: float):
             conn.close()
 
 
-def _speed_group(binary: str, workdir: str, group: list, cfg: dict, results: dict) -> None:
+def _speed_group(binary: str, workdir: str, group: list, cfg: dict, results: dict, stats: dict) -> None:
     """Measure throughput for one group, one local proxy port per config."""
     speed_cfg = cfg["speed"]
     url = speed_cfg["url"]
@@ -572,12 +587,13 @@ def _speed_group(binary: str, workdir: str, group: list, cfg: dict, results: dic
     except Exception as exc:  # noqa: BLE001
         instance.stop()
         if len(group) == 1:
+            stats["drops"] += 1
             log(f"speed: dropping 1 config ({group[0]['name'][:36]!r}): {str(exc)[:110]}")
             return
         middle = len(group) // 2
         log(f"speed: group of {len(group)} would not start, splitting: {str(exc)[:90]}")
-        _speed_group(binary, workdir, group[:middle], cfg, results)
-        _speed_group(binary, workdir, group[middle:], cfg, results)
+        _speed_group(binary, workdir, group[:middle], cfg, results, stats)
+        _speed_group(binary, workdir, group[middle:], cfg, results, stats)
         return
 
     try:
@@ -604,6 +620,8 @@ def speed_stage(binary: str, workdir: str, candidates: list, cfg: dict) -> dict:
     budget = cfg["limits"].get("time_budget_sec", 0)
 
     results = {}
+    stats = {"drops": 0}
+    drop_limit = max(25, int(0.05 * len(candidates)))
     chunks = [candidates[i : i + concurrency] for i in range(0, len(candidates), concurrency)]
     log(f"speed: {len(candidates)} proxies in {len(chunks)} chunks (>= {min_mbps} Mbit/s)")
 
@@ -612,12 +630,17 @@ def speed_stage(binary: str, workdir: str, candidates: list, cfg: dict) -> dict:
             log(f"speed: time budget exhausted after chunk {index - 1}")
             break
         before = len(results)
-        _speed_group(binary, workdir, chunk, cfg, results)
+        _speed_group(binary, workdir, chunk, cfg, results, stats)
         passed = sum(1 for v in results.values() if v >= min_mbps)
         log(
             f"speed: chunk {index}/{len(chunks)} -> +{len(results) - before} measured, "
             f"{passed} at or above threshold"
         )
+        if stats["drops"] > drop_limit:
+            raise RuntimeError(
+                f"speed: {stats['drops']} конфигов подряд не дали sing-box стартовать "
+                f"(порог {drop_limit}) — похоже на системную проблему. Прогон остановлен."
+            )
 
     return results
 
@@ -786,6 +809,15 @@ def build_status(cfg: dict, cfg_overrides: dict, stats: dict, counts: dict, kept
 
 def main(argv=None) -> int:
     args = parse_args(argv)
+    # everything is resolved once, up front: sing-box is spawned with a different
+    # working directory, and the workflow passes relative paths like `.cache/singbox`
+    args.out_dir = os.path.abspath(args.out_dir)
+    args.work_dir = os.path.abspath(args.work_dir)
+    args.cache_dir = os.path.abspath(args.cache_dir)
+    if args.sources_dir:
+        args.sources_dir = os.path.abspath(args.sources_dir)
+    if args.sing_box and os.path.exists(args.sing_box):
+        args.sing_box = os.path.abspath(args.sing_box)
     cfg = load_json(args.config) or {}
     if args.min_mbps is not None:
         cfg.setdefault("speed", {})["min_mbps"] = args.min_mbps
