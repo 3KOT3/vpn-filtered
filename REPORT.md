@@ -1,6 +1,6 @@
 # Отфильтрованный список VPN-конфигов
 
-Обновлено: **2026-10-12T13:40:25Z** UTC (прогон занял 55 с)
+Обновлено: **2026-10-12T23:53:18Z** UTC (прогон занял 62 с)
 
 ## Что проверялось
 
@@ -17,64 +17,70 @@
 | Шаг | Осталось |
 | --- | ---: |
 | Строк в источниках | 147 |
-| Разобрано в конфиги | 142 |
-| Уникальных | 142 |
-| Endpoint отвечает по TCP | 134 |
-| YouTube доступен | 104 |
-| + Telegram (HTTP) доступен | 94 |
-| + дата-центр Telegram доступен | 94 |
-| + скорость ≥ 2.0 Мбит/с | 72 |
-| **В итоговом списке** | **72** |
+| Разобрано в конфиги | 136 |
+| Уникальных | 136 |
+| Endpoint отвечает по TCP | 136 |
+| YouTube доступен | 117 |
+| + Telegram (HTTP) доступен | 111 |
+| + дата-центр Telegram доступен | 111 |
+| + скорость ≥ 2.0 Мбит/с | 77 |
+| **В итоговом списке** | **77** |
 
 ## По протоколам
 
 | Протокол | В списке |
 | --- | ---: |
-| trojan | 47 |
-| vless | 22 |
+| trojan | 38 |
+| vless | 33 |
+| shadowsocks | 4 |
 | vmess | 2 |
-| shadowsocks | 1 |
 
 ## По странам
 
 | Страна | В списке |
 | --- | ---: |
 | JP | 14 |
-| KR | 14 |
-| SG | 11 |
-| DE | 6 |
+| KR | 9 |
+| SG | 9 |
+| DE | 8 |
+| PL | 6 |
 | US | 5 |
-| ?? | 5 |
-| PL | 4 |
-| NL | 3 |
+| NL | 5 |
+| ?? | 4 |
 | FI | 3 |
-| FR | 2 |
 | IE | 2 |
-| GB | 1 |
+| LV | 2 |
+| GB | 2 |
+| FR | 1 |
+| AT | 1 |
 | EE | 1 |
+| TR | 1 |
 | SE | 1 |
+| KZ | 1 |
+| TW | 1 |
+| TH | 1 |
 
 ## Самые быстрые
 
 | # | Имя | Протокол | Страна | Мбит/с | YouTube, мс | Telegram, мс |
 | ---: | --- | --- | --- | ---: | ---: | ---: |
-| 1 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 21.67 | 72 | 1341 |
-| 2 | 🇺🇸[openproxylist.com] vless-US | vless | US | 15.50 | 132 | 633 |
-| 3 | 🇬🇧[openproxylist.com] vless-GB | vless | GB | 11.37 | 226 | 259 |
-| 4 | 🇳🇱[openproxylist.com] vless-NL | vless | NL | 10.94 | 247 | 250 |
-| 5 | 🇫🇷[openproxylist.com] vless-FR | vless | FR | 10.67 | 245 | 274 |
-| 6 | 🇮🇪[openproxylist.com] trojan-IE | trojan | IE | 10.54 | 211 | 285 |
-| 7 | 🇳🇱[openproxylist.com] vless-NL | vless | NL | 10.26 | 236 | 237 |
-| 8 | 🇩🇪[openproxylist.com] vless-DE | vless | DE | 10.02 | 249 | 282 |
-| 9 | 🇳🇱[openproxylist.com] vless-NL | vless | NL | 9.98 | 234 | 239 |
-| 10 | 🇩🇪[openproxylist.com] vless-DE | vless | DE | 9.79 | 281 | 313 |
+| 1 | 🇺🇸[openproxylist.com] trojan-US | trojan | US | 23.31 | 136 | 694 |
+| 2 | 🇮🇪[openproxylist.com] trojan-IE | trojan | IE | 13.68 | 204 | 281 |
+| 3 | 🇫🇷[openproxylist.com] vless-FR | vless | FR | 13.22 | 239 | 273 |
+| 4 | 🇳🇱[openproxylist.com] vless-NL | vless | NL | 13.10 | 251 | 276 |
+| 5 | 🇳🇱[openproxylist.com] ss-NL | shadowsocks | NL | 12.99 | 240 | 253 |
+| 6 | 🇩🇪[openproxylist.com] vless-DE | vless | DE | 12.84 | 243 | 284 |
+| 7 | 🇩🇪[openproxylist.com] vless-DE | vless | DE | 12.82 | 242 | 275 |
+| 8 | 🇳🇱[openproxylist.com] vless-NL | vless | NL | 12.30 | 246 | 247 |
+| 9 | 🇳🇱[openproxylist.com] vless-NL | vless | NL | 11.98 | 245 | 248 |
+| 10 | 🇩🇪[openproxylist.com] trojan-DE | trojan | DE | 11.88 | 259 | 341 |
 
 ## Что не удалось проверить
 
 | Причина | Конфигов |
 | --- | ---: |
 | vmess-http-obfs | 3 |
-| vmess-header-type | 1 |
+| vmess-header-type | 2 |
 
 ## Ссылки
 
