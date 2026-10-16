@@ -1,0 +1,15 @@
+{
+  "_комментарий": "Настройки локальной проверки. Этот файл НЕ попадает в GitHub — он в .gitignore. Здесь лежит токен, поэтому не публикуйте его.",
+
+  "github_token": "ВСТАВЬТЕ_СЮДА_ТОКЕН_github_pat_...",
+  "_github_token": "Fine-grained токен: Repository access -> только 3KOT3/vpn-filtered, Permissions -> Contents: Read and write",
+
+  "repo": "3KOT3/vpn-filtered",
+  "branch": "main",
+
+  "sing_box": "",
+  "_sing_box": "Путь к sing-box.exe. Если оставить пустым, скрипт поищет его рядом с собой и в PATH",
+
+  "min_mbps": 2.0,
+  "_min_mbps": "Минимальная скорость через прокси, Мбит/с. Ваш домашний канал — общий потолок: если он 50 Мбит/с, значение 2 оставит быстрые прокси, а 0.5 — почти все рабочие"
+}
