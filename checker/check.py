@@ -830,6 +830,8 @@ def parse_args(argv=None):
     parser.add_argument("--parse-only", action="store_true", help="do not touch the network")
     parser.add_argument("--out-repo", help="override the GitHub repo used to build links")
     parser.add_argument("--out-branch", help="override the branch used to build links")
+    parser.add_argument("--source-files",
+                        help="comma separated list overriding source.files, e.g. 6,22")
     return parser.parse_args(argv)
 
 
@@ -883,6 +885,11 @@ def main(argv=None) -> int:
     if args.sing_box and os.path.exists(args.sing_box):
         args.sing_box = os.path.abspath(args.sing_box)
     cfg = load_json(args.config) or {}
+    if args.source_files:
+        files = [item.strip() for item in args.source_files.split(",") if item.strip()]
+        if files:
+            cfg.setdefault("source", {})["files"] = files
+            log(f"источники переопределены: {', '.join(files)}")
     if args.min_mbps is not None:
         cfg.setdefault("speed", {})["min_mbps"] = args.min_mbps
     if args.skip_speed:
