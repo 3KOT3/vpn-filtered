@@ -433,5 +433,29 @@ class GoldenLinesTests(unittest.TestCase):
         self.assertEqual(reason, "transport-xhttp-unsupported")
 
 
+class VmessNameTests(unittest.TestCase):
+    """У vmess имя лежит внутри base64-JSON (поле `ps`), а не в `#фрагменте`."""
+
+    def test_name_comes_from_ps_field(self):
+        uri = vmess(
+            {
+                "add": "1.2.3.4",
+                "port": "443",
+                "id": "u",
+                "net": "ws",
+                "ps": "🇩🇪 Германия [vm-tl-ws] [261016-152521.559]",
+            }
+        )
+        self.assertNotIn("#", uri)
+        self.assertEqual(uris.uri_name(uri), "🇩🇪 Германия [vm-tl-ws] [261016-152521.559]")
+
+    def test_fragment_still_used_for_other_protocols(self):
+        uri = "vless://u@1.2.3.4:443?security=tls#%F0%9F%87%BA%F0%9F%87%B8US-1"
+        self.assertEqual(uris.uri_name(uri), "🇺🇸US-1")
+
+    def test_broken_vmess_payload_does_not_crash(self):
+        self.assertEqual(uris.uri_name("vmess://not-base64"), "")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
