@@ -90,6 +90,10 @@ def run_checker(config: dict, sing_box: str) -> str:
     sources = config.get("sources")
     if sources:
         cmd += ["--source-files", ",".join(str(item) for item in sources)]
+    if config.get("max_youtube_ms"):
+        cmd += ["--max-youtube-ms", str(config["max_youtube_ms"])]
+    if config.get("max_telegram_ms"):
+        cmd += ["--max-telegram-ms", str(config["max_telegram_ms"])]
     log("Запускаю проверку: " + " ".join(cmd[:2]))
     log("")
     result = subprocess.run(cmd, cwd=REPO_ROOT)
