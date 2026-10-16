@@ -87,6 +87,9 @@ def run_checker(config: dict, sing_box: str) -> str:
         "--sing-box", sing_box,
         "--min-mbps", str(config.get("min_mbps", 2.0)),
     ]
+    sources = config.get("sources")
+    if sources:
+        cmd += ["--source-files", ",".join(str(item) for item in sources)]
     log("Запускаю проверку: " + " ".join(cmd[:2]))
     log("")
     result = subprocess.run(cmd, cwd=REPO_ROOT)
