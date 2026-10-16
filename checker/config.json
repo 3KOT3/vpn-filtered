@@ -3,7 +3,7 @@
     "repo": "DarkRoyalty/shnajder-vpn-configs",
     "ref": "main",
     "dir": "githubmirror",
-    "files": ["6", "22"],
+    "files": ["1", "6", "22", "23", "24", "25"],
     "note": "зеркало пересобирается своим GitHub Actions примерно каждые 9 минут, поэтому список всегда читается заново на момент прогона"
   },
   "output": {
@@ -35,11 +35,16 @@
   "speed": {
     "url": "https://dl.google.com/android/repository/platform-tools-latest-windows.zip",
     "request_bytes": 3145728,
-    "min_mbps": 2.0,
+    "min_mbps": 3.0,
     "deadline_sec": 12.0,
     "concurrency": 48,
     "retries": 1,
     "note": "YouTube не отдаёт большие файлы без токена, поэтому скорость туннеля меряется на Google CDN (dl.google.com), а доступность YouTube — на самом YouTube"
+  },
+  "latency": {
+    "max_youtube_ms": 800,
+    "max_telegram_ms": 1200,
+    "note": "медленные отклики отсекаются ещё до замера скорости: именно из-за них Shorts и короткие видео ощущаются как «не грузится»"
   },
   "tcp_prefilter": {
     "enabled": true,
