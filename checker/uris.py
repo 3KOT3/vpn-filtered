@@ -793,10 +793,27 @@ def parse_uri(uri: str, tag: str):
 
 
 def uri_name(uri: str) -> str:
-    """Human readable name from the URI fragment."""
-    if "#" not in uri:
-        return ""
-    return urllib.parse.unquote(uri.split("#", 1)[1]).strip()
+    """Отображаемое имя конфига.
+
+    Обычно это фрагмент после `#`, но vmess хранит имя внутри base64-JSON
+    в поле `ps` — без этого страна у vmess-конфигов не определялась вовсе.
+    """
+    if "#" in uri:
+        name = urllib.parse.unquote(uri.split("#", 1)[1]).strip()
+        if name:
+            return name
+
+    if uri.split("://", 1)[0].strip().lower() == "vmess":
+        payload = uri.split("://", 1)[1]
+        if "#" in payload:
+            payload, _ = payload.split("#", 1)
+        try:
+            data = json.loads(b64decode_loose(payload).decode("utf-8", "replace"))
+        except Exception:
+            return ""
+        if isinstance(data, dict):
+            return str(data.get("ps") or "").strip()
+    return ""
 
 
 def uri_endpoint(uri: str):
