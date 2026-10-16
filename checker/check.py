@@ -1018,6 +1018,19 @@ def main(argv=None) -> int:
     )
     counts["kept"] = len(kept)
 
+    # Жёсткая проверка главного требования: в списке не может быть конфига,
+    # у которого не подтверждены ОБЕ проверки — YouTube И Telegram.
+    leaks = [
+        c["tag"] for c in kept if c["tag"] not in youtube_delay or c["tag"] not in telegram_delay
+    ]
+    if leaks:
+        log(
+            f"ERROR: {len(leaks)} конфигов в списке без подтверждённого YouTube или "
+            f"Telegram — это ошибка фильтрации, список не публикуется"
+        )
+        return 4
+    log(f"пересечение подтверждено: все {len(kept)} конфигов прошли и YouTube, и Telegram")
+
     if cfg["limits"].get("max_keep"):
         kept = kept[: cfg["limits"]["max_keep"]]
         counts["kept"] = len(kept)
@@ -1053,6 +1066,15 @@ def main(argv=None) -> int:
         }
         for item in sorted(kept, key=lambda c: -(c.get("mbps") or 0))[:10]
     ]
+    status["invariant"] = {
+        "description": "в списке только те конфиги, где работают И YouTube, И Telegram",
+        "kept": len(kept),
+        "kept_without_youtube": sum(1 for c in kept if c["tag"] not in youtube_delay),
+        "kept_without_telegram": sum(1 for c in kept if c["tag"] not in telegram_delay),
+        "all_pass_both": all(
+            c["tag"] in youtube_delay and c["tag"] in telegram_delay for c in kept
+        ),
+    }
     # run_id must change whenever the list changes, so the bot can detect a new run
     digest = hashlib.sha256("\n".join(i["uri"] for i in kept).encode()).hexdigest()[:12]
     status["run_id"] = f"{status['finished_epoch']}-{digest}"
