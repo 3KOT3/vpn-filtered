@@ -2,3 +2,9 @@
 .cache/
 __pycache__/
 *.pyc
+
+# локальная проверка: тут лежит GitHub-токен, в репозиторий он попадать не должен
+local-run/config.local.json
+local-run/.work/
+local-run/sing-box
+local-run/sing-box.exe
