@@ -832,6 +832,10 @@ def parse_args(argv=None):
     parser.add_argument("--out-branch", help="override the branch used to build links")
     parser.add_argument("--source-files",
                         help="comma separated list overriding source.files, e.g. 6,22")
+    parser.add_argument("--max-youtube-ms", type=int,
+                        help="drop configs whose YouTube delay is above this, ms")
+    parser.add_argument("--max-telegram-ms", type=int,
+                        help="drop configs whose Telegram delay is above this, ms")
     return parser.parse_args(argv)
 
 
@@ -892,6 +896,10 @@ def main(argv=None) -> int:
             log(f"источники переопределены: {', '.join(files)}")
     if args.min_mbps is not None:
         cfg.setdefault("speed", {})["min_mbps"] = args.min_mbps
+    if args.max_youtube_ms is not None:
+        cfg.setdefault("latency", {})["max_youtube_ms"] = args.max_youtube_ms
+    if args.max_telegram_ms is not None:
+        cfg.setdefault("latency", {})["max_telegram_ms"] = args.max_telegram_ms
     if args.skip_speed:
         cfg["speed"]["min_mbps"] = 0.0
 
@@ -933,6 +941,7 @@ def main(argv=None) -> int:
         "youtube_ok": 0,
         "telegram_ok": 0,
         "telegram_dc_ok": 0,
+        "latency_ok": 0,
         "speed_ok": 0,
         "kept": 0,
     }
@@ -999,6 +1008,33 @@ def main(argv=None) -> int:
             return 1
     else:
         counts["telegram_dc_ok"] = counts["telegram_ok"]
+
+    # --- stage 3d: скорость отклика -------------------------------------- #
+    # Shorts и короткие видео тормозит не только полоса, но и задержка:
+    # конфиг с ответом в 3 секунды ощущается «не грузится». Отсекаем таких до
+    # замера скорости — это ещё и экономит трафик на дорогих 3 МБ.
+    max_youtube_ms = cfg.get("latency", {}).get("max_youtube_ms") or 0
+    max_telegram_ms = cfg.get("latency", {}).get("max_telegram_ms") or 0
+    if max_youtube_ms or max_telegram_ms:
+        before = len(survivors)
+        if max_youtube_ms:
+            survivors = [
+                c for c in survivors
+                if (youtube_delay.get(c["tag"]) or 10**9) <= max_youtube_ms
+            ]
+        if max_telegram_ms:
+            survivors = [
+                c for c in survivors
+                if (telegram_delay.get(c["tag"]) or 10**9) <= max_telegram_ms
+            ]
+        log(
+            f"скорость отклика: YouTube ≤ {max_youtube_ms} мс, Telegram ≤ {max_telegram_ms} мс "
+            f"-> осталось {len(survivors)} из {before}"
+        )
+        if not survivors:
+            log("все конфиги отвечают слишком медленно")
+            return 1
+    counts["latency_ok"] = len(survivors)
 
     # --- stage 4: throughput --------------------------------------------- #
     speeds = {}
