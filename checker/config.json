@@ -3,7 +3,7 @@
     "repo": "DarkRoyalty/shnajder-vpn-configs",
     "ref": "main",
     "dir": "githubmirror",
-    "files": ["6"],
+    "files": ["6", "22"],
     "note": "зеркало пересобирается своим GitHub Actions примерно каждые 9 минут, поэтому список всегда читается заново на момент прогона"
   },
   "output": {
