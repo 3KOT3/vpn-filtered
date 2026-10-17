@@ -1,6 +1,6 @@
 # Отфильтрованный список VPN-конфигов
 
-Обновлено: **2026-10-17T15:48:33Z** UTC (прогон занял 43 с)
+Обновлено: **2026-10-17T15:50:59Z** UTC (прогон занял 48 с)
 
 ## Что проверялось
 
@@ -19,18 +19,18 @@
 | Строк в источниках | 145 |
 | Разобрано в конфиги | 129 |
 | Уникальных | 129 |
-| Endpoint отвечает по TCP | 116 |
-| YouTube доступен | 82 |
-| + Telegram (HTTP) доступен | 69 |
-| + дата-центр Telegram доступен | 69 |
-| + скорость ≥ 3.0 Мбит/с | 27 |
-| **В итоговом списке** | **27** |
+| Endpoint отвечает по TCP | 115 |
+| YouTube доступен | 72 |
+| + Telegram (HTTP) доступен | 63 |
+| + дата-центр Telegram доступен | 63 |
+| + скорость ≥ 3.0 Мбит/с | 31 |
+| **В итоговом списке** | **31** |
 
 ## По протоколам
 
 | Протокол | В списке |
 | --- | ---: |
-| vless | 23 |
+| vless | 27 |
 | shadowsocks | 3 |
 | vmess | 1 |
 
@@ -38,30 +38,33 @@
 
 | Страна | В списке |
 | --- | ---: |
-| ?? | 15 |
+| ?? | 17 |
 | FI | 3 |
-| NL | 2 |
 | PL | 2 |
 | US | 1 |
-| LT | 1 |
-| JP | 1 |
+| NL | 1 |
 | DE | 1 |
+| LT | 1 |
+| HU | 1 |
 | TR | 1 |
+| BR | 1 |
+| JP | 1 |
+| IN | 1 |
 
 ## Самые быстрые
 
 | # | Имя | Протокол | Страна | Мбит/с | YouTube, мс | Telegram, мс |
 | ---: | --- | --- | --- | ---: | ---: | ---: |
-| 1 | 🇺🇸[openproxylist.com] vless-US | vless | US | 15.95 | 141 | 688 |
-| 2 | 🇳🇱[openproxylist.com] vless-NL | vless | NL | 10.62 | 227 | 229 |
-| 3 | 🏳[openproxylist.com] vless- | vless | ?? | 9.69 | 298 | 354 |
-| 4 | 🏳[openproxylist.com] vless- | vless | ?? | 9.53 | 288 | 362 |
-| 5 | 🏳[openproxylist.com] ss- | shadowsocks | ?? | 9.35 | 284 | 320 |
-| 6 | 🏳[openproxylist.com] vless- | vless | ?? | 9.29 | 281 | 295 |
-| 7 | 🏳[openproxylist.com] ss- | shadowsocks | ?? | 9.29 | 308 | 340 |
-| 8 | 🇱🇹[openproxylist.com] vless-LT | vless | LT | 9.13 | 351 | 401 |
-| 9 | 🇫🇮[openproxylist.com] vless-FI | vless | FI | 8.84 | 308 | 452 |
-| 10 | 🇵🇱[openproxylist.com] vless-PL | vless | PL | 8.82 | 307 | 371 |
+| 1 | 🇺🇸[openproxylist.com] vless-US | vless | US | 15.70 | 187 | 635 |
+| 2 | 🇳🇱[openproxylist.com] vless-NL | vless | NL | 14.71 | 190 | 202 |
+| 3 | 🏳[openproxylist.com] vless- | vless | ?? | 13.56 | 205 | 341 |
+| 4 | 🏳[openproxylist.com] ss- | shadowsocks | ?? | 13.30 | 211 | 288 |
+| 5 | 🏳[openproxylist.com] vless- | vless | ?? | 12.91 | 223 | 337 |
+| 6 | 🇵🇱[openproxylist.com] vless-PL | vless | PL | 12.82 | 226 | 274 |
+| 7 | 🏳[openproxylist.com] ss- | shadowsocks | ?? | 12.72 | 227 | 262 |
+| 8 | 🏳[openproxylist.com] ss- | shadowsocks | ?? | 11.98 | 255 | 286 |
+| 9 | 🏳[openproxylist.com] vless- | vless | ?? | 11.95 | 238 | 303 |
+| 10 | 🏳[openproxylist.com] vless- | vless | ?? | 11.65 | 216 | 267 |
 
 ## Что не удалось проверить
 
