@@ -258,27 +258,36 @@ def base_config(final_tag: str) -> dict:
 
 
 def download_sources(cfg: dict, cache_dir: str) -> dict:
+    """Скачивает источники.
+
+    Кроме номеров файлов зеркала (`"6"`) поддерживаются полные ссылки: так
+    пользователь может добавить в бота свой источник, и он будет проверяться
+    наравне с остальными.
+    """
     src = cfg["source"]
-    urls = {}
     out = {}
     for name in src["files"]:
-        url = (
-            f"https://raw.githubusercontent.com/{src['repo']}/refs/heads/"
-            f"{src['ref']}/{src['dir']}/{name}.txt"
-        )
-        urls[name] = url
-        cached = os.path.join(cache_dir, f"{name}.txt")
+        if str(name).startswith("http"):
+            url = str(name)
+            cache_name = "url_" + hashlib.sha256(url.encode()).hexdigest()[:12] + ".txt"
+        else:
+            url = (
+                f"https://raw.githubusercontent.com/{src['repo']}/refs/heads/"
+                f"{src['ref']}/{src['dir']}/{name}.txt"
+            )
+            cache_name = f"{name}.txt"
+        cached = os.path.join(cache_dir, cache_name)
         if os.path.exists(cached) and os.path.getsize(cached) > 0:
             with open(cached, "rb") as fh:
-                out[name] = fh.read()
-            log(f"source {name}.txt: {len(out[name])} bytes (cached)")
+                out[str(name)] = fh.read()
+            log(f"source {cache_name}: {len(out[str(name)])} bytes (cached)")
             continue
         data = http_get(url)
         os.makedirs(cache_dir, exist_ok=True)
         with open(cached, "wb") as fh:
             fh.write(data)
-        out[name] = data
-        log(f"source {name}.txt: {len(data)} bytes")
+        out[str(name)] = data
+        log(f"source {cache_name}: {len(data)} bytes")
     return out
 
 
