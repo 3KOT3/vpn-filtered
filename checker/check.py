@@ -726,6 +726,11 @@ def build_auto_config(kept: list, cfg: dict) -> dict:
     их раз в минуту и всегда работает через самый быстрый живой. Если сервер
     перестал отвечать, переключение происходит без участия пользователя —
     это и есть «бесшовность».
+
+    Формат намеренно старый и минимальный. Секция `dns` и `route.rules` в
+    синтаксисе 1.12+ не читается ядром 1.10, который стоит внутри Hiddify:
+    оно падает с `unknown field "type"` и не запускается вовсе. Поэтому DNS
+    оставляем клиенту — он всё равно подставляет свой.
     """
     proxies = []
     for item in kept:
@@ -734,12 +739,7 @@ def build_auto_config(kept: list, cfg: dict) -> dict:
         proxies.append(outbound)
 
     return {
-        "log": {"level": "warn", "timestamp": False},
-        "dns": {
-            "servers": [{"type": "local", "tag": "local"}],
-            "final": "local",
-            "strategy": "prefer_ipv4",
-        },
+        "log": {"level": "warn"},
         "inbounds": [
             {
                 "type": "tun",
@@ -765,20 +765,11 @@ def build_auto_config(kept: list, cfg: dict) -> dict:
                 "url": cfg["youtube"]["url"],
                 "interval": "1m",
                 "tolerance": 80,
-                "idle_timeout": "30m",
             },
             {"type": "direct", "tag": "direct"},
             {"type": "block", "tag": "block"},
         ],
-        "route": {
-            "rules": [
-                {"action": "sniff"},
-                {"protocol": "dns", "action": "hijack-dns"},
-            ],
-            "final": "auto",
-            "auto_detect_interface": True,
-            "default_domain_resolver": {"server": "local", "strategy": "prefer_ipv4"},
-        },
+        "route": {"final": "auto", "auto_detect_interface": True},
     }
 
 
