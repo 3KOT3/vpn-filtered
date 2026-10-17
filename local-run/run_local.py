@@ -25,6 +25,7 @@ import subprocess
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -94,6 +95,12 @@ def run_checker(config: dict, sing_box: str) -> str:
         cmd += ["--max-youtube-ms", str(config["max_youtube_ms"])]
     if config.get("max_telegram_ms"):
         cmd += ["--max-telegram-ms", str(config["max_telegram_ms"])]
+    # прогресс уходит прямо в бот: он будет рисовать полосу загрузки
+    if config.get("worker_url"):
+        cmd += [
+            "--progress-url", config["worker_url"].rstrip("/") + "/progress",
+            "--progress-key", str(config.get("worker_key", "")),
+        ]
     log("Запускаю проверку: " + " ".join(cmd[:2]))
     log("")
     result = subprocess.run(cmd, cwd=REPO_ROOT)
@@ -141,13 +148,19 @@ def publish(config: dict, out_dir: str) -> dict:
     status["vantage"] = "local"
     status["vantage_host"] = socket.gethostname()
     status["vantage_checked_at"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
-    status["files"] = {"plain": "local.txt", "base64": "local-base64.txt"}
+    status["files"] = {
+        "plain": "local.txt",
+        "base64": "local-base64.txt",
+        "auto": "local-auto.json",
+    }
     status["link_plain"] = f"https://github.com/{repo}/raw/refs/heads/{branch}/local.txt"
     status["link_base64"] = f"https://github.com/{repo}/raw/refs/heads/{branch}/local-base64.txt"
+    status["link_auto"] = f"https://github.com/{repo}/raw/refs/heads/{branch}/local-auto.json"
 
     payloads = {
         "local.txt": open(os.path.join(out_dir, "1.txt"), "rb").read(),
         "local-base64.txt": open(os.path.join(out_dir, "1-base64.txt"), "rb").read(),
+        "local-auto.json": open(os.path.join(out_dir, "auto.json"), "rb").read(),
         "local-status.json": (json.dumps(status, ensure_ascii=False, indent=2) + "\n").encode(),
     }
 
@@ -171,6 +184,32 @@ def publish(config: dict, out_dir: str) -> dict:
     return {"status": status, "pushed": pushed}
 
 
+def notify_worker(config: dict) -> None:
+    """Сказать боту, что список обновился.
+
+    Без этого шага бот узнаёт о новой проверке только когда кто-нибудь напишет
+    ему сам — именно поэтому новые списки раньше не приходили.
+    """
+    base = str(config.get("worker_url") or "").rstrip("/")
+    key = str(config.get("worker_key") or "")
+    if not base or not key:
+        log("  бот не уведомлён: в config.local.json нет worker_url / worker_key")
+        return
+    url = f"{base}/notify?key={urllib.parse.quote(key)}"
+    try:
+        request = urllib.request.Request(url, headers={"User-Agent": "vpn-local-check"})
+        with urllib.request.urlopen(request, timeout=120) as response:
+            answer = response.read().decode("utf-8", "replace")
+        try:
+            parsed = json.loads(answer)
+            log(f"  бот уведомлён: разослано {parsed.get('sent', 0)}, "
+                f"пропущено {parsed.get('skipped', '—')}")
+        except Exception:
+            log(f"  бот уведомлён: {answer[:120]}")
+    except Exception as exc:  # noqa: BLE001
+        log(f"  бот не уведомлён: {type(exc).__name__}: {exc}")
+
+
 def main() -> int:
     config = load_config()
     sing_box = find_sing_box(config)
@@ -186,6 +225,7 @@ def main() -> int:
     out_dir = run_checker(config, sing_box)
     result = publish(config, out_dir)
     status = result["status"]
+    notify_worker(config)
 
     log("")
     log("=" * 62)
