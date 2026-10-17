@@ -39,6 +39,7 @@
     "deadline_sec": 12.0,
     "concurrency": 48,
     "retries": 1,
+    "min_speed_count": 5,
     "note": "YouTube не отдаёт большие файлы без токена, поэтому скорость туннеля меряется на Google CDN (dl.google.com), а доступность YouTube — на самом YouTube"
   },
   "latency": {
@@ -58,6 +59,8 @@
   },
   "limits": {
     "max_keep": 0,
-    "time_budget_sec": 5400
+    "time_budget_sec": 5400,
+    "min_after_filters": 5,
+    "note": "min_speed_count и min_after_filters — страховка: даже в плохой день в списке останется хотя бы столько самых быстрых рабочих конфигов, а не пустота"
   }
 }
