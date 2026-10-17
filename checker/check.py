@@ -484,7 +484,8 @@ def _delay_group(
         instance.stop()
 
 
-def proxy_stage(binary: str, workdir: str, candidates: list, cfg: dict, stage: str, url: str) -> dict:
+def proxy_stage(binary: str, workdir: str, candidates: list, cfg: dict, stage: str, url: str,
+                on_batch=None) -> dict:
     """Run the delay probe for every candidate, in batches. Returns {tag: delay}."""
     results = {}
     stats = {"drops": 0}
@@ -502,6 +503,8 @@ def proxy_stage(binary: str, workdir: str, candidates: list, cfg: dict, stage: s
         before = len(results)
         _delay_group(binary, workdir, batch, cfg, stage, url, results, stats)
         log(f"{stage}: batch {index}/{len(batches)} -> +{len(results) - before}, total {len(results)}")
+        if on_batch:
+            on_batch(index, len(batches), len(results))
         if stats["drops"] > drop_limit:
             raise RuntimeError(
                 f"{stage}: {stats['drops']} конфигов подряд не дали sing-box стартовать "
@@ -707,6 +710,69 @@ def speed_stage(binary, workdir, candidates, cfg) -> dict:
 # --------------------------------------------------------------------------- #
 
 
+def build_auto_config(kept: list, cfg: dict) -> dict:
+    """Готовый конфиг sing-box с автоматическим выбором лучшего сервера.
+
+    Все прошедшие конфиги лежат в одной группе `urltest`: клиент сам проверяет
+    их раз в минуту и всегда работает через самый быстрый живой. Если сервер
+    перестал отвечать, переключение происходит без участия пользователя —
+    это и есть «бесшовность».
+    """
+    proxies = []
+    for item in kept:
+        outbound = dict(item["outbound"])
+        outbound["tag"] = item["tag"]
+        proxies.append(outbound)
+
+    return {
+        "log": {"level": "warn", "timestamp": False},
+        "dns": {
+            "servers": [{"type": "local", "tag": "local"}],
+            "final": "local",
+            "strategy": "prefer_ipv4",
+        },
+        "inbounds": [
+            {
+                "type": "tun",
+                "tag": "tun-in",
+                "address": ["172.19.0.1/30"],
+                "auto_route": True,
+                "strict_route": True,
+                "stack": "system",
+            },
+            {
+                "type": "mixed",
+                "tag": "mixed-in",
+                "listen": "127.0.0.1",
+                "listen_port": 2080,
+            },
+        ],
+        "outbounds": proxies
+        + [
+            {
+                "type": "urltest",
+                "tag": "auto",
+                "outbounds": [item["tag"] for item in kept],
+                "url": cfg["youtube"]["url"],
+                "interval": "1m",
+                "tolerance": 80,
+                "idle_timeout": "30m",
+            },
+            {"type": "direct", "tag": "direct"},
+            {"type": "block", "tag": "block"},
+        ],
+        "route": {
+            "rules": [
+                {"action": "sniff"},
+                {"protocol": "dns", "action": "hijack-dns"},
+            ],
+            "final": "auto",
+            "auto_detect_interface": True,
+            "default_domain_resolver": {"server": "local", "strategy": "prefer_ipv4"},
+        },
+    }
+
+
 def write_outputs(cfg: dict, out_dir: str, kept: list, stats: dict, status: dict) -> None:
     out_cfg = cfg["output"]
     os.makedirs(out_dir, exist_ok=True)
@@ -720,6 +786,13 @@ def write_outputs(cfg: dict, out_dir: str, kept: list, stats: dict, status: dict
     payload = "\n".join(item["uri"] for item in kept) + "\n"
     with open(b64_path, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(base64.b64encode(payload.encode("utf-8")).decode("ascii") + "\n")
+
+    # авто-конфиг: клиент сам держит самый быстрый рабочий сервер
+    auto_path = os.path.join(out_dir, "auto.json")
+    with open(auto_path, "w", encoding="utf-8", newline="\n") as fh:
+        json.dump(build_auto_config(kept, cfg), fh, ensure_ascii=False, indent=2)
+        fh.write("\n")
+    log(f"auto-config: {len(kept)} серверов в группе автоматического выбора")
 
     with open(os.path.join(out_dir, out_cfg["status"]), "w", encoding="utf-8") as fh:
         json.dump(status, fh, ensure_ascii=False, indent=2)
@@ -811,6 +884,70 @@ def write_report(path: str, cfg: dict, kept: list, stats: dict, status: dict) ->
 # --------------------------------------------------------------------------- #
 
 
+class Progress:
+    """Отправляет прогресс прогона воркеру, чтобы бот рисовал полосу загрузки.
+
+    Отчёт идёт обычным POST; любая ошибка сети молча игнорируется — прогресс
+    не должен ломать саму проверку.
+    """
+
+    STAGES = {
+        "parse": (5, "Разбор конфигов"),
+        "prefilter": (20, "Быстрая проверка связи"),
+        "youtube": (25, "Проверка YouTube"),
+        "telegram": (62, "Проверка Telegram"),
+        "telegram-dc": (70, "Проверка дата-центров Telegram"),
+        "latency": (74, "Замер задержки отклика"),
+        "speed": (78, "Замер скорости"),
+        "publish": (98, "Публикация списка"),
+    }
+
+    def __init__(self, url: str = "", key: str = ""):
+        self.url = url
+        self.key = key
+        self.percent = 0
+        self.started = time.time()
+
+    def _eta(self) -> int:
+        if self.percent <= 0:
+            return 0
+        elapsed = time.time() - self.started
+        return int(elapsed * (100 - self.percent) / self.percent)
+
+    def send(self, percent: int, stage: str, done=None, total=None) -> None:
+        self.percent = max(self.percent, min(100, int(percent)))
+        payload = {
+            "stage": stage,
+            "percent": self.percent,
+            "done": done,
+            "total": total,
+            "eta_sec": self._eta(),
+            "elapsed_sec": int(time.time() - self.started),
+        }
+        log(f"progress {self.percent}% — {stage}")
+        if not self.url:
+            return
+        try:
+            query = f"?key={urllib.parse.quote(self.key)}" if self.key else ""
+            request = urllib.request.Request(
+                self.url + query,
+                data=json.dumps(payload).encode("utf-8"),
+                method="POST",
+            )
+            request.add_header("content-type", "application/json")
+            request.add_header("user-agent", "vpn-filtered-checker")
+            urllib.request.urlopen(request, timeout=15).read()
+        except Exception:
+            pass  # прогресс — украшение, из-за него проверку не роняем
+
+    def stage(self, name: str, done=None, total=None, percent=None, label=None) -> None:
+        base, default_label = self.STAGES.get(name, (self.percent, name))
+        self.send(percent if percent is not None else base, label or default_label, done, total)
+
+
+PROGRESS = Progress()
+
+
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", default=DEFAULT_CONFIG, help="path to config.json")
@@ -836,6 +973,8 @@ def parse_args(argv=None):
                         help="drop configs whose YouTube delay is above this, ms")
     parser.add_argument("--max-telegram-ms", type=int,
                         help="drop configs whose Telegram delay is above this, ms")
+    parser.add_argument("--progress-url", help="POST stage progress here, so the bot can show it")
+    parser.add_argument("--progress-key", default="", help="key passed to --progress-url")
     return parser.parse_args(argv)
 
 
@@ -847,6 +986,7 @@ def build_status(cfg: dict, cfg_overrides: dict, stats: dict, counts: dict, kept
     epoch = int(time.time())
     link_plain = f"https://github.com/{repo}/raw/refs/heads/{branch}/{plain}"
     link_b64 = f"https://github.com/{repo}/raw/refs/heads/{branch}/{b64}"
+    link_auto = f"https://github.com/{repo}/raw/refs/heads/{branch}/auto.json"
     return {
         "schema": 1,
         "run_id": f"{epoch}-{hashlib.sha256(str(len(kept)).encode()).hexdigest()[:8]}",
@@ -862,6 +1002,8 @@ def build_status(cfg: dict, cfg_overrides: dict, stats: dict, counts: dict, kept
         "unsupported_reasons": stats["unsupported_reasons"],
         "link_plain": link_plain,
         "link_plain_bust": f"{link_plain}?t={epoch}",
+        "link_auto": link_auto,
+        "link_auto_bust": f"{link_auto}?t={epoch}",
         "link_base64": link_b64,
         "link_base64_bust": f"{link_b64}?t={epoch}",
         "html_plain": f"https://github.com/{repo}/blob/{branch}/{plain}",
@@ -878,7 +1020,9 @@ def build_status(cfg: dict, cfg_overrides: dict, stats: dict, counts: dict, kept
 
 
 def main(argv=None) -> int:
+    global PROGRESS
     args = parse_args(argv)
+    PROGRESS = Progress(args.progress_url or "", args.progress_key or "")
     # everything is resolved once, up front: sing-box is spawned with a different
     # working directory, and the workflow passes relative paths like `.cache/singbox`
     args.out_dir = os.path.abspath(args.out_dir)
@@ -930,6 +1074,7 @@ def main(argv=None) -> int:
     if not candidates:
         log("nothing to test")
         return 1
+    PROGRESS.stage("parse", done=len(candidates), total=len(candidates))
 
     counts = {
         "lines": stats["lines"],
@@ -962,14 +1107,16 @@ def main(argv=None) -> int:
 
     # --- stage 2 ----------------------------------------------------------- #
     if cfg["tcp_prefilter"]["enabled"] and not args.no_prefilter:
-        log(f"tcp prefilter on {len(candidates)} endpoints ...")
+        total_endpoints = len(candidates)
+        log(f"tcp prefilter on {total_endpoints} endpoints ...")
         alive, alive_count = tcp_prefilter(
             candidates,
             cfg["tcp_prefilter"]["timeout_sec"],
             cfg["tcp_prefilter"]["concurrency"],
         )
-        log(f"tcp prefilter: {alive_count}/{len(candidates)} alive")
+        log(f"tcp prefilter: {alive_count}/{total_endpoints} alive")
         candidates = alive
+        PROGRESS.stage("prefilter", done=alive_count, total=total_endpoints)
     counts["tcp_alive"] = len(candidates)
     if not candidates:
         log("no endpoint accepted a TCP connection")
@@ -977,7 +1124,13 @@ def main(argv=None) -> int:
 
     # --- stage 3: YouTube ------------------------------------------------ #
     youtube_delay = proxy_stage(
-        args.sing_box, args.work_dir, candidates, cfg, "youtube", cfg["youtube"]["url"]
+        args.sing_box, args.work_dir, candidates, cfg, "youtube", cfg["youtube"]["url"],
+        on_batch=lambda index, count, found: PROGRESS.send(
+            25 + int(36 * index / max(1, count)),
+            f"Проверка YouTube · партия {index} из {count}",
+            done=index,
+            total=count,
+        ),
     )
     log(f"youtube: {len(youtube_delay)} proxies answered")
     youtube_ok = [c for c in candidates if c["tag"] in youtube_delay]
@@ -987,10 +1140,12 @@ def main(argv=None) -> int:
         return 1
 
     # --- stage 3b: Telegram ---------------------------------------------- #
+    PROGRESS.stage("telegram", done=0, total=len(youtube_ok))
     telegram_delay = proxy_stage(
         args.sing_box, args.work_dir, youtube_ok, cfg, "telegram", cfg["telegram"]["url"]
     )
     log(f"telegram: {len(telegram_delay)} proxies answered")
+    PROGRESS.stage("telegram", done=len(telegram_delay), total=len(youtube_ok))
     survivors = [c for c in youtube_ok if c["tag"] in telegram_delay]
     counts["telegram_ok"] = len(survivors)
     if not survivors:
@@ -999,10 +1154,12 @@ def main(argv=None) -> int:
 
     # --- stage 3c: Telegram data centres --------------------------------- #
     if cfg.get("telegram_dc", {}).get("enabled"):
+        PROGRESS.stage("telegram-dc", done=0, total=len(survivors))
         dc_ok = telegram_dc_stage(args.sing_box, args.work_dir, survivors, cfg)
         log(f"telegram-dc: {len(dc_ok)} proxies reached a Telegram data centre")
         survivors = [c for c in survivors if c["tag"] in dc_ok]
         counts["telegram_dc_ok"] = len(survivors)
+        PROGRESS.stage("telegram-dc", done=len(survivors), total=len(survivors))
         if not survivors:
             log("nothing reached a Telegram data centre")
             return 1
@@ -1017,6 +1174,7 @@ def main(argv=None) -> int:
     max_telegram_ms = cfg.get("latency", {}).get("max_telegram_ms") or 0
     if max_youtube_ms or max_telegram_ms:
         before = len(survivors)
+        PROGRESS.stage("latency", done=0, total=before)
         if max_youtube_ms:
             survivors = [
                 c for c in survivors
@@ -1039,8 +1197,10 @@ def main(argv=None) -> int:
     # --- stage 4: throughput --------------------------------------------- #
     speeds = {}
     if cfg["speed"]["min_mbps"] > 0:
+        PROGRESS.stage("speed", done=0, total=len(survivors))
         speeds = speed_stage(args.sing_box, args.work_dir, survivors, cfg)
         log(f"speed: {len(speeds)} proxies measured")
+        PROGRESS.stage("speed", done=len(survivors), total=len(survivors))
     else:
         log("speed stage skipped")
 
@@ -1122,11 +1282,13 @@ def main(argv=None) -> int:
     digest = hashlib.sha256("\n".join(i["uri"] for i in kept).encode()).hexdigest()[:12]
     status["run_id"] = f"{status['finished_epoch']}-{digest}"
 
+    PROGRESS.stage("publish")
     write_outputs(cfg, args.out_dir, kept, stats, status)
     log(f"kept {len(kept)} of {counts['unique']} unique configs")
     log(f"wrote {cfg['output']['plain']}, {cfg['output']['base64']}, "
         f"{cfg['output']['status']}, {cfg['output']['report']} to {args.out_dir}")
     log(f"link: {status['link_plain']}")
+    PROGRESS.send(100, f"Готово: в списке {len(kept)} конфигов")
     return 0
 
 
