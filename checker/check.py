@@ -720,17 +720,15 @@ def speed_stage(binary, workdir, candidates, cfg) -> dict:
 
 
 def build_auto_config(kept: list, cfg: dict) -> dict:
-    """Готовый конфиг sing-box с автоматическим выбором лучшего сервера.
+    """Конфиг sing-box с автоматическим выбором лучшего сервера.
 
     Все прошедшие конфиги лежат в одной группе `urltest`: клиент сам проверяет
-    их раз в минуту и всегда работает через самый быстрый живой. Если сервер
-    перестал отвечать, переключение происходит без участия пользователя —
-    это и есть «бесшовность».
+    их раз в минуту и всегда работает через самый быстрый живой.
 
-    Формат намеренно старый и минимальный. Секция `dns` и `route.rules` в
-    синтаксисе 1.12+ не читается ядром 1.10, который стоит внутри Hiddify:
-    оно падает с `unknown field "type"` и не запускается вовсе. Поэтому DNS
-    оставляем клиенту — он всё равно подставляет свой.
+    Формат максимально минимальный — только outbounds и `route.final`.
+    `inbounds`, `dns` и правила сюда не кладём: Hiddify сам добавляет свои, а
+    лишние секции приводили к тому, что ядро не стартовало и клиент показывал
+    «socket exception» на своём внутреннем порту.
     """
     proxies = []
     for item in kept:
@@ -739,23 +737,6 @@ def build_auto_config(kept: list, cfg: dict) -> dict:
         proxies.append(outbound)
 
     return {
-        "log": {"level": "warn"},
-        "inbounds": [
-            {
-                "type": "tun",
-                "tag": "tun-in",
-                "address": ["172.19.0.1/30"],
-                "auto_route": True,
-                "strict_route": True,
-                "stack": "system",
-            },
-            {
-                "type": "mixed",
-                "tag": "mixed-in",
-                "listen": "127.0.0.1",
-                "listen_port": 2080,
-            },
-        ],
         "outbounds": proxies
         + [
             {
@@ -767,11 +748,9 @@ def build_auto_config(kept: list, cfg: dict) -> dict:
                 "tolerance": 80,
             },
             {"type": "direct", "tag": "direct"},
-            {"type": "block", "tag": "block"},
         ],
-        "route": {"final": "auto", "auto_detect_interface": True},
+        "route": {"final": "auto"},
     }
-
 
 def to_clash(item: dict):
     """Превращает разобранный конфиг в запись Clash/Mihomo.
