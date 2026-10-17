@@ -23,41 +23,81 @@
   "outbounds": [
     {
       "type": "vmess",
-      "tag": "p00274",
-      "server": "us5-1.998998.best",
+      "tag": "p00033",
+      "server": "uk2-2.998998.best",
       "server_port": 443,
       "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627",
       "security": "auto",
       "alter_id": 0,
       "tls": {
         "enabled": true,
-        "server_name": "server4.9966338.xyz"
+        "server_name": "server3.9966338.xyz"
       },
       "transport": {
         "type": "ws",
-        "path": "/androirfdsreoightrjh",
+        "path": "/waetasiuofguiwer",
         "headers": {
-          "Host": "server4.9966338.xyz"
+          "Host": "server3.9966338.xyz"
         }
       }
     },
     {
       "type": "vmess",
-      "tag": "p00276",
-      "server": "cf.0sm.com",
+      "tag": "p00038",
+      "server": "eu3.998998.best",
       "server_port": 443,
-      "uuid": "0cf6d970-3f1d-4aae-a989-92a8f76ae3db",
+      "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627",
       "security": "auto",
       "alter_id": 0,
       "tls": {
         "enabled": true,
-        "server_name": "vmess.lbw666.dpdns.org"
+        "server_name": "server40.9966338.xyz"
       },
       "transport": {
         "type": "ws",
-        "path": "/ws",
+        "path": "/aiaiai",
         "headers": {
-          "Host": "vmess.lbw666.dpdns.org"
+          "Host": "server40.9966338.xyz"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "p00037",
+      "server": "eu3.998998.best",
+      "server_port": 443,
+      "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "server40.9966338.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/aiaiai",
+        "headers": {
+          "Host": "server40.9966338.xyz"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "p00272",
+      "server": "us16-4.998998.best",
+      "server_port": 443,
+      "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "server1.9966338.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/efrsdioy98wert",
+        "headers": {
+          "Host": "server1.9966338.xyz"
         }
       }
     },
@@ -83,42 +123,21 @@
     },
     {
       "type": "vmess",
-      "tag": "p00097",
-      "server": "yg1.ygkkk.dpdns.org",
+      "tag": "p00276",
+      "server": "cf.0sm.com",
       "server_port": 443,
-      "uuid": "b2ba4a73-3123-479e-aa96-5973a9ecd0c0",
+      "uuid": "0cf6d970-3f1d-4aae-a989-92a8f76ae3db",
       "security": "auto",
       "alter_id": 0,
       "tls": {
         "enabled": true,
-        "server_name": "jmp1.907737.xyz"
+        "server_name": "vmess.lbw666.dpdns.org"
       },
       "transport": {
         "type": "ws",
-        "path": "/b2ba4a73-3123-479e-aa96-5973a9ecd0c0-vm",
+        "path": "/ws",
         "headers": {
-          "Host": "jmp1.907737.xyz"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "p00057",
-      "server": "195.72.166.251",
-      "server_port": 443,
-      "uuid": "64c05afc-ce81-4ba0-b697-afa04da1427e",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.lloydsbankinggroup.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "RKDT6fVgcZS8Qfzhv5rbeHRIflA3UTKD_HNLJyOoUwk",
-          "short_id": "25349b36802f"
+          "Host": "vmess.lbw666.dpdns.org"
         }
       }
     },
@@ -126,11 +145,12 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "p00274",
-        "p00276",
+        "p00033",
+        "p00038",
+        "p00037",
+        "p00272",
         "p00271",
-        "p00097",
-        "p00057"
+        "p00276"
       ],
       "url": "https://www.youtube.com/generate_204",
       "interval": "1m",
