@@ -1,26 +1,54 @@
 {
-  "log": {
-    "level": "warn"
-  },
-  "inbounds": [
+  "outbounds": [
     {
-      "type": "tun",
-      "tag": "tun-in",
-      "address": [
-        "172.19.0.1/30"
-      ],
-      "auto_route": true,
-      "strict_route": true,
-      "stack": "system"
+      "type": "vmess",
+      "tag": "p00033",
+      "server": "uk2-2.998998.best",
+      "server_port": 443,
+      "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "server3.9966338.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/waetasiuofguiwer",
+        "headers": {
+          "Host": "server3.9966338.xyz"
+        }
+      }
     },
     {
-      "type": "mixed",
-      "tag": "mixed-in",
-      "listen": "127.0.0.1",
-      "listen_port": 2080
-    }
-  ],
-  "outbounds": [
+      "type": "vmess",
+      "tag": "p00190",
+      "server": "uk3-2.998998.best",
+      "server_port": 443,
+      "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "server22.9966338.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/serhrdftshg",
+        "headers": {
+          "Host": "server22.9966338.xyz"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "p00075",
+      "server": "zfd-hkv1.kunlun01dns.com",
+      "server_port": 16114,
+      "uuid": "0802ac03-7973-39ef-a019-ba02de6c01e1",
+      "security": "auto",
+      "alter_id": 0
+    },
     {
       "type": "vmess",
       "tag": "p00272",
@@ -38,47 +66,6 @@
         "path": "/efrsdioy98wert",
         "headers": {
           "Host": "server1.9966338.xyz"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "p00057",
-      "server": "195.72.166.251",
-      "server_port": 443,
-      "uuid": "64c05afc-ce81-4ba0-b697-afa04da1427e",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.lloydsbankinggroup.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "RKDT6fVgcZS8Qfzhv5rbeHRIflA3UTKD_HNLJyOoUwk",
-          "short_id": "25349b36802f"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "p00271",
-      "server": "172.66.203.67",
-      "server_port": 443,
-      "uuid": "0cf6d970-3f1d-4aae-a989-92a8f76ae3db",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "vmess.lbw666.dpdns.org"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws",
-        "headers": {
-          "Host": "vmess.lbw666.dpdns.org"
         }
       }
     },
@@ -103,13 +90,35 @@
       }
     },
     {
+      "type": "vmess",
+      "tag": "p00271",
+      "server": "172.66.203.67",
+      "server_port": 443,
+      "uuid": "0cf6d970-3f1d-4aae-a989-92a8f76ae3db",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "vmess.lbw666.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws",
+        "headers": {
+          "Host": "vmess.lbw666.dpdns.org"
+        }
+      }
+    },
+    {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
+        "p00033",
+        "p00190",
+        "p00075",
         "p00272",
-        "p00057",
-        "p00271",
-        "p00276"
+        "p00276",
+        "p00271"
       ],
       "url": "https://www.youtube.com/generate_204",
       "interval": "1m",
@@ -118,14 +127,9 @@
     {
       "type": "direct",
       "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
     }
   ],
   "route": {
-    "final": "auto",
-    "auto_detect_interface": true
+    "final": "auto"
   }
 }
