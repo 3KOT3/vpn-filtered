@@ -1,0 +1,171 @@
+{
+  "log": {
+    "level": "warn",
+    "timestamp": false
+  },
+  "dns": {
+    "servers": [
+      {
+        "type": "local",
+        "tag": "local"
+      }
+    ],
+    "final": "local",
+    "strategy": "prefer_ipv4"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "address": [
+        "172.19.0.1/30"
+      ],
+      "auto_route": true,
+      "strict_route": true,
+      "stack": "system"
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 2080
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "vmess",
+      "tag": "p00066",
+      "server": "172.67.137.209",
+      "server_port": 443,
+      "uuid": "f5f0babe-aea2-4f07-a1fc-3c9820253f49",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "ukl.lovehk.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/London31",
+        "headers": {
+          "Host": "ukl.lovehk.xyz"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "p00316",
+      "server": "se1.h1cloud.net",
+      "server_port": 26128,
+      "uuid": "68c3d665-b2b5-4ffb-9f37-9f3d8c47324d",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.icloud.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "sACiHit5lNtPRK_eFP6jT8dMPUZ4kQRsfPj_LL5p7Uk",
+          "short_id": "13ac4d3bdadf1ea1"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "df50147201bf"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "p00042",
+      "server": "36a466g.fi1.h1clayd.click",
+      "server_port": 443,
+      "uuid": "9a0e84f8-4b58-477f-99da-5fac5a2e58e8",
+      "tls": {
+        "enabled": true,
+        "server_name": "36a466g.fi1.h1clayd.click",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "pAgrBKJCmuSJHIzYkEJTqsOBOVBK_DMtEqFPo-PaTkg",
+          "short_id": "b3c9d0c6bdd114a6"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "0adb9638509b"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "p00033",
+      "server": "uk2-2.998998.best",
+      "server_port": 443,
+      "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "server3.9966338.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/waetasiuofguiwer",
+        "headers": {
+          "Host": "server3.9966338.xyz"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "p00039",
+      "server": "edge10.cyrionflare.com",
+      "server_port": 2052,
+      "uuid": "1a8ecc41-6e62-431b-8eca-87c2fa4dc286"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "p00066",
+        "p00316",
+        "p00042",
+        "p00033",
+        "p00039"
+      ],
+      "url": "https://www.youtube.com/generate_204",
+      "interval": "1m",
+      "tolerance": 80,
+      "idle_timeout": "30m"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      }
+    ],
+    "final": "auto",
+    "auto_detect_interface": true,
+    "default_domain_resolver": {
+      "server": "local",
+      "strategy": "prefer_ipv4"
+    }
+  }
+}
