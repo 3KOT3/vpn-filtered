@@ -3,7 +3,9 @@
     "repo": "DarkRoyalty/shnajder-vpn-configs",
     "ref": "main",
     "dir": "githubmirror",
-    "files": ["6", "22", "23"],
+    "files": [
+      "6"
+    ],
     "note": "зеркало пересобирается своим GitHub Actions примерно каждые 9 минут, поэтому список всегда читается заново на момент прогона"
   },
   "output": {
@@ -26,17 +28,21 @@
   },
   "telegram_dc": {
     "enabled": true,
-    "hosts": ["149.154.167.51", "149.154.175.53", "149.154.167.91"],
+    "hosts": [
+      "149.154.167.51",
+      "149.154.175.53",
+      "149.154.167.91"
+    ],
     "port": 443,
-    "timeout_sec": 8.0,
+    "timeout_sec": 8,
     "concurrency": 48,
     "note": "TCP-коннект до дата-центров Telegram (DC2, DC1, DC4). HTTP-доступность core.telegram.org ещё не значит, что заработает сам мессенджер: Telegram блокирует часть хостинговых диапазонов, и у такого прокси коннект к DC не открывается. Настоящий TLS здесь не работает — на порту 443 у Telegram fake-TLS"
   },
   "speed": {
     "url": "https://dl.google.com/android/repository/platform-tools-latest-windows.zip",
     "request_bytes": 3145728,
-    "min_mbps": 3.0,
-    "deadline_sec": 12.0,
+    "min_mbps": 3,
+    "deadline_sec": 12,
     "concurrency": 48,
     "retries": 1,
     "min_speed_count": 5,
@@ -49,7 +55,7 @@
   },
   "tcp_prefilter": {
     "enabled": true,
-    "timeout_sec": 3.0,
+    "timeout_sec": 3,
     "concurrency": 800
   },
   "delay": {
