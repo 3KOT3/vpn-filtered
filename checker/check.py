@@ -1229,9 +1229,16 @@ def main(argv=None) -> int:
         ranked = sorted(survivors, key=lambda c: -(speeds.get(c["tag"]) or 0.0))
         passed = [c for c in ranked if (speeds.get(c["tag"]) or 0.0) >= threshold]
         if min_speed_count and len(passed) < min_speed_count:
-            extra = [c for c in ranked if c not in passed][: min_speed_count - len(passed)]
+            # добираем только те, у которых замер вообще получился: конфиг с
+            # нулевой скоростью — это провалившийся замер, а не быстрый прокси
+            extra = [
+                c
+                for c in ranked
+                if c not in passed and (speeds.get(c["tag"]) or 0.0) > 0
+            ][: min_speed_count - len(passed)]
             passed.extend(extra)
-            log(f"topped up to {len(passed)} with slower proxies")
+            if extra:
+                log(f"topped up to {len(passed)} with slower proxies")
         kept = passed
     else:
         kept = survivors
