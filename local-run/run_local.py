@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """Проверка VPN-конфигов ИЗ ВАШЕЙ СЕТИ и публикация результата.
 
 Зачем это отдельно от GitHub Actions: раннеры GitHub стоят в США/Европе, и
@@ -152,32 +152,46 @@ def publish(config: dict, out_dir: str) -> dict:
         "plain": "local.txt",
         "base64": "local-base64.txt",
         "auto": "local-auto.json",
+        "auto_yaml": "local-auto.yaml",
     }
     status["link_plain"] = f"https://github.com/{repo}/raw/refs/heads/{branch}/local.txt"
     status["link_base64"] = f"https://github.com/{repo}/raw/refs/heads/{branch}/local-base64.txt"
     status["link_auto"] = f"https://github.com/{repo}/raw/refs/heads/{branch}/local-auto.json"
+    status["link_auto_yaml"] = f"https://github.com/{repo}/raw/refs/heads/{branch}/local-auto.yaml"
 
     payloads = {
         "local.txt": open(os.path.join(out_dir, "1.txt"), "rb").read(),
         "local-base64.txt": open(os.path.join(out_dir, "1-base64.txt"), "rb").read(),
         "local-auto.json": open(os.path.join(out_dir, "auto.json"), "rb").read(),
+        "local-auto.yaml": open(os.path.join(out_dir, "auto.yaml"), "rb").read(),
         "local-status.json": (json.dumps(status, ensure_ascii=False, indent=2) + "\n").encode(),
     }
 
     pushed = {}
     for name, raw in payloads.items():
-        existing = github_call(config, "GET", f"/repos/{repo}/contents/{name}?ref={branch}")
-        body = {
-            "message": f"Локальная проверка: {status['counts']['kept']} рабочих конфигов",
-            "content": base64.b64encode(raw).decode("ascii"),
-            "branch": branch,
-        }
-        if existing[0] == 200 and isinstance(existing[1], dict):
-            body["sha"] = existing[1].get("sha")
-        code, response = github_call(config, "PUT", f"/repos/{repo}/contents/{name}", body)
-        if code not in (200, 201):
+        body_message = f"Локальная проверка: {status['counts']['kept']} рабочих конфигов"
+        for attempt in range(4):
+            existing = github_call(config, "GET", f"/repos/{repo}/contents/{name}?ref={branch}")
+            body = {
+                "message": body_message,
+                "content": base64.b64encode(raw).decode("ascii"),
+                "branch": branch,
+            }
+            if existing[0] == 200 and isinstance(existing[1], dict):
+                body["sha"] = existing[1].get("sha")
+            code, response = github_call(config, "PUT", f"/repos/{repo}/contents/{name}", body)
+            if code in (200, 201):
+                break
             message = response.get("message") if isinstance(response, dict) else response
+            if code == 409:
+                # файл успели изменить между чтением и записью — перечитываем и повторяем
+                log(f"  {name}: конфликт версий, повторяю ({attempt + 1}/4)")
+                time.sleep(2 + attempt * 2)
+                continue
             log(f"  не удалось загрузить {name}: HTTP {code} {message}")
+            raise SystemExit(1)
+        else:
+            log(f"  не удалось загрузить {name}: постоянно конфликтует версия")
             raise SystemExit(1)
         pushed[name] = (response.get("commit") or {}).get("sha", "")[:8]
         log(f"  загружено {name}")
