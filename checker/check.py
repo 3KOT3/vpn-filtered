@@ -1175,6 +1175,7 @@ def main(argv=None) -> int:
     if max_youtube_ms or max_telegram_ms:
         before = len(survivors)
         PROGRESS.stage("latency", done=0, total=before)
+        relaxed = list(survivors)
         if max_youtube_ms:
             survivors = [
                 c for c in survivors
@@ -1189,6 +1190,12 @@ def main(argv=None) -> int:
             f"скорость отклика: YouTube ≤ {max_youtube_ms} мс, Telegram ≤ {max_telegram_ms} мс "
             f"-> осталось {len(survivors)} из {before}"
         )
+        # плохой день в сети не должен оставлять пользователя без списка:
+        # если жёсткий фильтр выкосил почти всё, берём всех, кто прошёл проверки
+        min_after = int(cfg.get("limits", {}).get("min_after_filters", 5))
+        if len(survivors) < min_after <= len(relaxed):
+            log(f"отклик: {len(survivors)} — слишком мало, фильтр ослаблен до {len(relaxed)}")
+            survivors = relaxed
         if not survivors:
             log("все конфиги отвечают слишком медленно")
             return 1
@@ -1205,12 +1212,15 @@ def main(argv=None) -> int:
         log("speed stage skipped")
 
     threshold = cfg["speed"]["min_mbps"]
+    min_speed_count = args.min_speed_count or int(
+        cfg.get("speed", {}).get("min_speed_count") or 0
+    )
     if threshold > 0:
         # best-effort top-up so a slow day does not empty the list entirely
         ranked = sorted(survivors, key=lambda c: -(speeds.get(c["tag"]) or 0.0))
         passed = [c for c in ranked if (speeds.get(c["tag"]) or 0.0) >= threshold]
-        if args.min_speed_count and len(passed) < args.min_speed_count:
-            extra = [c for c in ranked if c not in passed][: args.min_speed_count - len(passed)]
+        if min_speed_count and len(passed) < min_speed_count:
+            extra = [c for c in ranked if c not in passed][: min_speed_count - len(passed)]
             passed.extend(extra)
             log(f"topped up to {len(passed)} with slower proxies")
         kept = passed
