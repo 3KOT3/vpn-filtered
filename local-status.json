@@ -1,9 +1,9 @@
 {
   "schema": 1,
-  "run_id": "1792249665-c2c16c7c8791",
-  "finished_at": "2026-10-17T15:07:45Z",
-  "finished_epoch": 1792249665,
-  "duration_sec": 66.5,
+  "run_id": "1792251585-d2921f562fd7",
+  "finished_at": "2026-10-17T15:39:45Z",
+  "finished_epoch": 1792251585,
+  "duration_sec": 66.3,
   "sources": [
     "DarkRoyalty/shnajder-vpn-configs/githubmirror/6.txt",
     "DarkRoyalty/shnajder-vpn-configs/githubmirror/22.txt",
@@ -15,11 +15,11 @@
     "unsupported": 5,
     "duplicates": 11,
     "unique": 503,
-    "tcp_alive": 320,
-    "youtube_ok": 36,
-    "telegram_ok": 31,
-    "telegram_dc_ok": 31,
-    "latency_ok": 10,
+    "tcp_alive": 317,
+    "youtube_ok": 28,
+    "telegram_ok": 23,
+    "telegram_dc_ok": 23,
+    "latency_ok": 11,
     "speed_ok": 5,
     "kept": 5
   },
@@ -28,8 +28,9 @@
     "vless": 1
   },
   "by_country": {
-    "US": 4,
-    "FR": 1
+    "US": 3,
+    "HK": 1,
+    "GB": 1
   },
   "unsupported_reasons": {
     "transport-xhttp-unsupported": 1,
@@ -37,11 +38,11 @@
     "vmess-http-obfs": 2
   },
   "link_plain": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/local.txt",
-  "link_plain_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1.txt?t=1792249665",
+  "link_plain_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1.txt?t=1792251585",
   "link_auto": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/local-auto.json",
-  "link_auto_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/auto.json?t=1792249665",
+  "link_auto_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/auto.json?t=1792251585",
   "link_base64": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/local-base64.txt",
-  "link_base64_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1-base64.txt?t=1792249665",
+  "link_base64_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1-base64.txt?t=1792251585",
   "html_plain": "https://github.com/3KOT3/vpn-filtered/blob/main/1.txt",
   "params": {
     "min_mbps": 2.0,
@@ -57,45 +58,45 @@
       "protocol": "vmess",
       "country": "US",
       "server": "us5-1.998998.best",
-      "mbps": 8.629,
-      "youtube_ms": 471,
-      "telegram_ms": 799
-    },
-    {
-      "name": "🇫🇷 France, Aubervilliers | [BL]",
-      "protocol": "vless",
-      "country": "FR",
-      "server": "sdttr.azad0namah.ir",
-      "mbps": 6.736,
-      "youtube_ms": 705,
-      "telegram_ms": 646
-    },
-    {
-      "name": "[🇺🇸] [vm-tl-ws] [261016-152512.804]",
-      "protocol": "vmess",
-      "country": "US",
-      "server": "us16-4.998998.best",
-      "mbps": 6.196,
-      "youtube_ms": 572,
-      "telegram_ms": 990
+      "mbps": 5.727,
+      "youtube_ms": 463,
+      "telegram_ms": 819
     },
     {
       "name": "[🇺🇸] [vm-tl-ws] [261016-152518.082]",
       "protocol": "vmess",
       "country": "US",
       "server": "cf.0sm.com",
-      "mbps": 3.4,
-      "youtube_ms": 499,
-      "telegram_ms": 686
+      "mbps": 4.397,
+      "youtube_ms": 405,
+      "telegram_ms": 739
     },
     {
       "name": "[🇺🇸] [vm-tl-ws] [261016-152359.919]",
       "protocol": "vmess",
       "country": "US",
       "server": "172.66.203.67",
-      "mbps": 3.384,
-      "youtube_ms": 428,
-      "telegram_ms": 671
+      "mbps": 4.385,
+      "youtube_ms": 491,
+      "telegram_ms": 738
+    },
+    {
+      "name": "[🇭🇰] [vm-tl-ws] [261016-152354.542]",
+      "protocol": "vmess",
+      "country": "HK",
+      "server": "yg1.ygkkk.dpdns.org",
+      "mbps": 3.612,
+      "youtube_ms": 636,
+      "telegram_ms": 1169
+    },
+    {
+      "name": "[🇬🇧] [vl-re-ra] [261016-152042.972]",
+      "protocol": "vless",
+      "country": "GB",
+      "server": "195.72.166.251",
+      "mbps": 3.406,
+      "youtube_ms": 481,
+      "telegram_ms": 528
     }
   ],
   "invariant": {
@@ -107,7 +108,7 @@
   },
   "vantage": "local",
   "vantage_host": "DESKTOP-FUR2F0E",
-  "vantage_checked_at": "2026-10-17T15:07:45Z",
+  "vantage_checked_at": "2026-10-17T15:39:46Z",
   "files": {
     "plain": "local.txt",
     "base64": "local-base64.txt",
