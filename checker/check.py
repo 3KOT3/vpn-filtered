@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """Filter a VPN subscription down to the configs that really work.
 
 Pipeline
@@ -773,6 +773,116 @@ def build_auto_config(kept: list, cfg: dict) -> dict:
     }
 
 
+def to_clash(item: dict):
+    """Превращает разобранный конфиг в запись Clash/Mihomo.
+
+    Clash-формат понимает Hiddify — и именно в нём есть группа `url-test`,
+    которая сама держит самый быстрый живой сервер. sing-box конфиг Hiddify
+    не принимает (падает на импорте), а YAML принимает.
+    """
+    outbound = item["outbound"]
+    kind = outbound.get("type")
+    tls = outbound.get("tls") or {}
+    transport = outbound.get("transport") or {}
+
+    proxy = {
+        "name": item["tag"],
+        "server": outbound.get("server"),
+        "port": outbound.get("server_port"),
+        "udp": True,
+    }
+
+    if kind == "vless":
+        proxy["type"] = "vless"
+        proxy["uuid"] = outbound.get("uuid")
+        if outbound.get("flow"):
+            proxy["flow"] = outbound["flow"]
+        if tls.get("enabled"):
+            proxy["tls"] = True
+            if tls.get("server_name"):
+                proxy["servername"] = tls["server_name"]
+            reality = tls.get("reality") or {}
+            if reality.get("public_key"):
+                proxy["reality-opts"] = {"public-key": reality["public_key"]}
+                if reality.get("short_id"):
+                    proxy["reality-opts"]["short-id"] = reality["short_id"]
+            fingerprint = (tls.get("utls") or {}).get("fingerprint")
+            if fingerprint:
+                proxy["client-fingerprint"] = fingerprint
+    elif kind == "vmess":
+        proxy["type"] = "vmess"
+        proxy["uuid"] = outbound.get("uuid")
+        proxy["alterId"] = int(outbound.get("alter_id") or 0)
+        proxy["cipher"] = "auto"
+        if tls.get("enabled"):
+            proxy["tls"] = True
+            if tls.get("server_name"):
+                proxy["servername"] = tls["server_name"]
+    elif kind == "trojan":
+        proxy["type"] = "trojan"
+        proxy["password"] = outbound.get("password")
+        if tls.get("server_name"):
+            proxy["sni"] = tls["server_name"]
+    elif kind == "shadowsocks":
+        proxy["type"] = "ss"
+        proxy["cipher"] = outbound.get("method")
+        proxy["password"] = outbound.get("password")
+    else:
+        return None
+
+    transport_type = transport.get("type")
+    if transport_type == "ws":
+        proxy["network"] = "ws"
+        options = {}
+        if transport.get("path"):
+            options["path"] = transport["path"]
+        headers = transport.get("headers") or {}
+        host = headers.get("Host") or headers.get("host")
+        if host:
+            options["headers"] = {"Host": host}
+        if options:
+            proxy["ws-opts"] = options
+    elif transport_type == "grpc":
+        proxy["network"] = "grpc"
+        if transport.get("service_name"):
+            proxy["grpc-opts"] = {"grpc-service-name": transport["service_name"]}
+
+    return proxy
+
+
+def build_clash_config(kept: list, cfg: dict) -> str:
+    """Clash/Mihomo YAML с группой автоматического выбора сервера."""
+    proxies = [p for p in (to_clash(item) for item in kept) if p]
+    names = [p["name"] for p in proxies]
+    lines = [
+        "# Список проверенных серверов с автоматическим выбором",
+        f"# собрано: {len(proxies)} серверов",
+        "mixed-port: 7890",
+        "allow-lan: false",
+        "mode: rule",
+        "log-level: warning",
+        "",
+        "proxies:",
+    ]
+    for proxy in proxies:
+        lines.append("  - " + json.dumps(proxy, ensure_ascii=False))
+    lines += [
+        "",
+        "proxy-groups:",
+        "  - name: \"Авто\"",
+        "    type: url-test",
+        f"    url: {cfg['youtube']['url']}",
+        "    interval: 60",
+        "    tolerance: 80",
+        "    lazy: false",
+        "    proxies: [" + ", ".join(json.dumps(n, ensure_ascii=False) for n in names) + "]",
+        "",
+        "rules:",
+        "  - MATCH,Авто",
+        "",
+    ]
+    return "\n".join(lines)
+
 def write_outputs(cfg: dict, out_dir: str, kept: list, stats: dict, status: dict) -> None:
     out_cfg = cfg["output"]
     os.makedirs(out_dir, exist_ok=True)
@@ -792,7 +902,13 @@ def write_outputs(cfg: dict, out_dir: str, kept: list, stats: dict, status: dict
     with open(auto_path, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(build_auto_config(kept, cfg), fh, ensure_ascii=False, indent=2)
         fh.write("\n")
-    log(f"auto-config: {len(kept)} серверов в группе автоматического выбора")
+
+    # тот же смысл, но в Clash YAML — его принимает Hiddify
+    clash_path = os.path.join(out_dir, "auto.yaml")
+    with open(clash_path, "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(build_clash_config(kept, cfg))
+
+    log(f"auto-config: {len(kept)} серверов в группе автоматического выбора (json + yaml)")
 
     with open(os.path.join(out_dir, out_cfg["status"]), "w", encoding="utf-8") as fh:
         json.dump(status, fh, ensure_ascii=False, indent=2)
