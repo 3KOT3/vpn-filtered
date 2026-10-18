@@ -1,9 +1,9 @@
 {
   "schema": 1,
-  "run_id": "1792316473-74c8715800a6",
-  "finished_at": "2026-10-18T09:41:13Z",
-  "finished_epoch": 1792316473,
-  "duration_sec": 39.3,
+  "run_id": "1792316538-623daca86a0e",
+  "finished_at": "2026-10-18T09:42:18Z",
+  "finished_epoch": 1792316538,
+  "duration_sec": 44.5,
   "sources": [
     "DarkRoyalty/shnajder-vpn-configs/githubmirror/6.txt"
   ],
@@ -13,46 +13,43 @@
     "unsupported": 0,
     "duplicates": 28,
     "unique": 120,
-    "tcp_alive": 101,
-    "youtube_ok": 60,
-    "telegram_ok": 56,
-    "telegram_dc_ok": 56,
-    "latency_ok": 45,
-    "speed_ok": 37,
-    "kept": 37
+    "tcp_alive": 104,
+    "youtube_ok": 66,
+    "telegram_ok": 61,
+    "telegram_dc_ok": 61,
+    "latency_ok": 54,
+    "speed_ok": 38,
+    "kept": 38
   },
   "by_protocol": {
-    "vless": 32,
+    "vless": 33,
     "shadowsocks": 2,
     "vmess": 3
   },
   "by_country": {
     "US": 2,
-    "??": 12,
+    "BR": 1,
+    "JP": 4,
+    "??": 13,
     "FR": 1,
-    "PL": 4,
     "HK": 2,
     "IT": 1,
     "CZ": 1,
-    "LV": 1,
-    "LT": 1,
-    "FI": 1,
-    "BY": 1,
+    "PL": 4,
+    "KR": 2,
     "DE": 3,
-    "NL": 1,
-    "JP": 2,
-    "BR": 1,
+    "BY": 1,
     "SE": 1,
-    "KR": 1,
-    "IN": 1
+    "FI": 1,
+    "PH": 1
   },
   "unsupported_reasons": {},
   "link_plain": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1.txt",
-  "link_plain_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1.txt?t=1792316473",
+  "link_plain_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1.txt?t=1792316538",
   "link_auto": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/auto.json",
-  "link_auto_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/auto.json?t=1792316473",
+  "link_auto_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/auto.json?t=1792316538",
   "link_base64": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1-base64.txt",
-  "link_base64_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1-base64.txt?t=1792316473",
+  "link_base64_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1-base64.txt?t=1792316538",
   "html_plain": "https://github.com/3KOT3/vpn-filtered/blob/main/1.txt",
   "params": {
     "min_mbps": 3.0,
@@ -68,106 +65,106 @@
       "protocol": "vless",
       "country": "US",
       "server": "147.45.60.160",
-      "mbps": 25.345,
-      "youtube_ms": 35,
-      "telegram_ms": 334
-    },
-    {
-      "name": "🏳[openproxylist.com] vless-",
-      "protocol": "vless",
-      "country": "??",
-      "server": "66.70.179.198",
-      "mbps": 21.089,
-      "youtube_ms": 51,
-      "telegram_ms": 313
-    },
-    {
-      "name": "🇫🇷[openproxylist.com] vless-FR",
-      "protocol": "vless",
-      "country": "FR",
-      "server": "51.44.122.146",
-      "mbps": 11.849,
-      "youtube_ms": 189,
-      "telegram_ms": 231
-    },
-    {
-      "name": "🏳[openproxylist.com] vless-",
-      "protocol": "vless",
-      "country": "??",
-      "server": "178.17.57.33",
-      "mbps": 10.322,
-      "youtube_ms": 195,
-      "telegram_ms": 223
-    },
-    {
-      "name": "🇵🇱[openproxylist.com] vless-PL",
-      "protocol": "vless",
-      "country": "PL",
-      "server": "api.mediapolyana.cc",
-      "mbps": 9.962,
-      "youtube_ms": 270,
-      "telegram_ms": 279
-    },
-    {
-      "name": "🇵🇱[openproxylist.com] vless-PL",
-      "protocol": "vless",
-      "country": "PL",
-      "server": "pl.golangwikito.cfd",
-      "mbps": 9.744,
-      "youtube_ms": 232,
-      "telegram_ms": 269
+      "mbps": 14.017,
+      "youtube_ms": 120,
+      "telegram_ms": 429
     },
     {
       "name": "🇺🇸[openproxylist.com] vless-US",
       "protocol": "vless",
       "country": "US",
       "server": "95.111.212.241",
-      "mbps": 9.578,
-      "youtube_ms": 339,
-      "telegram_ms": 572
+      "mbps": 13.086,
+      "youtube_ms": 203,
+      "telegram_ms": 425
+    },
+    {
+      "name": "🇧🇷[openproxylist.com] vless-BR",
+      "protocol": "vless",
+      "country": "BR",
+      "server": "platform113.golnamakcert.top",
+      "mbps": 9.062,
+      "youtube_ms": 229,
+      "telegram_ms": 1004
+    },
+    {
+      "name": "🇯🇵[openproxylist.com] vless-JP",
+      "protocol": "vless",
+      "country": "JP",
+      "server": "platform113.golnamakcert.top",
+      "mbps": 8.907,
+      "youtube_ms": 227,
+      "telegram_ms": 961
+    },
+    {
+      "name": "🏳[openproxylist.com] vless-",
+      "protocol": "vless",
+      "country": "??",
+      "server": "platform117.golnamakcert.top",
+      "mbps": 8.577,
+      "youtube_ms": 225,
+      "telegram_ms": 979
+    },
+    {
+      "name": "🇯🇵[openproxylist.com] vless-JP",
+      "protocol": "vless",
+      "country": "JP",
+      "server": "funagfrdfs.alixxplay.com",
+      "mbps": 7.946,
+      "youtube_ms": 511,
+      "telegram_ms": 908
+    },
+    {
+      "name": "🇫🇷[openproxylist.com] vless-FR",
+      "protocol": "vless",
+      "country": "FR",
+      "server": "51.44.122.146",
+      "mbps": 7.613,
+      "youtube_ms": 309,
+      "telegram_ms": 372
     },
     {
       "name": "🇭🇰[openproxylist.com] vless-HK",
       "protocol": "vless",
       "country": "HK",
       "server": "152.233.71.81",
-      "mbps": 9.457,
-      "youtube_ms": 218,
-      "telegram_ms": 322
-    },
-    {
-      "name": "🇮🇹[openproxylist.com] ss-IT",
-      "protocol": "shadowsocks",
-      "country": "IT",
-      "server": "185.164.175.81",
-      "mbps": 9.344,
-      "youtube_ms": 232,
-      "telegram_ms": 275
+      "mbps": 7.4,
+      "youtube_ms": 360,
+      "telegram_ms": 425
     },
     {
       "name": "🏳[openproxylist.com] vless-",
       "protocol": "vless",
       "country": "??",
-      "server": "152.233.71.81",
-      "mbps": 9.341,
-      "youtube_ms": 234,
-      "telegram_ms": 325
+      "server": "178.17.57.33",
+      "mbps": 7.143,
+      "youtube_ms": 324,
+      "telegram_ms": 350
+    },
+    {
+      "name": "🏳[openproxylist.com] vless-",
+      "protocol": "vless",
+      "country": "??",
+      "server": "sw.golangwikito.cfd",
+      "mbps": 7.077,
+      "youtube_ms": 359,
+      "telegram_ms": 425
     }
   ],
   "by_source": [
     {
       "source": "6",
       "parsed": 120,
-      "alive": 101,
-      "youtube": 60,
-      "telegram": 56,
-      "dc": 56,
-      "kept": 37
+      "alive": 104,
+      "youtube": 66,
+      "telegram": 61,
+      "dc": 61,
+      "kept": 38
     }
   ],
   "invariant": {
     "description": "в списке только те конфиги, где работают И YouTube, И Telegram",
-    "kept": 37,
+    "kept": 38,
     "kept_without_youtube": 0,
     "kept_without_telegram": 0,
     "all_pass_both": true
