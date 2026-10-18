@@ -5,17 +5,6 @@ mode: rule
 log-level: warning
 
 proxies:
-  - name: "p00006"
-    server: "platform113.golnamakcert.top"
-    port: 80
-    udp: true
-    type: "vless"
-    uuid: "e13cf851-b4fd-413b-8d49-146e6eb8e5d4"
-    network: "ws"
-    ws-opts:
-      path: "/platform113"
-      headers:
-        Host: "platform113.halalkhor.info"
   - name: "p00005"
     server: "platform117.golnamakcert.top"
     port: 80
@@ -27,6 +16,17 @@ proxies:
       path: "/platform117"
       headers:
         Host: "platform117.halalkhor.info"
+  - name: "p00006"
+    server: "platform113.golnamakcert.top"
+    port: 80
+    udp: true
+    type: "vless"
+    uuid: "e13cf851-b4fd-413b-8d49-146e6eb8e5d4"
+    network: "ws"
+    ws-opts:
+      path: "/platform113"
+      headers:
+        Host: "platform113.halalkhor.info"
   - name: "p00008"
     server: "37.148.203.124"
     port: 12238
@@ -34,6 +34,20 @@ proxies:
     type: "ss"
     cipher: "aes-128-gcm"
     password: "6163d9d532e40f417dd8ebb5f9716495"
+  - name: "p00017"
+    server: "82.110.60.9"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00007"
+    server: "67.159.18.34"
+    port: 17001
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "I6o9NnialYLMEjVt28RF4dpjmr9wMvNL"
   - name: "p00015"
     server: "185.164.175.81"
     port: 19999
@@ -41,17 +55,6 @@ proxies:
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00004"
-    server: "platform115.golnamakcert.top"
-    port: 80
-    udp: true
-    type: "vless"
-    uuid: "e13cf851-b4fd-413b-8d49-146e6eb8e5d4"
-    network: "ws"
-    ws-opts:
-      path: "/platform115"
-      headers:
-        Host: "platform115.halalkhor.info"
   - name: "p00003"
     server: "platform118.golnamakcert.top"
     port: 80
@@ -63,24 +66,6 @@ proxies:
       path: "/platform118"
       headers:
         Host: "platform118.halalkhor.info"
-  - name: "p00007"
-    server: "67.159.18.34"
-    port: 17001
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "I6o9NnialYLMEjVt28RF4dpjmr9wMvNL"
-  - name: "p00013"
-    server: "45.144.234.157"
-    port: 14430
-    udp: true
-    type: "vless"
-    uuid: "59b0d30e-9b29-4fda-a35c-b2901ec32db7"
-    network: "ws"
-    ws-opts:
-      path: "/vless"
-      headers:
-        Host: "45.144.234.157"
   - name: "p00014"
     server: "hoert1rert.localip.ir"
     port: 2087
@@ -94,6 +79,85 @@ proxies:
       path: "/hokm"
       headers:
         Host: "hoert1rert.localip.ir"
+  - name: "p00004"
+    server: "platform115.golnamakcert.top"
+    port: 80
+    udp: true
+    type: "vless"
+    uuid: "e13cf851-b4fd-413b-8d49-146e6eb8e5d4"
+    network: "ws"
+    ws-opts:
+      path: "/platform115"
+      headers:
+        Host: "platform115.halalkhor.info"
+  - name: "p00012"
+    server: "193.188.21.253"
+    port: 14430
+    udp: true
+    type: "vless"
+    uuid: "57f7772d-f5d6-4d8f-992d-5fa5e0d6da55"
+    network: "ws"
+    ws-opts:
+      path: "/vless"
+      headers:
+        Host: "193.188.21.253"
+  - name: "p00002"
+    server: "213.176.92.168"
+    port: 14430
+    udp: true
+    type: "vless"
+    uuid: "ba52cc43-700d-4040-9444-29214c98e6e0"
+    network: "ws"
+    ws-opts:
+      path: "/vless"
+      headers:
+        Host: "213.176.92.168"
+  - name: "p00013"
+    server: "45.144.234.157"
+    port: 14430
+    udp: true
+    type: "vless"
+    uuid: "59b0d30e-9b29-4fda-a35c-b2901ec32db7"
+    network: "ws"
+    ws-opts:
+      path: "/vless"
+      headers:
+        Host: "45.144.234.157"
+  - name: "p00016"
+    server: "77.110.97.245"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "d342d11e-d224-4463-b982-532309285094"
+    tls: true
+    servername: "ccc.010304.xyz"
+    network: "ws"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "ccc.010304.xyz"
+  - name: "p00010"
+    server: "13.140.56.100"
+    port: 14430
+    udp: true
+    type: "vless"
+    uuid: "68512eac-cd53-4de3-8d1e-08f6e04af1a9"
+    network: "ws"
+    ws-opts:
+      path: "/vless"
+      headers:
+        Host: "13.140.56.100"
+  - name: "p00009"
+    server: "5.253.29.254"
+    port: 14430
+    udp: true
+    type: "vless"
+    uuid: "c7c27192-60a5-4ce1-b613-95270d82309d"
+    network: "ws"
+    ws-opts:
+      path: "/vless"
+      headers:
+        Host: "5.253.29.254"
 
 proxy-groups:
   - name: Auto
@@ -102,15 +166,21 @@ proxy-groups:
     interval: 60
     tolerance: 80
     proxies:
-      - "p00006"
       - "p00005"
+      - "p00006"
       - "p00008"
-      - "p00015"
-      - "p00004"
-      - "p00003"
+      - "p00017"
       - "p00007"
-      - "p00013"
+      - "p00015"
+      - "p00003"
       - "p00014"
+      - "p00004"
+      - "p00012"
+      - "p00002"
+      - "p00013"
+      - "p00016"
+      - "p00010"
+      - "p00009"
 
 rules:
   - MATCH,Auto

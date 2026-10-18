@@ -11,18 +11,17 @@ proxies:
     udp: true
     type: "vless"
     uuid: "e4514801-0d5a-42ba-869f-39bd605aef9e"
-  - name: "p00001"
-    server: "83.168.91.16"
-    port: 443
+  - name: "p00002"
+    server: "213.176.92.168"
+    port: 14430
     udp: true
     type: "vless"
-    uuid: "9cb8d71c-fe06-4402-a591-eaa1f173b890"
-    tls: true
-    servername: "pl-exit-02.10media.top"
-    client-fingerprint: "chrome"
-    network: "grpc"
-    grpc-opts:
-      grpc-service-name: "framefeed"
+    uuid: "ba52cc43-700d-4040-9444-29214c98e6e0"
+    network: "ws"
+    ws-opts:
+      path: "/vless"
+      headers:
+        Host: "213.176.92.168"
   - name: "p00003"
     server: "platform118.golnamakcert.top"
     port: 80
@@ -81,6 +80,17 @@ proxies:
     type: "ss"
     cipher: "aes-128-gcm"
     password: "6163d9d532e40f417dd8ebb5f9716495"
+  - name: "p00009"
+    server: "5.253.29.254"
+    port: 14430
+    udp: true
+    type: "vless"
+    uuid: "c7c27192-60a5-4ce1-b613-95270d82309d"
+    network: "ws"
+    ws-opts:
+      path: "/vless"
+      headers:
+        Host: "5.253.29.254"
   - name: "p00010"
     server: "13.140.56.100"
     port: 14430
@@ -103,6 +113,17 @@ proxies:
       path: "/vless"
       headers:
         Host: "5.178.109.174"
+  - name: "p00012"
+    server: "193.188.21.253"
+    port: 14430
+    udp: true
+    type: "vless"
+    uuid: "57f7772d-f5d6-4d8f-992d-5fa5e0d6da55"
+    network: "ws"
+    ws-opts:
+      path: "/vless"
+      headers:
+        Host: "193.188.21.253"
   - name: "p00013"
     server: "45.144.234.157"
     port: 14430
@@ -134,6 +155,26 @@ proxies:
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00016"
+    server: "77.110.97.245"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "d342d11e-d224-4463-b982-532309285094"
+    tls: true
+    servername: "ccc.010304.xyz"
+    network: "ws"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "ccc.010304.xyz"
+  - name: "p00017"
+    server: "82.110.60.9"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
 
 proxy-groups:
   - name: Auto
@@ -143,18 +184,22 @@ proxy-groups:
     tolerance: 80
     proxies:
       - "p00000"
-      - "p00001"
+      - "p00002"
       - "p00003"
       - "p00004"
       - "p00005"
       - "p00006"
       - "p00007"
       - "p00008"
+      - "p00009"
       - "p00010"
       - "p00011"
+      - "p00012"
       - "p00013"
       - "p00014"
       - "p00015"
+      - "p00016"
+      - "p00017"
 
 rules:
   - MATCH,Auto
