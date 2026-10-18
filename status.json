@@ -1,9 +1,9 @@
 {
   "schema": 1,
-  "run_id": "1792301853-b0174c1d27fd",
-  "finished_at": "2026-10-18T05:37:33Z",
-  "finished_epoch": 1792301853,
-  "duration_sec": 49.7,
+  "run_id": "1792302190-5ab22b75eb67",
+  "finished_at": "2026-10-18T05:43:10Z",
+  "finished_epoch": 1792302190,
+  "duration_sec": 38.2,
   "sources": [
     "DarkRoyalty/shnajder-vpn-configs/githubmirror/6.txt"
   ],
@@ -13,53 +13,52 @@
     "unsupported": 4,
     "duplicates": 2,
     "unique": 141,
-    "tcp_alive": 138,
-    "youtube_ok": 107,
-    "telegram_ok": 96,
-    "telegram_dc_ok": 96,
-    "latency_ok": 83,
-    "speed_ok": 56,
-    "kept": 56
+    "tcp_alive": 139,
+    "youtube_ok": 108,
+    "telegram_ok": 98,
+    "telegram_dc_ok": 98,
+    "latency_ok": 79,
+    "speed_ok": 51,
+    "kept": 51
   },
   "by_protocol": {
-    "vless": 46,
+    "vless": 43,
     "shadowsocks": 3,
-    "vmess": 3,
-    "trojan": 4
+    "vmess": 4,
+    "trojan": 1
   },
   "by_country": {
     "US": 5,
-    "DE": 8,
-    "NL": 4,
-    "AT": 1,
+    "DE": 7,
     "PL": 3,
-    "LT": 1,
-    "FI": 3,
-    "EE": 1,
+    "AT": 1,
     "IT": 1,
-    "SE": 2,
+    "FI": 4,
+    "NL": 5,
+    "EE": 1,
+    "FR": 1,
+    "LT": 1,
     "TR": 1,
-    "JP": 5,
-    "IN": 2,
+    "SE": 1,
+    "JP": 4,
+    "MD": 1,
+    "IN": 1,
     "ID": 1,
-    "SG": 3,
     "PH": 7,
-    "KH": 1,
-    "HK": 3,
-    "KR": 2,
     "MY": 1,
-    "MD": 1
+    "HK": 4,
+    "KR": 1
   },
   "unsupported_reasons": {
     "vmess-header-type": 2,
     "vmess-http-obfs": 2
   },
   "link_plain": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1.txt",
-  "link_plain_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1.txt?t=1792301853",
+  "link_plain_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1.txt?t=1792302190",
   "link_auto": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/auto.json",
-  "link_auto_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/auto.json?t=1792301853",
+  "link_auto_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/auto.json?t=1792302190",
   "link_base64": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1-base64.txt",
-  "link_base64_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1-base64.txt?t=1792301853",
+  "link_base64_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1-base64.txt?t=1792302190",
   "html_plain": "https://github.com/3KOT3/vpn-filtered/blob/main/1.txt",
   "params": {
     "min_mbps": 3.0,
@@ -74,96 +73,96 @@
       "name": "🇺🇸[openproxylist.com] vless-US",
       "protocol": "vless",
       "country": "US",
-      "server": "147.45.60.160",
-      "mbps": 41.702,
-      "youtube_ms": 37,
-      "telegram_ms": 344
+      "server": "104.243.33.154",
+      "mbps": 52.57,
+      "youtube_ms": 39,
+      "telegram_ms": 285
     },
     {
       "name": "🇺🇸[openproxylist.com] vless-US",
       "protocol": "vless",
       "country": "US",
-      "server": "104.243.33.154",
-      "mbps": 38.665,
+      "server": "147.45.60.160",
+      "mbps": 37.319,
       "youtube_ms": 36,
-      "telegram_ms": 281
+      "telegram_ms": 326
     },
     {
       "name": "🇺🇸[openproxylist.com] vless-US",
       "protocol": "vless",
       "country": "US",
       "server": "tk1.high-speed-test-56424.me",
-      "mbps": 16.155,
-      "youtube_ms": 183,
-      "telegram_ms": 638
+      "mbps": 17.357,
+      "youtube_ms": 187,
+      "telegram_ms": 771
     },
     {
       "name": "🇩🇪[openproxylist.com] vless-DE",
       "protocol": "vless",
       "country": "DE",
       "server": "178.17.57.33",
-      "mbps": 14.753,
-      "youtube_ms": 194,
-      "telegram_ms": 230
+      "mbps": 14.303,
+      "youtube_ms": 191,
+      "telegram_ms": 233
     },
     {
       "name": "🇺🇸[openproxylist.com] vless-US",
       "protocol": "vless",
       "country": "US",
       "server": "95.111.212.241",
-      "mbps": 14.24,
-      "youtube_ms": 352,
-      "telegram_ms": 577
+      "mbps": 13.94,
+      "youtube_ms": 339,
+      "telegram_ms": 659
     },
     {
-      "name": "🇳🇱[openproxylist.com] ss-NL",
-      "protocol": "shadowsocks",
-      "country": "NL",
-      "server": "37.148.203.124",
-      "mbps": 14.181,
-      "youtube_ms": 208,
-      "telegram_ms": 241
-    },
-    {
-      "name": "🇩🇪[openproxylist.com] vless-DE",
+      "name": "🇵🇱[openproxylist.com] vless-PL",
       "protocol": "vless",
-      "country": "DE",
-      "server": "2.27.69.117",
-      "mbps": 13.826,
-      "youtube_ms": 229,
-      "telegram_ms": 265
+      "country": "PL",
+      "server": "revers.bachidze.com",
+      "mbps": 13.769,
+      "youtube_ms": 320,
+      "telegram_ms": 348
     },
     {
       "name": "🇦🇹[openproxylist.com] ss-AT",
       "protocol": "shadowsocks",
       "country": "AT",
       "server": "82.110.60.9",
-      "mbps": 13.731,
-      "youtube_ms": 248,
-      "telegram_ms": 279
+      "mbps": 13.769,
+      "youtube_ms": 253,
+      "telegram_ms": 297
     },
     {
-      "name": "🇵🇱[openproxylist.com] vless-PL",
-      "protocol": "vless",
-      "country": "PL",
-      "server": "177.1.192.81",
-      "mbps": 12.942,
-      "youtube_ms": 296,
-      "telegram_ms": 303
+      "name": "🇮🇹[openproxylist.com] ss-IT",
+      "protocol": "shadowsocks",
+      "country": "IT",
+      "server": "185.164.175.81",
+      "mbps": 13.69,
+      "youtube_ms": 223,
+      "telegram_ms": 277
     },
     {
-      "name": "🇱🇹[openproxylist.com] vless-LT",
+      "name": "🇩🇪[openproxylist.com] vless-DE",
       "protocol": "vless",
-      "country": "LT",
-      "server": "84.32.109.20",
-      "mbps": 12.838,
-      "youtube_ms": 326,
-      "telegram_ms": 378
+      "country": "DE",
+      "server": "2.27.69.117",
+      "mbps": 13.49,
+      "youtube_ms": 234,
+      "telegram_ms": 275
+    },
+    {
+      "name": "🇩🇪[openproxylist.com] vless-DE",
+      "protocol": "vless",
+      "country": "DE",
+      "server": "185.125.50.181",
+      "mbps": 13.21,
+      "youtube_ms": 244,
+      "telegram_ms": 260
     }
   ],
   "invariant": {
     "description": "в списке только те конфиги, где работают И YouTube, И Telegram",
-    "kept": 56,
+    "kept": 51,
     "kept_without_youtube": 0,
     "kept_without_telegram": 0,
     "all_pass_both": true
