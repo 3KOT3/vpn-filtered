@@ -298,6 +298,28 @@ def download_sources(cfg: dict, cache_dir: str) -> dict:
     return out
 
 
+def fetch_ru_prefilter(cfg: dict):
+    """Список URI, которые ответили из России. Пустое множество = без фильтра.
+
+    Воркер бота складывает результат TCP-проверки с телефона владельца: это
+    единственный способ узнать, что сервер не заблокирован именно у него.
+    """
+    url = (cfg.get("source") or {}).get("prefilter_url")
+    if not url:
+        return None
+    try:
+        data = http_get(url, timeout=30, tries=1)
+    except Exception as exc:  # noqa: BLE001
+        log(f"ru-prefilter: не удалось получить список ({type(exc).__name__}) — проверяем всё")
+        return None
+    text = data.decode("utf-8", "replace")
+    uris = {line.strip() for line in text.splitlines() if "://" in line}
+    if not uris:
+        log("ru-prefilter: список из России пуст — проверяем всё")
+        return None
+    log(f"ru-prefilter: {len(uris)} конфигов ответили из России")
+    return uris
+
 def read_local_sources(directory: str) -> dict:
     out = {}
     for name in sorted(os.listdir(directory)):
@@ -307,7 +329,7 @@ def read_local_sources(directory: str) -> dict:
     return out
 
 
-def collect(raw_sources: dict, limit: int = 0):
+def collect(raw_sources: dict, limit: int = 0, allowed=None):
     """Return (candidates, stats). Each candidate is a dict."""
     stats = {
         "lines": 0,
@@ -338,6 +360,12 @@ def collect(raw_sources: dict, limit: int = 0):
                 stats["duplicates"] += 1
                 continue
             seen[key] = True
+            if allowed is not None and line not in allowed:
+                stats["unsupported"] += 1
+                reason_counter["не ответил из России"] = (
+                    reason_counter.get("не ответил из России", 0) + 1
+                )
+                continue
             outbound, reason = uris.parse_uri(line, f"p{len(candidates):05d}")
             if outbound is None:
                 stats["unsupported"] += 1
@@ -1456,7 +1484,7 @@ def main(argv=None) -> int:
     else:
         raw = download_sources(cfg, args.cache_dir)
 
-    candidates, stats = collect(raw, limit=args.limit)
+    candidates, stats = collect(raw, limit=args.limit, allowed=fetch_ru_prefilter(cfg))
     log(
         f"parsed {stats['parsed']} configs "
         f"({stats['unsupported']} unsupported, {stats['duplicates']} duplicates)"
