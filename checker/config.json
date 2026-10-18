@@ -4,7 +4,8 @@
     "ref": "main",
     "dir": "githubmirror",
     "files": [
-      "6"
+      "6",
+      "1"
     ],
     "note": "зеркало пересобирается каждые ~9 минут; локальный кэш источников живёт 10 минут, чтобы не проверять вчерашний файл",
     "cache_ttl_sec": 600
@@ -35,15 +36,15 @@
       "149.154.167.91"
     ],
     "port": 443,
-    "timeout_sec": 8.0,
+    "timeout_sec": 8,
     "concurrency": 48,
     "note": "TCP-коннект до дата-центров Telegram (DC2, DC1, DC4). HTTP-доступность core.telegram.org ещё не значит, что заработает сам мессенджер: Telegram блокирует часть хостинговых диапазонов, и у такого прокси коннект к DC не открывается. Настоящий TLS здесь не работает — на порту 443 у Telegram fake-TLS"
   },
   "speed": {
     "url": "https://dl.google.com/android/repository/platform-tools-latest-windows.zip",
     "request_bytes": 2097152,
-    "min_mbps": 2.0,
-    "deadline_sec": 12.0,
+    "min_mbps": 2,
+    "deadline_sec": 12,
     "concurrency": 48,
     "retries": 1,
     "min_speed_count": 5,
@@ -56,7 +57,7 @@
   },
   "tcp_prefilter": {
     "enabled": true,
-    "timeout_sec": 3.0,
+    "timeout_sec": 3,
     "concurrency": 800
   },
   "delay": {
