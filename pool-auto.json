@@ -21,13 +21,6 @@
     },
     {
       "type": "vless",
-      "tag": "p00001",
-      "server": "51.44.122.146",
-      "server_port": 22222,
-      "uuid": "e4514801-0d5a-42ba-869f-39bd605aef9e"
-    },
-    {
-      "type": "vless",
       "tag": "p00002",
       "server": "147.93.173.45",
       "server_port": 10444,
@@ -44,6 +37,20 @@
           "enabled": true,
           "public_key": "0oTkcqwLTUNLnSOP-VUWErmy6usAIg-biBE6ioZO-Vo",
           "short_id": "8debcf36f1cc69ff"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "p00003",
+      "server": "platform103.golnamakcert.top",
+      "server_port": 80,
+      "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
+      "transport": {
+        "type": "ws",
+        "path": "/platform103",
+        "headers": {
+          "Host": "platform103.halalkhor.info"
         }
       }
     },
@@ -112,22 +119,28 @@
     },
     {
       "type": "vless",
-      "tag": "p00015",
-      "server": "77.110.105.122",
+      "tag": "p00013",
+      "server": "edge10.cyrionflare.com",
+      "server_port": 2052,
+      "uuid": "1a8ecc41-6e62-431b-8eca-87c2fa4dc286"
+    },
+    {
+      "type": "vmess",
+      "tag": "p00019",
+      "server": "172.67.195.146",
       "server_port": 443,
-      "uuid": "019fbe0f-2d9f-4b89-9f81-e1e36129892a",
-      "flow": "xtls-rprx-vision",
+      "uuid": "f5f0babe-aea2-4f07-a1fc-3c9820253f49",
+      "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": true,
-        "server_name": "co-de.speedtec.ru",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "random"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "EBISh6QAVskJ_nvet-Qio9jS2yqxe9de6GMScYlbjhI",
-          "short_id": "226509f017e4c36d"
+        "server_name": "aus.lovehk.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Sydney3",
+        "headers": {
+          "Host": "aus.lovehk.xyz"
         }
       }
     },
@@ -150,6 +163,15 @@
           "public_key": "TIKEWdxQBblFGWMQmQWserNef8P1rqJCfCLLi-KB32s"
         }
       }
+    },
+    {
+      "type": "vmess",
+      "tag": "p00022",
+      "server": "154.64.239.22",
+      "server_port": 26421,
+      "uuid": "9fa732d6-dcd6-47bb-c255-094bad71765d",
+      "security": "auto",
+      "alter_id": 0
     },
     {
       "type": "vless",
@@ -197,6 +219,19 @@
       "transport": {
         "type": "ws",
         "path": "/ShamanVMESS2026"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "p00029",
+      "server": "nl-2a972c8052.shamanapp.online",
+      "server_port": 33736,
+      "uuid": "1281acca-f21d-475c-bf04-eccbee7f8df2",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "path": "/vmess-ws"
       }
     },
     {
@@ -256,23 +291,32 @@
       }
     },
     {
-      "type": "vless",
-      "tag": "p00037",
-      "server": "sdcdethyerft.localip.ir",
-      "server_port": 2087,
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d",
+      "type": "vmess",
+      "tag": "p00038",
+      "server": "oc.imfun.fun",
+      "server_port": 18112,
+      "uuid": "ad45f8f6-0f0a-4cc4-b907-c4582407dc94",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "type": "trojan",
+      "tag": "p00039",
+      "server": "31.57.190.71",
+      "server_port": 443,
+      "password": "humanity",
       "tls": {
         "enabled": true,
-        "server_name": "sdcdethyerft.localip.ir",
+        "server_name": "www.pleadcourt.org",
         "alpn": [
           "http/1.1"
         ]
       },
       "transport": {
         "type": "ws",
-        "path": "/hokm",
+        "path": "/assignment",
         "headers": {
-          "Host": "sdcdethyerft.localip.ir"
+          "Host": "www.pleadcourt.org"
         }
       }
     },
@@ -320,6 +364,30 @@
       "password": "I6o9NnialYLMEjVt28RF4dpjmr9wMvNL"
     },
     {
+      "type": "vless",
+      "tag": "p00045",
+      "server": "31.59.210.26",
+      "server_port": 2088,
+      "uuid": "5413edfb-08d6-4fba-b51c-809c04feb127",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.yandex.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "Eq3c19Y0WGB1APWMADQB-oxCvZFSVFAQxG5L6b8EkUg",
+          "short_id": "b1ad165f903c62fe"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "astracat"
+      }
+    },
+    {
       "type": "vmess",
       "tag": "p00046",
       "server": "104.21.23.80",
@@ -362,6 +430,28 @@
     },
     {
       "type": "vless",
+      "tag": "p00049",
+      "server": "sino.bestsellers1.site",
+      "server_port": 2083,
+      "uuid": "7858128a-6b5e-4f86-9bff-52c1f1e6439d",
+      "tls": {
+        "enabled": true,
+        "server_name": "sino.bestsellers1.site",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "sino.bestsellers1.site"
+        }
+      }
+    },
+    {
+      "type": "vless",
       "tag": "p00050",
       "server": "95.128.71.79",
       "server_port": 14430,
@@ -371,27 +461,6 @@
         "path": "/vless",
         "headers": {
           "Host": "95.128.71.79"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "p00051",
-      "server": "164.92.200.68",
-      "server_port": 443,
-      "password": "humanity",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.pleadcourt.org",
-        "alpn": [
-          "http/1.1"
-        ]
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/assignment",
-        "headers": {
-          "Host": "www.pleadcourt.org"
         }
       }
     },
@@ -406,28 +475,6 @@
         "path": "/platform113",
         "headers": {
           "Host": "platform113.halalkhor.info"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "p00055",
-      "server": "sw.golangwikito.cfd",
-      "server_port": 443,
-      "uuid": "f8d52ece-fad4-478d-875d-df6eed3befa7",
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "server_name": "sw.golangwikito.cfd",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "Kb8SsVPprs46BJSUNp5JvWLI-TFEiHmlBOXLQd37Glg",
-          "short_id": "a1037b25dcef6aa7"
         }
       }
     },
@@ -497,15 +544,15 @@
     },
     {
       "type": "vless",
-      "tag": "p00061",
-      "server": "45.138.100.248",
+      "tag": "p00060",
+      "server": "5.253.29.254",
       "server_port": 14430,
-      "uuid": "ae908ff5-f749-402c-af25-e6e9aef4d6bb",
+      "uuid": "c7c27192-60a5-4ce1-b613-95270d82309d",
       "transport": {
         "type": "ws",
         "path": "/vless",
         "headers": {
-          "Host": "45.138.100.248"
+          "Host": "5.253.29.254"
         }
       }
     },
@@ -555,52 +602,6 @@
     },
     {
       "type": "vless",
-      "tag": "p00067",
-      "server": "nl5.hap-plus.ru",
-      "server_port": 8443,
-      "uuid": "05d7a479-a099-40cf-aecf-41aa934767b0",
-      "tls": {
-        "enabled": true,
-        "server_name": "nl5.hap-plus.ru",
-        "alpn": [
-          "http/1.1"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/api/v1/events",
-        "headers": {
-          "Host": "nl5.hap-plus.ru"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "p00068",
-      "server": "39.109.110.80",
-      "server_port": 27916,
-      "uuid": "57beeeb0-03fc-4fc9-94da-7604488a7134",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "cdn-dynmedia-1.microsoft.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "ztQ8VYq_dVDc3x-QM8LXjup2161CirYrIBE1F7loVzQ",
-          "short_id": "6772eb2b7a"
-        }
-      }
-    },
-    {
-      "type": "vless",
       "tag": "p00070",
       "server": "66.70.179.198",
       "server_port": 2053,
@@ -621,26 +622,20 @@
     },
     {
       "type": "vless",
-      "tag": "p00072",
-      "server": "188.114.98.0",
-      "server_port": 443,
-      "uuid": "20ff936a-8eb5-4d27-9cce-93f2016d467b",
+      "tag": "p00071",
+      "server": "hinet1.2yly.com",
+      "server_port": 24215,
+      "uuid": "19d5a678-8396-4e3b-93da-ece618d0e83a",
       "tls": {
         "enabled": true,
-        "server_name": "free.nadun.store",
-        "alpn": [
-          "http/1.1"
-        ],
+        "server_name": "addons.mozilla.org",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "free.nadun.store"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE"
         }
       }
     },
@@ -676,6 +671,20 @@
           "enabled": true,
           "public_key": "6VMgXXhZdJCiOG05EyK_zTHh00kpFGrZJeZIEPgqhjY",
           "short_id": "1c3e8241a8743df9"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "p00075",
+      "server": "5.178.109.174",
+      "server_port": 14430,
+      "uuid": "80de563a-cac8-40ea-8cb0-4cb082dd92f9",
+      "transport": {
+        "type": "ws",
+        "path": "/vless",
+        "headers": {
+          "Host": "5.178.109.174"
         }
       }
     },
@@ -723,6 +732,20 @@
     },
     {
       "type": "vless",
+      "tag": "p00079",
+      "server": "95.174.68.188",
+      "server_port": 14430,
+      "uuid": "965ffbbe-c6b6-4d5f-8dea-6d8abc55d9c0",
+      "transport": {
+        "type": "ws",
+        "path": "/vless",
+        "headers": {
+          "Host": "95.174.68.188"
+        }
+      }
+    },
+    {
+      "type": "vless",
       "tag": "p00080",
       "server": "hoert1rert.localip.ir",
       "server_port": 2087,
@@ -761,30 +784,6 @@
           "public_key": "6VMgXXhZdJCiOG05EyK_zTHh00kpFGrZJeZIEPgqhjY",
           "short_id": "1c3e8241a8743df9"
         }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "p00082",
-      "server": "36a466g.fi1.h1clayd.click",
-      "server_port": 443,
-      "uuid": "9a0e84f8-4b58-477f-99da-5fac5a2e58e8",
-      "tls": {
-        "enabled": true,
-        "server_name": "36a466g.fi1.h1clayd.click",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "random"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "pAgrBKJCmuSJHIzYkEJTqsOBOVBK_DMtEqFPo-PaTkg",
-          "short_id": "b3c9d0c6bdd114a6"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "0adb9638509b"
       }
     },
     {
@@ -865,28 +864,6 @@
       "password": "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
     },
     {
-      "type": "vless",
-      "tag": "p00093",
-      "server": "199.232.78.170",
-      "server_port": 443,
-      "uuid": "XpnTeam-17",
-      "tls": {
-        "enabled": true,
-        "server_name": "ssl.fastly.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "Appxdn.global.ssl.fastly.net"
-        }
-      }
-    },
-    {
       "type": "vmess",
       "tag": "p00094",
       "server": "node8.liudonghoe.com",
@@ -904,6 +881,30 @@
         "headers": {
           "Host": "node8.liudonghoe.com"
         }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "p00096",
+      "server": "31.59.210.37",
+      "server_port": 443,
+      "uuid": "5413edfb-08d6-4fba-b51c-809c04feb127",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.yandex.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "5k0dtOSzmshCubdYeKppsUdHU4i2ghaB9uSJSzGjHW4",
+          "short_id": "6dbf4931096f9890"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "astracat"
       }
     },
     {
@@ -993,84 +994,65 @@
       }
     },
     {
-      "type": "vless",
-      "tag": "p00102",
-      "server": "213.165.56.102",
-      "server_port": 443,
-      "uuid": "6338c01a-310e-42c3-bf4f-2a20e161054b",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "freede.aiage.work",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "A_bQLZE6D32TJUdAf9doQTPaTUXyJjPXLSklplG4V1g",
-          "short_id": "57e7977c9011061c"
-        }
-      }
-    },
-    {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
         "p00000",
-        "p00001",
         "p00002",
+        "p00003",
         "p00004",
         "p00009",
         "p00012",
-        "p00015",
+        "p00013",
+        "p00019",
         "p00021",
+        "p00022",
         "p00026",
         "p00027",
         "p00028",
+        "p00029",
         "p00030",
         "p00034",
         "p00035",
         "p00036",
-        "p00037",
+        "p00038",
+        "p00039",
         "p00041",
         "p00042",
         "p00043",
+        "p00045",
         "p00046",
         "p00048",
+        "p00049",
         "p00050",
-        "p00051",
         "p00052",
-        "p00055",
         "p00057",
         "p00058",
         "p00059",
-        "p00061",
+        "p00060",
         "p00062",
         "p00065",
-        "p00067",
-        "p00068",
         "p00070",
-        "p00072",
+        "p00071",
         "p00073",
         "p00074",
+        "p00075",
         "p00076",
         "p00077",
         "p00078",
+        "p00079",
         "p00080",
         "p00081",
-        "p00082",
         "p00083",
         "p00089",
         "p00091",
         "p00092",
-        "p00093",
         "p00094",
+        "p00096",
         "p00098",
         "p00099",
         "p00100",
-        "p00101",
-        "p00102"
+        "p00101"
       ],
       "url": "https://www.youtube.com/generate_204",
       "interval": "1m",
