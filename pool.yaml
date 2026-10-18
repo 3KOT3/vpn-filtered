@@ -1,0 +1,176 @@
+port: 7890
+socks-port: 7891
+allow-lan: false
+mode: rule
+log-level: warning
+
+proxies:
+  - name: "p00000"
+    server: "revers.bachidze.com"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "8a9c586c-4b2c-49e5-9e78-97408bf58500"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "poland.travel"
+    reality-opts:
+      public-key: "TIKEWdxQBblFGWMQmQWserNef8P1rqJCfCLLi-KB32s"
+    client-fingerprint: "chrome"
+  - name: "p00008"
+    server: "revers.bachidze.com"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "8a9c586c-4b2c-49e5-9e78-97408bf58500"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "poland.travel"
+    reality-opts:
+      public-key: "TIKEWdxQBblFGWMQmQWserNef8P1rqJCfCLLi-KB32s"
+    client-fingerprint: "chrome"
+  - name: "p00009"
+    server: "154.64.239.22"
+    port: 26421
+    udp: true
+    type: "vmess"
+    uuid: "9fa732d6-dcd6-47bb-c255-094bad71765d"
+    alterId: 0
+    cipher: "auto"
+  - name: "p00015"
+    server: "de-d21e56c13c.shamanapp.online"
+    port: 33744
+    udp: true
+    type: "vmess"
+    uuid: "b3a11068-1a7e-4643-85de-7c82cce46943"
+    alterId: 0
+    cipher: "auto"
+    network: "ws"
+    ws-opts:
+      path: "/ShamanVMESS2026"
+  - name: "p00016"
+    server: "nl-2a972c8052.shamanapp.online"
+    port: 33736
+    udp: true
+    type: "vmess"
+    uuid: "1281acca-f21d-475c-bf04-eccbee7f8df2"
+    alterId: 0
+    cipher: "auto"
+    network: "ws"
+    ws-opts:
+      path: "/vmess-ws"
+  - name: "p00018"
+    server: "185.125.50.181"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "ee3de8a9-ce8a-4316-b128-101d0816df4d"
+    tls: true
+    servername: "de-game.pink-service.ru"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "degrpc"
+  - name: "p00031"
+    server: "edge10.cyrionflare.com"
+    port: 2052
+    udp: true
+    type: "vless"
+    uuid: "1a8ecc41-6e62-431b-8eca-87c2fa4dc286"
+  - name: "p00062"
+    server: "13.140.56.100"
+    port: 14430
+    udp: true
+    type: "vless"
+    uuid: "68512eac-cd53-4de3-8d1e-08f6e04af1a9"
+    network: "ws"
+    ws-opts:
+      path: "/vless"
+      headers:
+        Host: "13.140.56.100"
+  - name: "p00068"
+    server: "95.174.68.188"
+    port: 14430
+    udp: true
+    type: "vless"
+    uuid: "965ffbbe-c6b6-4d5f-8dea-6d8abc55d9c0"
+    network: "ws"
+    ws-opts:
+      path: "/vless"
+      headers:
+        Host: "95.174.68.188"
+  - name: "p00070"
+    server: "de1.balancer.vbuste-bot.com"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "318c935d-c195-41d3-99ad-9bbcfdab3386"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "de1.balancer.vbuste-bot.com"
+    reality-opts:
+      public-key: "0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08"
+      short-id: "4be4110078ebed4a"
+    client-fingerprint: "chrome"
+  - name: "p00074"
+    server: "de2.balancer.vbuste-bot.com"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "318c935d-c195-41d3-99ad-9bbcfdab3386"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "de2.balancer.vbuste-bot.com"
+    reality-opts:
+      public-key: "0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08"
+      short-id: "4be4110078ebed4a"
+    client-fingerprint: "chrome"
+  - name: "p00078"
+    server: "node8.liudonghoe.com"
+    port: 443
+    udp: true
+    type: "vmess"
+    uuid: "47050e4e-965d-41ca-976d-73c1f11e6905"
+    alterId: 0
+    cipher: "auto"
+    tls: true
+    servername: "node8.liudonghoe.com"
+    network: "ws"
+    ws-opts:
+      path: "/hoe8"
+      headers:
+        Host: "node8.liudonghoe.com"
+  - name: "p00079"
+    server: "de-d21e56c13c.shamanapp.online"
+    port: 33744
+    udp: true
+    type: "vmess"
+    uuid: "b3a11068-1a7e-4643-85de-7c82cce46943"
+    alterId: 0
+    cipher: "auto"
+    network: "ws"
+    ws-opts:
+      path: "/ShamanVMESS2026"
+
+proxy-groups:
+  - name: Auto
+    type: url-test
+    url: https://www.youtube.com/generate_204
+    interval: 60
+    tolerance: 80
+    proxies:
+      - "p00000"
+      - "p00008"
+      - "p00009"
+      - "p00015"
+      - "p00016"
+      - "p00018"
+      - "p00031"
+      - "p00062"
+      - "p00068"
+      - "p00070"
+      - "p00074"
+      - "p00078"
+      - "p00079"
+
+rules:
+  - MATCH,Auto
