@@ -1275,6 +1275,9 @@ class Progress:
             "total": total,
             "eta_sec": self._eta(),
             "elapsed_sec": int(time.time() - self.started),
+            "started_at": datetime.datetime.fromtimestamp(
+                self.started, datetime.timezone.utc
+            ).strftime("%Y-%m-%dT%H:%M:%SZ"),
         }
         log(f"progress {self.percent}% — {stage}")
         if not self.url:
@@ -1327,7 +1330,17 @@ def parse_args(argv=None):
                         help="drop configs whose Telegram delay is above this, ms")
     parser.add_argument("--progress-url", help="POST stage progress here, so the bot can show it")
     parser.add_argument("--progress-key", default="", help="key passed to --progress-url")
-    return parser.parse_args(argv)
+    args = parser.parse_args(argv)
+
+    # если адрес прогресса не задан, берём его из config.publish: бот получает
+    # этап и процент сразу и перерисовывает открытый экран
+    if not args.progress_url:
+        publish = (load_json(args.config) or {}).get("publish") or {}
+        if publish.get("url") and publish.get("key"):
+            base = str(publish["url"]).rstrip("/")
+            args.progress_url = f"{base}/checker-progress"
+            args.progress_key = str(publish["key"])
+    return args
 
 
 def build_status(cfg: dict, cfg_overrides: dict, stats: dict, counts: dict, kept: list) -> dict:
