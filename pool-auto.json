@@ -22,31 +22,6 @@
     },
     {
       "type": "vless",
-      "tag": "p00005",
-      "server": "platform107.golnamakcert.top",
-      "server_port": 80,
-      "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
-      "transport": {
-        "type": "ws",
-        "path": "/platform107"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "p00007",
-      "server": "platform109.golnamakcert.top",
-      "server_port": 80,
-      "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
-      "transport": {
-        "type": "ws",
-        "path": "/platform109",
-        "headers": {
-          "Host": "platform109.halalkhor.info"
-        }
-      }
-    },
-    {
-      "type": "vless",
       "tag": "p00008",
       "server": "revers.bachidze.com",
       "server_port": 443,
@@ -66,18 +41,13 @@
       }
     },
     {
-      "type": "vless",
-      "tag": "p00013",
-      "server": "platform103.golnamakcert.top",
-      "server_port": 80,
-      "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
-      "transport": {
-        "type": "ws",
-        "path": "/platform103",
-        "headers": {
-          "Host": "platform103.halalkhor.info"
-        }
-      }
+      "type": "vmess",
+      "tag": "p00009",
+      "server": "154.64.239.22",
+      "server_port": 26421,
+      "uuid": "9fa732d6-dcd6-47bb-c255-094bad71765d",
+      "security": "auto",
+      "alter_id": 0
     },
     {
       "type": "vmess",
@@ -128,22 +98,6 @@
       "uuid": "1a8ecc41-6e62-431b-8eca-87c2fa4dc286"
     },
     {
-      "type": "shadowsocks",
-      "tag": "p00043",
-      "server": "191.223.221.53",
-      "server_port": 8388,
-      "method": "aes-256-gcm",
-      "password": "JuD6MNgtX3nVpCzFzXYVYjDTZ7nsmaTv"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "p00045",
-      "server": "194.87.196.107",
-      "server_port": 18443,
-      "method": "aes-256-gcm",
-      "password": "Lpq5UPVHtQYiuB9jEUNc2WkeIYCUH9DE"
-    },
-    {
       "type": "vless",
       "tag": "p00062",
       "server": "13.140.56.100",
@@ -173,30 +127,6 @@
     },
     {
       "type": "vless",
-      "tag": "p00069",
-      "server": "36a466g.fi1.h1clayd.click",
-      "server_port": 443,
-      "uuid": "9a0e84f8-4b58-477f-99da-5fac5a2e58e8",
-      "tls": {
-        "enabled": true,
-        "server_name": "36a466g.fi1.h1clayd.click",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "random"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "pAgrBKJCmuSJHIzYkEJTqsOBOVBK_DMtEqFPo-PaTkg",
-          "short_id": "b3c9d0c6bdd114a6"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "0adb9638509b"
-      }
-    },
-    {
-      "type": "vless",
       "tag": "p00070",
       "server": "de1.balancer.vbuste-bot.com",
       "server_port": 443,
@@ -217,6 +147,47 @@
       }
     },
     {
+      "type": "vless",
+      "tag": "p00074",
+      "server": "de2.balancer.vbuste-bot.com",
+      "server_port": 443,
+      "uuid": "318c935d-c195-41d3-99ad-9bbcfdab3386",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "de2.balancer.vbuste-bot.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08",
+          "short_id": "4be4110078ebed4a"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "p00078",
+      "server": "node8.liudonghoe.com",
+      "server_port": 443,
+      "uuid": "47050e4e-965d-41ca-976d-73c1f11e6905",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "node8.liudonghoe.com"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/hoe8",
+        "headers": {
+          "Host": "node8.liudonghoe.com"
+        }
+      }
+    },
+    {
       "type": "vmess",
       "tag": "p00079",
       "server": "de-d21e56c13c.shamanapp.online",
@@ -230,47 +201,22 @@
       }
     },
     {
-      "type": "vless",
-      "tag": "p00082",
-      "server": "freede.aiage.work",
-      "server_port": 443,
-      "uuid": "6338c01a-310e-42c3-bf4f-2a20e161054b",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "freede.aiage.work",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "A_bQLZE6D32TJUdAf9doQTPaTUXyJjPXLSklplG4V1g",
-          "short_id": "57e7977c9011061c"
-        }
-      }
-    },
-    {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
         "p00000",
-        "p00005",
-        "p00007",
         "p00008",
-        "p00013",
+        "p00009",
         "p00015",
         "p00016",
         "p00018",
         "p00031",
-        "p00043",
-        "p00045",
         "p00062",
         "p00068",
-        "p00069",
         "p00070",
-        "p00079",
-        "p00082"
+        "p00074",
+        "p00078",
+        "p00079"
       ],
       "url": "https://www.youtube.com/generate_204",
       "interval": "1m",
