@@ -1,4 +1,4 @@
-﻿name: Проверка VPN-конфигов
+name: Проверка VPN-конфигов
 
 # Раз в 6 часов + возможность запустить вручную (в т.ч. из Telegram-бота).
 on:
@@ -48,13 +48,26 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Кэш sing-box
+        uses: actions/cache@v4
+        with:
+          path: /tmp/sing-box-cache
+          key: sing-box-${{ env.SING_BOX_VERSION }}
+
       - name: Установить sing-box
         run: |
           set -euo pipefail
-          url="https://github.com/SagerNet/sing-box/releases/download/v${SING_BOX_VERSION}/sing-box-${SING_BOX_VERSION}-linux-amd64.tar.gz"
-          curl -fsSL --retry 3 -o /tmp/sing-box.tar.gz "$url"
-          tar -xzf /tmp/sing-box.tar.gz -C /tmp
-          sudo install -m 0755 "/tmp/sing-box-${SING_BOX_VERSION}-linux-amd64/sing-box" /usr/local/bin/sing-box
+          mkdir -p /tmp/sing-box-cache
+          if [ -x /tmp/sing-box-cache/sing-box ]; then
+            echo "sing-box из кэша"
+            sudo install -m 0755 /tmp/sing-box-cache/sing-box /usr/local/bin/sing-box
+          else
+            url="https://github.com/SagerNet/sing-box/releases/download/v${SING_BOX_VERSION}/sing-box-${SING_BOX_VERSION}-linux-amd64.tar.gz"
+            curl -fsSL --retry 3 -o /tmp/sing-box.tar.gz "$url"
+            tar -xzf /tmp/sing-box.tar.gz -C /tmp
+            sudo install -m 0755 "/tmp/sing-box-${SING_BOX_VERSION}-linux-amd64/sing-box" /usr/local/bin/sing-box
+            cp /usr/local/bin/sing-box /tmp/sing-box-cache/sing-box
+          fi
           sing-box version
 
       - name: Тесты конвертера
