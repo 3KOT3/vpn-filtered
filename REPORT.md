@@ -1,6 +1,6 @@
 # Отфильтрованный список VPN-конфигов
 
-Обновлено: **2026-10-18T06:32:50Z** UTC (прогон занял 58 с)
+Обновлено: **2026-10-18T07:10:53Z** UTC (прогон занял 63 с)
 
 ## Что проверялось
 
@@ -19,69 +19,71 @@
 | Строк в источниках | 660 |
 | Разобрано в конфиги | 633 |
 | Уникальных | 633 |
-| Endpoint отвечает по TCP | 617 |
-| YouTube доступен | 322 |
-| + Telegram (HTTP) доступен | 289 |
-| + дата-центр Telegram доступен | 289 |
-| + скорость ≥ 3.0 Мбит/с | 187 |
-| **В итоговом списке** | **187** |
+| Endpoint отвечает по TCP | 598 |
+| YouTube доступен | 356 |
+| + Telegram (HTTP) доступен | 295 |
+| + дата-центр Telegram доступен | 295 |
+| + скорость ≥ 3.0 Мбит/с | 197 |
+| **В итоговом списке** | **197** |
 
 ## По протоколам
 
 | Протокол | В списке |
 | --- | ---: |
-| vless | 138 |
-| vmess | 44 |
+| vless | 148 |
+| vmess | 45 |
 | shadowsocks | 4 |
-| trojan | 1 |
 
 ## По странам
 
 | Страна | В списке |
 | --- | ---: |
-| US | 36 |
-| CA | 23 |
-| DE | 23 |
-| PL | 21 |
-| SG | 12 |
-| PH | 10 |
-| JP | 9 |
+| US | 29 |
+| SE | 23 |
+| CA | 22 |
+| PL | 20 |
+| DE | 19 |
+| SG | 13 |
+| LT | 12 |
+| JP | 10 |
 | NL | 8 |
-| GB | 7 |
-| LT | 6 |
-| FI | 5 |
-| HK | 3 |
+| HK | 4 |
+| IN | 4 |
+| FI | 3 |
 | EE | 3 |
-| FR | 3 |
-| CZ | 2 |
 | IT | 2 |
-| ?? | 2 |
+| LV | 2 |
+| CZ | 2 |
+| PH | 2 |
+| GB | 2 |
+| FR | 2 |
+| KR | 2 |
 | PA | 2 |
+| MY | 2 |
 | AT | 1 |
-| TR | 1 |
-| SE | 1 |
+| BY | 1 |
 | MD | 1 |
-| ID | 1 |
-| IN | 1 |
-| LV | 1 |
-| ES | 1 |
+| TR | 1 |
+| KH | 1 |
+| TW | 1 |
+| ?? | 1 |
 | AE | 1 |
-| KR | 1 |
+| ES | 1 |
 
 ## Самые быстрые
 
 | # | Имя | Протокол | Страна | Мбит/с | YouTube, мс | Telegram, мс |
 | ---: | --- | --- | --- | ---: | ---: | ---: |
-| 1 | 🇺🇸[openproxylist.com] vless-US | vless | US | 25.86 | 83 | 436 |
-| 2 | 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL] | vless | CA | 12.81 | 64 | 582 |
-| 3 | [🇨🇦] [vm-no-ra] [261018-025900.206] | vmess | CA | 12.04 | 114 | 359 |
-| 4 | 🇺🇸 United States, Phoenix | [BL] | vless | US | 11.90 | 111 | 370 |
-| 5 | 🇫🇮[openproxylist.com] vless-FI | vless | FI | 11.34 | 340 | 470 |
-| 6 | 🇺🇸[openproxylist.com] vless-US | vless | US | 11.02 | 280 | 604 |
-| 7 | 🇳🇱[openproxylist.com] ss-NL | shadowsocks | NL | 10.81 | 296 | 638 |
-| 8 | 🇩🇪[openproxylist.com] vless-DE | vless | DE | 10.80 | 330 | 359 |
-| 9 | 🇩🇪[openproxylist.com] vless-DE | vless | DE | 10.16 | 293 | 311 |
-| 10 | 🇦🇹[openproxylist.com] ss-AT | shadowsocks | AT | 10.14 | 327 | 358 |
+| 1 | 🇺🇸[openproxylist.com] vless-US | vless | US | 40.39 | 37 | 358 |
+| 2 | 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL] | vless | CA | 34.04 | 24 | 667 |
+| 3 | 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL] | vless | CA | 29.99 | 25 | 360 |
+| 4 | 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL] | vless | CA | 29.93 | 25 | 366 |
+| 5 | 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL] | vless | CA | 27.84 | 27 | 571 |
+| 6 | 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL] | vless | CA | 27.68 | 29 | 371 |
+| 7 | 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL] | vless | CA | 26.79 | 30 | 373 |
+| 8 | 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL] | vless | CA | 25.50 | 41 | 431 |
+| 9 | 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL] | vless | CA | 25.30 | 27 | 383 |
+| 10 | 🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL] | vless | CA | 25.20 | 40 | 393 |
 
 ## Что не удалось проверить
 
