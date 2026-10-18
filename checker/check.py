@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """Filter a VPN subscription down to the configs that really work.
 
 Pipeline
@@ -448,7 +448,7 @@ _INSTANCE_SEQ = itertools.count(1)
 
 def _delay_group(
     binary: str, workdir: str, group: list, cfg: dict, stage: str, url: str,
-    results: dict, stats: dict
+    results: dict, stats: dict, lock=None
 ) -> None:
     """Test one group of outbounds inside a single sing-box instance.
 
@@ -465,13 +465,17 @@ def _delay_group(
     except Exception as exc:  # noqa: BLE001
         instance.stop()
         if len(group) == 1:
-            stats["drops"] += 1
+            if lock is not None:
+                with lock:
+                    stats["drops"] += 1
+            else:
+                stats["drops"] += 1
             log(f"{stage}: dropping 1 config ({group[0]['name'][:36]!r}): {str(exc)[:110]}")
             return
         middle = len(group) // 2
         log(f"{stage}: group of {len(group)} would not start, splitting: {str(exc)[:90]}")
-        _delay_group(binary, workdir, group[:middle], cfg, stage, url, results, stats)
-        _delay_group(binary, workdir, group[middle:], cfg, stage, url, results, stats)
+        _delay_group(binary, workdir, group[:middle], cfg, stage, url, results, stats, lock)
+        _delay_group(binary, workdir, group[middle:], cfg, stage, url, results, stats, lock)
         return
 
     try:
@@ -495,31 +499,57 @@ def _delay_group(
 
 def proxy_stage(binary: str, workdir: str, candidates: list, cfg: dict, stage: str, url: str,
                 on_batch=None) -> dict:
-    """Run the delay probe for every candidate, in batches. Returns {tag: delay}."""
+    """Run the delay probe for every candidate, in batches. Returns {tag: delay}.
+
+    Батчи идут параллельно: каждый — отдельный sing-box-процесс, и пока один
+    батч ждёт ответов прокси, остальные уже работают. Это убирает главную
+    паузу в проверке — последовательное ожидание медленных батчей.
+    """
+    import threading
+
     results = {}
     stats = {"drops": 0}
+    lock = threading.Lock()
     batch_size = cfg["delay"]["batch_size"]
+    parallel = max(1, int(cfg["delay"].get("parallel_batches", 1)))
     budget = cfg["limits"].get("time_budget_sec", 0)
     drop_limit = max(25, int(0.05 * len(candidates)))
 
     batches = [candidates[i : i + batch_size] for i in range(0, len(candidates), batch_size)]
-    log(f"{stage}: {len(candidates)} proxies in {len(batches)} batches")
+    log(f"{stage}: {len(candidates)} proxies in {len(batches)} batches (параллельно x{parallel})")
 
-    for index, batch in enumerate(batches, 1):
+    completed = [0]
+
+    def run_one(index, batch):
         if budget and time.time() - _START > budget:
-            log(f"{stage}: time budget exhausted after batch {index - 1}")
-            break
+            return
         before = len(results)
-        _delay_group(binary, workdir, batch, cfg, stage, url, results, stats)
-        log(f"{stage}: batch {index}/{len(batches)} -> +{len(results) - before}, total {len(results)}")
+        _delay_group(binary, workdir, batch, cfg, stage, url, results, stats, lock)
+        with lock:
+            completed[0] += 1
+            drops = stats["drops"]
+        log(
+            f"{stage}: batch {index}/{len(batches)} -> +{len(results) - before}, "
+            f"total {len(results)}"
+        )
         if on_batch:
-            on_batch(index, len(batches), len(results))
-        if stats["drops"] > drop_limit:
+            on_batch(completed[0], len(batches), len(results))
+        if drops > drop_limit:
             raise RuntimeError(
-                f"{stage}: {stats['drops']} конфигов подряд не дали sing-box стартовать "
+                f"{stage}: {drops} конфигов подряд не дали sing-box стартовать "
                 f"(порог {drop_limit}) — это похоже на системную проблему, а не на битые "
                 f"конфиги. Прогон остановлен, чтобы не молотить впустую."
             )
+
+    if parallel > 1 and len(batches) > 1:
+        workers = min(parallel, len(batches))
+        with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
+            futures = [pool.submit(run_one, i, batch) for i, batch in enumerate(batches, 1)]
+            for future in concurrent.futures.as_completed(futures):
+                future.result()  # прокидывает RuntimeError при превышении порога
+    else:
+        for index, batch in enumerate(batches, 1):
+            run_one(index, batch)
 
     return results
 
@@ -588,7 +618,8 @@ def build_group_config(group: list, ports: list) -> dict:
     return config
 
 
-def run_group(binary, workdir, name, group, worker, results, stats, max_workers=None) -> None:
+def run_group(binary, workdir, name, group, worker, results, stats, max_workers=None,
+              lock=None) -> None:
     """Run `worker(port, candidate)` for every config through its own local port.
 
     A single malformed config makes sing-box refuse to start, which would kill the
@@ -604,13 +635,17 @@ def run_group(binary, workdir, name, group, worker, results, stats, max_workers=
     except Exception as exc:  # noqa: BLE001
         instance.stop()
         if len(group) == 1:
-            stats["drops"] += 1
+            if lock is not None:
+                with lock:
+                    stats["drops"] += 1
+            else:
+                stats["drops"] += 1
             log(f"{name}: dropping 1 config ({group[0]['name'][:36]!r}): {str(exc)[:110]}")
             return
         middle = len(group) // 2
         log(f"{name}: group of {len(group)} would not start, splitting: {str(exc)[:90]}")
-        run_group(binary, workdir, name, group[:middle], worker, results, stats, max_workers)
-        run_group(binary, workdir, name, group[middle:], worker, results, stats, max_workers)
+        run_group(binary, workdir, name, group[:middle], worker, results, stats, max_workers, lock)
+        run_group(binary, workdir, name, group[middle:], worker, results, stats, max_workers, lock)
         return
 
     try:
@@ -632,29 +667,48 @@ def run_group(binary, workdir, name, group, worker, results, stats, max_workers=
 
 
 def run_group_stage(binary, workdir, name, candidates, cfg, worker, concurrency) -> dict:
-    """Split the list into chunks and run `run_group` over each of them."""
+    """Split the list into chunks and run `run_group` over each of them.
+
+    Чанки идут параллельно (каждый — свой sing-box-процесс), как и батчи в
+    `proxy_stage`: медленный чанк не держит остальные.
+    """
+    import threading
+
     budget = cfg["limits"].get("time_budget_sec", 0)
+    parallel = max(1, int(cfg["limits"].get("parallel_groups", 1)))
     results = {}
     stats = {"drops": 0}
+    lock = threading.Lock()
     drop_limit = max(25, int(0.05 * len(candidates)))
     chunks = [candidates[i : i + concurrency] for i in range(0, len(candidates), concurrency)]
-    log(f"{name}: {len(candidates)} proxies in {len(chunks)} chunks")
+    log(f"{name}: {len(candidates)} proxies in {len(chunks)} chunks (параллельно x{parallel})")
 
-    for index, chunk in enumerate(chunks, 1):
+    def run_one(index, chunk):
         if budget and time.time() - _START > budget:
-            log(f"{name}: time budget exhausted after chunk {index - 1}")
-            break
+            return
         before = len(results)
-        run_group(binary, workdir, name, chunk, worker, results, stats, concurrency)
+        run_group(binary, workdir, name, chunk, worker, results, stats, concurrency, lock)
+        with lock:
+            drops = stats["drops"]
         log(
             f"{name}: chunk {index}/{len(chunks)} -> +{len(results) - before}, "
             f"total {len(results)}"
         )
-        if stats["drops"] > drop_limit:
+        if drops > drop_limit:
             raise RuntimeError(
-                f"{name}: {stats['drops']} конфигов подряд не дали sing-box стартовать "
+                f"{name}: {drops} конфигов подряд не дали sing-box стартовать "
                 f"(порог {drop_limit}) — похоже на системную проблему. Прогон остановлен."
             )
+
+    if parallel > 1 and len(chunks) > 1:
+        workers = min(parallel, len(chunks))
+        with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
+            futures = [pool.submit(run_one, i, chunk) for i, chunk in enumerate(chunks, 1)]
+            for future in concurrent.futures.as_completed(futures):
+                future.result()  # прокидывает RuntimeError при превышении порога
+    else:
+        for index, chunk in enumerate(chunks, 1):
+            run_one(index, chunk)
     return results
 
 
