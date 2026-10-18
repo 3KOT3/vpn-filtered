@@ -829,14 +829,44 @@ def to_clash(item: dict):
     return proxy
 
 
+def _yaml_scalar(value) -> str:
+    """Скаляр для YAML: числа и булевы как есть, строки — в кавычках."""
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    if isinstance(value, (int, float)):
+        return str(value)
+    # JSON-строка — валидный YAML-скаляр в двойных кавычках
+    return json.dumps(str(value), ensure_ascii=False)
+
+
+def _yaml_lines(key: str, value, indent: int) -> list:
+    """Блочное представление `key: value` с отступами (для вложенных dict/list)."""
+    pad = " " * indent
+    if isinstance(value, dict):
+        lines = [f"{pad}{key}:"]
+        for sub_key, sub_value in value.items():
+            lines += _yaml_lines(sub_key, sub_value, indent + 2)
+        return lines
+    if isinstance(value, list):
+        lines = [f"{pad}{key}:"]
+        for item in value:
+            lines.append(f"{pad}  - {_yaml_scalar(item)}")
+        return lines
+    return [f"{pad}{key}: {_yaml_scalar(value)}"]
+
+
 def build_clash_config(kept: list, cfg: dict) -> str:
-    """Clash/Mihomo YAML с группой автоматического выбора сервера."""
+    """Clash (Mihomo/Clash.Meta) YAML с группой автоматического выбора.
+
+    Формат строго стандартный: первая строка `port:`, обычный блочный YAML
+    вместо JSON-вставок и имя группы ASCII. Именно так выглядит конфиг, который
+    Hiddify распознаёт как Clash (у него внутри форк Clash.Meta).
+    """
     proxies = [p for p in (to_clash(item) for item in kept) if p]
     names = [p["name"] for p in proxies]
     lines = [
-        "# Список проверенных серверов с автоматическим выбором",
-        f"# собрано: {len(proxies)} серверов",
-        "mixed-port: 7890",
+        "port: 7890",
+        "socks-port: 7891",
         "allow-lan: false",
         "mode: rule",
         "log-level: warning",
@@ -844,20 +874,28 @@ def build_clash_config(kept: list, cfg: dict) -> str:
         "proxies:",
     ]
     for proxy in proxies:
-        lines.append("  - " + json.dumps(proxy, ensure_ascii=False))
+        lines.append(f"  - name: {_yaml_scalar(proxy['name'])}")
+        for key, value in proxy.items():
+            if key == "name":
+                continue
+            lines += _yaml_lines(key, value, 4)
+
     lines += [
         "",
         "proxy-groups:",
-        "  - name: \"Авто\"",
+        "  - name: Auto",
         "    type: url-test",
         f"    url: {cfg['youtube']['url']}",
         "    interval: 60",
         "    tolerance: 80",
-        "    lazy: false",
-        "    proxies: [" + ", ".join(json.dumps(n, ensure_ascii=False) for n in names) + "]",
+        "    proxies:",
+    ]
+    for name in names:
+        lines.append(f"      - {_yaml_scalar(name)}")
+    lines += [
         "",
         "rules:",
-        "  - MATCH,Авто",
+        "  - MATCH,Auto",
         "",
     ]
     return "\n".join(lines)
@@ -882,6 +920,11 @@ def write_pool_outputs(cfg: dict, out_dir: str, pool: list) -> None:
     with open(auto_path, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(build_auto_config(pool, cfg), fh, ensure_ascii=False, indent=2)
         fh.write("\n")
+
+    # тот же пул в Clash-формате — его принимает Hiddify
+    clash_path = os.path.join(out_dir, "pool.yaml")
+    with open(clash_path, "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(build_clash_config(pool, cfg))
 
     log(f"pool: {len(pool)} серверов в живом пуле (YouTube+Telegram+DC, без порога скорости)")
 
