@@ -1084,6 +1084,20 @@ def write_history(out_dir: str, status: dict, kept: list) -> None:
         fh.write("\n")
     log(f"history: {len(history)} прогонов в истории источников")
 
+def is_universal(item: dict) -> bool:
+    """Поймёт ли конфиг обычный клиент без поддержки Reality.
+
+    VLESS + Reality умеют sing-box, Hiddify, NekoBox — но не v2Box и часть
+    простых клиентов: у них такой конфиг просто уходит в таймаут. Для них
+    собирается отдельный список без Reality.
+    """
+    outbound = item.get("outbound") or {}
+    if outbound.get("type") == "vless":
+        tls = outbound.get("tls") or {}
+        if (tls.get("reality") or {}).get("public_key"):
+            return False
+    return True
+
 def write_pool_outputs(cfg: dict, out_dir: str, pool: list) -> None:
     """Живой пул: все, кто прошёл YouTube + Telegram + дата-центр.
 
@@ -1121,6 +1135,17 @@ def write_outputs(cfg: dict, out_dir: str, kept: list, stats: dict, status: dict
     with open(plain_path, "w", encoding="utf-8", newline="\n") as fh:
         for item in kept:
             fh.write(item["uri"] + "\n")
+
+    # список для клиентов без Reality (v2Box, простые v2rayNG и т.п.)
+    universal = [item for item in kept if is_universal(item)]
+    universal_path = os.path.join(out_dir, out_cfg.get("universal", "universal.txt"))
+    with open(universal_path, "w", encoding="utf-8", newline="\n") as fh:
+        for item in universal:
+            fh.write(item["uri"] + "\n")
+    log(
+        f"universal: {len(universal)} из {len(kept)} без Reality "
+        f"(для v2Box и клиентов без поддержки Reality)"
+    )
 
     b64_path = os.path.join(out_dir, out_cfg["base64"])
     payload = "\n".join(item["uri"] for item in kept) + "\n"
