@@ -1,29 +1,130 @@
-# Список проверенных серверов с автоматическим выбором
-# собрано: 9 серверов
-mixed-port: 7890
+port: 7890
+socks-port: 7891
 allow-lan: false
 mode: rule
 log-level: warning
 
 proxies:
-  - {"name": "p00033", "server": "uk2-2.998998.best", "port": 443, "udp": true, "type": "vmess", "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627", "alterId": 0, "cipher": "auto", "tls": true, "servername": "server3.9966338.xyz", "network": "ws", "ws-opts": {"path": "/waetasiuofguiwer", "headers": {"Host": "server3.9966338.xyz"}}}
-  - {"name": "p00274", "server": "us5-1.998998.best", "port": 443, "udp": true, "type": "vmess", "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627", "alterId": 0, "cipher": "auto", "tls": true, "servername": "server4.9966338.xyz", "network": "ws", "ws-opts": {"path": "/androirfdsreoightrjh", "headers": {"Host": "server4.9966338.xyz"}}}
-  - {"name": "p00271", "server": "172.66.203.67", "port": 443, "udp": true, "type": "vmess", "uuid": "0cf6d970-3f1d-4aae-a989-92a8f76ae3db", "alterId": 0, "cipher": "auto", "tls": true, "servername": "vmess.lbw666.dpdns.org", "network": "ws", "ws-opts": {"path": "/ws", "headers": {"Host": "vmess.lbw666.dpdns.org"}}}
-  - {"name": "p00276", "server": "cf.0sm.com", "port": 443, "udp": true, "type": "vmess", "uuid": "0cf6d970-3f1d-4aae-a989-92a8f76ae3db", "alterId": 0, "cipher": "auto", "tls": true, "servername": "vmess.lbw666.dpdns.org", "network": "ws", "ws-opts": {"path": "/ws", "headers": {"Host": "vmess.lbw666.dpdns.org"}}}
-  - {"name": "p00272", "server": "us16-4.998998.best", "port": 443, "udp": true, "type": "vmess", "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627", "alterId": 0, "cipher": "auto", "tls": true, "servername": "server1.9966338.xyz", "network": "ws", "ws-opts": {"path": "/efrsdioy98wert", "headers": {"Host": "server1.9966338.xyz"}}}
-  - {"name": "p00038", "server": "eu3.998998.best", "port": 443, "udp": true, "type": "vmess", "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627", "alterId": 0, "cipher": "auto", "tls": true, "servername": "server40.9966338.xyz", "network": "ws", "ws-opts": {"path": "/aiaiai", "headers": {"Host": "server40.9966338.xyz"}}}
-  - {"name": "p00037", "server": "eu3.998998.best", "port": 443, "udp": true, "type": "vmess", "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627", "alterId": 0, "cipher": "auto", "tls": true, "servername": "server40.9966338.xyz", "network": "ws", "ws-opts": {"path": "/aiaiai", "headers": {"Host": "server40.9966338.xyz"}}}
-  - {"name": "p00066", "server": "172.67.137.209", "port": 443, "udp": true, "type": "vmess", "uuid": "f5f0babe-aea2-4f07-a1fc-3c9820253f49", "alterId": 0, "cipher": "auto", "tls": true, "servername": "ukl.lovehk.xyz", "network": "ws", "ws-opts": {"path": "/London31", "headers": {"Host": "ukl.lovehk.xyz"}}}
-  - {"name": "p00069", "server": "172.67.137.209", "port": 443, "udp": true, "type": "vmess", "uuid": "f5f0babe-aea2-4f07-a1fc-3c9820253f49", "alterId": 0, "cipher": "auto", "tls": true, "servername": "ukl.lovehk.xyz", "network": "ws", "ws-opts": {"path": "/London31", "headers": {"Host": "ukl.lovehk.xyz"}}}
+  - name: "p00033"
+    server: "uk2-2.998998.best"
+    port: 443
+    udp: true
+    type: "vmess"
+    uuid: "5504eaa8-1395-402f-8e0e-75ecd762e627"
+    alterId: 0
+    cipher: "auto"
+    tls: true
+    servername: "server3.9966338.xyz"
+    network: "ws"
+    ws-opts:
+      path: "/waetasiuofguiwer"
+      headers:
+        Host: "server3.9966338.xyz"
+  - name: "p00097"
+    server: "yg1.ygkkk.dpdns.org"
+    port: 443
+    udp: true
+    type: "vmess"
+    uuid: "b2ba4a73-3123-479e-aa96-5973a9ecd0c0"
+    alterId: 0
+    cipher: "auto"
+    tls: true
+    servername: "jmp1.907737.xyz"
+    network: "ws"
+    ws-opts:
+      path: "/b2ba4a73-3123-479e-aa96-5973a9ecd0c0-vm"
+      headers:
+        Host: "jmp1.907737.xyz"
+  - name: "p00271"
+    server: "172.66.203.67"
+    port: 443
+    udp: true
+    type: "vmess"
+    uuid: "0cf6d970-3f1d-4aae-a989-92a8f76ae3db"
+    alterId: 0
+    cipher: "auto"
+    tls: true
+    servername: "vmess.lbw666.dpdns.org"
+    network: "ws"
+    ws-opts:
+      path: "/ws"
+      headers:
+        Host: "vmess.lbw666.dpdns.org"
+  - name: "p00038"
+    server: "eu3.998998.best"
+    port: 443
+    udp: true
+    type: "vmess"
+    uuid: "5504eaa8-1395-402f-8e0e-75ecd762e627"
+    alterId: 0
+    cipher: "auto"
+    tls: true
+    servername: "server40.9966338.xyz"
+    network: "ws"
+    ws-opts:
+      path: "/aiaiai"
+      headers:
+        Host: "server40.9966338.xyz"
+  - name: "p00276"
+    server: "cf.0sm.com"
+    port: 443
+    udp: true
+    type: "vmess"
+    uuid: "0cf6d970-3f1d-4aae-a989-92a8f76ae3db"
+    alterId: 0
+    cipher: "auto"
+    tls: true
+    servername: "vmess.lbw666.dpdns.org"
+    network: "ws"
+    ws-opts:
+      path: "/ws"
+      headers:
+        Host: "vmess.lbw666.dpdns.org"
+  - name: "p00069"
+    server: "172.67.137.209"
+    port: 443
+    udp: true
+    type: "vmess"
+    uuid: "f5f0babe-aea2-4f07-a1fc-3c9820253f49"
+    alterId: 0
+    cipher: "auto"
+    tls: true
+    servername: "ukl.lovehk.xyz"
+    network: "ws"
+    ws-opts:
+      path: "/London31"
+      headers:
+        Host: "ukl.lovehk.xyz"
+  - name: "p00066"
+    server: "172.67.137.209"
+    port: 443
+    udp: true
+    type: "vmess"
+    uuid: "f5f0babe-aea2-4f07-a1fc-3c9820253f49"
+    alterId: 0
+    cipher: "auto"
+    tls: true
+    servername: "ukl.lovehk.xyz"
+    network: "ws"
+    ws-opts:
+      path: "/London31"
+      headers:
+        Host: "ukl.lovehk.xyz"
 
 proxy-groups:
-  - name: "Авто"
+  - name: Auto
     type: url-test
     url: https://www.youtube.com/generate_204
     interval: 60
     tolerance: 80
-    lazy: false
-    proxies: ["p00033", "p00274", "p00271", "p00276", "p00272", "p00038", "p00037", "p00066", "p00069"]
+    proxies:
+      - "p00033"
+      - "p00097"
+      - "p00271"
+      - "p00038"
+      - "p00276"
+      - "p00069"
+      - "p00066"
 
 rules:
-  - MATCH,Авто
+  - MATCH,Auto
