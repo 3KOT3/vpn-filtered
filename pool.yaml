@@ -17,31 +17,32 @@ proxies:
       public-key: "jOVKSP-bS9OkILJ8Epz8hadh6qhavCrOiJYeF0NCn0k"
       short-id: "a73f0410d728c823"
     client-fingerprint: "firefox"
-  - name: "p00002"
-    server: "lv.aiage.work"
+  - name: "p00001"
+    server: "jp4.998998.best"
+    port: 443
+    udp: true
+    type: "vmess"
+    uuid: "5504eaa8-1395-402f-8e0e-75ecd762e627"
+    alterId: 0
+    cipher: "auto"
+    tls: true
+    servername: "nat12.9966338.xyz"
+    network: "ws"
+    ws-opts:
+      path: "/vvvvvvvvv"
+      headers:
+        Host: "nat12.9966338.xyz"
+  - name: "p00004"
+    server: "revers.bachidze.com"
     port: 443
     udp: true
     type: "vless"
-    uuid: "6338c01a-310e-42c3-bf4f-2a20e161054b"
+    uuid: "8a9c586c-4b2c-49e5-9e78-97408bf58500"
     flow: "xtls-rprx-vision"
     tls: true
-    servername: "lv.aiage.work"
+    servername: "poland.travel"
     reality-opts:
-      public-key: "ds-U8G06uZvV9qFhAeO16dwS9Nkcw_coYr_4puEUGFg"
-      short-id: "3c6afdc4124d0560"
-    client-fingerprint: "chrome"
-  - name: "p00003"
-    server: "77.110.105.122"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "019fbe0f-2d9f-4b89-9f81-e1e36129892a"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "co-de.speedtec.ru"
-    reality-opts:
-      public-key: "EBISh6QAVskJ_nvet-Qio9jS2yqxe9de6GMScYlbjhI"
-      short-id: "226509f017e4c36d"
+      public-key: "TIKEWdxQBblFGWMQmQWserNef8P1rqJCfCLLi-KB32s"
     client-fingerprint: "chrome"
   - name: "p00006"
     server: "platform101.golnamakcert.top"
@@ -63,21 +64,6 @@ proxies:
     network: "ws"
     ws-opts:
       path: "/platform107"
-  - name: "p00008"
-    server: "172.67.195.146"
-    port: 443
-    udp: true
-    type: "vmess"
-    uuid: "f5f0babe-aea2-4f07-a1fc-3c9820253f49"
-    alterId: 0
-    cipher: "auto"
-    tls: true
-    servername: "aus.lovehk.xyz"
-    network: "ws"
-    ws-opts:
-      path: "/Sydney3"
-      headers:
-        Host: "aus.lovehk.xyz"
   - name: "p00009"
     server: "platform109.golnamakcert.top"
     port: 80
@@ -155,6 +141,18 @@ proxies:
     network: "ws"
     ws-opts:
       path: "/vmess-ws"
+  - name: "p00019"
+    server: "46.101.110.34"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "humanity"
+    sni: "www.volumeroot.com"
+    network: "ws"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.volumeroot.com"
   - name: "p00020"
     server: "platform118.golnamakcert.top"
     port: 80
@@ -244,18 +242,6 @@ proxies:
     type: "ss"
     cipher: "aes-256-gcm"
     password: "I6o9NnialYLMEjVt28RF4dpjmr9wMvNL"
-  - name: "p00031"
-    server: "57.128.179.254"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "humanity"
-    sni: "www.volumeroot.com"
-    network: "ws"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.volumeroot.com"
   - name: "p00032"
     server: "31.59.210.26"
     port: 2088
@@ -271,6 +257,12 @@ proxies:
     network: "grpc"
     grpc-opts:
       grpc-service-name: "astracat"
+  - name: "p00033"
+    server: "edge10.cyrionflare.com"
+    port: 2052
+    udp: true
+    type: "vless"
+    uuid: "1a8ecc41-6e62-431b-8eca-87c2fa4dc286"
   - name: "p00034"
     server: "104.21.23.80"
     port: 443
@@ -341,6 +333,13 @@ proxies:
     type: "ss"
     cipher: "aes-128-gcm"
     password: "6163d9d532e40f417dd8ebb5f9716495"
+  - name: "p00043"
+    server: "191.223.221.53"
+    port: 8388
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "JuD6MNgtX3nVpCzFzXYVYjDTZ7nsmaTv"
   - name: "p00044"
     server: "sw.golangwikito.cfd"
     port: 443
@@ -385,6 +384,12 @@ proxies:
       path: "/vless"
       headers:
         Host: "5.253.29.254"
+  - name: "p00048"
+    server: "45.138.100.248"
+    port: 10443
+    udp: true
+    type: "vless"
+    uuid: "ae908ff5-f749-402c-af25-e6e9aef4d6bb"
   - name: "p00049"
     server: "84.32.109.20"
     port: 443
@@ -412,20 +417,6 @@ proxies:
     network: "grpc"
     grpc-opts:
       grpc-service-name: "GunService"
-  - name: "p00053"
-    server: "nl5.hap-plus.ru"
-    port: 8443
-    udp: true
-    type: "vless"
-    uuid: "05d7a479-a099-40cf-aecf-41aa934767b0"
-    tls: true
-    servername: "nl5.hap-plus.ru"
-    client-fingerprint: "chrome"
-    network: "ws"
-    ws-opts:
-      path: "/api/v1/events"
-      headers:
-        Host: "nl5.hap-plus.ru"
   - name: "p00054"
     server: "39.109.110.80"
     port: 27916
@@ -452,17 +443,6 @@ proxies:
       public-key: "0i_xAxYgSNx5NMpK2lOaWGS-CvAiD_LneYPO0MF0owo"
       short-id: "1a"
     client-fingerprint: "ios"
-  - name: "p00056"
-    server: "hinet1.2yly.com"
-    port: 24215
-    udp: true
-    type: "vless"
-    uuid: "19d5a678-8396-4e3b-93da-ece618d0e83a"
-    tls: true
-    servername: "addons.mozilla.org"
-    reality-opts:
-      public-key: "mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE"
-    client-fingerprint: "chrome"
   - name: "p00057"
     server: "188.114.98.0"
     port: 443
@@ -512,6 +492,17 @@ proxies:
       path: "/vless"
       headers:
         Host: "5.178.109.174"
+  - name: "p00061"
+    server: "193.188.21.253"
+    port: 14430
+    udp: true
+    type: "vless"
+    uuid: "57f7772d-f5d6-4d8f-992d-5fa5e0d6da55"
+    network: "ws"
+    ws-opts:
+      path: "/vless"
+      headers:
+        Host: "193.188.21.253"
   - name: "p00062"
     server: "45.144.234.157"
     port: 14430
@@ -534,6 +525,17 @@ proxies:
       path: "/vless"
       headers:
         Host: "185.253.116.33"
+  - name: "p00064"
+    server: "95.174.68.188"
+    port: 14430
+    udp: true
+    type: "vless"
+    uuid: "965ffbbe-c6b6-4d5f-8dea-6d8abc55d9c0"
+    network: "ws"
+    ws-opts:
+      path: "/vless"
+      headers:
+        Host: "95.174.68.188"
   - name: "p00065"
     server: "152.233.71.81"
     port: 443
@@ -677,18 +679,6 @@ proxies:
       path: "/hokm"
       headers:
         Host: "fert6.localip.ir"
-  - name: "p00082"
-    server: "219.76.13.177"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "humanity"
-    sni: "www.volumeroot.com"
-    network: "ws"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.volumeroot.com"
   - name: "p00083"
     server: "219.76.13.177"
     port: 443
@@ -701,6 +691,18 @@ proxies:
       path: "/assignment"
       headers:
         Host: "www.pleadcourt.org"
+  - name: "p00084"
+    server: "209.38.99.120"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "humanity"
+    sni: "www.volumeroot.com"
+    network: "ws"
+    ws-opts:
+      path: "/assignment"
+      headers:
+        Host: "www.volumeroot.com"
   - name: "p00088"
     server: "31.57.190.34"
     port: 443
@@ -751,21 +753,6 @@ proxies:
       public-key: "09XPceP705hC-5sEDXDSLeL2eMOrF-mFISK8JaJ7q2g"
       short-id: "ac3342a709db"
     client-fingerprint: "chrome"
-  - name: "p00093"
-    server: "144.31.238.115"
-    port: 2443
-    udp: true
-    type: "vless"
-    uuid: "b8df3f50-ffef-4c7e-9ef3-d5b156a47c02"
-    tls: true
-    servername: "api-maps.yandex.ru"
-    reality-opts:
-      public-key: "rRg3JiP2006ldJYh2TDPAn7dtlXLcSHdgHgkGI_HZTE"
-      short-id: "ef567890"
-    client-fingerprint: "random"
-    network: "grpc"
-    grpc-opts:
-      grpc-service-name: "grpc"
   - name: "p00094"
     server: "144.31.101.196"
     port: 33891
@@ -786,19 +773,6 @@ proxies:
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00097"
-    server: "154.29.149.140"
-    port: 41705
-    udp: true
-    type: "vless"
-    uuid: "57beeeb0-03fc-4fc9-94da-7604488a7134"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "us1p1.xn--ghq880n3na965a.com"
-    reality-opts:
-      public-key: "KfOrtENkHAXDFlsCluw6fv62Q-WuJXCKI98XZihtemA"
-      short-id: "e51285e3"
-    client-fingerprint: "firefox"
   - name: "p00098"
     server: "tk1.high-speed-test-56424.me"
     port: 443
@@ -812,26 +786,35 @@ proxies:
       public-key: "p8VhFzvFOBAhWAEAeWmwDxT3xBSRsGYixqi0qnLFnBM"
       short-id: "21270a66"
     client-fingerprint: "chrome"
-  - name: "p00100"
-    server: "t14.qifei.app"
-    port: 443
+  - name: "p00099"
+    server: "153.80.241.206"
+    port: 8444
     udp: true
     type: "vless"
-    uuid: "b98d4c6e-6770-4a31-8256-a4750cdea0e7"
-    flow: "xtls-rprx-vision"
+    uuid: "f55e9aba-7b14-4f6f-b59a-d5b3d45c9309"
     tls: true
-    servername: "www.amazon.com"
+    servername: "github.com"
     reality-opts:
-      public-key: "0i_xAxYgSNx5NMpK2lOaWGS-CvAiD_LneYPO0MF0owo"
-      short-id: "1a"
+      public-key: "FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0"
     client-fingerprint: "chrome"
-  - name: "p00101"
-    server: "simple-molly.rooster465.autos"
-    port: 443
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "GunService"
+  - name: "p00102"
+    server: "185.200.199.199"
+    port: 8444
     udp: true
-    type: "trojan"
-    password: "UX82473651"
-    sni: "simple-molly.rooster465.autos"
+    type: "vless"
+    uuid: "f55e9aba-7b14-4f6f-b59a-d5b3d45c9309"
+    tls: true
+    servername: "github.com"
+    reality-opts:
+      public-key: "FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0"
+      short-id: "457fab2ac885dbe0"
+    client-fingerprint: "chrome"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "GunService"
   - name: "p00103"
     server: "177.1.192.81"
     port: 443
@@ -845,6 +828,13 @@ proxies:
       public-key: "JNr60Nnq_sdeAz5jd25bxNDx_c9CeYLu7DRbQH3P5xk"
       short-id: "85766a81"
     client-fingerprint: "chrome"
+  - name: "p00105"
+    server: "moral-basilisk.rooster465.autos"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "UX82473651"
+    sni: "moral-basilisk.rooster465.autos"
   - name: "p00106"
     server: "brave-tomcat.rooster465.autos"
     port: 443
@@ -852,6 +842,20 @@ proxies:
     type: "trojan"
     password: "UX82473651"
     sni: "brave-tomcat.rooster465.autos"
+  - name: "p00108"
+    server: "musical-mouse.rooster465.autos"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "UX82473651"
+    sni: "musical-mouse.rooster465.autos"
+  - name: "p00109"
+    server: "pure-kodiak.rooster465.autos"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "UX82473651"
+    sni: "pure-kodiak.rooster465.autos"
   - name: "p00111"
     server: "82.38.31.171"
     port: 8080
@@ -878,13 +882,6 @@ proxies:
       public-key: "4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM"
       short-id: "d368b94e275ab080"
     client-fingerprint: "chrome"
-  - name: "p00115"
-    server: "57.129.113.16"
-    port: 8388
-    udp: true
-    type: "ss"
-    cipher: "chacha20-ietf-poly1305"
-    password: "NcAXc0UZI6yQJE1p8QmOv8"
   - name: "p00116"
     server: "2.26.225.89"
     port: 8443
@@ -899,19 +896,6 @@ proxies:
     udp: true
     type: "vless"
     uuid: "ad263f1c-199e-4aaf-bf22-c3ad0407d377"
-  - name: "p00118"
-    server: "31.76.35.27"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "4d852af3-a121-41aa-9aed-4ca40a6f7b4d"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "addons.mozilla.org"
-    reality-opts:
-      public-key: "P-r-oVr8MTTCILgRxk8YuB9OKVojYw3MkH_ERUXzX3s"
-      short-id: "b76a6309"
-    client-fingerprint: "chrome"
   - name: "p00119"
     server: "103.172.197.2"
     port: 29172
@@ -1010,6 +994,26 @@ proxies:
       public-key: "-bn-69fLm8-ZIN4AWcFJTvliohVXnevdOK6E0HJF90Y"
       short-id: "123c2bff"
     client-fingerprint: "randomized"
+  - name: "p00131"
+    server: "inviting-ferret.rooster465.autos"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "UX82473651"
+    sni: "inviting-ferret.rooster465.autos"
+  - name: "p00132"
+    server: "179.61.145.245"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "318c935d-c195-41d3-99ad-9bbcfdab3386"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "de2.srv.vbuste.ru"
+    reality-opts:
+      public-key: "0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08"
+      short-id: "4be4110078ebed4a"
+    client-fingerprint: "chrome"
   - name: "p00133"
     server: "157.228.128.59"
     port: 443
@@ -1036,6 +1040,26 @@ proxies:
       public-key: "RTG-xTU5UuKTRrkk8_COe04GiUWrqrSdt9mqSak_XEc"
       short-id: "e696e744"
     client-fingerprint: "randomized"
+  - name: "p00136"
+    server: "104.243.33.154"
+    port: 45299
+    udp: true
+    type: "vless"
+    uuid: "261f011c-e97a-4d72-b596-e6329b50b47b"
+  - name: "p00137"
+    server: "82.38.31.159"
+    port: 443
+    udp: true
+    type: "ss"
+    cipher: "chacha20-ietf-poly1305"
+    password: "oZIoA69Q8yhcQV8ka3Pa3A"
+  - name: "p00139"
+    server: "64.74.163.69"
+    port: 18766
+    udp: true
+    type: "ss"
+    cipher: "aes-128-gcm"
+    password: "4efe1af272e7292139b889f6a63ee071"
 
 proxy-groups:
   - name: Auto
@@ -1045,11 +1069,10 @@ proxy-groups:
     tolerance: 80
     proxies:
       - "p00000"
-      - "p00002"
-      - "p00003"
+      - "p00001"
+      - "p00004"
       - "p00006"
       - "p00007"
-      - "p00008"
       - "p00009"
       - "p00011"
       - "p00012"
@@ -1057,6 +1080,7 @@ proxy-groups:
       - "p00014"
       - "p00015"
       - "p00016"
+      - "p00019"
       - "p00020"
       - "p00022"
       - "p00023"
@@ -1065,30 +1089,32 @@ proxy-groups:
       - "p00026"
       - "p00028"
       - "p00029"
-      - "p00031"
       - "p00032"
+      - "p00033"
       - "p00034"
       - "p00036"
       - "p00038"
       - "p00039"
       - "p00040"
       - "p00041"
+      - "p00043"
       - "p00044"
       - "p00045"
       - "p00046"
       - "p00047"
+      - "p00048"
       - "p00049"
       - "p00052"
-      - "p00053"
       - "p00054"
       - "p00055"
-      - "p00056"
       - "p00057"
       - "p00058"
       - "p00059"
       - "p00060"
+      - "p00061"
       - "p00062"
       - "p00063"
+      - "p00064"
       - "p00065"
       - "p00066"
       - "p00070"
@@ -1100,28 +1126,27 @@ proxy-groups:
       - "p00077"
       - "p00078"
       - "p00080"
-      - "p00082"
       - "p00083"
+      - "p00084"
       - "p00088"
       - "p00089"
       - "p00091"
       - "p00092"
-      - "p00093"
       - "p00094"
       - "p00095"
-      - "p00097"
       - "p00098"
-      - "p00100"
-      - "p00101"
+      - "p00099"
+      - "p00102"
       - "p00103"
+      - "p00105"
       - "p00106"
+      - "p00108"
+      - "p00109"
       - "p00111"
       - "p00112"
       - "p00114"
-      - "p00115"
       - "p00116"
       - "p00117"
-      - "p00118"
       - "p00119"
       - "p00121"
       - "p00122"
@@ -1130,8 +1155,13 @@ proxy-groups:
       - "p00126"
       - "p00128"
       - "p00129"
+      - "p00131"
+      - "p00132"
       - "p00133"
       - "p00135"
+      - "p00136"
+      - "p00137"
+      - "p00139"
 
 rules:
   - MATCH,Auto
