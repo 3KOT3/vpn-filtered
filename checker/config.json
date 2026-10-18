@@ -41,13 +41,13 @@
   },
   "speed": {
     "url": "https://dl.google.com/android/repository/platform-tools-latest-windows.zip",
-    "request_bytes": 3145728,
+    "request_bytes": 2097152,
     "min_mbps": 2.0,
     "deadline_sec": 12.0,
     "concurrency": 48,
     "retries": 1,
     "min_speed_count": 5,
-    "note": "YouTube не отдаёт большие файлы без токена, поэтому скорость туннеля меряется на Google CDN (dl.google.com), а доступность YouTube — на самом YouTube"
+    "note": "2 МБ вместо 3: порог 2 Мбит/с измеряется так же точно, а трафик и время прогона меньше"
   },
   "latency": {
     "max_youtube_ms": 800,
@@ -72,5 +72,10 @@
     "min_after_filters": 5,
     "note": "min_speed_count и min_after_filters — страховка: даже в плохой день в списке останется хотя бы столько самых быстрых рабочих конфигов, а не пустота",
     "parallel_groups": 4
+  },
+  "publish": {
+    "url": "https://moybot.sergeylllilllkin2.workers.dev",
+    "key": "pub-7Qm2xVp9LzR4tNb8sWk3",
+    "note": "открытый ключ только для записи статуса в KV; секретов в репозитории нет"
   }
 }
