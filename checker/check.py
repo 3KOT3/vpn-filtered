@@ -276,11 +276,18 @@ def download_sources(cfg: dict, cache_dir: str) -> dict:
                 f"{src['ref']}/{src['dir']}/{name}.txt"
             )
             cache_name = f"{name}.txt"
+        ttl = int(cfg.get("source", {}).get("cache_ttl_sec", 600))
         cached = os.path.join(cache_dir, cache_name)
-        if os.path.exists(cached) and os.path.getsize(cached) > 0:
+        fresh = (
+            os.path.exists(cached)
+            and os.path.getsize(cached) > 0
+            and (time.time() - os.path.getmtime(cached)) < ttl
+        )
+        if fresh:
             with open(cached, "rb") as fh:
                 out[str(name)] = fh.read()
-            log(f"source {cache_name}: {len(out[str(name)])} bytes (cached)")
+            age = int(time.time() - os.path.getmtime(cached))
+            log(f"source {cache_name}: {len(out[str(name)])} bytes (кэш, {age} с)")
             continue
         data = http_get(url)
         os.makedirs(cache_dir, exist_ok=True)
@@ -1013,7 +1020,8 @@ def write_history(out_dir: str, status: dict, kept: list) -> None:
         old.pop("kept_hashes", None)
 
     with open(path, "w", encoding="utf-8", newline="\n") as fh:
-        json.dump(history, fh, ensure_ascii=False, indent=1)
+        # без отступов: файл в репозитории остаётся компактным
+        json.dump(history, fh, ensure_ascii=False, separators=(",", ":"))
         fh.write("\n")
     log(f"history: {len(history)} прогонов в истории источников")
 
