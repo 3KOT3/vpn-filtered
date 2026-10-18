@@ -3,7 +3,7 @@
 # Раз в 6 часов + возможность запустить вручную (в т.ч. из Telegram-бота).
 on:
   schedule:
-    - cron: "0 */6 * * *"
+    - cron: "0 */2 * * *"
   workflow_dispatch:
     inputs:
       limit:
