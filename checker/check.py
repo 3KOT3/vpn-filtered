@@ -1017,6 +1017,36 @@ def build_by_source(sources_order: list, funnel: dict) -> list:
     return rows
 
 
+def publish_status(cfg: dict, status: dict, out_dir: str) -> None:
+    """Отправляет готовый статус и историю прямо в бота (KV), минуя GitHub.
+
+    Файлы в репозитории остаются как есть, но бот теперь видит обновление сразу,
+    без задержки CDN. Ключ здесь открытый — он умеет только записывать статус
+    и ничего не знает о подписчиках и рассылках.
+    """
+    publish = cfg.get("publish") or {}
+    url = publish.get("url")
+    key = publish.get("key")
+    if not url or not key:
+        return
+    payload = {
+        "status": status,
+        "history": load_json(os.path.join(out_dir, "history.json"), []) or [],
+    }
+    data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+    request = urllib.request.Request(
+        f"{str(url).rstrip('/')}/publish-status?key={urllib.parse.quote(str(key))}",
+        data=data,
+        method="POST",
+    )
+    request.add_header("content-type", "application/json; charset=utf-8")
+    request.add_header("user-agent", "vpn-filtered-checker")
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            log(f"publish: статус отправлен в бота (HTTP {response.status})")
+    except Exception as exc:  # noqa: BLE001
+        log(f"publish: статус не отправился ({type(exc).__name__}) — файлы в репозитории остаются")
+
 def write_history(out_dir: str, status: dict, kept: list) -> None:
     """История прогонов: видно, какой источник стабильнее и сколько живут прокси.
 
@@ -1435,10 +1465,15 @@ def main(argv=None) -> int:
     if cfg["tcp_prefilter"]["enabled"] and not args.no_prefilter:
         total_endpoints = len(candidates)
         log(f"tcp prefilter on {total_endpoints} endpoints ...")
+        cpu_guess = os.cpu_count() or 2
+        concurrency = min(
+            int(cfg["tcp_prefilter"]["concurrency"]),
+            max(50, cpu_guess * 200),
+        )
         alive, alive_count = tcp_prefilter(
             candidates,
             cfg["tcp_prefilter"]["timeout_sec"],
-            cfg["tcp_prefilter"]["concurrency"],
+            concurrency,
         )
         log(f"tcp prefilter: {alive_count}/{total_endpoints} alive")
         candidates = alive
@@ -1639,6 +1674,7 @@ def main(argv=None) -> int:
     PROGRESS.stage("publish")
     write_outputs(cfg, args.out_dir, kept, stats, status)
     write_history(args.out_dir, status, kept)
+    publish_status(cfg, status, args.out_dir)
     log(f"kept {len(kept)} of {counts['unique']} unique configs")
     log(f"wrote {cfg['output']['plain']}, {cfg['output']['base64']}, "
         f"{cfg['output']['status']}, {cfg['output']['report']} to {args.out_dir}")
