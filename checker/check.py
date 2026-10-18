@@ -780,16 +780,21 @@ def speed_stage(binary, workdir, candidates, cfg) -> dict:
 # --------------------------------------------------------------------------- #
 
 
-def build_auto_config(kept: list, cfg: dict) -> dict:
-    """Конфиг sing-box с автоматическим выбором лучшего сервера.
+#: AdGuard DNS — блокирует рекламу и трекеры на уровне домена.
+#: Документация: https://adguard-dns.io/ru/public-dns.html
+ADGUARD_DNS = "94.140.14.14"
 
-    Все прошедшие конфиги лежат в одной группе `urltest`: клиент сам проверяет
-    их раз в минуту и всегда работает через самый быстрый живой.
 
-    Формат максимально минимальный — только outbounds и `route.final`.
-    `inbounds`, `dns` и правила сюда не кладём: Hiddify сам добавляет свои, а
-    лишние секции приводили к тому, что ядро не стартовало и клиент показывал
-    «socket exception» на своём внутреннем порту.
+def build_auto_config(kept: list, cfg: dict, legacy: bool = False) -> dict:
+    """Конфиг sing-box с авто-выбором сервера и блокировкой рекламы.
+
+    Все прошедшие конфиги лежат в группе `urltest`: клиент сам держит самый
+    быстрый живой. DNS идёт через AdGuard DNS (внутри туннеля), поэтому реклама
+    и трекеры отсекаются по домену ещё до загрузки.
+
+    `legacy=True` — синтаксис sing-box 1.10 (ядро Hiddify): адрес сервера в поле
+    `address` и отдельный outbound `dns` для DNS-запросов. Новые ядра (1.12+)
+    такой формат не читают, поэтому файлов два.
     """
     proxies = []
     for item in kept:
@@ -797,20 +802,44 @@ def build_auto_config(kept: list, cfg: dict) -> dict:
         outbound["tag"] = item["tag"]
         proxies.append(outbound)
 
-    return {
-        "outbounds": proxies
-        + [
-            {
-                "type": "urltest",
-                "tag": "auto",
-                "outbounds": [item["tag"] for item in kept],
-                "url": cfg["youtube"]["url"],
-                "interval": "1m",
-                "tolerance": 80,
+    names = [item["tag"] for item in kept]
+    urltest = {
+        "type": "urltest",
+        "tag": "auto",
+        "outbounds": names,
+        "url": cfg["youtube"]["url"],
+        "interval": "1m",
+        "tolerance": 80,
+    }
+
+    if legacy:
+        return {
+            "outbounds": proxies
+            + [urltest, {"type": "direct", "tag": "direct"}, {"type": "dns", "tag": "dns-out"}],
+            "dns": {
+                "servers": [{"tag": "adguard", "address": ADGUARD_DNS, "detour": "auto"}],
+                "final": "adguard",
+                "strategy": "prefer_ipv4",
             },
-            {"type": "direct", "tag": "direct"},
-        ],
-        "route": {"final": "auto"},
+            "route": {
+                "rules": [{"protocol": "dns", "outbound": "dns-out"}],
+                "final": "auto",
+            },
+        }
+
+    return {
+        "outbounds": proxies + [urltest, {"type": "direct", "tag": "direct"}],
+        "dns": {
+            "servers": [
+                {"type": "udp", "tag": "adguard", "server": ADGUARD_DNS, "detour": "auto"}
+            ],
+            "final": "adguard",
+            "strategy": "prefer_ipv4",
+        },
+        "route": {
+            "rules": [{"protocol": "dns", "action": "hijack-dns"}],
+            "final": "auto",
+        },
     }
 
 def to_clash(item: dict):
@@ -1072,6 +1101,12 @@ def write_outputs(cfg: dict, out_dir: str, kept: list, stats: dict, status: dict
     auto_path = os.path.join(out_dir, "auto.json")
     with open(auto_path, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(build_auto_config(kept, cfg), fh, ensure_ascii=False, indent=2)
+        fh.write("\n")
+
+    # тот же конфиг в синтаксисе 1.10 — для Hiddify (его ядро старое)
+    legacy_path = os.path.join(out_dir, "auto-legacy.json")
+    with open(legacy_path, "w", encoding="utf-8", newline="\n") as fh:
+        json.dump(build_auto_config(kept, cfg, legacy=True), fh, ensure_ascii=False, indent=2)
         fh.write("\n")
 
     # тот же смысл, но в Clash YAML — его принимает Hiddify
