@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Filter a VPN subscription down to the configs that really work.
 
 Pipeline
@@ -862,6 +862,30 @@ def build_clash_config(kept: list, cfg: dict) -> str:
     ]
     return "\n".join(lines)
 
+def write_pool_outputs(cfg: dict, out_dir: str, pool: list) -> None:
+    """Живой пул: все, кто прошёл YouTube + Telegram + дата-центр.
+
+    В отборный список попадают только быстрые (порог скорости и задержки), а
+    пул — это резерв для автоматического переключения: конфигов здесь в разы
+    больше. Клиент сам замеряет их со своей стороны и держит самый быстрый
+    живой, поэтому «лишние» отсеиваются уже на месте, у пользователя.
+    """
+    if not pool:
+        return
+    os.makedirs(out_dir, exist_ok=True)
+    plain_path = os.path.join(out_dir, "pool.txt")
+    with open(plain_path, "w", encoding="utf-8", newline="\n") as fh:
+        for item in pool:
+            fh.write(item["uri"] + "\n")
+
+    auto_path = os.path.join(out_dir, "pool-auto.json")
+    with open(auto_path, "w", encoding="utf-8", newline="\n") as fh:
+        json.dump(build_auto_config(pool, cfg), fh, ensure_ascii=False, indent=2)
+        fh.write("\n")
+
+    log(f"pool: {len(pool)} серверов в живом пуле (YouTube+Telegram+DC, без порога скорости)")
+
+
 def write_outputs(cfg: dict, out_dir: str, kept: list, stats: dict, status: dict) -> None:
     out_cfg = cfg["output"]
     os.makedirs(out_dir, exist_ok=True)
@@ -1260,6 +1284,11 @@ def main(argv=None) -> int:
             return 1
     else:
         counts["telegram_dc_ok"] = counts["telegram_ok"]
+
+    # --- живой пул -------------------------------------------------------- #
+    # Всё, что прошло YouTube + Telegram + дата-центр, до отсечки по скорости и
+    # задержке. Это резерв для авто-переключения: клиент сам отберёт живое.
+    write_pool_outputs(cfg, args.out_dir, list(survivors))
 
     # --- stage 3d: скорость отклика -------------------------------------- #
     # Shorts и короткие видео тормозит не только полоса, но и задержка:
