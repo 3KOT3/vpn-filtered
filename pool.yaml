@@ -17,19 +17,12 @@ proxies:
     network: "grpc"
     grpc-opts:
       grpc-service-name: "framefeed"
-  - name: "p00002"
-    server: "147.93.173.45"
-    port: 10444
+  - name: "p00001"
+    server: "51.44.122.146"
+    port: 22222
     udp: true
     type: "vless"
-    uuid: "75c5f51b-d548-4eab-a26e-aa10fc3dbc7b"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "video.yandex.ru"
-    reality-opts:
-      public-key: "0oTkcqwLTUNLnSOP-VUWErmy6usAIg-biBE6ioZO-Vo"
-      short-id: "8debcf36f1cc69ff"
-    client-fingerprint: "safari"
+    uuid: "e4514801-0d5a-42ba-869f-39bd605aef9e"
   - name: "p00003"
     server: "platform103.golnamakcert.top"
     port: 80
@@ -41,6 +34,21 @@ proxies:
       path: "/platform103"
       headers:
         Host: "platform103.halalkhor.info"
+  - name: "p00004"
+    server: "jp4.998998.best"
+    port: 443
+    udp: true
+    type: "vmess"
+    uuid: "5504eaa8-1395-402f-8e0e-75ecd762e627"
+    alterId: 0
+    cipher: "auto"
+    tls: true
+    servername: "nat12.9966338.xyz"
+    network: "ws"
+    ws-opts:
+      path: "/vvvvvvvvv"
+      headers:
+        Host: "nat12.9966338.xyz"
   - name: "p00009"
     server: "api.mediapolyana.cc"
     port: 443
@@ -216,26 +224,6 @@ proxies:
       path: "/hokm"
       headers:
         Host: "sdcdethyerft.localip.ir"
-  - name: "p00038"
-    server: "oc.imfun.fun"
-    port: 18112
-    udp: true
-    type: "vmess"
-    uuid: "ad45f8f6-0f0a-4cc4-b907-c4582407dc94"
-    alterId: 0
-    cipher: "auto"
-  - name: "p00039"
-    server: "31.57.190.71"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "humanity"
-    sni: "www.pleadcourt.org"
-    network: "ws"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.pleadcourt.org"
   - name: "p00041"
     server: "platform113.golnamakcert.top"
     port: 80
@@ -297,6 +285,21 @@ proxies:
       path: "/KualaLumpur1"
       headers:
         Host: "my.lovehk.xyz"
+  - name: "p00048"
+    server: "jp4.998998.best"
+    port: 443
+    udp: true
+    type: "vmess"
+    uuid: "5504eaa8-1395-402f-8e0e-75ecd762e627"
+    alterId: 0
+    cipher: "auto"
+    tls: true
+    servername: "nat12.9966338.xyz"
+    network: "ws"
+    ws-opts:
+      path: "/vvvvvvvvv"
+      headers:
+        Host: "nat12.9966338.xyz"
   - name: "p00049"
     server: "sino.bestsellers1.site"
     port: 2083
@@ -322,18 +325,6 @@ proxies:
       path: "/vless"
       headers:
         Host: "95.128.71.79"
-  - name: "p00051"
-    server: "164.92.200.68"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "humanity"
-    sni: "www.pleadcourt.org"
-    network: "ws"
-    ws-opts:
-      path: "/assignment"
-      headers:
-        Host: "www.pleadcourt.org"
   - name: "p00052"
     server: "platform113.golnamakcert.top"
     port: 80
@@ -378,6 +369,21 @@ proxies:
       public-key: "6VMgXXhZdJCiOG05EyK_zTHh00kpFGrZJeZIEPgqhjY"
       short-id: "1c3e8241a8743df9"
     client-fingerprint: "chrome"
+  - name: "p00058"
+    server: "jp4.998998.best"
+    port: 443
+    udp: true
+    type: "vmess"
+    uuid: "5504eaa8-1395-402f-8e0e-75ecd762e627"
+    alterId: 0
+    cipher: "auto"
+    tls: true
+    servername: "nat12.9966338.xyz"
+    network: "ws"
+    ws-opts:
+      path: "/vvvvvvvvv"
+      headers:
+        Host: "nat12.9966338.xyz"
   - name: "p00059"
     server: "95.111.212.241"
     port: 443
@@ -391,17 +397,17 @@ proxies:
       public-key: "BSTnEthBXhb_UyuWpLBDxg82-C-wcpU2_kOD5ohS12g"
       short-id: "3a697adb4c58d495"
     client-fingerprint: "chrome"
-  - name: "p00060"
-    server: "5.253.29.254"
+  - name: "p00061"
+    server: "45.138.100.248"
     port: 14430
     udp: true
     type: "vless"
-    uuid: "c7c27192-60a5-4ce1-b613-95270d82309d"
+    uuid: "ae908ff5-f749-402c-af25-e6e9aef4d6bb"
     network: "ws"
     ws-opts:
       path: "/vless"
       headers:
-        Host: "5.253.29.254"
+        Host: "45.138.100.248"
   - name: "p00062"
     server: "84.32.109.20"
     port: 443
@@ -562,21 +568,6 @@ proxies:
       public-key: "6VMgXXhZdJCiOG05EyK_zTHh00kpFGrZJeZIEPgqhjY"
       short-id: "1c3e8241a8743df9"
     client-fingerprint: "chrome"
-  - name: "p00082"
-    server: "36a466g.fi1.h1clayd.click"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "9a0e84f8-4b58-477f-99da-5fac5a2e58e8"
-    tls: true
-    servername: "36a466g.fi1.h1clayd.click"
-    reality-opts:
-      public-key: "pAgrBKJCmuSJHIzYkEJTqsOBOVBK_DMtEqFPo-PaTkg"
-      short-id: "b3c9d0c6bdd114a6"
-    client-fingerprint: "random"
-    network: "grpc"
-    grpc-opts:
-      grpc-service-name: "0adb9638509b"
   - name: "p00083"
     server: "152.233.71.81"
     port: 443
@@ -605,19 +596,6 @@ proxies:
     network: "grpc"
     grpc-opts:
       grpc-service-name: "GunService"
-  - name: "p00090"
-    server: "funagfrdfs.alixxplay.com"
-    port: 35544
-    udp: true
-    type: "vless"
-    uuid: "57beeeb0-03fc-4fc9-94da-7604488a7134"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "iosapps.itunes.apple.com"
-    reality-opts:
-      public-key: "HrcXRHtsitc_AVlN-_8fZuRgaP-Mqa_9JJotI9OnkVc"
-      short-id: "25c79e5856c7"
-    client-fingerprint: "ios"
   - name: "p00092"
     server: "185.164.175.81"
     port: 19999
@@ -625,20 +603,6 @@ proxies:
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00093"
-    server: "199.232.78.170"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "XpnTeam-17"
-    tls: true
-    servername: "ssl.fastly.com"
-    client-fingerprint: "chrome"
-    network: "ws"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "Appxdn.global.ssl.fastly.net"
   - name: "p00094"
     server: "node8.liudonghoe.com"
     port: 443
@@ -669,6 +633,21 @@ proxies:
     network: "grpc"
     grpc-opts:
       grpc-service-name: "astracat"
+  - name: "p00098"
+    server: "jp4.998998.best"
+    port: 443
+    udp: true
+    type: "vmess"
+    uuid: "5504eaa8-1395-402f-8e0e-75ecd762e627"
+    alterId: 0
+    cipher: "auto"
+    tls: true
+    servername: "nat12.9966338.xyz"
+    network: "ws"
+    ws-opts:
+      path: "/vvvvvvvvv"
+      headers:
+        Host: "nat12.9966338.xyz"
   - name: "p00099"
     server: "147.45.60.160"
     port: 8444
@@ -709,19 +688,6 @@ proxies:
       path: "/hokm"
       headers:
         Host: "ops5788tugfuy.localip.ir"
-  - name: "p00104"
-    server: "fert6.localip.ir"
-    port: 2087
-    udp: true
-    type: "vless"
-    uuid: "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d"
-    tls: true
-    servername: "fert6.localip.ir"
-    network: "ws"
-    ws-opts:
-      path: "/hokm"
-      headers:
-        Host: "fert6.localip.ir"
 
 proxy-groups:
   - name: Auto
@@ -731,8 +697,9 @@ proxy-groups:
     tolerance: 80
     proxies:
       - "p00000"
-      - "p00002"
+      - "p00001"
       - "p00003"
+      - "p00004"
       - "p00009"
       - "p00012"
       - "p00013"
@@ -748,22 +715,21 @@ proxy-groups:
       - "p00035"
       - "p00036"
       - "p00037"
-      - "p00038"
-      - "p00039"
       - "p00041"
       - "p00042"
       - "p00043"
       - "p00045"
       - "p00046"
+      - "p00048"
       - "p00049"
       - "p00050"
-      - "p00051"
       - "p00052"
       - "p00055"
       - "p00056"
       - "p00057"
+      - "p00058"
       - "p00059"
-      - "p00060"
+      - "p00061"
       - "p00062"
       - "p00065"
       - "p00067"
@@ -777,18 +743,15 @@ proxy-groups:
       - "p00079"
       - "p00080"
       - "p00081"
-      - "p00082"
       - "p00083"
       - "p00089"
-      - "p00090"
       - "p00092"
-      - "p00093"
       - "p00094"
       - "p00096"
+      - "p00098"
       - "p00099"
       - "p00100"
       - "p00101"
-      - "p00104"
 
 rules:
   - MATCH,Auto

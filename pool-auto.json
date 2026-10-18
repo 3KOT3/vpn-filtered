@@ -21,24 +21,10 @@
     },
     {
       "type": "vless",
-      "tag": "p00002",
-      "server": "147.93.173.45",
-      "server_port": 10444,
-      "uuid": "75c5f51b-d548-4eab-a26e-aa10fc3dbc7b",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "video.yandex.ru",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "safari"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "0oTkcqwLTUNLnSOP-VUWErmy6usAIg-biBE6ioZO-Vo",
-          "short_id": "8debcf36f1cc69ff"
-        }
-      }
+      "tag": "p00001",
+      "server": "51.44.122.146",
+      "server_port": 22222,
+      "uuid": "e4514801-0d5a-42ba-869f-39bd605aef9e"
     },
     {
       "type": "vless",
@@ -51,6 +37,26 @@
         "path": "/platform103",
         "headers": {
           "Host": "platform103.halalkhor.info"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "p00004",
+      "server": "jp4.998998.best",
+      "server_port": 443,
+      "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "nat12.9966338.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vvvvvvvvv",
+        "headers": {
+          "Host": "nat12.9966338.xyz"
         }
       }
     },
@@ -304,36 +310,6 @@
       }
     },
     {
-      "type": "vmess",
-      "tag": "p00038",
-      "server": "oc.imfun.fun",
-      "server_port": 18112,
-      "uuid": "ad45f8f6-0f0a-4cc4-b907-c4582407dc94",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "type": "trojan",
-      "tag": "p00039",
-      "server": "31.57.190.71",
-      "server_port": 443,
-      "password": "humanity",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.pleadcourt.org",
-        "alpn": [
-          "http/1.1"
-        ]
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/assignment",
-        "headers": {
-          "Host": "www.pleadcourt.org"
-        }
-      }
-    },
-    {
       "type": "vless",
       "tag": "p00041",
       "server": "platform113.golnamakcert.top",
@@ -421,6 +397,27 @@
       }
     },
     {
+      "type": "vmess",
+      "tag": "p00048",
+      "server": "jp4.998998.best",
+      "server_port": 443,
+      "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "nat12.9966338.xyz",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vvvvvvvvv",
+        "headers": {
+          "Host": "nat12.9966338.xyz"
+        }
+      }
+    },
+    {
       "type": "vless",
       "tag": "p00049",
       "server": "sino.bestsellers1.site",
@@ -453,27 +450,6 @@
         "path": "/vless",
         "headers": {
           "Host": "95.128.71.79"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "p00051",
-      "server": "164.92.200.68",
-      "server_port": 443,
-      "password": "humanity",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.pleadcourt.org",
-        "alpn": [
-          "http/1.1"
-        ]
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/assignment",
-        "headers": {
-          "Host": "www.pleadcourt.org"
         }
       }
     },
@@ -544,6 +520,27 @@
       }
     },
     {
+      "type": "vmess",
+      "tag": "p00058",
+      "server": "jp4.998998.best",
+      "server_port": 443,
+      "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "nat12.9966338.xyz",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vvvvvvvvv",
+        "headers": {
+          "Host": "nat12.9966338.xyz"
+        }
+      }
+    },
+    {
       "type": "vless",
       "tag": "p00059",
       "server": "95.111.212.241",
@@ -566,15 +563,15 @@
     },
     {
       "type": "vless",
-      "tag": "p00060",
-      "server": "5.253.29.254",
+      "tag": "p00061",
+      "server": "45.138.100.248",
       "server_port": 14430,
-      "uuid": "c7c27192-60a5-4ce1-b613-95270d82309d",
+      "uuid": "ae908ff5-f749-402c-af25-e6e9aef4d6bb",
       "transport": {
         "type": "ws",
         "path": "/vless",
         "headers": {
-          "Host": "5.253.29.254"
+          "Host": "45.138.100.248"
         }
       }
     },
@@ -823,30 +820,6 @@
     },
     {
       "type": "vless",
-      "tag": "p00082",
-      "server": "36a466g.fi1.h1clayd.click",
-      "server_port": 443,
-      "uuid": "9a0e84f8-4b58-477f-99da-5fac5a2e58e8",
-      "tls": {
-        "enabled": true,
-        "server_name": "36a466g.fi1.h1clayd.click",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "random"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "pAgrBKJCmuSJHIzYkEJTqsOBOVBK_DMtEqFPo-PaTkg",
-          "short_id": "b3c9d0c6bdd114a6"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "0adb9638509b"
-      }
-    },
-    {
-      "type": "vless",
       "tag": "p00083",
       "server": "152.233.71.81",
       "server_port": 443,
@@ -891,55 +864,12 @@
       }
     },
     {
-      "type": "vless",
-      "tag": "p00090",
-      "server": "funagfrdfs.alixxplay.com",
-      "server_port": 35544,
-      "uuid": "57beeeb0-03fc-4fc9-94da-7604488a7134",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "iosapps.itunes.apple.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "ios"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "HrcXRHtsitc_AVlN-_8fZuRgaP-Mqa_9JJotI9OnkVc",
-          "short_id": "25c79e5856c7"
-        }
-      }
-    },
-    {
       "type": "shadowsocks",
       "tag": "p00092",
       "server": "185.164.175.81",
       "server_port": 19999,
       "method": "aes-256-gcm",
       "password": "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-    },
-    {
-      "type": "vless",
-      "tag": "p00093",
-      "server": "199.232.78.170",
-      "server_port": 443,
-      "uuid": "XpnTeam-17",
-      "tls": {
-        "enabled": true,
-        "server_name": "ssl.fastly.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "Appxdn.global.ssl.fastly.net"
-        }
-      }
     },
     {
       "type": "vmess",
@@ -983,6 +913,27 @@
       "transport": {
         "type": "grpc",
         "service_name": "astracat"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "p00098",
+      "server": "jp4.998998.best",
+      "server_port": 443,
+      "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "nat12.9966338.xyz",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vvvvvvvvv",
+        "headers": {
+          "Host": "nat12.9966338.xyz"
+        }
       }
     },
     {
@@ -1051,33 +1002,13 @@
       }
     },
     {
-      "type": "vless",
-      "tag": "p00104",
-      "server": "fert6.localip.ir",
-      "server_port": 2087,
-      "uuid": "a5db5ab5-8d28-49c0-ad55-0ad4724e4c0d",
-      "tls": {
-        "enabled": true,
-        "server_name": "fert6.localip.ir",
-        "alpn": [
-          "http/1.1"
-        ]
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/hokm",
-        "headers": {
-          "Host": "fert6.localip.ir"
-        }
-      }
-    },
-    {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
         "p00000",
-        "p00002",
+        "p00001",
         "p00003",
+        "p00004",
         "p00009",
         "p00012",
         "p00013",
@@ -1093,22 +1024,21 @@
         "p00035",
         "p00036",
         "p00037",
-        "p00038",
-        "p00039",
         "p00041",
         "p00042",
         "p00043",
         "p00045",
         "p00046",
+        "p00048",
         "p00049",
         "p00050",
-        "p00051",
         "p00052",
         "p00055",
         "p00056",
         "p00057",
+        "p00058",
         "p00059",
-        "p00060",
+        "p00061",
         "p00062",
         "p00065",
         "p00067",
@@ -1122,18 +1052,15 @@
         "p00079",
         "p00080",
         "p00081",
-        "p00082",
         "p00083",
         "p00089",
-        "p00090",
         "p00092",
-        "p00093",
         "p00094",
         "p00096",
+        "p00098",
         "p00099",
         "p00100",
-        "p00101",
-        "p00104"
+        "p00101"
       ],
       "url": "https://www.youtube.com/generate_204",
       "interval": "1m",
