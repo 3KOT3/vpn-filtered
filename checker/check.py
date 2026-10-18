@@ -954,6 +954,69 @@ def build_clash_config(kept: list, cfg: dict) -> str:
     ]
     return "\n".join(lines)
 
+def per_source(items: list) -> dict:
+    """Сколько конфигов каждого источника осталось на текущем шаге."""
+    counts = {}
+    for item in items:
+        name = item.get("source") or "?"
+        counts[name] = counts.get(name, 0) + 1
+    return counts
+
+
+def build_by_source(sources_order: list, funnel: dict) -> list:
+    """Воронка по каждому источнику: от разбора до итогового списка."""
+    rows = []
+    for name in sources_order:
+        rows.append(
+            {
+                "source": name,
+                "parsed": funnel.get("parsed", {}).get(name, 0),
+                "alive": funnel.get("alive", {}).get(name, 0),
+                "youtube": funnel.get("youtube", {}).get(name, 0),
+                "telegram": funnel.get("telegram", {}).get(name, 0),
+                "dc": funnel.get("dc", {}).get(name, 0),
+                "kept": funnel.get("kept", {}).get(name, 0),
+            }
+        )
+    return rows
+
+
+def write_history(out_dir: str, status: dict, kept: list) -> None:
+    """История прогонов: видно, какой источник стабильнее и сколько живут прокси.
+
+    Храним последние 60 прогонов. Хеши конфигов (для «живучести») — только у
+    последних 20, чтобы файл в репозитории не разрастался.
+    """
+    path = os.path.join(out_dir, "history.json")
+    history = load_json(path, []) or []
+    if not isinstance(history, list):
+        history = []
+
+    hashes_by_source = {}
+    for item in kept:
+        digest = hashlib.sha1(item["uri"].encode("utf-8")).hexdigest()[:12]
+        hashes_by_source.setdefault(item.get("source") or "?", []).append(digest)
+
+    entry = {
+        "at": status["finished_at"],
+        "duration_sec": status["duration_sec"],
+        "kept": len(kept),
+        "by_source": [
+            {"source": row["source"], "parsed": row["parsed"], "kept": row["kept"]}
+            for row in status.get("by_source", [])
+        ],
+        "kept_hashes": hashes_by_source,
+    }
+    history.append(entry)
+    history = history[-60:]
+    for old in history[:-20]:
+        old.pop("kept_hashes", None)
+
+    with open(path, "w", encoding="utf-8", newline="\n") as fh:
+        json.dump(history, fh, ensure_ascii=False, indent=1)
+        fh.write("\n")
+    log(f"history: {len(history)} прогонов в истории источников")
+
 def write_pool_outputs(cfg: dict, out_dir: str, pool: list) -> None:
     """Живой пул: все, кто прошёл YouTube + Telegram + дата-центр.
 
@@ -1292,6 +1355,10 @@ def main(argv=None) -> int:
         return 1
     PROGRESS.stage("parse", done=len(candidates), total=len(candidates))
 
+    # воронка по источникам: по ней бот считает, какой источник стабильнее
+    sources_order = list(dict.fromkeys(c["source"] for c in candidates))
+    funnel = {"parsed": per_source(candidates)}
+
     counts = {
         "lines": stats["lines"],
         "parsed": stats["parsed"],
@@ -1334,6 +1401,7 @@ def main(argv=None) -> int:
         candidates = alive
         PROGRESS.stage("prefilter", done=alive_count, total=total_endpoints)
     counts["tcp_alive"] = len(candidates)
+    funnel["alive"] = per_source(candidates)
     if not candidates:
         log("no endpoint accepted a TCP connection")
         return 1
@@ -1351,6 +1419,7 @@ def main(argv=None) -> int:
     log(f"youtube: {len(youtube_delay)} proxies answered")
     youtube_ok = [c for c in candidates if c["tag"] in youtube_delay]
     counts["youtube_ok"] = len(youtube_ok)
+    funnel["youtube"] = per_source(youtube_ok)
     if not youtube_ok:
         log("nothing passed the YouTube test")
         return 1
@@ -1364,6 +1433,7 @@ def main(argv=None) -> int:
     PROGRESS.stage("telegram", done=len(telegram_delay), total=len(youtube_ok))
     survivors = [c for c in youtube_ok if c["tag"] in telegram_delay]
     counts["telegram_ok"] = len(survivors)
+    funnel["telegram"] = per_source(survivors)
     if not survivors:
         log("nothing passed the Telegram test")
         return 1
@@ -1375,6 +1445,7 @@ def main(argv=None) -> int:
         log(f"telegram-dc: {len(dc_ok)} proxies reached a Telegram data centre")
         survivors = [c for c in survivors if c["tag"] in dc_ok]
         counts["telegram_dc_ok"] = len(survivors)
+        funnel["dc"] = per_source(survivors)
         PROGRESS.stage("telegram-dc", done=len(survivors), total=len(survivors))
         if not survivors:
             log("nothing reached a Telegram data centre")
@@ -1458,6 +1529,7 @@ def main(argv=None) -> int:
         sum(1 for c in kept if (speeds.get(c["tag"]) or 0.0) >= threshold) if threshold > 0 else 0
     )
     counts["kept"] = len(kept)
+    funnel["kept"] = per_source(kept)
 
     # Жёсткая проверка главного требования: в списке не может быть конфига,
     # у которого не подтверждены ОБЕ проверки — YouTube И Telegram.
@@ -1490,6 +1562,7 @@ def main(argv=None) -> int:
         item["mbps"] = round(speeds.get(item["tag"], 0.0), 3)
 
     status = build_status(cfg, cfg_overrides, stats, counts, kept)
+    status["by_source"] = build_by_source(sources_order, funnel)
     status["by_protocol"] = {}
     status["by_country"] = {}
     for item in kept:
@@ -1522,6 +1595,7 @@ def main(argv=None) -> int:
 
     PROGRESS.stage("publish")
     write_outputs(cfg, args.out_dir, kept, stats, status)
+    write_history(args.out_dir, status, kept)
     log(f"kept {len(kept)} of {counts['unique']} unique configs")
     log(f"wrote {cfg['output']['plain']}, {cfg['output']['base64']}, "
         f"{cfg['output']['status']}, {cfg['output']['report']} to {args.out_dir}")
