@@ -1377,6 +1377,7 @@ def parse_args(argv=None):
     parser.add_argument("--out-branch", help="override the branch used to build links")
     parser.add_argument("--source-files",
                         help="comma separated list overriding source.files, e.g. 6,22")
+    parser.add_argument("--delay-timeout", type=int, help="сколько ждать ответа прокси, мс")
     parser.add_argument("--max-youtube-ms", type=int,
                         help="drop configs whose YouTube delay is above this, ms")
     parser.add_argument("--max-telegram-ms", type=int,
@@ -1458,6 +1459,8 @@ def main(argv=None) -> int:
             log(f"источники переопределены: {', '.join(files)}")
     if args.min_mbps is not None:
         cfg.setdefault("speed", {})["min_mbps"] = args.min_mbps
+    if args.delay_timeout is not None:
+        cfg.setdefault("delay", {})["timeout_ms"] = args.delay_timeout
     if args.max_youtube_ms is not None:
         cfg.setdefault("latency", {})["max_youtube_ms"] = args.max_youtube_ms
     if args.max_telegram_ms is not None:
