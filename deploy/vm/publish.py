@@ -1,4 +1,4 @@
-"""Публикация результата проверки боту (для российского VPS).
+﻿"""Публикация результата проверки боту (для российского VPS).
 
 Запускается после check.py: берёт готовые файлы и отправляет их воркеру —
 список попадает в подписку, статус обновляет главный экран бота.
@@ -14,7 +14,7 @@ import urllib.parse
 import urllib.request
 
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
-OUT_DIR = os.path.join(APP_DIR, "out")
+OUT_DIR = os.environ.get("OUT_DIR") or os.path.join(APP_DIR, "out")
 
 WORKER_URL = (os.environ.get("WORKER_URL") or "").rstrip("/")
 CHECKER_KEY = os.environ.get("CHECKER_KEY") or ""
