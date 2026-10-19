@@ -1,10 +1,10 @@
-name: Проверка VPN-конфигов (Россия)
+﻿name: Проверка VPN-конфигов (Россия)
 
 # GitVerse CI/CD: синтаксис совместим с GitHub Actions.
 # Запуск по расписанию (минимум 15 минут для облачных раннеров) и вручную.
 on:
   schedule:
-    - cron: "0 */3 * * *"
+    - cron: "0 */2 * * *"
   workflow_dispatch:
 
 # Два прогона одновременно не нужны: они перезапишут друг друга.
@@ -28,6 +28,34 @@ jobs:
           echo
           echo "Часовой пояс: $(date -u)"
 
+      - name: Сообщить боту, откуда проверка
+        env:
+          PUBLISH_KEY: ${{ secrets.PUBLISH_KEY }}
+        run: |
+          INFO=$(curl -fsS --max-time 20 https://ipinfo.io/json || echo '{}')
+          curl -fsS --max-time 20 -X POST \
+            -H "content-type: application/json" \
+            --data "$INFO" \
+            "https://moybot.sergeylllilllkin2.workers.dev/runner-info?key=${PUBLISH_KEY}" || true
+
+      - name: Какие источники проверять
+        env:
+          PUBLISH_KEY: ${{ secrets.PUBLISH_KEY }}
+          WORKER_URL: ${{ secrets.WORKER_URL }}
+        run: |
+          CONFIG=$(curl -fsS --max-time 20 "${WORKER_URL}/checker-sources?key=${PUBLISH_KEY}" || echo "")
+          SOURCES=$(echo "$CONFIG" | python3 -c "import sys,json;print(','.join(json.load(sys.stdin).get('sources') or []))" 2>/dev/null || echo "")
+          MBPS=$(echo "$CONFIG" | python3 -c "import sys,json;print(json.load(sys.stdin).get('min_mbps') or 2)" 2>/dev/null || echo 2)
+          echo "$MBPS" > "$PWD/min_mbps.txt"
+          echo "порог скорости из бота: $MBPS Мбит/с"
+          if [ -z "$SOURCES" ]; then
+            echo "не удалось получить список источников у бота — берём из конфига"
+            rm -f "$PWD/sources.txt"
+          else
+            echo "источники из бота: $SOURCES"
+            echo "$SOURCES" > "$PWD/sources.txt"
+          fi
+
       - name: Установить sing-box
         run: |
           set -euo pipefail
@@ -48,9 +76,11 @@ jobs:
             --out-dir "$OUT" \
             --work-dir /tmp/singbox \
             --cache-dir /tmp/sources \
-            --min-mbps 1.0 \
+            --min-mbps "$(cat "$PWD/min_mbps.txt" 2>/dev/null || echo 2)" \
+            --confirm \
             --min-keep 1 \
-            --source-files 6,22,23 || echo "check.py вернул код $? — старый список не трогаем"
+            --source-files "$(cat "$PWD/sources.txt" 2>/dev/null || echo 6,22,23)" \
+            || echo "check.py вернул код $? — старый список не трогаем"
           echo "--- в списке ---"
           wc -l < "$OUT/1.txt" || true
           head -3 "$OUT/1.txt" || true
