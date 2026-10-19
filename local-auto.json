@@ -2,7 +2,48 @@
   "outbounds": [
     {
       "type": "vless",
-      "tag": "p00084",
+      "tag": "p00013",
+      "server": "213.165.56.102",
+      "server_port": 443,
+      "uuid": "6338c01a-310e-42c3-bf4f-2a20e161054b",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "freede.aiage.work",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "A_bQLZE6D32TJUdAf9doQTPaTUXyJjPXLSklplG4V1g",
+          "short_id": "57e7977c9011061c"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "p00054",
+      "server": "us16-4.998998.best",
+      "server_port": 443,
+      "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "server1.9966338.xyz"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/efrsdioy98wert",
+        "headers": {
+          "Host": "server1.9966338.xyz"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "p00047",
       "server": "31.56.18.67",
       "server_port": 2083,
       "uuid": "0be0a2bf-aa20-4e52-aa5a-3d59d56b1582",
@@ -23,27 +64,16 @@
     },
     {
       "type": "vmess",
-      "tag": "p00024",
-      "server": "us16-4.998998.best",
-      "server_port": 443,
-      "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627",
+      "tag": "p00010",
+      "server": "38.91.107.49",
+      "server_port": 18000,
+      "uuid": "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe",
       "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "server1.9966338.xyz"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/efrsdioy98wert",
-        "headers": {
-          "Host": "server1.9966338.xyz"
-        }
-      }
+      "alter_id": 0
     },
     {
       "type": "vmess",
-      "tag": "p00008",
+      "tag": "p00090",
       "server": "172.64.229.21",
       "server_port": 443,
       "uuid": "0cf6d970-3f1d-4aae-a989-92a8f76ae3db",
@@ -63,8 +93,8 @@
     },
     {
       "type": "vmess",
-      "tag": "p00021",
-      "server": "104.21.7.133",
+      "tag": "p00066",
+      "server": "172.67.187.145",
       "server_port": 80,
       "uuid": "0cf6d970-3f1d-4aae-a989-92a8f76ae3db",
       "security": "auto",
@@ -79,27 +109,7 @@
     },
     {
       "type": "vmess",
-      "tag": "p00030",
-      "server": "cf.0sm.com",
-      "server_port": 443,
-      "uuid": "0cf6d970-3f1d-4aae-a989-92a8f76ae3db",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "vmess.lbw666.dpdns.org"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws",
-        "headers": {
-          "Host": "vmess.lbw666.dpdns.org"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "p00014",
+      "tag": "p00024",
       "server": "172.66.203.67",
       "server_port": 443,
       "uuid": "0cf6d970-3f1d-4aae-a989-92a8f76ae3db",
@@ -118,9 +128,23 @@
       }
     },
     {
+      "type": "vless",
+      "tag": "p00034",
+      "server": "connect.hondamotor.site",
+      "server_port": 10002,
+      "uuid": "c6362720-0931-4b91-b187-d8ecf3149734"
+    },
+    {
+      "type": "vless",
+      "tag": "p00035",
+      "server": "connect.hondamotor.site",
+      "server_port": 10002,
+      "uuid": "c6362720-0931-4b91-b187-d8ecf3149734"
+    },
+    {
       "type": "vmess",
-      "tag": "p00009",
-      "server": "104.17.136.198",
+      "tag": "p00025",
+      "server": "cf.0sm.com",
       "server_port": 443,
       "uuid": "0cf6d970-3f1d-4aae-a989-92a8f76ae3db",
       "security": "auto",
@@ -138,45 +162,19 @@
       }
     },
     {
-      "type": "vmess",
-      "tag": "p00005",
-      "server": "172.67.187.145",
-      "server_port": 80,
-      "uuid": "0cf6d970-3f1d-4aae-a989-92a8f76ae3db",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws",
-        "headers": {
-          "Host": "vmess.lbw666.dpdns.org"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "p00087",
-      "server": "platform107.golnamakcert.top",
-      "server_port": 80,
-      "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
-      "transport": {
-        "type": "ws",
-        "path": "/platform107"
-      }
-    },
-    {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "p00084",
+        "p00013",
+        "p00054",
+        "p00047",
+        "p00010",
+        "p00090",
+        "p00066",
         "p00024",
-        "p00008",
-        "p00021",
-        "p00030",
-        "p00014",
-        "p00009",
-        "p00005",
-        "p00087"
+        "p00034",
+        "p00035",
+        "p00025"
       ],
       "url": "https://www.youtube.com/generate_204",
       "interval": "1m",
@@ -192,8 +190,8 @@
       {
         "type": "udp",
         "tag": "adguard",
-        "server": "94.140.14.14",
-        "detour": "auto"
+        "server": "77.88.8.8",
+        "detour": "direct"
       }
     ],
     "final": "adguard",
