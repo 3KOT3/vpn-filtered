@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Проверка VPN-конфигов ИЗ ВАШЕЙ СЕТИ и публикация результата.
 
 Зачем это отдельно от GitHub Actions: раннеры GitHub стоят в США/Европе, и
@@ -37,6 +37,28 @@ WORK_DIR = os.path.join(HERE, ".work")
 def log(message: str = "") -> None:
     print(message, flush=True)
 
+
+LOCK_PATH = os.path.join(HERE, ".work", "run.lock")
+LOCK_TTL_SEC = 900
+
+
+def acquire_lock() -> bool:
+    """Не даёт двум проверкам идти одновременно (задача + ручной запуск)."""
+    os.makedirs(os.path.dirname(LOCK_PATH), exist_ok=True)
+    if os.path.exists(LOCK_PATH):
+        age = time.time() - os.path.getmtime(LOCK_PATH)
+        if age < LOCK_TTL_SEC:
+            return False
+    with open(LOCK_PATH, "w", encoding="utf-8") as handle:
+        handle.write(str(os.getpid()))
+    return True
+
+
+def release_lock() -> None:
+    try:
+        os.remove(LOCK_PATH)
+    except OSError:
+        pass
 
 def load_config() -> dict:
     if not os.path.exists(CONFIG_PATH):
@@ -77,7 +99,35 @@ def find_sing_box(config: dict) -> str:
     sys.exit(1)
 
 
-def run_checker(config: dict, sing_box: str) -> str:
+def fetch_cloud_list(config: dict) -> str:
+    """Скачивает готовый список из облака — его и будем пинговать с ПК.
+
+    Читаем через Contents API, а не raw.githubusercontent: тот кэширует файл
+    до 5 минут и можно пинговать вчерашний список.
+    """
+    repo = config.get("repo", "3KOT3/vpn-filtered")
+    branch = config.get("branch", "main")
+    url = f"https://api.github.com/repos/{repo}/contents/1.txt?ref={branch}"
+    request = urllib.request.Request(url, headers={"User-Agent": "vpn-filtered-local"})
+    request.add_header("Accept", "application/vnd.github.raw")
+    token = str(config.get("github_token") or "")
+    if token:
+        request.add_header("Authorization", f"Bearer {token}")
+    with urllib.request.urlopen(request, timeout=60) as response:
+        text = response.read().decode("utf-8", "replace")
+    directory = os.path.join(WORK_DIR, "cloud-src")
+    os.makedirs(directory, exist_ok=True)
+    for name in os.listdir(directory):
+        if name.endswith(".txt"):
+            os.remove(os.path.join(directory, name))
+    with open(os.path.join(directory, "cloud.txt"), "w", encoding="utf-8", newline="\n") as handle:
+        handle.write(text)
+    count = len([line for line in text.splitlines() if line.strip()])
+    log(f"Облачный список: {count} конфигов — пингуем их с вашего ПК")
+    return directory
+
+
+def run_checker(config: dict, sing_box: str, sources_dir: str = None) -> str:
     out_dir = os.path.join(WORK_DIR, "out")
     cmd = [
         sys.executable,
@@ -88,13 +138,24 @@ def run_checker(config: dict, sing_box: str) -> str:
         "--sing-box", sing_box,
         "--min-mbps", str(config.get("min_mbps", 2.0)),
     ]
-    sources = config.get("sources")
-    if sources:
-        cmd += ["--source-files", ",".join(str(item) for item in sources)]
+    if sources_dir:
+        cmd += ["--sources-dir", sources_dir]
+    else:
+        sources = config.get("sources")
+        if sources:
+            cmd += ["--source-files", ",".join(str(item) for item in sources)]
+    if config.get("delay_timeout_ms"):
+        cmd += ["--delay-timeout", str(config["delay_timeout_ms"])]
     if config.get("max_youtube_ms"):
         cmd += ["--max-youtube-ms", str(config["max_youtube_ms"])]
     if config.get("max_telegram_ms"):
         cmd += ["--max-telegram-ms", str(config["max_telegram_ms"])]
+    if config.get("core_check"):
+        # финальная проверка реальным HTTP-запросом: отсекает конфиги,
+        # которые отвечают на пинг, но не тянут настоящую страницу
+        cmd += ["--core-check"]
+    if config.get("confirm"):
+        cmd += ["--confirm"]
     # прогресс уходит прямо в бот: он будет рисовать полосу загрузки
     if config.get("worker_url"):
         cmd += [
@@ -153,6 +214,7 @@ def publish(config: dict, out_dir: str) -> dict:
         "base64": "local-base64.txt",
         "auto": "local-auto.json",
         "auto_yaml": "local-auto.yaml",
+        "auto_legacy": "local-auto-legacy.json",
     }
     status["link_plain"] = f"https://github.com/{repo}/raw/refs/heads/{branch}/local.txt"
     status["link_base64"] = f"https://github.com/{repo}/raw/refs/heads/{branch}/local-base64.txt"
@@ -164,6 +226,7 @@ def publish(config: dict, out_dir: str) -> dict:
         "local-base64.txt": open(os.path.join(out_dir, "1-base64.txt"), "rb").read(),
         "local-auto.json": open(os.path.join(out_dir, "auto.json"), "rb").read(),
         "local-auto.yaml": open(os.path.join(out_dir, "auto.yaml"), "rb").read(),
+        "local-auto-legacy.json": open(os.path.join(out_dir, "auto-legacy.json"), "rb").read(),
         "local-status.json": (json.dumps(status, ensure_ascii=False, indent=2) + "\n").encode(),
     }
 
@@ -197,6 +260,38 @@ def publish(config: dict, out_dir: str) -> dict:
         log(f"  загружено {name}")
     return {"status": status, "pushed": pushed}
 
+
+def publish_ru(config: dict, out_dir: str) -> None:
+    """Отправляет проверенные ИЗ РОССИИ конфиги боту (в KV).
+
+    Именно этот список потом использует облачная проверка: она берёт только
+    те конфиги, которые реально открылись с домашнего подключения.
+    """
+    base = str(config.get("worker_url") or "").rstrip("/")
+    key = str(config.get("publish_key") or "")
+    if not base or not key:
+        log("  список для CI не отправлен: нет worker_url / publish_key")
+        return
+    path = os.path.join(out_dir, "1.txt")
+    if not os.path.exists(path):
+        return
+    with open(path, encoding="utf-8") as handle:
+        uris = [line.strip() for line in handle if line.strip()]
+    if not uris:
+        return
+    request = urllib.request.Request(
+        f"{base}/publish-ru?key={urllib.parse.quote(key)}",
+        data=json.dumps({"uris": uris}, ensure_ascii=False).encode("utf-8"),
+        method="POST",
+    )
+    request.add_header("content-type", "application/json; charset=utf-8")
+    request.add_header("user-agent", "vpn-filtered-local")
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            payload = json.loads(response.read() or b"{}")
+        log(f"  проверено из России: {len(uris)} конфигов -> бот (всего в снимке {payload.get('kept')})")
+    except Exception as exc:  # noqa: BLE001
+        log(f"  список для CI не отправился: {type(exc).__name__}: {exc}")
 
 def notify_worker(config: dict) -> None:
     """Сказать боту, что список обновился.
@@ -236,9 +331,11 @@ def main() -> int:
     log("")
 
     started = time.time()
-    out_dir = run_checker(config, sing_box)
+    sources_dir = fetch_cloud_list(config) if config.get("ping_cloud_list") else None
+    out_dir = run_checker(config, sing_box, sources_dir)
     result = publish(config, out_dir)
     status = result["status"]
+    publish_ru(config, out_dir)
     notify_worker(config)
 
     log("")
