@@ -58,6 +58,30 @@ def main() -> int:
         log("список пуст — не публикую (старый остаётся у бота)")
         return 0
 
+    # Стабильность: оставляем только те конфиги, что были и в прошлом списке.
+    # Конфиг, который ответил один раз, на телефоне обычно даёт таймаут.
+    try:
+        request = urllib.request.Request(
+            f"{WORKER_URL}/checker-prev?key={urllib.parse.quote(PUBLISH_KEY)}",
+            headers={"user-agent": "vpn-checker-vm"},
+        )
+        with urllib.request.urlopen(request, timeout=30) as response:
+            previous = response.read().decode("utf-8", "replace")
+    except Exception:  # noqa: BLE001
+        previous = ""
+
+    previous_set = {line.strip() for line in previous.splitlines() if line.strip()}
+    current = [line for line in plain.splitlines() if line.strip()]
+    if previous_set:
+        stable = [line for line in current if line.strip() in previous_set]
+        log(f"стабильность: из {len(current)} конфигов было в прошлом списке {len(stable)}")
+        if len(stable) >= 2:
+            plain = "\n".join(stable)
+        else:
+            log("  стабильных меньше двух — публикую свежий список целиком")
+    else:
+        log("прошлого списка нет — публикую как есть")
+
     auto = read("auto-legacy.json").strip()
     status_raw = read("status.json")
     history_raw = read("history.json")
