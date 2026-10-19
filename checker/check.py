@@ -808,16 +808,19 @@ def speed_stage(binary, workdir, candidates, cfg) -> dict:
 # --------------------------------------------------------------------------- #
 
 
-#: AdGuard DNS — блокирует рекламу и трекеры на уровне домена.
-#: Документация: https://adguard-dns.io/ru/public-dns.html
-ADGUARD_DNS = "94.140.14.14"
+#: DNS внутри туннеля.
+#: AdGuard (94.140.14.14) в России заблокирован — с ним Hiddify падал
+#: в таймаут (errno 60): клиент не мог разрешить ни одного имени. Берём
+#: Яндекс DNS: он доступен с российских адресов и отвечает быстро.
+#: Рекламу он не режет, зато конфиг работает.
+ADGUARD_DNS = "77.88.8.8"
 
 
 def build_auto_config(kept: list, cfg: dict, legacy: bool = False) -> dict:
     """Конфиг sing-box с авто-выбором сервера и блокировкой рекламы.
 
     Все прошедшие конфиги лежат в группе `urltest`: клиент сам держит самый
-    быстрый живой. DNS идёт через AdGuard DNS (внутри туннеля), поэтому реклама
+    быстрый живой. DNS идёт напрямую в Яндекс DNS (не через туннель), поэтому
     и трекеры отсекаются по домену ещё до загрузки.
 
     `legacy=True` — синтаксис sing-box 1.10 (ядро Hiddify): адрес сервера в поле
@@ -845,7 +848,7 @@ def build_auto_config(kept: list, cfg: dict, legacy: bool = False) -> dict:
             "outbounds": proxies
             + [urltest, {"type": "direct", "tag": "direct"}, {"type": "dns", "tag": "dns-out"}],
             "dns": {
-                "servers": [{"tag": "adguard", "address": ADGUARD_DNS, "detour": "auto"}],
+                "servers": [{"tag": "adguard", "address": ADGUARD_DNS, "detour": "direct"}],
                 "final": "adguard",
                 "strategy": "prefer_ipv4",
             },
@@ -859,7 +862,7 @@ def build_auto_config(kept: list, cfg: dict, legacy: bool = False) -> dict:
         "outbounds": proxies + [urltest, {"type": "direct", "tag": "direct"}],
         "dns": {
             "servers": [
-                {"type": "udp", "tag": "adguard", "server": ADGUARD_DNS, "detour": "auto"}
+                {"type": "udp", "tag": "adguard", "server": ADGUARD_DNS, "detour": "direct"}
             ],
             "final": "adguard",
             "strategy": "prefer_ipv4",
@@ -1377,6 +1380,7 @@ def parse_args(argv=None):
     parser.add_argument("--out-branch", help="override the branch used to build links")
     parser.add_argument("--source-files",
                         help="comma separated list overriding source.files, e.g. 6,22")
+    parser.add_argument("--confirm", action="store_true", help="перепроверить выживших: конфиг должен ответить дважды")
     parser.add_argument("--delay-timeout", type=int, help="сколько ждать ответа прокси, мс")
     parser.add_argument("--max-youtube-ms", type=int,
                         help="drop configs whose YouTube delay is above this, ms")
@@ -1605,6 +1609,25 @@ def main(argv=None) -> int:
     # задержке. Это резерв для авто-переключения: клиент сам отберёт живое.
     write_pool_outputs(cfg, args.out_dir, list(survivors))
 
+    # --- подтверждение: конфиг должен ответить дважды -------------------- #
+    # Один удачный ответ ничего не значит: прокси может ответить один раз и
+    # умереть. Именно такие и давали таймауты на телефоне, хотя проверка в
+    # облаке их пропускала.
+    if args.confirm and survivors:
+        PROGRESS.stage("confirm", done=0, total=len(survivors))
+        again_youtube = proxy_stage(
+            args.sing_box, args.work_dir, survivors, cfg, "confirm-yt", cfg["youtube"]["url"]
+        )
+        confirmed = [c for c in survivors if c["tag"] in again_youtube]
+        log(f"confirm: YouTube повторно прошли {len(confirmed)} из {len(survivors)}")
+        again_telegram = proxy_stage(
+            args.sing_box, args.work_dir, confirmed, cfg, "confirm-tg", cfg["telegram"]["url"]
+        )
+        survivors = [c for c in confirmed if c["tag"] in again_telegram]
+        log(f"confirm: после двойной проверки осталось {len(survivors)}")
+        if not survivors:
+            log("nothing survived the confirmation pass")
+            return 1
     # --- stage 3d: скорость отклика -------------------------------------- #
     # Shorts и короткие видео тормозит не только полоса, но и задержка:
     # конфиг с ответом в 3 секунды ощущается «не грузится». Отсекаем таких до
