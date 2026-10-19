@@ -1,111 +1,182 @@
 {
   "outbounds": [
     {
-      "type": "vmess",
-      "tag": "p00016",
-      "server": "38.91.107.49",
-      "server_port": 18000,
-      "uuid": "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
       "type": "vless",
-      "tag": "p00058",
-      "server": "188.164.248.216",
-      "server_port": 443,
-      "uuid": "d342d11e-d224-4463-b982-532309285094",
+      "tag": "p00084",
+      "server": "31.56.18.67",
+      "server_port": 2083,
+      "uuid": "0be0a2bf-aa20-4e52-aa5a-3d59d56b1582",
+      "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
-        "server_name": "ccc.010304.xyz",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "safari"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "ccc.010304.xyz"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "p00076",
-      "server": "188.164.248.216",
-      "server_port": 443,
-      "uuid": "d342d11e-d224-4463-b982-532309285094",
-      "tls": {
-        "enabled": true,
-        "server_name": "ccc.010304.xyz",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "qq"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/fp=chrome",
-        "headers": {
-          "Host": "ccc.010304.xyz"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "p00047",
-      "server": "188.164.248.216",
-      "server_port": 443,
-      "uuid": "d342d11e-d224-4463-b982-532309285094",
-      "tls": {
-        "enabled": true,
-        "server_name": "ccc.010304.xyz",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "edge"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "ccc.010304.xyz"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "p00042",
-      "server": "188.164.248.216",
-      "server_port": 443,
-      "uuid": "d342d11e-d224-4463-b982-532309285094",
-      "tls": {
-        "enabled": true,
-        "server_name": "ccc.010304.xyz",
+        "server_name": "dege.underground.company",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "RAsD3YMZiEtRBEQ6hNpsyfVE9ro1M4H2AQ-CKbBjJGU",
+          "short_id": "7878a3f029e04e23"
         }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "p00024",
+      "server": "us16-4.998998.best",
+      "server_port": 443,
+      "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "server1.9966338.xyz"
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/efrsdioy98wert",
         "headers": {
-          "Host": "ccc.010304.xyz"
+          "Host": "server1.9966338.xyz"
         }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "p00008",
+      "server": "172.64.229.21",
+      "server_port": 443,
+      "uuid": "0cf6d970-3f1d-4aae-a989-92a8f76ae3db",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "vmess.lbw666.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws",
+        "headers": {
+          "Host": "vmess.lbw666.dpdns.org"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "p00021",
+      "server": "104.21.7.133",
+      "server_port": 80,
+      "uuid": "0cf6d970-3f1d-4aae-a989-92a8f76ae3db",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "path": "/ws",
+        "headers": {
+          "Host": "vmess.lbw666.dpdns.org"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "p00030",
+      "server": "cf.0sm.com",
+      "server_port": 443,
+      "uuid": "0cf6d970-3f1d-4aae-a989-92a8f76ae3db",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "vmess.lbw666.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws",
+        "headers": {
+          "Host": "vmess.lbw666.dpdns.org"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "p00014",
+      "server": "172.66.203.67",
+      "server_port": 443,
+      "uuid": "0cf6d970-3f1d-4aae-a989-92a8f76ae3db",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "vmess.lbw666.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws",
+        "headers": {
+          "Host": "vmess.lbw666.dpdns.org"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "p00009",
+      "server": "104.17.136.198",
+      "server_port": 443,
+      "uuid": "0cf6d970-3f1d-4aae-a989-92a8f76ae3db",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "vmess.lbw666.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws",
+        "headers": {
+          "Host": "vmess.lbw666.dpdns.org"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "p00005",
+      "server": "172.67.187.145",
+      "server_port": 80,
+      "uuid": "0cf6d970-3f1d-4aae-a989-92a8f76ae3db",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "path": "/ws",
+        "headers": {
+          "Host": "vmess.lbw666.dpdns.org"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "p00087",
+      "server": "platform107.golnamakcert.top",
+      "server_port": 80,
+      "uuid": "e13cf851-b4fd-413b-8d49-146e6eb8e5d4",
+      "transport": {
+        "type": "ws",
+        "path": "/platform107"
       }
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "p00016",
-        "p00058",
-        "p00076",
-        "p00047",
-        "p00042"
+        "p00084",
+        "p00024",
+        "p00008",
+        "p00021",
+        "p00030",
+        "p00014",
+        "p00009",
+        "p00005",
+        "p00087"
       ],
       "url": "https://www.youtube.com/generate_204",
       "interval": "1m",
