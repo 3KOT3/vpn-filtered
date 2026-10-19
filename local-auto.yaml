@@ -5,34 +5,6 @@ mode: rule
 log-level: warning
 
 proxies:
-  - name: "p00013"
-    server: "213.165.56.102"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "6338c01a-310e-42c3-bf4f-2a20e161054b"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "freede.aiage.work"
-    reality-opts:
-      public-key: "A_bQLZE6D32TJUdAf9doQTPaTUXyJjPXLSklplG4V1g"
-      short-id: "57e7977c9011061c"
-    client-fingerprint: "chrome"
-  - name: "p00054"
-    server: "us16-4.998998.best"
-    port: 443
-    udp: true
-    type: "vmess"
-    uuid: "5504eaa8-1395-402f-8e0e-75ecd762e627"
-    alterId: 0
-    cipher: "auto"
-    tls: true
-    servername: "server1.9966338.xyz"
-    network: "ws"
-    ws-opts:
-      path: "/efrsdioy98wert"
-      headers:
-        Host: "server1.9966338.xyz"
   - name: "p00047"
     server: "31.56.18.67"
     port: 2083
@@ -54,21 +26,30 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
-  - name: "p00090"
-    server: "172.64.229.21"
+  - name: "p00058"
+    server: "platform107.golnamakcert.top"
+    port: 80
+    udp: true
+    type: "vless"
+    uuid: "e13cf851-b4fd-413b-8d49-146e6eb8e5d4"
+    network: "ws"
+    ws-opts:
+      path: "/platform107"
+  - name: "p00054"
+    server: "us16-4.998998.best"
     port: 443
     udp: true
     type: "vmess"
-    uuid: "0cf6d970-3f1d-4aae-a989-92a8f76ae3db"
+    uuid: "5504eaa8-1395-402f-8e0e-75ecd762e627"
     alterId: 0
     cipher: "auto"
     tls: true
-    servername: "vmess.lbw666.dpdns.org"
+    servername: "server1.9966338.xyz"
     network: "ws"
     ws-opts:
-      path: "/ws"
+      path: "/efrsdioy98wert"
       headers:
-        Host: "vmess.lbw666.dpdns.org"
+        Host: "server1.9966338.xyz"
   - name: "p00066"
     server: "172.67.187.145"
     port: 80
@@ -82,33 +63,6 @@ proxies:
       path: "/ws"
       headers:
         Host: "vmess.lbw666.dpdns.org"
-  - name: "p00024"
-    server: "172.66.203.67"
-    port: 443
-    udp: true
-    type: "vmess"
-    uuid: "0cf6d970-3f1d-4aae-a989-92a8f76ae3db"
-    alterId: 0
-    cipher: "auto"
-    tls: true
-    servername: "vmess.lbw666.dpdns.org"
-    network: "ws"
-    ws-opts:
-      path: "/ws"
-      headers:
-        Host: "vmess.lbw666.dpdns.org"
-  - name: "p00034"
-    server: "connect.hondamotor.site"
-    port: 10002
-    udp: true
-    type: "vless"
-    uuid: "c6362720-0931-4b91-b187-d8ecf3149734"
-  - name: "p00035"
-    server: "connect.hondamotor.site"
-    port: 10002
-    udp: true
-    type: "vless"
-    uuid: "c6362720-0931-4b91-b187-d8ecf3149734"
   - name: "p00025"
     server: "cf.0sm.com"
     port: 443
@@ -132,15 +86,11 @@ proxy-groups:
     interval: 60
     tolerance: 80
     proxies:
-      - "p00013"
-      - "p00054"
       - "p00047"
       - "p00010"
-      - "p00090"
+      - "p00058"
+      - "p00054"
       - "p00066"
-      - "p00024"
-      - "p00034"
-      - "p00035"
       - "p00025"
 
 rules:
