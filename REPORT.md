@@ -1,6 +1,6 @@
 # Отфильтрованный список VPN-конфигов
 
-Обновлено: **2026-10-19T07:36:10Z** UTC (прогон занял 37 с)
+Обновлено: **2026-10-19T14:21:05Z** UTC (прогон занял 40 с)
 
 ## Что проверялось
 
@@ -8,7 +8,7 @@
 2. Через прокси открывается `https://www.youtube.com/generate_204` (ждём HTTP 204).
 3. Через прокси открывается `https://core.telegram.org/` (ждём HTTP 200).
 4. Через прокси открывается TCP-соединение с дата-центром Telegram (149.154.167.51, 149.154.175.53, 149.154.167.91: 443) — это отсекает прокси, чей IP заблокирован самим Telegram.
-5. Скорость туннеля к Google CDN не ниже **3.0 Мбит/с** (скачиваем 2048 КБ за не более 12 с).
+5. Скорость туннеля к Google CDN не ниже **1.0 Мбит/с** (скачиваем 2048 КБ за не более 12 с).
 
 В список попадают только те конфиги, которые прошли **все** шаги: и YouTube, и Telegram, и скорость.
 
@@ -16,52 +16,70 @@
 
 | Шаг | Осталось |
 | --- | ---: |
-| Строк в источниках | 144 |
-| Разобрано в конфиги | 27 |
-| Уникальных | 27 |
-| Endpoint отвечает по TCP | 26 |
-| YouTube доступен | 18 |
-| + Telegram (HTTP) доступен | 16 |
-| + дата-центр Telegram доступен | 16 |
-| + скорость ≥ 3.0 Мбит/с | 11 |
-| **В итоговом списке** | **11** |
+| Строк в источниках | 149 |
+| Разобрано в конфиги | 147 |
+| Уникальных | 147 |
+| Endpoint отвечает по TCP | 138 |
+| YouTube доступен | 82 |
+| + Telegram (HTTP) доступен | 76 |
+| + дата-центр Telegram доступен | 76 |
+| + скорость ≥ 1.0 Мбит/с | 53 |
+| **В итоговом списке** | **53** |
 
 ## По протоколам
 
 | Протокол | В списке |
 | --- | ---: |
-| vless | 10 |
-| shadowsocks | 1 |
+| vless | 48 |
+| shadowsocks | 4 |
+| vmess | 1 |
 
 ## По странам
 
 | Страна | В списке |
 | --- | ---: |
-| JP | 7 |
+| JP | 9 |
+| ?? | 7 |
+| US | 5 |
+| DE | 5 |
+| FI | 5 |
 | PH | 2 |
+| PL | 2 |
+| IT | 2 |
+| HU | 2 |
+| SE | 2 |
+| NL | 2 |
+| AT | 1 |
+| GB | 1 |
+| UA | 1 |
+| LV | 1 |
 | CZ | 1 |
-| HU | 1 |
+| RU | 1 |
+| TR | 1 |
+| SG | 1 |
+| EE | 1 |
+| IN | 1 |
 
 ## Самые быстрые
 
 | # | Имя | Протокол | Страна | Мбит/с | YouTube, мс | Telegram, мс |
 | ---: | --- | --- | --- | ---: | ---: | ---: |
-| 1 | 🇯🇵[openproxylist.com] vless-JP | vless | JP | 9.84 | 246 | 971 |
-| 2 | 🇯🇵[openproxylist.com] vless-JP | vless | JP | 9.67 | 231 | 975 |
-| 3 | 🇵🇭[openproxylist.com] vless-PH | vless | PH | 9.63 | 231 | 968 |
-| 4 | 🇯🇵[openproxylist.com] vless-JP | vless | JP | 9.16 | 232 | 983 |
-| 5 | 🇯🇵[openproxylist.com] vless-JP | vless | JP | 8.87 | 240 | 971 |
-| 6 | 🇨🇿[openproxylist.com] ss-CZ | shadowsocks | CZ | 8.03 | 535 | 722 |
-| 7 | 🇯🇵[openproxylist.com] vless-JP | vless | JP | 7.74 | 385 | 1058 |
-| 8 | 🇭🇺[openproxylist.com] vless-HU | vless | HU | 7.45 | 356 | 373 |
-| 9 | 🇵🇭[openproxylist.com] vless-PH | vless | PH | 7.36 | 388 | 1069 |
-| 10 | 🇯🇵[openproxylist.com] vless-JP | vless | JP | 6.01 | 325 | 1138 |
+| 1 | 🏳[openproxylist.com] vless- | vless | ?? | 13.06 | 48 | 662 |
+| 2 | 🇺🇸[openproxylist.com] vless-US | vless | US | 11.50 | 110 | 596 |
+| 3 | 🇺🇸[openproxylist.com] vless-US | vless | US | 10.80 | 171 | 477 |
+| 4 | 🇺🇸[openproxylist.com] vless-US | vless | US | 9.29 | 152 | 382 |
+| 5 | 🇺🇸[openproxylist.com] vless-US | vless | US | 9.27 | 181 | 435 |
+| 6 | 🏳[openproxylist.com] vless- | vless | ?? | 8.17 | 162 | 440 |
+| 7 | 🏳[openproxylist.com] vless- | vless | ?? | 8.00 | 52 | 680 |
+| 8 | 🇯🇵[openproxylist.com] vless-JP | vless | JP | 6.67 | 237 | 979 |
+| 9 | 🇯🇵[openproxylist.com] vless-JP | vless | JP | 6.39 | 232 | 977 |
+| 10 | 🇯🇵[openproxylist.com] vless-JP | vless | JP | 6.37 | 232 | 991 |
 
 ## Что не удалось проверить
 
 | Причина | Конфигов |
 | --- | ---: |
-| не ответил из России | 86 |
+| vmess-http-obfs | 2 |
 
 ## Ссылки
 
