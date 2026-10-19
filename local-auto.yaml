@@ -5,111 +5,77 @@ mode: rule
 log-level: warning
 
 proxies:
-  - name: "p00033"
-    server: "uk2-2.998998.best"
+  - name: "p00697"
+    server: "178.17.57.33"
+    port: 8444
+    udp: true
+    type: "vless"
+    uuid: "f55e9aba-7b14-4f6f-b59a-d5b3d45c9309"
+    tls: true
+    servername: "github.com"
+    reality-opts:
+      public-key: "FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0"
+      short-id: "457fab2ac885dbe0"
+    client-fingerprint: "random"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "GunService"
+  - name: "p00700"
+    server: "31.59.210.37"
     port: 443
     udp: true
-    type: "vmess"
-    uuid: "5504eaa8-1395-402f-8e0e-75ecd762e627"
-    alterId: 0
-    cipher: "auto"
+    type: "vless"
+    uuid: "5413edfb-08d6-4fba-b51c-809c04feb127"
     tls: true
-    servername: "server3.9966338.xyz"
-    network: "ws"
-    ws-opts:
-      path: "/waetasiuofguiwer"
-      headers:
-        Host: "server3.9966338.xyz"
-  - name: "p00097"
-    server: "yg1.ygkkk.dpdns.org"
+    servername: "www.yandex.ru"
+    reality-opts:
+      public-key: "5k0dtOSzmshCubdYeKppsUdHU4i2ghaB9uSJSzGjHW4"
+      short-id: "6dbf4931096f9890"
+    client-fingerprint: "chrome"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "astracat"
+  - name: "p00026"
+    server: "195.123.245.241"
     port: 443
     udp: true
-    type: "vmess"
-    uuid: "b2ba4a73-3123-479e-aa96-5973a9ecd0c0"
-    alterId: 0
-    cipher: "auto"
+    type: "vless"
+    uuid: "7c053ca8-38cc-45e2-930c-eda1fd66f903"
+    flow: "xtls-rprx-vision"
     tls: true
-    servername: "jmp1.907737.xyz"
-    network: "ws"
-    ws-opts:
-      path: "/b2ba4a73-3123-479e-aa96-5973a9ecd0c0-vm"
-      headers:
-        Host: "jmp1.907737.xyz"
-  - name: "p00271"
-    server: "172.66.203.67"
+    servername: "gateway.icloud.com"
+    reality-opts:
+      public-key: "hlY5ce1UsVIgE46y5PlEZhUsSaXUnCtoDLLaGrhInjw"
+      short-id: "23d0950d60bc0d5b"
+    client-fingerprint: "chrome"
+  - name: "p00035"
+    server: "5.252.179.15"
     port: 443
     udp: true
-    type: "vmess"
-    uuid: "0cf6d970-3f1d-4aae-a989-92a8f76ae3db"
-    alterId: 0
-    cipher: "auto"
+    type: "vless"
+    uuid: "0ab273e4-cea6-41d0-bbab-41071d2fc455"
+    flow: "xtls-rprx-vision"
     tls: true
-    servername: "vmess.lbw666.dpdns.org"
-    network: "ws"
-    ws-opts:
-      path: "/ws"
-      headers:
-        Host: "vmess.lbw666.dpdns.org"
-  - name: "p00038"
-    server: "eu3.998998.best"
-    port: 443
+    servername: "www.bing.com"
+    reality-opts:
+      public-key: "XQB2zIgrhD8AtxgYFM8UiiWYt1sLVBLhMg1M4-sGMAY"
+      short-id: "296f27de82dad7ff"
+    client-fingerprint: "qq"
+  - name: "p00091"
+    server: "152.228.139.33"
+    port: 35108
     udp: true
-    type: "vmess"
-    uuid: "5504eaa8-1395-402f-8e0e-75ecd762e627"
-    alterId: 0
-    cipher: "auto"
+    type: "vless"
+    uuid: "81dc0b61-f9fe-4ad6-8b4e-b8c067b73712"
     tls: true
-    servername: "server40.9966338.xyz"
-    network: "ws"
-    ws-opts:
-      path: "/aiaiai"
-      headers:
-        Host: "server40.9966338.xyz"
-  - name: "p00276"
-    server: "cf.0sm.com"
-    port: 443
-    udp: true
-    type: "vmess"
-    uuid: "0cf6d970-3f1d-4aae-a989-92a8f76ae3db"
-    alterId: 0
-    cipher: "auto"
-    tls: true
-    servername: "vmess.lbw666.dpdns.org"
-    network: "ws"
-    ws-opts:
-      path: "/ws"
-      headers:
-        Host: "vmess.lbw666.dpdns.org"
-  - name: "p00069"
-    server: "172.67.137.209"
-    port: 443
-    udp: true
-    type: "vmess"
-    uuid: "f5f0babe-aea2-4f07-a1fc-3c9820253f49"
-    alterId: 0
-    cipher: "auto"
-    tls: true
-    servername: "ukl.lovehk.xyz"
-    network: "ws"
-    ws-opts:
-      path: "/London31"
-      headers:
-        Host: "ukl.lovehk.xyz"
-  - name: "p00066"
-    server: "172.67.137.209"
-    port: 443
-    udp: true
-    type: "vmess"
-    uuid: "f5f0babe-aea2-4f07-a1fc-3c9820253f49"
-    alterId: 0
-    cipher: "auto"
-    tls: true
-    servername: "ukl.lovehk.xyz"
-    network: "ws"
-    ws-opts:
-      path: "/London31"
-      headers:
-        Host: "ukl.lovehk.xyz"
+    servername: "www.nvidia.com"
+    reality-opts:
+      public-key: "X_lOw5Zz4SJBa1cRHV4dAq5msYE-ClY5-WNcBmBWRxg"
+      short-id: "52add08b86a5ccea"
+    client-fingerprint: "chrome"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "grpc-common3"
 
 proxy-groups:
   - name: Auto
@@ -118,13 +84,11 @@ proxy-groups:
     interval: 60
     tolerance: 80
     proxies:
-      - "p00033"
-      - "p00097"
-      - "p00271"
-      - "p00038"
-      - "p00276"
-      - "p00069"
-      - "p00066"
+      - "p00697"
+      - "p00700"
+      - "p00026"
+      - "p00035"
+      - "p00091"
 
 rules:
   - MATCH,Auto
