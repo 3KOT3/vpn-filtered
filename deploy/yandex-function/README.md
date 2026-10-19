@@ -1,4 +1,4 @@
-# Проверка из России в Yandex Cloud Functions
+﻿# Проверка из России в Yandex Cloud Functions
 
 Функция делает то же, что домашний `check.bat`, но живёт в российском дата-центре
 Яндекса: гоняет конфиги через sing-box (YouTube → Telegram → дата-центр → скорость)
@@ -31,7 +31,7 @@
 | Переменная | Значение |
 | --- | --- |
 | `WORKER_URL` | `https://moybot.sergeylllilllkin2.workers.dev` |
-| `CHECKER_KEY` | `chk-7Qm2xVp9LzR4tNb8sWk3` |
+| `CHECKER_KEY` | `СЕКРЕТ_СПРОСИТЕ_У_ВЛАДЕЛЬЦА_БОТА` |
 | `PUBLISH_KEY` | `pub-7Qm2xVp9LzR4tNb8sWk3` |
 | `MIN_MBPS` | `1.0` (порог скорости) |
 | `SOURCES` | `6,22,23` (какие файлы проверять) |
