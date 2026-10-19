@@ -5,49 +5,6 @@ mode: rule
 log-level: warning
 
 proxies:
-  - name: "p00697"
-    server: "178.17.57.33"
-    port: 8444
-    udp: true
-    type: "vless"
-    uuid: "f55e9aba-7b14-4f6f-b59a-d5b3d45c9309"
-    tls: true
-    servername: "github.com"
-    reality-opts:
-      public-key: "FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0"
-      short-id: "457fab2ac885dbe0"
-    client-fingerprint: "random"
-    network: "grpc"
-    grpc-opts:
-      grpc-service-name: "GunService"
-  - name: "p00700"
-    server: "31.59.210.37"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "5413edfb-08d6-4fba-b51c-809c04feb127"
-    tls: true
-    servername: "www.yandex.ru"
-    reality-opts:
-      public-key: "5k0dtOSzmshCubdYeKppsUdHU4i2ghaB9uSJSzGjHW4"
-      short-id: "6dbf4931096f9890"
-    client-fingerprint: "chrome"
-    network: "grpc"
-    grpc-opts:
-      grpc-service-name: "astracat"
-  - name: "p00026"
-    server: "195.123.245.241"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "7c053ca8-38cc-45e2-930c-eda1fd66f903"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "gateway.icloud.com"
-    reality-opts:
-      public-key: "hlY5ce1UsVIgE46y5PlEZhUsSaXUnCtoDLLaGrhInjw"
-      short-id: "23d0950d60bc0d5b"
-    client-fingerprint: "chrome"
   - name: "p00035"
     server: "5.252.179.15"
     port: 443
@@ -61,21 +18,59 @@ proxies:
       public-key: "XQB2zIgrhD8AtxgYFM8UiiWYt1sLVBLhMg1M4-sGMAY"
       short-id: "296f27de82dad7ff"
     client-fingerprint: "qq"
-  - name: "p00091"
-    server: "152.228.139.33"
-    port: 35108
+  - name: "p00228"
+    server: "195.123.208.32"
+    port: 443
     udp: true
     type: "vless"
-    uuid: "81dc0b61-f9fe-4ad6-8b4e-b8c067b73712"
+    uuid: "1ebcb694-875c-4be7-b6a2-d53c8208991b"
+    flow: "xtls-rprx-vision"
     tls: true
-    servername: "www.nvidia.com"
+    servername: "gateway.icloud.com"
     reality-opts:
-      public-key: "X_lOw5Zz4SJBa1cRHV4dAq5msYE-ClY5-WNcBmBWRxg"
-      short-id: "52add08b86a5ccea"
+      public-key: "ICrsmE5hqN7IsDIyHPG2WkDUUFK_VEj9yobLv8zuDwk"
+      short-id: "757b9e1ef18e60f0"
+    client-fingerprint: "chrome"
+  - name: "p00590"
+    server: "95.216.27.15"
+    port: 2053
+    udp: true
+    type: "vless"
+    uuid: "1c81f6d3-5771-4c5d-9fdd-1655eff50634"
+    tls: true
+    servername: "www.google.com"
+    reality-opts:
+      public-key: "4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM"
+      short-id: "d368b94e275ab080"
+    client-fingerprint: "chrome"
+  - name: "p00026"
+    server: "195.123.245.241"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "7c053ca8-38cc-45e2-930c-eda1fd66f903"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "gateway.icloud.com"
+    reality-opts:
+      public-key: "hlY5ce1UsVIgE46y5PlEZhUsSaXUnCtoDLLaGrhInjw"
+      short-id: "23d0950d60bc0d5b"
+    client-fingerprint: "chrome"
+  - name: "p00236"
+    server: "185.192.22.159"
+    port: 8444
+    udp: true
+    type: "vless"
+    uuid: "f55e9aba-7b14-4f6f-b59a-d5b3d45c9309"
+    tls: true
+    servername: "github.com"
+    reality-opts:
+      public-key: "FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0"
+      short-id: "457fab2ac885dbe0"
     client-fingerprint: "chrome"
     network: "grpc"
     grpc-opts:
-      grpc-service-name: "grpc-common3"
+      grpc-service-name: "GunService"
 
 proxy-groups:
   - name: Auto
@@ -84,11 +79,11 @@ proxy-groups:
     interval: 60
     tolerance: 80
     proxies:
-      - "p00697"
-      - "p00700"
-      - "p00026"
       - "p00035"
-      - "p00091"
+      - "p00228"
+      - "p00590"
+      - "p00026"
+      - "p00236"
 
 rules:
   - MATCH,Auto
