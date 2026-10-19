@@ -1,4 +1,4 @@
-# Проверка из России на своём сервере
+﻿# Проверка из России на своём сервере
 
 Подходит для **Cloud.ru Evolution free tier** (2 vCPU, 4 ГБ RAM, 30 ГБ — бесплатно
 навсегда) и любого другого VPS в России (Timeweb, aeos, reg.ru, Selectel).
@@ -35,7 +35,7 @@ ssh root@ВАШ_IP
 apt-get update -qq && apt-get install -y git
 git clone --depth 1 https://github.com/3KOT3/vpn-filtered.git
 cd vpn-filtered
-sudo CHECKER_KEY='chk-7Qm2xVp9LzR4tNb8sWk3' bash deploy/vm/install.sh
+sudo CHECKER_KEY='СЕКРЕТ_СПРОСИТЕ_У_ВЛАДЕЛЬЦА_БОТА' bash deploy/vm/install.sh
 ```
 
 Всё: скрипт поставит Python и sing-box, разложит проект в `/opt/vpn-checker`,
