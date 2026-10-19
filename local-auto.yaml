@@ -5,72 +5,70 @@ mode: rule
 log-level: warning
 
 proxies:
-  - name: "p00035"
-    server: "5.252.179.15"
+  - name: "p00016"
+    server: "38.91.107.49"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "p00058"
+    server: "188.164.248.216"
     port: 443
     udp: true
     type: "vless"
-    uuid: "0ab273e4-cea6-41d0-bbab-41071d2fc455"
-    flow: "xtls-rprx-vision"
+    uuid: "d342d11e-d224-4463-b982-532309285094"
     tls: true
-    servername: "www.bing.com"
-    reality-opts:
-      public-key: "XQB2zIgrhD8AtxgYFM8UiiWYt1sLVBLhMg1M4-sGMAY"
-      short-id: "296f27de82dad7ff"
+    servername: "ccc.010304.xyz"
+    client-fingerprint: "safari"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "ccc.010304.xyz"
+  - name: "p00076"
+    server: "188.164.248.216"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "d342d11e-d224-4463-b982-532309285094"
+    tls: true
+    servername: "ccc.010304.xyz"
     client-fingerprint: "qq"
-  - name: "p00228"
-    server: "195.123.208.32"
+    network: "ws"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "ccc.010304.xyz"
+  - name: "p00047"
+    server: "188.164.248.216"
     port: 443
     udp: true
     type: "vless"
-    uuid: "1ebcb694-875c-4be7-b6a2-d53c8208991b"
-    flow: "xtls-rprx-vision"
+    uuid: "d342d11e-d224-4463-b982-532309285094"
     tls: true
-    servername: "gateway.icloud.com"
-    reality-opts:
-      public-key: "ICrsmE5hqN7IsDIyHPG2WkDUUFK_VEj9yobLv8zuDwk"
-      short-id: "757b9e1ef18e60f0"
-    client-fingerprint: "chrome"
-  - name: "p00590"
-    server: "95.216.27.15"
-    port: 2053
-    udp: true
-    type: "vless"
-    uuid: "1c81f6d3-5771-4c5d-9fdd-1655eff50634"
-    tls: true
-    servername: "www.google.com"
-    reality-opts:
-      public-key: "4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM"
-      short-id: "d368b94e275ab080"
-    client-fingerprint: "chrome"
-  - name: "p00026"
-    server: "195.123.245.241"
+    servername: "ccc.010304.xyz"
+    client-fingerprint: "edge"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "ccc.010304.xyz"
+  - name: "p00042"
+    server: "188.164.248.216"
     port: 443
     udp: true
     type: "vless"
-    uuid: "7c053ca8-38cc-45e2-930c-eda1fd66f903"
-    flow: "xtls-rprx-vision"
+    uuid: "d342d11e-d224-4463-b982-532309285094"
     tls: true
-    servername: "gateway.icloud.com"
-    reality-opts:
-      public-key: "hlY5ce1UsVIgE46y5PlEZhUsSaXUnCtoDLLaGrhInjw"
-      short-id: "23d0950d60bc0d5b"
+    servername: "ccc.010304.xyz"
     client-fingerprint: "chrome"
-  - name: "p00236"
-    server: "185.192.22.159"
-    port: 8444
-    udp: true
-    type: "vless"
-    uuid: "f55e9aba-7b14-4f6f-b59a-d5b3d45c9309"
-    tls: true
-    servername: "github.com"
-    reality-opts:
-      public-key: "FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0"
-      short-id: "457fab2ac885dbe0"
-    client-fingerprint: "chrome"
-    network: "grpc"
-    grpc-opts:
-      grpc-service-name: "GunService"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "ccc.010304.xyz"
 
 proxy-groups:
   - name: Auto
@@ -79,11 +77,11 @@ proxy-groups:
     interval: 60
     tolerance: 80
     proxies:
-      - "p00035"
-      - "p00228"
-      - "p00590"
-      - "p00026"
-      - "p00236"
+      - "p00016"
+      - "p00058"
+      - "p00076"
+      - "p00047"
+      - "p00042"
 
 rules:
   - MATCH,Auto
