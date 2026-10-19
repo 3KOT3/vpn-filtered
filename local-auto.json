@@ -2,50 +2,64 @@
   "outbounds": [
     {
       "type": "vless",
-      "tag": "p00697",
-      "server": "178.17.57.33",
-      "server_port": 8444,
-      "uuid": "f55e9aba-7b14-4f6f-b59a-d5b3d45c9309",
+      "tag": "p00035",
+      "server": "5.252.179.15",
+      "server_port": 443,
+      "uuid": "0ab273e4-cea6-41d0-bbab-41071d2fc455",
+      "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
-        "server_name": "github.com",
+        "server_name": "www.bing.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "random"
+          "fingerprint": "qq"
         },
         "reality": {
           "enabled": true,
-          "public_key": "FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0",
-          "short_id": "457fab2ac885dbe0"
+          "public_key": "XQB2zIgrhD8AtxgYFM8UiiWYt1sLVBLhMg1M4-sGMAY",
+          "short_id": "296f27de82dad7ff"
         }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "GunService"
       }
     },
     {
       "type": "vless",
-      "tag": "p00700",
-      "server": "31.59.210.37",
+      "tag": "p00228",
+      "server": "195.123.208.32",
       "server_port": 443,
-      "uuid": "5413edfb-08d6-4fba-b51c-809c04feb127",
+      "uuid": "1ebcb694-875c-4be7-b6a2-d53c8208991b",
+      "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
-        "server_name": "www.yandex.ru",
+        "server_name": "gateway.icloud.com",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
         },
         "reality": {
           "enabled": true,
-          "public_key": "5k0dtOSzmshCubdYeKppsUdHU4i2ghaB9uSJSzGjHW4",
-          "short_id": "6dbf4931096f9890"
+          "public_key": "ICrsmE5hqN7IsDIyHPG2WkDUUFK_VEj9yobLv8zuDwk",
+          "short_id": "757b9e1ef18e60f0"
         }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "astracat"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "p00590",
+      "server": "95.216.27.15",
+      "server_port": 2053,
+      "uuid": "1c81f6d3-5771-4c5d-9fdd-1655eff50634",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.google.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM",
+          "short_id": "d368b94e275ab080"
+        }
       }
     },
     {
@@ -71,58 +85,37 @@
     },
     {
       "type": "vless",
-      "tag": "p00035",
-      "server": "5.252.179.15",
-      "server_port": 443,
-      "uuid": "0ab273e4-cea6-41d0-bbab-41071d2fc455",
-      "flow": "xtls-rprx-vision",
+      "tag": "p00236",
+      "server": "185.192.22.159",
+      "server_port": 8444,
+      "uuid": "f55e9aba-7b14-4f6f-b59a-d5b3d45c9309",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "qq"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "XQB2zIgrhD8AtxgYFM8UiiWYt1sLVBLhMg1M4-sGMAY",
-          "short_id": "296f27de82dad7ff"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "p00091",
-      "server": "152.228.139.33",
-      "server_port": 35108,
-      "uuid": "81dc0b61-f9fe-4ad6-8b4e-b8c067b73712",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.nvidia.com",
+        "server_name": "github.com",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
         },
         "reality": {
           "enabled": true,
-          "public_key": "X_lOw5Zz4SJBa1cRHV4dAq5msYE-ClY5-WNcBmBWRxg",
-          "short_id": "52add08b86a5ccea"
+          "public_key": "FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0",
+          "short_id": "457fab2ac885dbe0"
         }
       },
       "transport": {
         "type": "grpc",
-        "service_name": "grpc-common3"
+        "service_name": "GunService"
       }
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "p00697",
-        "p00700",
-        "p00026",
         "p00035",
-        "p00091"
+        "p00228",
+        "p00590",
+        "p00026",
+        "p00236"
       ],
       "url": "https://www.youtube.com/generate_204",
       "interval": "1m",
