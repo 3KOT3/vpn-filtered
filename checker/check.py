@@ -1380,6 +1380,7 @@ def parse_args(argv=None):
     parser.add_argument("--out-branch", help="override the branch used to build links")
     parser.add_argument("--source-files",
                         help="comma separated list overriding source.files, e.g. 6,22")
+    parser.add_argument("--core-check", action="store_true", help="финальная проверка реальным HTTP-запросом через туннель")
     parser.add_argument("--confirm", action="store_true", help="перепроверить выживших: конфиг должен ответить дважды")
     parser.add_argument("--delay-timeout", type=int, help="сколько ждать ответа прокси, мс")
     parser.add_argument("--max-youtube-ms", type=int,
@@ -1628,6 +1629,24 @@ def main(argv=None) -> int:
         if not survivors:
             log("nothing survived the confirmation pass")
             return 1
+    # --- финальная проверка реальным запросом ---------------------------- #
+    # Пинг может пройти, а настоящий запрос через туннель — нет (502).
+    # Клиент ходит именно запросами, поэтому проверяем как он.
+    if getattr(args, "core_check", False) and survivors:
+        PROGRESS.stage("core", done=0, total=len(survivors))
+        try:
+            import core_verify
+
+            verified = core_verify.verify(
+                survivors, args.sing_box, os.path.join(args.work_dir, "core"), log=log
+            )
+            log(f"core-check: реально работают {len(verified)} из {len(survivors)}")
+            if verified:
+                survivors = verified
+            else:
+                log("core-check: ни один не открыл YouTube+Telegram — оставляем прежний список")
+        except Exception as error:  # noqa: BLE001
+            log(f"core-check пропущен: {type(error).__name__}: {error}")
     # --- stage 3d: скорость отклика -------------------------------------- #
     # Shorts и короткие видео тормозит не только полоса, но и задержка:
     # конфиг с ответом в 3 секунды ощущается «не грузится». Отсекаем таких до
