@@ -4,7 +4,8 @@
     "ref": "main",
     "dir": "githubmirror",
     "files": [
-      "22"
+      "22",
+      "https://cdn.jsdelivr.net/gh/proxifly/free-proxy-list@main/proxies/protocols/socks4/data.txt"
     ],
     "note": "полный источник; финальную проверку «работает ли из России» делает ПК владельца",
     "cache_ttl_sec": 600
