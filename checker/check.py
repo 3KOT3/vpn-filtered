@@ -1194,7 +1194,7 @@ def number_configs(kept: list) -> list:
         copy_item = dict(item)
         copy_item["name"] = name
         copy_item["uri"] = uri_with_name(item["uri"], name)
-        copy_item["tag"] = name.replace(" ", "-").lower() + f"-{index}"
+        # тег латиницей — так его понимают все клиенты\n        copy_item["tag"] = f"proxy-{index}"
         outbound = dict(item["outbound"])
         outbound["tag"] = copy_item["tag"]
         copy_item["outbound"] = outbound
