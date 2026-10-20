@@ -5,18 +5,71 @@ mode: rule
 log-level: warning
 
 proxies:
-  - name: "p00364"
-    server: "84.32.100.149"
+  - name: "p00034"
+    server: "188.164.248.216"
     port: 443
     udp: true
     type: "vless"
-    uuid: "244d9eab-3311-40c7-b47f-4968dc3088a6"
+    uuid: "d342d11e-d224-4463-b982-532309285094"
     tls: true
-    servername: "tcpde7.figurapn.ru"
-    reality-opts:
-      public-key: "drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ"
-      short-id: "868419504747f6de"
+    servername: "ccc.010304.xyz"
     client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "ccc.010304.xyz"
+  - name: "p00027"
+    server: "188.164.248.216"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "d342d11e-d224-4463-b982-532309285094"
+    tls: true
+    servername: "ccc.010304.xyz"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "ccc.010304.xyz"
+  - name: "p00114"
+    server: "eu3.998998.best"
+    port: 443
+    udp: true
+    type: "vmess"
+    uuid: "5504eaa8-1395-402f-8e0e-75ecd762e627"
+    alterId: 0
+    cipher: "auto"
+    tls: true
+    servername: "server40.9966338.xyz"
+    network: "ws"
+    ws-opts:
+      path: "/aiaiai"
+      headers:
+        Host: "server40.9966338.xyz"
+  - name: "p00043"
+    server: "jp4.998998.best"
+    port: 443
+    udp: true
+    type: "vmess"
+    uuid: "5504eaa8-1395-402f-8e0e-75ecd762e627"
+    alterId: 0
+    cipher: "auto"
+    tls: true
+    servername: "nat12.9966338.xyz"
+    network: "ws"
+    ws-opts:
+      path: "/vvvvvvvvv"
+      headers:
+        Host: "nat12.9966338.xyz"
+  - name: "p00064"
+    server: "de7.dedushka.top"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "4_VfP9fKaM-3LpSVvoZuc_WUzLoCdHaA"
+    sni: "de7.dedushka.top"
 
 proxy-groups:
   - name: Auto
@@ -25,7 +78,11 @@ proxy-groups:
     interval: 60
     tolerance: 80
     proxies:
-      - "p00364"
+      - "p00034"
+      - "p00027"
+      - "p00114"
+      - "p00043"
+      - "p00064"
 
 rules:
   - MATCH,Auto
