@@ -5,70 +5,27 @@ mode: rule
 log-level: warning
 
 proxies:
-  - name: "p00006"
-    server: "66.151.40.60"
-    port: 8444
+  - name: "p00056"
+    server: "38.91.107.49"
+    port: 18000
     udp: true
-    type: "vless"
-    uuid: "a346c521-7a7f-452b-9356-a4893feb5982"
-    tls: true
-    servername: "github.com"
-    reality-opts:
-      public-key: "FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0"
-    client-fingerprint: "chrome"
-    network: "grpc"
-    grpc-opts:
-      grpc-service-name: "GunService"
-  - name: "p00011"
-    server: "191.44.108.31"
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "p00026"
+    server: "194.93.61.143"
     port: 443
     udp: true
     type: "vless"
-    uuid: "558b26f6-061b-4079-9b84-ca13b3e90ae3"
+    uuid: "244d9eab-3311-40c7-b47f-4968dc3088a6"
     flow: "xtls-rprx-vision"
     tls: true
-    servername: "www.google.com"
+    servername: "nl10.lazeroe.com"
     reality-opts:
-      public-key: "QLh2Y5Ig7pncEIvOYpZlLH2rUHZ3CRuyAo1A_emWZQU"
-      short-id: "3ba10d9ce34380c9"
-    client-fingerprint: "chrome"
-  - name: "p00004"
-    server: "159.89.87.21"
-    port: 28190
-    udp: true
-    type: "vless"
-    uuid: "14c80e0e-f7ce-4991-94fc-99a1db4a9b1e"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "aws.amazon.com"
-    reality-opts:
-      public-key: "ZJRnFU-1s1JOnO8E9uZ7b00l1fPEh63fGRbdBANFRno"
-    client-fingerprint: "chrome"
-  - name: "p00055"
-    server: "77.90.61.135"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "8815925b-c7b8-4f94-9c24-9dc864f63a29"
-    tls: true
-    servername: "www.cloudflare.com"
-    reality-opts:
-      public-key: "XlEzAhUOUC-hZA2Uk2sctG5WR9lPeAUAHGNQVu9oAVg"
-      short-id: "ce1dc482"
-    client-fingerprint: "chrome"
-  - name: "p00028"
-    server: "169.40.42.231"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d65cc14c-f53f-4fe2-b262-97856601319c"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "yahoo.com"
-    reality-opts:
-      public-key: "e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg"
-      short-id: "c39cc7310a"
-    client-fingerprint: "chrome"
+      public-key: "drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ"
+      short-id: "868419504747f6de"
+    client-fingerprint: "edge"
 
 proxy-groups:
   - name: Auto
@@ -77,11 +34,8 @@ proxy-groups:
     interval: 60
     tolerance: 80
     proxies:
-      - "p00006"
-      - "p00011"
-      - "p00004"
-      - "p00055"
-      - "p00028"
+      - "p00056"
+      - "p00026"
 
 rules:
   - MATCH,Auto
