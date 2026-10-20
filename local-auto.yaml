@@ -5,27 +5,18 @@ mode: rule
 log-level: warning
 
 proxies:
-  - name: "p00056"
-    server: "38.91.107.49"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "p00026"
-    server: "194.93.61.143"
+  - name: "p00364"
+    server: "84.32.100.149"
     port: 443
     udp: true
     type: "vless"
     uuid: "244d9eab-3311-40c7-b47f-4968dc3088a6"
-    flow: "xtls-rprx-vision"
     tls: true
-    servername: "nl10.lazeroe.com"
+    servername: "tcpde7.figurapn.ru"
     reality-opts:
       public-key: "drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ"
       short-id: "868419504747f6de"
-    client-fingerprint: "edge"
+    client-fingerprint: "chrome"
 
 proxy-groups:
   - name: Auto
@@ -34,8 +25,7 @@ proxy-groups:
     interval: 60
     tolerance: 80
     proxies:
-      - "p00056"
-      - "p00026"
+      - "p00364"
 
 rules:
   - MATCH,Auto
