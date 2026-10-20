@@ -5,6 +5,19 @@ mode: rule
 log-level: warning
 
 proxies:
+  - name: "p00011"
+    server: "191.44.108.31"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "558b26f6-061b-4079-9b84-ca13b3e90ae3"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.google.com"
+    reality-opts:
+      public-key: "QLh2Y5Ig7pncEIvOYpZlLH2rUHZ3CRuyAo1A_emWZQU"
+      short-id: "3ba10d9ce34380c9"
+    client-fingerprint: "chrome"
   - name: "p00020"
     server: "195.123.245.241"
     port: 443
@@ -18,57 +31,45 @@ proxies:
       public-key: "hlY5ce1UsVIgE46y5PlEZhUsSaXUnCtoDLLaGrhInjw"
       short-id: "23d0950d60bc0d5b"
     client-fingerprint: "chrome"
-  - name: "p00055"
-    server: "77.90.61.135"
-    port: 443
+  - name: "p00006"
+    server: "66.151.40.60"
+    port: 8444
     udp: true
     type: "vless"
-    uuid: "8815925b-c7b8-4f94-9c24-9dc864f63a29"
+    uuid: "a346c521-7a7f-452b-9356-a4893feb5982"
     tls: true
-    servername: "www.cloudflare.com"
+    servername: "github.com"
     reality-opts:
-      public-key: "XlEzAhUOUC-hZA2Uk2sctG5WR9lPeAUAHGNQVu9oAVg"
-      short-id: "ce1dc482"
+      public-key: "FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0"
     client-fingerprint: "chrome"
-  - name: "p00091"
-    server: "50.117.15.225"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "GunService"
+  - name: "p00086"
+    server: "45.150.33.33"
     port: 443
     udp: true
     type: "vless"
-    uuid: "67eb6b17-7797-4ded-bf52-423c4c5f6cbd"
+    uuid: "eec2f6a7-c10f-43b0-b133-61f9bf9bbc27"
     flow: "xtls-rprx-vision"
     tls: true
-    servername: "www.foxsports.com"
+    servername: "amazon.de"
     reality-opts:
-      public-key: "G7bpUPFSW28-oE6ff8qZac1_apU6PiJ-GHmi7tAPDSY"
-      short-id: "91af08b1ce1f"
+      public-key: "G8SING6Ibc_igZ5vI5578fXCT_mBMRuq_o8_Ymnj2SQ"
+      short-id: "eba1498e012ef580"
     client-fingerprint: "chrome"
-  - name: "p00095"
-    server: "104.238.2.82"
-    port: 443
+  - name: "p00004"
+    server: "159.89.87.21"
+    port: 28190
     udp: true
     type: "vless"
-    uuid: "d806a58b-33aa-42e0-b170-395e49c16b37"
+    uuid: "14c80e0e-f7ce-4991-94fc-99a1db4a9b1e"
     flow: "xtls-rprx-vision"
     tls: true
-    servername: "www.microsoft.com"
+    servername: "aws.amazon.com"
     reality-opts:
-      public-key: "Y0noOXC8qHmbM0GmDpj-9BBwKSOtHs-uMbNfKU050GQ"
-      short-id: "b558b9305a0b"
+      public-key: "ZJRnFU-1s1JOnO8E9uZ7b00l1fPEh63fGRbdBANFRno"
     client-fingerprint: "chrome"
-  - name: "p00090"
-    server: "104.16.10.2"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "3c52e091-6714-4915-949f-2149fe69951b"
-    tls: true
-    servername: "v2ray.simspeedup.com"
-    network: "ws"
-    ws-opts:
-      path: "/ws"
-      headers:
-        Host: "v2ray.simspeedup.com"
 
 proxy-groups:
   - name: Auto
@@ -77,11 +78,11 @@ proxy-groups:
     interval: 60
     tolerance: 80
     proxies:
+      - "p00011"
       - "p00020"
-      - "p00055"
-      - "p00091"
-      - "p00095"
-      - "p00090"
+      - "p00006"
+      - "p00086"
+      - "p00004"
 
 rules:
   - MATCH,Auto
