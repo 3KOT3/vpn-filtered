@@ -5,20 +5,20 @@ mode: rule
 log-level: warning
 
 proxies:
-  - name: "p00047"
-    server: "31.56.18.67"
-    port: 2083
+  - name: "p00026"
+    server: "194.93.61.143"
+    port: 443
     udp: true
     type: "vless"
-    uuid: "0be0a2bf-aa20-4e52-aa5a-3d59d56b1582"
+    uuid: "244d9eab-3311-40c7-b47f-4968dc3088a6"
     flow: "xtls-rprx-vision"
     tls: true
-    servername: "dege.underground.company"
+    servername: "nl10.lazeroe.com"
     reality-opts:
-      public-key: "RAsD3YMZiEtRBEQ6hNpsyfVE9ro1M4H2AQ-CKbBjJGU"
-      short-id: "7878a3f029e04e23"
-    client-fingerprint: "chrome"
-  - name: "p00010"
+      public-key: "drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ"
+      short-id: "868419504747f6de"
+    client-fingerprint: "edge"
+  - name: "p00056"
     server: "38.91.107.49"
     port: 18000
     udp: true
@@ -26,45 +26,8 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
-  - name: "p00058"
-    server: "platform107.golnamakcert.top"
-    port: 80
-    udp: true
-    type: "vless"
-    uuid: "e13cf851-b4fd-413b-8d49-146e6eb8e5d4"
-    network: "ws"
-    ws-opts:
-      path: "/platform107"
-  - name: "p00054"
-    server: "us16-4.998998.best"
-    port: 443
-    udp: true
-    type: "vmess"
-    uuid: "5504eaa8-1395-402f-8e0e-75ecd762e627"
-    alterId: 0
-    cipher: "auto"
-    tls: true
-    servername: "server1.9966338.xyz"
-    network: "ws"
-    ws-opts:
-      path: "/efrsdioy98wert"
-      headers:
-        Host: "server1.9966338.xyz"
-  - name: "p00066"
-    server: "172.67.187.145"
-    port: 80
-    udp: true
-    type: "vmess"
-    uuid: "0cf6d970-3f1d-4aae-a989-92a8f76ae3db"
-    alterId: 0
-    cipher: "auto"
-    network: "ws"
-    ws-opts:
-      path: "/ws"
-      headers:
-        Host: "vmess.lbw666.dpdns.org"
-  - name: "p00025"
-    server: "cf.0sm.com"
+  - name: "p00005"
+    server: "172.66.203.67"
     port: 443
     udp: true
     type: "vmess"
@@ -78,6 +41,35 @@ proxies:
       path: "/ws"
       headers:
         Host: "vmess.lbw666.dpdns.org"
+  - name: "p00031"
+    server: "us5-1.998998.best"
+    port: 443
+    udp: true
+    type: "vmess"
+    uuid: "5504eaa8-1395-402f-8e0e-75ecd762e627"
+    alterId: 0
+    cipher: "auto"
+    tls: true
+    servername: "server4.9966338.xyz"
+    network: "ws"
+    ws-opts:
+      path: "/androirfdsreoightrjh"
+      headers:
+        Host: "server4.9966338.xyz"
+  - name: "p00025"
+    server: "104.21.3.219"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "8be461cb-a0df-47cf-bc0d-4d9e6a22fa74"
+    tls: true
+    servername: "ccs2g.pai50288.uk"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/pai50288"
+      headers:
+        Host: "ccs2g.pai50288.uk"
 
 proxy-groups:
   - name: Auto
@@ -86,11 +78,10 @@ proxy-groups:
     interval: 60
     tolerance: 80
     proxies:
-      - "p00047"
-      - "p00010"
-      - "p00058"
-      - "p00054"
-      - "p00066"
+      - "p00026"
+      - "p00056"
+      - "p00005"
+      - "p00031"
       - "p00025"
 
 rules:
