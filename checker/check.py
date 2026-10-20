@@ -329,7 +329,7 @@ def read_local_sources(directory: str) -> dict:
     return out
 
 
-def collect(raw_sources: dict, limit: int = 0, allowed=None):
+def collect(raw_sources: dict, limit: int = 0, allowed=None, cfg_limits=None):
     """Return (candidates, stats). Each candidate is a dict."""
     stats = {
         "lines": 0,
@@ -347,7 +347,15 @@ def collect(raw_sources: dict, limit: int = 0, allowed=None):
 
     for name in sorted(raw_sources):
         text = raw_sources[name].decode("utf-8", "replace")
-        for raw in text.splitlines():
+        # В автоматических источниках десятки тысяч строк. Берём равномерную
+        # выборку по всему файлу: первые N строк почти всегда один и тот же
+        # пул серверов, а нам нужны разные.
+        lines = text.splitlines()
+        per_source = int((cfg_limits or {}).get("max_per_source", 0) or 0)
+        if per_source and len(lines) > per_source:
+            stride = len(lines) / float(per_source)
+            lines = [lines[int(i * stride)] for i in range(per_source)]
+        for raw in lines:
             line = raw.strip()
             if not line:
                 continue
@@ -1158,9 +1166,35 @@ def write_pool_outputs(cfg: dict, out_dir: str, pool: list) -> None:
     log(f"pool: {len(pool)} серверов в живом пуле (YouTube+Telegram+DC, без порога скорости)")
 
 
+def uri_with_name(uri: str, name: str) -> str:
+    """Подменяет подпись конфига (фрагмент после #) на понятное имя."""
+    base = uri.split("#", 1)[0]
+    return f"{base}#{urllib.parse.quote(name)}"
+
+
+def number_configs(kept: list) -> list:
+    """Нумерует конфиги: «Прокси 1», «Прокси 2»…
+
+    Без этого в клиенте видно название всей ссылки вроде
+    «🇯🇵[openproxylist.com] vless-JP», и выбрать живой сервер невозможно.
+    """
+    numbered = []
+    for index, item in enumerate(kept, 1):
+        name = f"Прокси {index}"
+        copy_item = dict(item)
+        copy_item["name"] = name
+        copy_item["uri"] = uri_with_name(item["uri"], name)
+        copy_item["tag"] = name.replace(" ", "-").lower() + f"-{index}"
+        outbound = dict(item["outbound"])
+        outbound["tag"] = copy_item["tag"]
+        copy_item["outbound"] = outbound
+        numbered.append(copy_item)
+    return numbered
+
 def write_outputs(cfg: dict, out_dir: str, kept: list, stats: dict, status: dict) -> None:
     out_cfg = cfg["output"]
     os.makedirs(out_dir, exist_ok=True)
+    kept = number_configs(kept)
 
     plain_path = os.path.join(out_dir, out_cfg["plain"])
     with open(plain_path, "w", encoding="utf-8", newline="\n") as fh:
@@ -1492,7 +1526,7 @@ def main(argv=None) -> int:
     else:
         raw = download_sources(cfg, args.cache_dir)
 
-    candidates, stats = collect(raw, limit=args.limit, allowed=fetch_ru_prefilter(cfg))
+    candidates, stats = collect(raw, limit=args.limit, allowed=fetch_ru_prefilter(cfg), cfg_limits=cfg.get("limits"))
     log(
         f"parsed {stats['parsed']} configs "
         f"({stats['unsupported']} unsupported, {stats['duplicates']} duplicates)"
