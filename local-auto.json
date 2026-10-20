@@ -2,93 +2,102 @@
   "outbounds": [
     {
       "type": "vless",
-      "tag": "p00026",
-      "server": "194.93.61.143",
+      "tag": "p00020",
+      "server": "195.123.245.241",
       "server_port": 443,
-      "uuid": "244d9eab-3311-40c7-b47f-4968dc3088a6",
+      "uuid": "7c053ca8-38cc-45e2-930c-eda1fd66f903",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
-        "server_name": "nl10.lazeroe.com",
+        "server_name": "gateway.icloud.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "edge"
+          "fingerprint": "chrome"
         },
         "reality": {
           "enabled": true,
-          "public_key": "drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ",
-          "short_id": "868419504747f6de"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "p00056",
-      "server": "38.91.107.49",
-      "server_port": 18000,
-      "uuid": "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "type": "vmess",
-      "tag": "p00005",
-      "server": "172.66.203.67",
-      "server_port": 443,
-      "uuid": "0cf6d970-3f1d-4aae-a989-92a8f76ae3db",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "vmess.lbw666.dpdns.org"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws",
-        "headers": {
-          "Host": "vmess.lbw666.dpdns.org"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "p00031",
-      "server": "us5-1.998998.best",
-      "server_port": 443,
-      "uuid": "5504eaa8-1395-402f-8e0e-75ecd762e627",
-      "security": "auto",
-      "alter_id": 0,
-      "tls": {
-        "enabled": true,
-        "server_name": "server4.9966338.xyz"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/androirfdsreoightrjh",
-        "headers": {
-          "Host": "server4.9966338.xyz"
+          "public_key": "hlY5ce1UsVIgE46y5PlEZhUsSaXUnCtoDLLaGrhInjw",
+          "short_id": "23d0950d60bc0d5b"
         }
       }
     },
     {
       "type": "vless",
-      "tag": "p00025",
-      "server": "104.21.3.219",
+      "tag": "p00055",
+      "server": "77.90.61.135",
       "server_port": 443,
-      "uuid": "8be461cb-a0df-47cf-bc0d-4d9e6a22fa74",
+      "uuid": "8815925b-c7b8-4f94-9c24-9dc864f63a29",
       "tls": {
         "enabled": true,
-        "server_name": "ccs2g.pai50288.uk",
+        "server_name": "www.cloudflare.com",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "XlEzAhUOUC-hZA2Uk2sctG5WR9lPeAUAHGNQVu9oAVg",
+          "short_id": "ce1dc482"
         }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "p00091",
+      "server": "50.117.15.225",
+      "server_port": 443,
+      "uuid": "67eb6b17-7797-4ded-bf52-423c4c5f6cbd",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.foxsports.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "G7bpUPFSW28-oE6ff8qZac1_apU6PiJ-GHmi7tAPDSY",
+          "short_id": "91af08b1ce1f"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "p00095",
+      "server": "104.238.2.82",
+      "server_port": 443,
+      "uuid": "d806a58b-33aa-42e0-b170-395e49c16b37",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.microsoft.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "Y0noOXC8qHmbM0GmDpj-9BBwKSOtHs-uMbNfKU050GQ",
+          "short_id": "b558b9305a0b"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "p00090",
+      "server": "104.16.10.2",
+      "server_port": 443,
+      "uuid": "3c52e091-6714-4915-949f-2149fe69951b",
+      "tls": {
+        "enabled": true,
+        "server_name": "v2ray.simspeedup.com"
       },
       "transport": {
         "type": "ws",
-        "path": "/pai50288",
+        "path": "/ws",
         "headers": {
-          "Host": "ccs2g.pai50288.uk"
+          "Host": "v2ray.simspeedup.com"
         }
       }
     },
@@ -96,11 +105,11 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "p00026",
-        "p00056",
-        "p00005",
-        "p00031",
-        "p00025"
+        "p00020",
+        "p00055",
+        "p00091",
+        "p00095",
+        "p00090"
       ],
       "url": "https://www.youtube.com/generate_204",
       "interval": "1m",
