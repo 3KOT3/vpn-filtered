@@ -1,9 +1,9 @@
 {
   "schema": 1,
-  "run_id": "1792486987-be90f802f132",
-  "finished_at": "2026-10-20T09:03:07Z",
-  "finished_epoch": 1792486987,
-  "duration_sec": 124.8,
+  "run_id": "1792494202-4432da77124b",
+  "finished_at": "2026-10-20T11:03:22Z",
+  "finished_epoch": 1792494202,
+  "duration_sec": 138.4,
   "sources": [
     "DarkRoyalty/shnajder-vpn-configs/githubmirror/6.txt"
   ],
@@ -14,10 +14,10 @@
     "duplicates": 0,
     "unique": 108,
     "tcp_alive": 108,
-    "youtube_ok": 23,
+    "youtube_ok": 22,
     "telegram_ok": 20,
     "telegram_dc_ok": 20,
-    "latency_ok": 20,
+    "latency_ok": 18,
     "speed_ok": 0,
     "kept": 5
   },
@@ -25,18 +25,18 @@
     "vless": 5
   },
   "by_country": {
+    "DE": 2,
     "CZ": 1,
     "NL": 1,
-    "PA": 2,
-    "TH": 1
+    "US": 1
   },
   "unsupported_reasons": {},
   "link_plain": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/local.txt",
-  "link_plain_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1.txt?t=1792486987",
+  "link_plain_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1.txt?t=1792494202",
   "link_auto": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/local-auto.json",
-  "link_auto_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/auto.json?t=1792486987",
+  "link_auto_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/auto.json?t=1792494202",
   "link_base64": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/local-base64.txt",
-  "link_base64_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1-base64.txt?t=1792486987",
+  "link_base64_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1-base64.txt?t=1792494202",
   "html_plain": "https://github.com/3KOT3/vpn-filtered/blob/main/1.txt",
   "params": {
     "min_mbps": 2.0,
@@ -48,49 +48,49 @@
   },
   "top": [
     {
+      "name": "[🇩🇪] [vl-re-ra] [261020-001344.261]",
+      "protocol": "vless",
+      "country": "DE",
+      "server": "191.44.108.31",
+      "mbps": 0.619,
+      "youtube_ms": 3284,
+      "telegram_ms": 896
+    },
+    {
       "name": "[🇨🇿] [vl-re-ra] [261020-001428.582]",
       "protocol": "vless",
       "country": "CZ",
       "server": "195.123.245.241",
-      "mbps": 0.629,
-      "youtube_ms": 3648,
-      "telegram_ms": 2117
+      "mbps": 0.609,
+      "youtube_ms": 3645,
+      "telegram_ms": 773
     },
     {
-      "name": "[🇳🇱] [vl-re-ra] [261020-001440.509]",
+      "name": "[🇩🇪] [vl-re-gr] [261020-001512.574]",
+      "protocol": "vless",
+      "country": "DE",
+      "server": "66.151.40.60",
+      "mbps": 0.59,
+      "youtube_ms": 370,
+      "telegram_ms": 364
+    },
+    {
+      "name": "[🇳🇱] [vl-re-ra] [261020-001627.525]",
       "protocol": "vless",
       "country": "NL",
-      "server": "77.90.61.135",
-      "mbps": 0.596,
-      "youtube_ms": 2854,
-      "telegram_ms": 2145
+      "server": "45.150.33.33",
+      "mbps": 0.576,
+      "youtube_ms": 2257,
+      "telegram_ms": 971
     },
     {
-      "name": "[🇵🇦] [vl-re-ra] [261020-001406.903]",
+      "name": "[🇺🇸] [vl-re-ra] [261020-001214.365]",
       "protocol": "vless",
-      "country": "PA",
-      "server": "50.117.15.225",
-      "mbps": 0.471,
-      "youtube_ms": 754,
-      "telegram_ms": 657
-    },
-    {
-      "name": "[🇵🇦] [vl-re-ra] [261020-001606.344]",
-      "protocol": "vless",
-      "country": "PA",
-      "server": "104.238.2.82",
-      "mbps": 0.46,
-      "youtube_ms": 896,
-      "telegram_ms": 836
-    },
-    {
-      "name": "[🇹🇭] [vl-tl-ws] [261020-001304.924]",
-      "protocol": "vless",
-      "country": "TH",
-      "server": "104.16.10.2",
-      "mbps": 0.422,
-      "youtube_ms": 817,
-      "telegram_ms": 1800
+      "country": "US",
+      "server": "159.89.87.21",
+      "mbps": 0.547,
+      "youtube_ms": 3424,
+      "telegram_ms": 1748
     }
   ],
   "by_source": [
@@ -98,7 +98,7 @@
       "source": "cloud",
       "parsed": 108,
       "alive": 108,
-      "youtube": 23,
+      "youtube": 22,
       "telegram": 20,
       "dc": 20,
       "kept": 5
@@ -113,7 +113,7 @@
   },
   "vantage": "local",
   "vantage_host": "DESKTOP-FUR2F0E",
-  "vantage_checked_at": "2026-10-20T09:03:09Z",
+  "vantage_checked_at": "2026-10-20T11:03:23Z",
   "files": {
     "plain": "local.txt",
     "base64": "local-base64.txt",
