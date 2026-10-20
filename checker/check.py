@@ -353,8 +353,18 @@ def collect(raw_sources: dict, limit: int = 0, allowed=None, cfg_limits=None):
         lines = text.splitlines()
         per_source = int((cfg_limits or {}).get("max_per_source", 0) or 0)
         if per_source and len(lines) > per_source:
+            # Смещение меняется от прогона к прогону: сегодня проверяем одну
+            # часть файла, через два часа — следующую. Так за сутки список
+            # источников проходится целиком, а не первые строки.
             stride = len(lines) / float(per_source)
-            lines = [lines[int(i * stride)] for i in range(per_source)]
+            offset = int(time.time() // 3600) % max(1, int(stride))
+            picked = []
+            for index in range(per_source):
+                start = int(index * stride) + offset
+                if start < len(lines):
+                    picked.append(lines[start])
+            if picked:
+                lines = picked
         for raw in lines:
             line = raw.strip()
             if not line:
