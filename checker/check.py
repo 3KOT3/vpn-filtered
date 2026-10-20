@@ -1177,9 +1177,14 @@ def write_pool_outputs(cfg: dict, out_dir: str, pool: list) -> None:
 
 
 def uri_with_name(uri: str, name: str) -> str:
-    """Подменяет подпись конфига (фрагмент после #) на понятное имя."""
+    """Подменяет подпись конфига (фрагмент после #) на понятное имя.
+
+    Кириллицу НЕ кодируем: клиенты её понимают, а процентная запись
+    (%D0%9F...) выглядит как мусор в списке серверов.
+    """
     base = uri.split("#", 1)[0]
-    return f"{base}#{urllib.parse.quote(name)}"
+    safe = name.replace("#", "").replace("\n", " ")
+    return f"{base}#{safe}"
 
 
 def number_configs(kept: list) -> list:
