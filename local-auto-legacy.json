@@ -1,27 +1,17 @@
 {
   "outbounds": [
     {
-      "type": "vmess",
-      "tag": "p00056",
-      "server": "38.91.107.49",
-      "server_port": 18000,
-      "uuid": "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
       "type": "vless",
-      "tag": "p00026",
-      "server": "194.93.61.143",
+      "tag": "p00364",
+      "server": "84.32.100.149",
       "server_port": 443,
       "uuid": "244d9eab-3311-40c7-b47f-4968dc3088a6",
-      "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
-        "server_name": "nl10.lazeroe.com",
+        "server_name": "tcpde7.figurapn.ru",
         "utls": {
           "enabled": true,
-          "fingerprint": "edge"
+          "fingerprint": "chrome"
         },
         "reality": {
           "enabled": true,
@@ -34,8 +24,7 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "p00056",
-        "p00026"
+        "p00364"
       ],
       "url": "https://www.youtube.com/generate_204",
       "interval": "1m",
