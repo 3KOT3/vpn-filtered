@@ -5,71 +5,70 @@ mode: rule
 log-level: warning
 
 proxies:
-  - name: "p00026"
-    server: "194.93.61.143"
+  - name: "p00020"
+    server: "195.123.245.241"
     port: 443
     udp: true
     type: "vless"
-    uuid: "244d9eab-3311-40c7-b47f-4968dc3088a6"
+    uuid: "7c053ca8-38cc-45e2-930c-eda1fd66f903"
     flow: "xtls-rprx-vision"
     tls: true
-    servername: "nl10.lazeroe.com"
+    servername: "gateway.icloud.com"
     reality-opts:
-      public-key: "drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ"
-      short-id: "868419504747f6de"
-    client-fingerprint: "edge"
-  - name: "p00056"
-    server: "38.91.107.49"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "p00005"
-    server: "172.66.203.67"
+      public-key: "hlY5ce1UsVIgE46y5PlEZhUsSaXUnCtoDLLaGrhInjw"
+      short-id: "23d0950d60bc0d5b"
+    client-fingerprint: "chrome"
+  - name: "p00055"
+    server: "77.90.61.135"
     port: 443
     udp: true
-    type: "vmess"
-    uuid: "0cf6d970-3f1d-4aae-a989-92a8f76ae3db"
-    alterId: 0
-    cipher: "auto"
+    type: "vless"
+    uuid: "8815925b-c7b8-4f94-9c24-9dc864f63a29"
     tls: true
-    servername: "vmess.lbw666.dpdns.org"
+    servername: "www.cloudflare.com"
+    reality-opts:
+      public-key: "XlEzAhUOUC-hZA2Uk2sctG5WR9lPeAUAHGNQVu9oAVg"
+      short-id: "ce1dc482"
+    client-fingerprint: "chrome"
+  - name: "p00091"
+    server: "50.117.15.225"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "67eb6b17-7797-4ded-bf52-423c4c5f6cbd"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.foxsports.com"
+    reality-opts:
+      public-key: "G7bpUPFSW28-oE6ff8qZac1_apU6PiJ-GHmi7tAPDSY"
+      short-id: "91af08b1ce1f"
+    client-fingerprint: "chrome"
+  - name: "p00095"
+    server: "104.238.2.82"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "d806a58b-33aa-42e0-b170-395e49c16b37"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.microsoft.com"
+    reality-opts:
+      public-key: "Y0noOXC8qHmbM0GmDpj-9BBwKSOtHs-uMbNfKU050GQ"
+      short-id: "b558b9305a0b"
+    client-fingerprint: "chrome"
+  - name: "p00090"
+    server: "104.16.10.2"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "3c52e091-6714-4915-949f-2149fe69951b"
+    tls: true
+    servername: "v2ray.simspeedup.com"
     network: "ws"
     ws-opts:
       path: "/ws"
       headers:
-        Host: "vmess.lbw666.dpdns.org"
-  - name: "p00031"
-    server: "us5-1.998998.best"
-    port: 443
-    udp: true
-    type: "vmess"
-    uuid: "5504eaa8-1395-402f-8e0e-75ecd762e627"
-    alterId: 0
-    cipher: "auto"
-    tls: true
-    servername: "server4.9966338.xyz"
-    network: "ws"
-    ws-opts:
-      path: "/androirfdsreoightrjh"
-      headers:
-        Host: "server4.9966338.xyz"
-  - name: "p00025"
-    server: "104.21.3.219"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "8be461cb-a0df-47cf-bc0d-4d9e6a22fa74"
-    tls: true
-    servername: "ccs2g.pai50288.uk"
-    client-fingerprint: "chrome"
-    network: "ws"
-    ws-opts:
-      path: "/pai50288"
-      headers:
-        Host: "ccs2g.pai50288.uk"
+        Host: "v2ray.simspeedup.com"
 
 proxy-groups:
   - name: Auto
@@ -78,11 +77,11 @@ proxy-groups:
     interval: 60
     tolerance: 80
     proxies:
-      - "p00026"
-      - "p00056"
-      - "p00005"
-      - "p00031"
-      - "p00025"
+      - "p00020"
+      - "p00055"
+      - "p00091"
+      - "p00095"
+      - "p00090"
 
 rules:
   - MATCH,Auto
