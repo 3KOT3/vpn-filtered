@@ -5,32 +5,6 @@ mode: rule
 log-level: warning
 
 proxies:
-  - name: "p00011"
-    server: "191.44.108.31"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "558b26f6-061b-4079-9b84-ca13b3e90ae3"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "www.google.com"
-    reality-opts:
-      public-key: "QLh2Y5Ig7pncEIvOYpZlLH2rUHZ3CRuyAo1A_emWZQU"
-      short-id: "3ba10d9ce34380c9"
-    client-fingerprint: "chrome"
-  - name: "p00020"
-    server: "195.123.245.241"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "7c053ca8-38cc-45e2-930c-eda1fd66f903"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "gateway.icloud.com"
-    reality-opts:
-      public-key: "hlY5ce1UsVIgE46y5PlEZhUsSaXUnCtoDLLaGrhInjw"
-      short-id: "23d0950d60bc0d5b"
-    client-fingerprint: "chrome"
   - name: "p00006"
     server: "66.151.40.60"
     port: 8444
@@ -45,18 +19,18 @@ proxies:
     network: "grpc"
     grpc-opts:
       grpc-service-name: "GunService"
-  - name: "p00086"
-    server: "45.150.33.33"
+  - name: "p00011"
+    server: "191.44.108.31"
     port: 443
     udp: true
     type: "vless"
-    uuid: "eec2f6a7-c10f-43b0-b133-61f9bf9bbc27"
+    uuid: "558b26f6-061b-4079-9b84-ca13b3e90ae3"
     flow: "xtls-rprx-vision"
     tls: true
-    servername: "amazon.de"
+    servername: "www.google.com"
     reality-opts:
-      public-key: "G8SING6Ibc_igZ5vI5578fXCT_mBMRuq_o8_Ymnj2SQ"
-      short-id: "eba1498e012ef580"
+      public-key: "QLh2Y5Ig7pncEIvOYpZlLH2rUHZ3CRuyAo1A_emWZQU"
+      short-id: "3ba10d9ce34380c9"
     client-fingerprint: "chrome"
   - name: "p00004"
     server: "159.89.87.21"
@@ -70,6 +44,31 @@ proxies:
     reality-opts:
       public-key: "ZJRnFU-1s1JOnO8E9uZ7b00l1fPEh63fGRbdBANFRno"
     client-fingerprint: "chrome"
+  - name: "p00055"
+    server: "77.90.61.135"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "8815925b-c7b8-4f94-9c24-9dc864f63a29"
+    tls: true
+    servername: "www.cloudflare.com"
+    reality-opts:
+      public-key: "XlEzAhUOUC-hZA2Uk2sctG5WR9lPeAUAHGNQVu9oAVg"
+      short-id: "ce1dc482"
+    client-fingerprint: "chrome"
+  - name: "p00028"
+    server: "169.40.42.231"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "d65cc14c-f53f-4fe2-b262-97856601319c"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "yahoo.com"
+    reality-opts:
+      public-key: "e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg"
+      short-id: "c39cc7310a"
+    client-fingerprint: "chrome"
 
 proxy-groups:
   - name: Auto
@@ -78,11 +77,11 @@ proxy-groups:
     interval: 60
     tolerance: 80
     proxies:
-      - "p00011"
-      - "p00020"
       - "p00006"
-      - "p00086"
+      - "p00011"
       - "p00004"
+      - "p00055"
+      - "p00028"
 
 rules:
   - MATCH,Auto
