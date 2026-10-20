@@ -73,7 +73,7 @@
     "min_after_filters": 5,
     "note": "min_speed_count и min_after_filters — страховка: даже в плохой день в списке останется хотя бы столько самых быстрых рабочих конфигов, а не пустота",
     "parallel_groups": 4,
-    "max_per_source": 120
+    "max_per_source": 250
   },
   "publish": {
     "url": "https://moybot.sergeylllilllkin2.workers.dev",
