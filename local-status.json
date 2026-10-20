@@ -1,41 +1,58 @@
 {
   "schema": 1,
-  "run_id": "1792508925-6d6b5a55d632",
-  "finished_at": "2026-10-20T15:08:45Z",
-  "finished_epoch": 1792508925,
-  "duration_sec": 79.0,
+  "run_id": "1792510456-5db231c05ad9",
+  "finished_at": "2026-10-20T15:34:16Z",
+  "finished_epoch": 1792510456,
+  "duration_sec": 197.4,
   "sources": [
-    "DarkRoyalty/shnajder-vpn-configs/githubmirror/6.txt"
+    "DarkRoyalty/shnajder-vpn-configs/githubmirror/https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/All_Configs_Sub.txt.txt",
+    "DarkRoyalty/shnajder-vpn-configs/githubmirror/https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/all_configs.txt.txt",
+    "DarkRoyalty/shnajder-vpn-configs/githubmirror/https://raw.githubusercontent.com/MohammadBahemmat/V2ray-Collector/main/all_servers.txt.txt",
+    "DarkRoyalty/shnajder-vpn-configs/githubmirror/https://raw.githubusercontent.com/Surfboardv2ray/TGParse/main/configtg.txt.txt",
+    "DarkRoyalty/shnajder-vpn-configs/githubmirror/https://raw.githubusercontent.com/Kwinshadow/TelegramV2rayCollector/main/sublinks/mix.txt.txt",
+    "DarkRoyalty/shnajder-vpn-configs/githubmirror/https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/Sub2.txt.txt",
+    "DarkRoyalty/shnajder-vpn-configs/githubmirror/https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/v2ray.txt.txt"
   ],
   "counts": {
-    "lines": 108,
-    "parsed": 108,
-    "unsupported": 0,
-    "duplicates": 0,
-    "unique": 108,
-    "tcp_alive": 84,
-    "youtube_ok": 7,
-    "telegram_ok": 5,
-    "telegram_dc_ok": 5,
-    "latency_ok": 3,
-    "speed_ok": 2,
-    "kept": 2
+    "lines": 1386,
+    "parsed": 1126,
+    "unsupported": 186,
+    "duplicates": 72,
+    "unique": 1126,
+    "tcp_alive": 669,
+    "youtube_ok": 12,
+    "telegram_ok": 8,
+    "telegram_dc_ok": 8,
+    "latency_ok": 7,
+    "speed_ok": 1,
+    "kept": 1
   },
   "by_protocol": {
-    "vmess": 1,
     "vless": 1
   },
   "by_country": {
-    "US": 1,
-    "NL": 1
+    "??": 1
   },
-  "unsupported_reasons": {},
+  "unsupported_reasons": {
+    "vless-encryption": 52,
+    "transport-xhttp-unsupported": 81,
+    "vmess-legacy-format": 1,
+    "vmess-header-type": 22,
+    "ss-missing-host": 2,
+    "ss-bad-credentials": 13,
+    "ss-legacy-bad": 2,
+    "transport-unknown": 1,
+    "ss-method-{\"add\"": 3,
+    "vmess-http-obfs": 7,
+    "ss-method-chacha20-poly1305": 1,
+    "vmess-bad-json": 1
+  },
   "link_plain": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/local.txt",
-  "link_plain_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1.txt?t=1792508925",
+  "link_plain_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1.txt?t=1792510456",
   "link_auto": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/local-auto.json",
-  "link_auto_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/auto.json?t=1792508925",
+  "link_auto_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/auto.json?t=1792510456",
   "link_base64": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/local-base64.txt",
-  "link_base64_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1-base64.txt?t=1792508925",
+  "link_base64_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1-base64.txt?t=1792510456",
   "html_plain": "https://github.com/3KOT3/vpn-filtered/blob/main/1.txt",
   "params": {
     "min_mbps": 2.0,
@@ -47,45 +64,90 @@
   },
   "top": [
     {
-      "name": "[🇺🇸] [vm-no-ra] [261020-001905.061]",
-      "protocol": "vmess",
-      "country": "US",
-      "server": "38.91.107.49",
-      "mbps": 7.057,
-      "youtube_ms": 628,
-      "telegram_ms": 793
-    },
-    {
-      "name": "[🇳🇱] [vl-re-ra] [261020-001231.763]",
+      "name": "EPODONIOS",
       "protocol": "vless",
-      "country": "NL",
-      "server": "194.93.61.143",
-      "mbps": 2.86,
-      "youtube_ms": 684,
-      "telegram_ms": 1026
+      "country": "??",
+      "server": "84.32.100.149",
+      "mbps": 2.605,
+      "youtube_ms": 1287,
+      "telegram_ms": 2387
     }
   ],
   "by_source": [
     {
-      "source": "cloud",
-      "parsed": 108,
-      "alive": 84,
-      "youtube": 7,
-      "telegram": 5,
-      "dc": 5,
-      "kept": 2
+      "source": "https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/All_Configs_Sub.txt",
+      "parsed": 219,
+      "alive": 212,
+      "youtube": 2,
+      "telegram": 1,
+      "dc": 1,
+      "kept": 0
+    },
+    {
+      "source": "https://raw.githubusercontent.com/Epodonios/v2ray-configs/main/Sub2.txt",
+      "parsed": 191,
+      "alive": 184,
+      "youtube": 3,
+      "telegram": 2,
+      "dc": 2,
+      "kept": 1
+    },
+    {
+      "source": "https://raw.githubusercontent.com/Kwinshadow/TelegramV2rayCollector/main/sublinks/mix.txt",
+      "parsed": 77,
+      "alive": 40,
+      "youtube": 0,
+      "telegram": 0,
+      "dc": 0,
+      "kept": 0
+    },
+    {
+      "source": "https://raw.githubusercontent.com/MohammadBahemmat/V2ray-Collector/main/all_servers.txt",
+      "parsed": 217,
+      "alive": 13,
+      "youtube": 2,
+      "telegram": 1,
+      "dc": 1,
+      "kept": 0
+    },
+    {
+      "source": "https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/all_configs.txt",
+      "parsed": 188,
+      "alive": 128,
+      "youtube": 4,
+      "telegram": 3,
+      "dc": 3,
+      "kept": 0
+    },
+    {
+      "source": "https://raw.githubusercontent.com/Surfboardv2ray/TGParse/main/configtg.txt",
+      "parsed": 181,
+      "alive": 88,
+      "youtube": 1,
+      "telegram": 1,
+      "dc": 1,
+      "kept": 0
+    },
+    {
+      "source": "https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/v2ray.txt",
+      "parsed": 53,
+      "alive": 4,
+      "youtube": 0,
+      "telegram": 0,
+      "dc": 0,
+      "kept": 0
     }
   ],
   "invariant": {
     "description": "в списке только те конфиги, где работают И YouTube, И Telegram",
-    "kept": 2,
+    "kept": 1,
     "kept_without_youtube": 0,
     "kept_without_telegram": 0,
     "all_pass_both": true
   },
   "vantage": "local",
   "vantage_host": "DESKTOP-FUR2F0E",
-  "vantage_checked_at": "2026-10-20T15:08:47Z",
+  "vantage_checked_at": "2026-10-20T15:34:32Z",
   "files": {
     "plain": "local.txt",
     "base64": "local-base64.txt",
