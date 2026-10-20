@@ -1,9 +1,9 @@
 {
   "schema": 1,
-  "run_id": "1792501412-e22734810f2b",
-  "finished_at": "2026-10-20T13:03:32Z",
-  "finished_epoch": 1792501412,
-  "duration_sec": 150.1,
+  "run_id": "1792508925-6d6b5a55d632",
+  "finished_at": "2026-10-20T15:08:45Z",
+  "finished_epoch": 1792508925,
+  "duration_sec": 79.0,
   "sources": [
     "DarkRoyalty/shnajder-vpn-configs/githubmirror/6.txt"
   ],
@@ -13,29 +13,29 @@
     "unsupported": 0,
     "duplicates": 0,
     "unique": 108,
-    "tcp_alive": 108,
-    "youtube_ok": 25,
-    "telegram_ok": 24,
-    "telegram_dc_ok": 24,
-    "latency_ok": 24,
-    "speed_ok": 0,
-    "kept": 5
+    "tcp_alive": 84,
+    "youtube_ok": 7,
+    "telegram_ok": 5,
+    "telegram_dc_ok": 5,
+    "latency_ok": 3,
+    "speed_ok": 2,
+    "kept": 2
   },
   "by_protocol": {
-    "vless": 5
+    "vmess": 1,
+    "vless": 1
   },
   "by_country": {
-    "DE": 2,
-    "US": 2,
+    "US": 1,
     "NL": 1
   },
   "unsupported_reasons": {},
   "link_plain": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/local.txt",
-  "link_plain_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1.txt?t=1792501412",
+  "link_plain_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1.txt?t=1792508925",
   "link_auto": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/local-auto.json",
-  "link_auto_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/auto.json?t=1792501412",
+  "link_auto_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/auto.json?t=1792508925",
   "link_base64": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/local-base64.txt",
-  "link_base64_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1-base64.txt?t=1792501412",
+  "link_base64_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1-base64.txt?t=1792508925",
   "html_plain": "https://github.com/3KOT3/vpn-filtered/blob/main/1.txt",
   "params": {
     "min_mbps": 2.0,
@@ -47,72 +47,45 @@
   },
   "top": [
     {
-      "name": "[🇩🇪] [vl-re-gr] [261020-001512.574]",
-      "protocol": "vless",
-      "country": "DE",
-      "server": "66.151.40.60",
-      "mbps": 0.522,
-      "youtube_ms": 552,
-      "telegram_ms": 431
-    },
-    {
-      "name": "[🇩🇪] [vl-re-ra] [261020-001344.261]",
-      "protocol": "vless",
-      "country": "DE",
-      "server": "191.44.108.31",
-      "mbps": 0.519,
-      "youtube_ms": 3240,
-      "telegram_ms": 1057
-    },
-    {
-      "name": "[🇺🇸] [vl-re-ra] [261020-001214.365]",
-      "protocol": "vless",
+      "name": "[🇺🇸] [vm-no-ra] [261020-001905.061]",
+      "protocol": "vmess",
       "country": "US",
-      "server": "159.89.87.21",
-      "mbps": 0.451,
-      "youtube_ms": 2878,
-      "telegram_ms": 894
+      "server": "38.91.107.49",
+      "mbps": 7.057,
+      "youtube_ms": 628,
+      "telegram_ms": 793
     },
     {
-      "name": "[🇳🇱] [vl-re-ra] [261020-001440.509]",
+      "name": "[🇳🇱] [vl-re-ra] [261020-001231.763]",
       "protocol": "vless",
       "country": "NL",
-      "server": "77.90.61.135",
-      "mbps": 0.449,
-      "youtube_ms": 1555,
-      "telegram_ms": 991
-    },
-    {
-      "name": "[🇺🇸] [vl-re-ra] [261020-001604.220]",
-      "protocol": "vless",
-      "country": "US",
-      "server": "169.40.42.231",
-      "mbps": 0.372,
-      "youtube_ms": 3123,
-      "telegram_ms": 1205
+      "server": "194.93.61.143",
+      "mbps": 2.86,
+      "youtube_ms": 684,
+      "telegram_ms": 1026
     }
   ],
   "by_source": [
     {
       "source": "cloud",
       "parsed": 108,
-      "alive": 108,
-      "youtube": 25,
-      "telegram": 24,
-      "dc": 24,
-      "kept": 5
+      "alive": 84,
+      "youtube": 7,
+      "telegram": 5,
+      "dc": 5,
+      "kept": 2
     }
   ],
   "invariant": {
     "description": "в списке только те конфиги, где работают И YouTube, И Telegram",
-    "kept": 5,
+    "kept": 2,
     "kept_without_youtube": 0,
     "kept_without_telegram": 0,
     "all_pass_both": true
   },
   "vantage": "local",
   "vantage_host": "DESKTOP-FUR2F0E",
-  "vantage_checked_at": "2026-10-20T13:03:34Z",
+  "vantage_checked_at": "2026-10-20T15:08:47Z",
   "files": {
     "plain": "local.txt",
     "base64": "local-base64.txt",
