@@ -2,10 +2,10 @@
   "outbounds": [
     {
       "type": "vless",
-      "tag": "p00056",
-      "server": "57.129.130.10",
-      "server_port": 52014,
-      "uuid": "395bab7e-302a-42b4-bac7-8acb7d36fdf3",
+      "tag": "p00067",
+      "server": "84.22.150.39",
+      "server_port": 7443,
+      "uuid": "9d5cbb90-876b-448d-9874-27ab35bae6e7",
       "tls": {
         "enabled": true,
         "server_name": "woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev",
@@ -24,37 +24,13 @@
     },
     {
       "type": "vless",
-      "tag": "p00020",
-      "server": "193.233.253.180",
-      "server_port": 8444,
-      "uuid": "f55e9aba-7b14-4f6f-b59a-d5b3d45c9309",
+      "tag": "p00070",
+      "server": "57.129.130.200",
+      "server_port": 52014,
+      "uuid": "b1ecd06b-a931-47a2-8f48-d1d133d2b4f3",
       "tls": {
         "enabled": true,
-        "server_name": "github.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0",
-          "short_id": "457fab2ac885dbe0"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "GunService"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "p00062",
-      "server": "116.204.164.27",
-      "server_port": 7443,
-      "uuid": "67ad6de6-ac67-4af7-8209-98ba3bd88834",
-      "tls": {
-        "enabled": true,
-        "server_name": "bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev",
+        "server_name": "3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
@@ -64,49 +40,72 @@
         "type": "ws",
         "path": "/@Marisa_kristi",
         "headers": {
-          "Host": "bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev"
+          "Host": "3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev"
         }
       }
     },
     {
       "type": "vless",
-      "tag": "p00098",
-      "server": "77.90.61.135",
+      "tag": "p00082",
+      "server": "116.204.164.60",
+      "server_port": 7443,
+      "uuid": "fc85cf23-75e6-4b91-b468-8adc9407047b",
+      "tls": {
+        "enabled": true,
+        "server_name": "o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/@Marisa_kristi",
+        "headers": {
+          "Host": "o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "p00060",
+      "server": "116.204.164.17",
+      "server_port": 7443,
+      "uuid": "57c830ca-19a2-441c-811d-db5d81b86b47",
+      "tls": {
+        "enabled": true,
+        "server_name": "o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/@Marisa_kristi",
+        "headers": {
+          "Host": "o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "p00021",
+      "server": "94.156.79.93",
       "server_port": 443,
-      "uuid": "8815925b-c7b8-4f94-9c24-9dc864f63a29",
+      "uuid": "1a5e7720-abf3-4b9b-bc9b-9a900a04b434",
+      "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
-        "server_name": "www.cloudflare.com",
+        "server_name": "www.microsoft.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "safari"
+          "fingerprint": "firefox"
         },
         "reality": {
           "enabled": true,
-          "public_key": "XlEzAhUOUC-hZA2Uk2sctG5WR9lPeAUAHGNQVu9oAVg",
-          "short_id": "ce1dc482"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "p00075",
-      "server": "116.204.164.27",
-      "server_port": 7443,
-      "uuid": "c82e5af9-5fef-4fdd-9454-2682873e1563",
-      "tls": {
-        "enabled": true,
-        "server_name": "c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/@Marisa_kristi",
-        "headers": {
-          "Host": "c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev"
+          "public_key": "_0fpFqEEuCso3B8K7AAcMjctwG_xfCxO2PdKzGd_-hg",
+          "short_id": "f129dcdbf64f"
         }
       }
     },
@@ -114,11 +113,11 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "p00056",
-        "p00020",
-        "p00062",
-        "p00098",
-        "p00075"
+        "p00067",
+        "p00070",
+        "p00082",
+        "p00060",
+        "p00021"
       ],
       "url": "https://www.youtube.com/generate_204",
       "interval": "1m",
