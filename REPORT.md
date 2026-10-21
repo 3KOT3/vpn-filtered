@@ -1,6 +1,6 @@
 # Отфильтрованный список VPN-конфигов
 
-Обновлено: **2026-10-21T02:36:33Z** UTC (прогон занял 52 с)
+Обновлено: **2026-10-21T10:52:14Z** UTC (прогон занял 50 с)
 
 ## Что проверялось
 
@@ -16,48 +16,46 @@
 
 | Шаг | Осталось |
 | --- | ---: |
-| Строк в источниках | 502 |
-| Разобрано в конфиги | 336 |
-| Уникальных | 336 |
-| Endpoint отвечает по TCP | 330 |
-| YouTube доступен | 250 |
-| + Telegram (HTTP) доступен | 237 |
-| + дата-центр Telegram доступен | 237 |
-| + скорость ≥ 3.0 Мбит/с | 2 |
+| Строк в источниках | 436 |
+| Разобрано в конфиги | 422 |
+| Уникальных | 422 |
+| Endpoint отвечает по TCP | 399 |
+| YouTube доступен | 168 |
+| + Telegram (HTTP) доступен | 149 |
+| + дата-центр Telegram доступен | 149 |
+| + скорость ≥ 3.0 Мбит/с | 0 |
 | **В итоговом списке** | **5** |
 
 ## По протоколам
 
 | Протокол | В списке |
 | --- | ---: |
-| vless | 4 |
-| shadowsocks | 1 |
+| vless | 5 |
 
 ## По странам
 
 | Страна | В списке |
 | --- | ---: |
-| US | 2 |
-| NL | 2 |
-| GB | 1 |
+| CA | 3 |
+| DE | 1 |
+| US | 1 |
 
 ## Самые быстрые
 
 | # | Имя | Протокол | Страна | Мбит/с | YouTube, мс | Telegram, мс |
 | ---: | --- | --- | --- | ---: | ---: | ---: |
-| 1 | 🇺🇸[openproxylist.com] vless-US | vless | US | 3.62 | 75 | 338 |
-| 2 | 🇺🇸[openproxylist.com] vless-US | vless | US | 3.22 | 139 | 628 |
-| 3 | 🇳🇱[openproxylist.com] vless-NL | vless | NL | 2.38 | 246 | 256 |
-| 4 | 🇬🇧[openproxylist.com] vless-GB | vless | GB | 2.34 | 598 | 282 |
-| 5 | 🇳🇱[openproxylist.com] ss-NL | shadowsocks | NL | 2.34 | 253 | 257 |
+| 1 | 🇩🇪[openproxylist.com] vless-DE | vless | DE | 1.96 | 310 | 311 |
+| 2 | 🌐 Anycast-IP | 🇨🇦 🇬🇧 🇷🇺 | [BL] | vless | CA | 1.67 | 76 | 647 |
+| 3 | 🌐 Anycast-IP | 🇨🇦 🇬🇧 🇷🇺 | [BL] | vless | CA | 1.63 | 96 | 749 |
+| 4 | 🌐 Anycast-IP | 🇨🇦 🇬🇧 🇷🇺 | [BL] | vless | CA | 1.57 | 100 | 658 |
+| 5 | 🇺🇸[openproxylist.com] vless-US | vless | US | 1.55 | 103 | 332 |
 
 ## Что не удалось проверить
 
 | Причина | Конфигов |
 | --- | ---: |
-| transport-xhttp-unsupported | 5 |
-| vmess-http-obfs | 3 |
-| vmess-header-type | 2 |
+| vmess-http-obfs | 4 |
+| transport-xhttp-unsupported | 3 |
 
 ## Ссылки
 
