@@ -5,12 +5,12 @@ mode: rule
 log-level: warning
 
 proxies:
-  - name: "p00056"
-    server: "57.129.130.10"
-    port: 52014
+  - name: "p00067"
+    server: "84.22.150.39"
+    port: 7443
     udp: true
     type: "vless"
-    uuid: "395bab7e-302a-42b4-bac7-8acb7d36fdf3"
+    uuid: "9d5cbb90-876b-448d-9874-27ab35bae6e7"
     tls: true
     servername: "woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev"
     client-fingerprint: "chrome"
@@ -19,61 +19,61 @@ proxies:
       path: "/@Marisa_kristi"
       headers:
         Host: "woc0zvrf11w2endu.dphdlc1u77bs3y4kvussbuap4p576f1ws7igthq8zbf3.workers.dev"
-  - name: "p00020"
-    server: "193.233.253.180"
-    port: 8444
+  - name: "p00070"
+    server: "57.129.130.200"
+    port: 52014
     udp: true
     type: "vless"
-    uuid: "f55e9aba-7b14-4f6f-b59a-d5b3d45c9309"
+    uuid: "b1ecd06b-a931-47a2-8f48-d1d133d2b4f3"
     tls: true
-    servername: "github.com"
-    reality-opts:
-      public-key: "FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0"
-      short-id: "457fab2ac885dbe0"
-    client-fingerprint: "chrome"
-    network: "grpc"
-    grpc-opts:
-      grpc-service-name: "GunService"
-  - name: "p00062"
-    server: "116.204.164.27"
-    port: 7443
-    udp: true
-    type: "vless"
-    uuid: "67ad6de6-ac67-4af7-8209-98ba3bd88834"
-    tls: true
-    servername: "bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev"
+    servername: "3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev"
     client-fingerprint: "chrome"
     network: "ws"
     ws-opts:
       path: "/@Marisa_kristi"
       headers:
-        Host: "bapj1qapjk4.0sds0li1bwcz0i76it0gjxv1.workers.dev"
-  - name: "p00098"
-    server: "77.90.61.135"
+        Host: "3tmj2egtm-fno.49bnithzk8vphybv36d1z1xkzfvogt2m6.workers.dev"
+  - name: "p00082"
+    server: "116.204.164.60"
+    port: 7443
+    udp: true
+    type: "vless"
+    uuid: "fc85cf23-75e6-4b91-b468-8adc9407047b"
+    tls: true
+    servername: "o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/@Marisa_kristi"
+      headers:
+        Host: "o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev"
+  - name: "p00060"
+    server: "116.204.164.17"
+    port: 7443
+    udp: true
+    type: "vless"
+    uuid: "57c830ca-19a2-441c-811d-db5d81b86b47"
+    tls: true
+    servername: "o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/@Marisa_kristi"
+      headers:
+        Host: "o-85ley6knn8ut.6nvkygqh144t7xtdyvh0y3o4gzo3ujhnk8n.workers.dev"
+  - name: "p00021"
+    server: "94.156.79.93"
     port: 443
     udp: true
     type: "vless"
-    uuid: "8815925b-c7b8-4f94-9c24-9dc864f63a29"
+    uuid: "1a5e7720-abf3-4b9b-bc9b-9a900a04b434"
+    flow: "xtls-rprx-vision"
     tls: true
-    servername: "www.cloudflare.com"
+    servername: "www.microsoft.com"
     reality-opts:
-      public-key: "XlEzAhUOUC-hZA2Uk2sctG5WR9lPeAUAHGNQVu9oAVg"
-      short-id: "ce1dc482"
-    client-fingerprint: "safari"
-  - name: "p00075"
-    server: "116.204.164.27"
-    port: 7443
-    udp: true
-    type: "vless"
-    uuid: "c82e5af9-5fef-4fdd-9454-2682873e1563"
-    tls: true
-    servername: "c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev"
-    client-fingerprint: "chrome"
-    network: "ws"
-    ws-opts:
-      path: "/@Marisa_kristi"
-      headers:
-        Host: "c6dbx99g6stb418qeo.t3jmlj0r152zji4htdkm9.workers.dev"
+      public-key: "_0fpFqEEuCso3B8K7AAcMjctwG_xfCxO2PdKzGd_-hg"
+      short-id: "f129dcdbf64f"
+    client-fingerprint: "firefox"
 
 proxy-groups:
   - name: Auto
@@ -82,11 +82,11 @@ proxy-groups:
     interval: 60
     tolerance: 80
     proxies:
-      - "p00056"
-      - "p00020"
-      - "p00062"
-      - "p00098"
-      - "p00075"
+      - "p00067"
+      - "p00070"
+      - "p00082"
+      - "p00060"
+      - "p00021"
 
 rules:
   - MATCH,Auto
