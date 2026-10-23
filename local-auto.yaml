@@ -5,19 +5,7 @@ mode: rule
 log-level: warning
 
 proxies:
-  - name: "p00390"
-    server: "95.216.27.15"
-    port: 2053
-    udp: true
-    type: "vless"
-    uuid: "1c81f6d3-5771-4c5d-9fdd-1655eff50634"
-    tls: true
-    servername: "www.google.com"
-    reality-opts:
-      public-key: "4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM"
-      short-id: "d368b94e275ab080"
-    client-fingerprint: "chrome"
-  - name: "p00079"
+  - name: "p00081"
     server: "138.124.180.137"
     port: 443
     udp: true
@@ -30,43 +18,110 @@ proxies:
       public-key: "GBdkyDLfr0LIZo_94Xv8ycAKOmkjArYzwJAEMhuXX2c"
       short-id: "33acba1b"
     client-fingerprint: "chrome"
-  - name: "p00036"
-    server: "ai.smrtai.top"
+  - name: "p00020"
+    server: "31.70.111.146"
     port: 443
     udp: true
     type: "vless"
-    uuid: "086bf957-9cd0-4e55-8280-bbef10435b41"
+    uuid: "84ed0e09-6803-4ef9-a977-74b657d971e5"
+    flow: "xtls-rprx-vision"
     tls: true
-    servername: "www.cloudflare.com"
+    servername: "www.apple.com"
     reality-opts:
-      public-key: "R-w7BpNgtryZRBMyRoHx81OnjzAwrKhVtV1EUKLFJzc"
-      short-id: "086bf957"
+      public-key: "ZNmuzIn-zyJi2C0sWRpL9fsMYCgYauXpJElXTqY_LEE"
+      short-id: "d7de3a6ff4018957"
     client-fingerprint: "chrome"
-  - name: "p00124"
-    server: "195.123.235.183"
+  - name: "p00332"
+    server: "51.158.206.8"
+    port: 23576
+    udp: true
+    type: "vless"
+    uuid: "48ff2b70-e180-582f-8866-d9a2edeed5f5"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "fuck.rkn"
+    reality-opts:
+      public-key: "1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s"
+      short-id: "01"
+    client-fingerprint: "chrome"
+  - name: "p00087"
+    server: "195.123.221.36"
     port: 443
     udp: true
     type: "vless"
-    uuid: "c14ec728-3eca-4750-87fc-fd1e6aeb81d5"
+    uuid: "9c60369d-e5f9-4cec-9e63-1560e88e119a"
     flow: "xtls-rprx-vision"
     tls: true
     servername: "gateway.icloud.com"
     reality-opts:
-      public-key: "H3R3BUAl7thrIZsznTbb-eRREIjQOH2f3WO0oTN7OGY"
-      short-id: "a0e2a6074c6456b0"
+      public-key: "dIv6pPS-x6IzbiPyHX8nNdRrwI2yZl4y3YCeRWy9UgE"
+      short-id: "3e67326f98ddb407"
     client-fingerprint: "chrome"
-  - name: "p00127"
-    server: "169.40.42.231"
+  - name: "p00084"
+    server: "86.54.28.75"
     port: 443
     udp: true
     type: "vless"
-    uuid: "d65cc14c-f53f-4fe2-b262-97856601319c"
+    uuid: "44ae52b9-76fc-444d-8e43-186b4384b80a"
     flow: "xtls-rprx-vision"
     tls: true
-    servername: "yahoo.com"
+    servername: "www.apple.com"
     reality-opts:
-      public-key: "e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg"
-      short-id: "c39cc7310a"
+      public-key: "PryGoq51ilG0eLUPl9i0xCvmk1xpwkyFSr_tG4GNLlU"
+      short-id: "1d86d17709852910"
+    client-fingerprint: "chrome"
+  - name: "p00017"
+    server: "103.91.147.212"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "261160d5-0343-4b85-8c28-3d40dd681559"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "de.ozon.ru"
+    reality-opts:
+      public-key: "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc"
+    client-fingerprint: "chrome"
+  - name: "p00255"
+    server: "78.135.73.47"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "25e16692-d097-4e69-9e2d-8415609c1968"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.datadoghq.com"
+    reality-opts:
+      public-key: "sZAJkAu23wp1WKY-qeaeiwR38izP5OyfhumoE9xhbB8"
+      short-id: "f46cd3ea3d1eb72d"
+    client-fingerprint: "chrome"
+  - name: "p00028"
+    server: "193.233.253.180"
+    port: 8444
+    udp: true
+    type: "vless"
+    uuid: "f55e9aba-7b14-4f6f-b59a-d5b3d45c9309"
+    tls: true
+    servername: "github.com"
+    reality-opts:
+      public-key: "FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0"
+      short-id: "457fab2ac885dbe0"
+    client-fingerprint: "chrome"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "GunService"
+  - name: "p00117"
+    server: "167.17.69.171"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "00144519-7e0d-476b-8d28-435576af9262"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.cloudflare.com"
+    reality-opts:
+      public-key: "ALT8hIGeZEhi0sQFbXP_ntBg8Xo-v7i0YCLrqTnBxRk"
+      short-id: "0990d22f"
     client-fingerprint: "chrome"
 
 proxy-groups:
@@ -76,11 +131,15 @@ proxy-groups:
     interval: 60
     tolerance: 80
     proxies:
-      - "p00390"
-      - "p00079"
-      - "p00036"
-      - "p00124"
-      - "p00127"
+      - "p00081"
+      - "p00020"
+      - "p00332"
+      - "p00087"
+      - "p00084"
+      - "p00017"
+      - "p00255"
+      - "p00028"
+      - "p00117"
 
 rules:
   - MATCH,Auto
