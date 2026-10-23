@@ -5,7 +5,7 @@ mode: rule
 log-level: warning
 
 proxies:
-  - name: "p00299"
+  - name: "p00390"
     server: "95.216.27.15"
     port: 2053
     udp: true
@@ -17,45 +17,57 @@ proxies:
       public-key: "4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM"
       short-id: "d368b94e275ab080"
     client-fingerprint: "chrome"
-  - name: "p00316"
-    server: "78.135.73.47"
+  - name: "p00079"
+    server: "138.124.180.137"
     port: 443
     udp: true
     type: "vless"
-    uuid: "25e16692-d097-4e69-9e2d-8415609c1968"
+    uuid: "5234b2b7-5e07-422c-8159-d62a676c00c6"
     flow: "xtls-rprx-vision"
     tls: true
-    servername: "www.datadoghq.com"
+    servername: "www.apple.com"
     reality-opts:
-      public-key: "sZAJkAu23wp1WKY-qeaeiwR38izP5OyfhumoE9xhbB8"
-      short-id: "f46cd3ea3d1eb72d"
+      public-key: "GBdkyDLfr0LIZo_94Xv8ycAKOmkjArYzwJAEMhuXX2c"
+      short-id: "33acba1b"
     client-fingerprint: "chrome"
-  - name: "p00291"
-    server: "tk1.high-speed-test-56424.me"
+  - name: "p00036"
+    server: "ai.smrtai.top"
     port: 443
     udp: true
     type: "vless"
-    uuid: "37615d66-5467-44a3-bc23-f2c3bef7f761"
-    flow: "xtls-rprx-vision"
+    uuid: "086bf957-9cd0-4e55-8280-bbef10435b41"
     tls: true
-    servername: "aws.amazon.com"
+    servername: "www.cloudflare.com"
     reality-opts:
-      public-key: "p8VhFzvFOBAhWAEAeWmwDxT3xBSRsGYixqi0qnLFnBM"
-      short-id: "21270a66"
+      public-key: "R-w7BpNgtryZRBMyRoHx81OnjzAwrKhVtV1EUKLFJzc"
+      short-id: "086bf957"
     client-fingerprint: "chrome"
-  - name: "p00298"
-    server: "154.21.203.106"
-    port: 51279
+  - name: "p00124"
+    server: "195.123.235.183"
+    port: 443
     udp: true
     type: "vless"
-    uuid: "57beeeb0-03fc-4fc9-94da-7604488a7134"
+    uuid: "c14ec728-3eca-4750-87fc-fd1e6aeb81d5"
     flow: "xtls-rprx-vision"
     tls: true
-    servername: "www.tesla.com"
+    servername: "gateway.icloud.com"
     reality-opts:
-      public-key: "f6Tj8-uvWsLv3V-lGLuPciArp5oKqUImBg-U7-WJ-0A"
-      short-id: "bb82c8"
-    client-fingerprint: "random"
+      public-key: "H3R3BUAl7thrIZsznTbb-eRREIjQOH2f3WO0oTN7OGY"
+      short-id: "a0e2a6074c6456b0"
+    client-fingerprint: "chrome"
+  - name: "p00127"
+    server: "169.40.42.231"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "d65cc14c-f53f-4fe2-b262-97856601319c"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "yahoo.com"
+    reality-opts:
+      public-key: "e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg"
+      short-id: "c39cc7310a"
+    client-fingerprint: "chrome"
 
 proxy-groups:
   - name: Auto
@@ -64,10 +76,11 @@ proxy-groups:
     interval: 60
     tolerance: 80
     proxies:
-      - "p00299"
-      - "p00316"
-      - "p00291"
-      - "p00298"
+      - "p00390"
+      - "p00079"
+      - "p00036"
+      - "p00124"
+      - "p00127"
 
 rules:
   - MATCH,Auto
