@@ -1,6 +1,6 @@
 # Отфильтрованный список VPN-конфигов
 
-Обновлено: **2026-10-22T21:00:29Z** UTC (прогон занял 62 с)
+Обновлено: **2026-10-23T02:38:22Z** UTC (прогон занял 49 с)
 
 ## Что проверялось
 
@@ -16,62 +16,59 @@
 
 | Шаг | Осталось |
 | --- | ---: |
-| Строк в источниках | 349 |
-| Разобрано в конфиги | 314 |
-| Уникальных | 314 |
-| Endpoint отвечает по TCP | 296 |
-| YouTube доступен | 180 |
-| + Telegram (HTTP) доступен | 154 |
-| + дата-центр Telegram доступен | 154 |
-| + скорость ≥ 3.0 Мбит/с | 41 |
-| **В итоговом списке** | **41** |
+| Строк в источниках | 399 |
+| Разобрано в конфиги | 373 |
+| Уникальных | 373 |
+| Endpoint отвечает по TCP | 337 |
+| YouTube доступен | 210 |
+| + Telegram (HTTP) доступен | 200 |
+| + дата-центр Telegram доступен | 200 |
+| + скорость ≥ 3.0 Мбит/с | 54 |
+| **В итоговом списке** | **54** |
 
 ## По протоколам
 
 | Протокол | В списке |
 | --- | ---: |
-| vless | 16 |
-| vmess | 14 |
-| shadowsocks | 8 |
-| trojan | 3 |
+| vless | 22 |
+| vmess | 17 |
+| shadowsocks | 13 |
+| trojan | 2 |
 
 ## По странам
 
 | Страна | В списке |
 | --- | ---: |
-| US | 13 |
-| CA | 13 |
+| US | 23 |
+| CA | 19 |
 | GB | 4 |
-| ES | 3 |
-| ?? | 2 |
-| NL | 1 |
-| IT | 1 |
-| AT | 1 |
+| IT | 3 |
+| NL | 2 |
 | DE | 1 |
-| PL | 1 |
-| SE | 1 |
+| AT | 1 |
+| ?? | 1 |
 
 ## Самые быстрые
 
 | # | Имя | Протокол | Страна | Мбит/с | YouTube, мс | Telegram, мс |
 | ---: | --- | --- | --- | ---: | ---: | ---: |
-| 1 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 8.68 | 31 | 283 |
-| 2 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 8.34 | 24 | 286 |
-| 3 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 7.15 | 36 | 339 |
-| 4 | [🇺🇸] [vl-re-ra] [261022-210607.556] | vless | US | 7.08 | 38 | 267 |
-| 5 | 🏳[openproxylist.com] vless- | vless | ?? | 6.63 | 39 | 742 |
-| 6 | [🇨🇦] [vm-no-ra] [261022-211150.430] | vmess | CA | 5.45 | 297 | 315 |
-| 7 | 🇪🇸[openproxylist.com] vless-ES | vless | ES | 5.30 | 46 | 415 |
-| 8 | 🏳[openproxylist.com] vless- | vless | ?? | 5.21 | 59 | 319 |
-| 9 | [🇨🇦] [vm-no-ra] [261022-211150.276] | vmess | CA | 5.08 | 102 | 312 |
-| 10 | [🇺🇸] [vm-no-ra] [261022-211128.288] | vmess | US | 4.87 | 28 | 267 |
+| 1 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 8.31 | 122 | 320 |
+| 2 | 🇨🇦[openproxylist.com] vless-CA | vless | CA | 8.14 | 81 | 332 |
+| 3 | 🌐 Anycast-IP | 🇨🇦 🇬🇧 🇷🇺 | [BL] | vless | CA | 7.40 | 119 | 719 |
+| 4 | 🌐 Anycast-IP | 🇨🇦 🇬🇧 🇷🇺 | [BL] | vless | CA | 7.17 | 113 | 771 |
+| 5 | 🌐 Anycast-IP | 🇨🇦 🇬🇧 🇷🇺 | [BL] | vless | CA | 6.95 | 85 | 666 |
+| 6 | 🌐 Anycast-IP | 🇨🇦 🇬🇧 🇷🇺 | [BL] | vless | CA | 6.84 | 120 | 765 |
+| 7 | 🌐 Anycast-IP | 🇨🇦 🇬🇧 🇷🇺 | [BL] | vless | CA | 6.78 | 257 | 779 |
+| 8 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 6.55 | 132 | 482 |
+| 9 | 🌐 Anycast-IP | 🇨🇦 🇬🇧 🇷🇺 | [BL] | vless | CA | 6.51 | 114 | 676 |
+| 10 | 🌐 Anycast-IP | 🇬🇧 🇷🇺 | [BL] | vless | GB | 6.48 | 263 | 851 |
 
 ## Что не удалось проверить
 
 | Причина | Конфигов |
 | --- | ---: |
-| transport-xhttp-unsupported | 11 |
-| vmess-http-obfs | 4 |
+| transport-xhttp-unsupported | 6 |
+| vmess-http-obfs | 3 |
 | vmess-header-type | 1 |
 
 ## Ссылки
