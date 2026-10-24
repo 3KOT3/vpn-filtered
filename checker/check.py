@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Filter a VPN subscription down to the configs that really work.
 
 Pipeline
@@ -857,8 +857,9 @@ def build_auto_config(kept: list, cfg: dict, legacy: bool = False) -> dict:
         "tag": "auto",
         "outbounds": names,
         "url": cfg["youtube"]["url"],
-        "interval": "1m",
-        "tolerance": 80,
+        "interval": "45s",
+        "tolerance": 50,
+        "interrupt_exist_connections": False,
     }
 
     if legacy:
@@ -1025,8 +1026,9 @@ def build_clash_config(kept: list, cfg: dict) -> str:
         "  - name: Auto",
         "    type: url-test",
         f"    url: {cfg['youtube']['url']}",
-        "    interval: 60",
-        "    tolerance: 80",
+        "    interval: 30",
+        "    tolerance: 50",
+        "    lazy: false",
         "    proxies:",
     ]
     for name in names:
@@ -1199,7 +1201,8 @@ def number_configs(kept: list) -> list:
         copy_item = dict(item)
         copy_item["name"] = name
         copy_item["uri"] = uri_with_name(item["uri"], name)
-        # тег латиницей — так его понимают все клиенты\n        copy_item["tag"] = f"proxy-{index}"
+        # тег латиницей — так его понимают все клиенты
+        copy_item["tag"] = f"proxy-{index}"
         outbound = dict(item["outbound"])
         outbound["tag"] = copy_item["tag"]
         copy_item["outbound"] = outbound
@@ -1209,6 +1212,9 @@ def number_configs(kept: list) -> list:
 def write_outputs(cfg: dict, out_dir: str, kept: list, stats: dict, status: dict) -> None:
     out_cfg = cfg["output"]
     os.makedirs(out_dir, exist_ok=True)
+    # Ранжирование по скорости: и человек, и клиент выбирают сверху вниз.
+    # Было случайное соседство — самый быстрый мог оказаться десятым.
+    kept = sorted(kept, key=lambda item: -(item.get("mbps") or 0))
     kept = number_configs(kept)
 
     plain_path = os.path.join(out_dir, out_cfg["plain"])
@@ -1778,7 +1784,6 @@ def main(argv=None) -> int:
         if applied_threshold > 0
         else len(kept)
     )
-    status["speed_threshold"] = applied_threshold
     counts["kept"] = len(kept)
     funnel["kept"] = per_source(kept)
 
