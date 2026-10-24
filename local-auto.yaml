@@ -5,107 +5,24 @@ mode: rule
 log-level: warning
 
 proxies:
-  - name: "p00206"
-    server: "193.111.248.80"
-    port: 2053
+  - name: "proxy-1"
+    server: "38.91.107.49"
+    port: 18000
     udp: true
-    type: "vless"
-    uuid: "605dea9b-b485-45c9-af9b-cc2b0195023c"
-    tls: true
-    servername: "nl3.mycloud1.org"
-    reality-opts:
-      public-key: "Su5ULcRQKF-0DJIHZeTNEnXHBpyQtizmUrcNIYhZI0E"
-      short-id: "afee962d"
-    client-fingerprint: "chrome"
-    network: "grpc"
-    grpc-opts:
-      grpc-service-name: "api"
-  - name: "p00209"
-    server: "193.111.248.80"
-    port: 2053
-    udp: true
-    type: "vless"
-    uuid: "605dea9b-b485-45c9-af9b-cc2b0195023c"
-    tls: true
-    servername: "nl3.mycloud1.org"
-    reality-opts:
-      public-key: "Su5ULcRQKF-0DJIHZeTNEnXHBpyQtizmUrcNIYhZI0E"
-      short-id: "afee962d"
-    client-fingerprint: "safari"
-    network: "grpc"
-    grpc-opts:
-      grpc-service-name: "api"
-  - name: "p00207"
-    server: "193.111.248.80"
-    port: 2053
-    udp: true
-    type: "vless"
-    uuid: "605dea9b-b485-45c9-af9b-cc2b0195023c"
-    tls: true
-    servername: "nl3.mycloud1.org"
-    reality-opts:
-      public-key: "Su5ULcRQKF-0DJIHZeTNEnXHBpyQtizmUrcNIYhZI0E"
-      short-id: "afee962d"
-    client-fingerprint: "firefox"
-    network: "grpc"
-    grpc-opts:
-      grpc-service-name: "api"
-  - name: "p00210"
-    server: "nl3.mycloud1.org"
-    port: 2053
-    udp: true
-    type: "vless"
-    uuid: "605dea9b-b485-45c9-af9b-cc2b0195023c"
-    tls: true
-    servername: "nl3.mycloud1.org"
-    reality-opts:
-      public-key: "Su5ULcRQKF-0DJIHZeTNEnXHBpyQtizmUrcNIYhZI0E"
-      short-id: "afee962d"
-    client-fingerprint: "chrome"
-    network: "grpc"
-    grpc-opts:
-      grpc-service-name: "api"
-  - name: "p00208"
-    server: "193.111.248.80"
-    port: 2053
-    udp: true
-    type: "vless"
-    uuid: "605dea9b-b485-45c9-af9b-cc2b0195023c"
-    tls: true
-    servername: "nl3.mycloud1.org"
-    reality-opts:
-      public-key: "Su5ULcRQKF-0DJIHZeTNEnXHBpyQtizmUrcNIYhZI0E"
-      short-id: "afee962d"
-    client-fingerprint: "ios"
-    network: "grpc"
-    grpc-opts:
-      grpc-service-name: "api"
-  - name: "p00222"
-    server: "103.91.147.221"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "680e92ac-1688-49e0-af96-7327fbc30ce8"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "abuse.ozon.ru"
-    reality-opts:
-      public-key: "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc"
-    client-fingerprint: "chrome"
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
 
 proxy-groups:
   - name: Auto
     type: url-test
     url: https://www.youtube.com/generate_204
-    interval: 60
-    tolerance: 80
+    interval: 30
+    tolerance: 50
+    lazy: false
     proxies:
-      - "p00206"
-      - "p00209"
-      - "p00207"
-      - "p00210"
-      - "p00208"
-      - "p00222"
+      - "proxy-1"
 
 rules:
   - MATCH,Auto
