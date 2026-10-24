@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """Filter a VPN subscription down to the configs that really work.
 
 Pipeline
@@ -995,6 +995,77 @@ def _yaml_lines(key: str, value, indent: int) -> list:
     return [f"{pad}{key}: {_yaml_scalar(value)}"]
 
 
+def build_client_config(kept: list, cfg: dict) -> dict:
+    """Готовый профиль для приложения sing-box на iPhone.
+
+    Главное отличие от серверных конфигов: внутри есть tun-инбаунд и группа
+    urltest, которая сама перепроверяет серверы каждые 30 секунд и уводит
+    трафик на живой. Именно этого не умеет v2Box — там сервер выбирают руками.
+    """
+    proxies = []
+    for item in kept:
+        outbound = dict(item["outbound"])
+        outbound["tag"] = item["tag"]
+        proxies.append(outbound)
+
+    names = [item["tag"] for item in kept]
+    urltest = {
+        "type": "urltest",
+        "tag": "auto",
+        "outbounds": names,
+        "url": cfg["youtube"]["url"],
+        "interval": "30s",
+        "tolerance": 50,
+        "interrupt_exist_connections": False,
+    }
+    selector = {
+        "type": "selector",
+        "tag": "select",
+        "outbounds": ["auto"] + names + ["direct"],
+        "default": "auto",
+        "interrupt_exist_connections": False,
+    }
+    return {
+        "log": {"level": "warn", "timestamp": True},
+        "dns": {
+            "servers": [
+                {"type": "udp", "tag": "direct-dns", "server": "77.88.8.8", "detour": "direct"},
+                {
+                    "type": "https",
+                    "tag": "remote-dns",
+                    "server": "dns.google",
+                    "detour": "select",
+                },
+            ],
+            # .ru-домены резолвим напрямую, остальное — через туннель
+            "rules": [{"domain_suffix": [".ru", ".su", ".рф"], "server": "direct-dns"}],
+            "final": "remote-dns",
+            "strategy": "prefer_ipv4",
+        },
+        "inbounds": [
+            {
+                "type": "tun",
+                "tag": "tun-in",
+                "address": ["172.19.0.1/30"],
+                "mtu": 9000,
+                "auto_route": True,
+                "strict_route": True,
+                "stack": "mixed",
+            }
+        ],
+        "outbounds": proxies + [urltest, selector, {"type": "direct", "tag": "direct"}],
+        "route": {
+            "rules": [
+                {"protocol": "dns", "action": "hijack-dns"},
+                {"ip_is_private": True, "outbound": "direct"},
+            ],
+            "final": "select",
+            "auto_detect_interface": True,
+            # новое ядро требует явный резолвер по умолчанию
+            "default_domain_resolver": {"server": "direct-dns"},
+        },
+    }
+
 def build_clash_config(kept: list, cfg: dict) -> str:
     """Clash (Mihomo/Clash.Meta) YAML с группой автоматического выбора.
 
@@ -1250,10 +1321,17 @@ def write_outputs(cfg: dict, out_dir: str, kept: list, stats: dict, status: dict
         json.dump(build_auto_config(kept, cfg, legacy=True), fh, ensure_ascii=False, indent=2)
         fh.write("\n")
 
-    # тот же смысл, но в Clash YAML — его принимает Hiddify
+    # тот же смысл, но в Clash YAML — для Stash и других Clash-клиентов
     clash_path = os.path.join(out_dir, "auto.yaml")
     with open(clash_path, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(build_clash_config(kept, cfg))
+
+    # готовый профиль для приложения sing-box (iPhone): tun + urltest 30 с
+    client_path = os.path.join(out_dir, "auto-client.json")
+    with open(client_path, "w", encoding="utf-8", newline="\n") as fh:
+        json.dump(build_client_config(kept, cfg), fh, ensure_ascii=False, indent=2)
+        fh.write("\n")
+    log("client-profile: профиль для sing-box (tun + auto 30 с) собран")
 
     log(f"auto-config: {len(kept)} серверов в группе автоматического выбора (json + yaml)")
 
