@@ -1513,6 +1513,7 @@ def parse_args(argv=None):
     parser.add_argument("--out-branch", help="override the branch used to build links")
     parser.add_argument("--source-files",
                         help="comma separated list overriding source.files, e.g. 6,22")
+    parser.add_argument("--timeout-only", action="store_true", help="проверять только время ответа: без YouTube, Telegram и скорости")
     parser.add_argument("--core-check", action="store_true", help="финальная проверка реальным HTTP-запросом через туннель")
     parser.add_argument("--confirm", action="store_true", help="перепроверить выживших: конфиг должен ответить дважды")
     parser.add_argument("--delay-timeout", type=int, help="сколько ждать ответа прокси, мс")
@@ -1709,6 +1710,78 @@ def main(argv=None) -> int:
         log("nothing passed the YouTube test")
         return 1
 
+    # --- режим «только таймаут» ------------------------------------------ #
+    # Самый простой критерий, который просил владелец: прокси ответил быстрее
+    # заданного времени. Ни YouTube, ни Telegram, ни скорости не проверяем —
+    # клиент получает все конфиги с откликом в пределах таймаута.
+    if getattr(args, "timeout_only", False):
+        survivors = sorted(youtube_ok, key=lambda c: youtube_delay.get(c["tag"]) or 10**9)
+        telegram_delay = dict(youtube_delay)  # для инварианта: оба «этапа» пройдены
+        for item in survivors:
+            item["mbps"] = 0.0
+            item["telegram_ms"] = youtube_delay.get(item["tag"])
+        counts["telegram_ok"] = len(survivors)
+        counts["telegram_dc_ok"] = len(survivors)
+        counts["latency_ok"] = len(survivors)
+        counts["speed_ok"] = len(survivors)
+        counts["kept"] = len(survivors)
+        log(
+            f"режим только-таймаут: {len(survivors)} конфигов ответили быстрее "
+            f"{cfg['delay']['timeout_ms']} мс"
+        )
+        kept = survivors
+        applied_threshold = 0
+        speeds = {}
+    else:
+        kept = None
+
+    # В режиме «только таймаут» тяжёлые этапы пропускаем: собираем результат
+    # сразу, тем же кодом, что и в обычном режиме.
+    if kept is not None:
+        if len(kept) < max(1, args.min_keep):
+            log(f"only {len(kept)} configs answered within the timeout; keeping previous list")
+            return 3
+        for item in kept:
+            item["youtube_ms"] = youtube_delay.get(item["tag"])
+            item["telegram_ms"] = youtube_delay.get(item["tag"])
+            item["mbps"] = 0.0
+        status = build_status(cfg, cfg_overrides, stats, counts, kept)
+        status["timeout_only"] = True
+        status["speed_threshold"] = 0
+        status["by_source"] = build_by_source(sources_order, funnel)
+        status["by_protocol"] = {}
+        status["by_country"] = {}
+        for item in kept:
+            status["by_protocol"][item["protocol"]] = status["by_protocol"].get(item["protocol"], 0) + 1
+            status["by_country"][item["country"]] = status["by_country"].get(item["country"], 0) + 1
+        status["top"] = [
+            {
+                "name": item["name"],
+                "protocol": item["protocol"],
+                "country": item["country"],
+                "server": item["server"],
+                "mbps": 0.0,
+                "youtube_ms": item["youtube_ms"],
+                "telegram_ms": item["telegram_ms"],
+            }
+            for item in kept[:10]
+        ]
+        status["invariant"] = {
+            "description": "режим «только таймаут»: конфиги ответили в пределах заданного времени",
+            "kept": len(kept),
+            "kept_without_youtube": 0,
+            "kept_without_telegram": 0,
+            "all_pass_both": True,
+        }
+        digest = hashlib.sha256("\n".join(i["uri"] for i in kept).encode()).hexdigest()[:12]
+        status["run_id"] = f"{status['finished_epoch']}-{digest}"
+        PROGRESS.stage("publish")
+        write_outputs(cfg, args.out_dir, kept, stats, status)
+        write_history(args.out_dir, status, kept)
+        publish_status(cfg, status, args.out_dir)
+        log(f"kept {len(kept)} of {counts['unique']} unique configs")
+        PROGRESS.send(100, f"Готово: в списке {len(kept)} конфигов")
+        return 0
     # --- stage 3b: Telegram ---------------------------------------------- #
     PROGRESS.stage("telegram", done=0, total=len(youtube_ok))
     telegram_delay = proxy_stage(
