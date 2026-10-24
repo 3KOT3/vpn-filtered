@@ -118,6 +118,10 @@ def fetch_bot_sources(config: dict):
             data = json.loads(response.read() or b"{}")
         sources = [str(item) for item in (data.get("sources") or []) if str(item).strip()]
         log(f"источники из бота: {len(sources)}")
+        # таймаут и режим тоже задаются в боте
+        config["timeout_ms"] = int(data.get("timeout_ms") or 3000)
+        config["timeout_only"] = bool(data.get("timeout_only"))
+        log(f"таймаут: {config['timeout_ms']} мс, только-таймаут: {config['timeout_only']}")
         return sources or None
     except Exception as exc:  # noqa: BLE001
         log(f"  источники у бота не получены: {type(exc).__name__}: {exc}")
@@ -168,8 +172,11 @@ def run_checker(config: dict, sing_box: str, sources_dir: str = None) -> str:
         sources = config.get("sources")
         if sources:
             cmd += ["--source-files", ",".join(str(item) for item in sources)]
-    if config.get("delay_timeout_ms"):
-        cmd += ["--delay-timeout", str(config["delay_timeout_ms"])]
+    delay_timeout = config.get("timeout_ms") or config.get("delay_timeout_ms")
+    if delay_timeout:
+        cmd += ["--delay-timeout", str(delay_timeout)]
+    if config.get("timeout_only"):
+        cmd += ["--timeout-only"]
     if config.get("max_youtube_ms"):
         cmd += ["--max-youtube-ms", str(config["max_youtube_ms"])]
     if config.get("max_telegram_ms"):
