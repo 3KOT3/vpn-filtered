@@ -1,159 +1,24 @@
 {
   "outbounds": [
     {
-      "type": "vless",
-      "tag": "p00206",
-      "server": "193.111.248.80",
-      "server_port": 2053,
-      "uuid": "605dea9b-b485-45c9-af9b-cc2b0195023c",
-      "tls": {
-        "enabled": true,
-        "server_name": "nl3.mycloud1.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "Su5ULcRQKF-0DJIHZeTNEnXHBpyQtizmUrcNIYhZI0E",
-          "short_id": "afee962d"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "api"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "p00209",
-      "server": "193.111.248.80",
-      "server_port": 2053,
-      "uuid": "605dea9b-b485-45c9-af9b-cc2b0195023c",
-      "tls": {
-        "enabled": true,
-        "server_name": "nl3.mycloud1.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "safari"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "Su5ULcRQKF-0DJIHZeTNEnXHBpyQtizmUrcNIYhZI0E",
-          "short_id": "afee962d"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "api"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "p00207",
-      "server": "193.111.248.80",
-      "server_port": 2053,
-      "uuid": "605dea9b-b485-45c9-af9b-cc2b0195023c",
-      "tls": {
-        "enabled": true,
-        "server_name": "nl3.mycloud1.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "Su5ULcRQKF-0DJIHZeTNEnXHBpyQtizmUrcNIYhZI0E",
-          "short_id": "afee962d"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "api"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "p00210",
-      "server": "nl3.mycloud1.org",
-      "server_port": 2053,
-      "uuid": "605dea9b-b485-45c9-af9b-cc2b0195023c",
-      "tls": {
-        "enabled": true,
-        "server_name": "nl3.mycloud1.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "Su5ULcRQKF-0DJIHZeTNEnXHBpyQtizmUrcNIYhZI0E",
-          "short_id": "afee962d"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "api"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "p00208",
-      "server": "193.111.248.80",
-      "server_port": 2053,
-      "uuid": "605dea9b-b485-45c9-af9b-cc2b0195023c",
-      "tls": {
-        "enabled": true,
-        "server_name": "nl3.mycloud1.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "ios"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "Su5ULcRQKF-0DJIHZeTNEnXHBpyQtizmUrcNIYhZI0E",
-          "short_id": "afee962d"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "api"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "p00222",
-      "server": "103.91.147.221",
-      "server_port": 443,
-      "uuid": "680e92ac-1688-49e0-af96-7327fbc30ce8",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "abuse.ozon.ru",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc"
-        }
-      }
+      "type": "vmess",
+      "tag": "proxy-1",
+      "server": "38.91.107.49",
+      "server_port": 18000,
+      "uuid": "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe",
+      "security": "auto",
+      "alter_id": 0
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "p00206",
-        "p00209",
-        "p00207",
-        "p00210",
-        "p00208",
-        "p00222"
+        "proxy-1"
       ],
       "url": "https://www.youtube.com/generate_204",
-      "interval": "1m",
-      "tolerance": 80
+      "interval": "45s",
+      "tolerance": 50,
+      "interrupt_exist_connections": false
     },
     {
       "type": "direct",
