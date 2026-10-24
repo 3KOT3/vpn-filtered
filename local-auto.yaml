@@ -6,13 +6,115 @@ log-level: warning
 
 proxies:
   - name: "proxy-1"
-    server: "38.91.107.49"
-    port: 18000
+    server: "201.24.121.243"
+    port: 443
     udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
+    type: "vless"
+    uuid: "32b5ca9b-3f81-4031-965d-e8b074216e8d"
+    tls: true
+    servername: "kk-ru24a1.testkknegr.online"
+    client-fingerprint: "safari"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "vlgrpc"
+  - name: "proxy-2"
+    server: "193.111.248.80"
+    port: 2053
+    udp: true
+    type: "vless"
+    uuid: "605dea9b-b485-45c9-af9b-cc2b0195023c"
+    tls: true
+    servername: "nl3.mycloud1.org"
+    reality-opts:
+      public-key: "Su5ULcRQKF-0DJIHZeTNEnXHBpyQtizmUrcNIYhZI0E"
+      short-id: "afee962d"
+    client-fingerprint: "safari"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "api"
+  - name: "proxy-3"
+    server: "193.111.248.80"
+    port: 2053
+    udp: true
+    type: "vless"
+    uuid: "605dea9b-b485-45c9-af9b-cc2b0195023c"
+    tls: true
+    servername: "nl3.mycloud1.org"
+    reality-opts:
+      public-key: "Su5ULcRQKF-0DJIHZeTNEnXHBpyQtizmUrcNIYhZI0E"
+      short-id: "afee962d"
+    client-fingerprint: "firefox"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "api"
+  - name: "proxy-4"
+    server: "188.164.248.216"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "d342d11e-d224-4463-b982-532309285094"
+    tls: true
+    servername: "ccc.010304.xyz"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "ccc.010304.xyz"
+  - name: "proxy-5"
+    server: "193.111.248.80"
+    port: 2053
+    udp: true
+    type: "vless"
+    uuid: "605dea9b-b485-45c9-af9b-cc2b0195023c"
+    tls: true
+    servername: "nl3.mycloud1.org"
+    reality-opts:
+      public-key: "Su5ULcRQKF-0DJIHZeTNEnXHBpyQtizmUrcNIYhZI0E"
+      short-id: "afee962d"
+    client-fingerprint: "chrome"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "api"
+  - name: "proxy-6"
+    server: "nl3.mycloud1.org"
+    port: 2053
+    udp: true
+    type: "vless"
+    uuid: "605dea9b-b485-45c9-af9b-cc2b0195023c"
+    tls: true
+    servername: "nl3.mycloud1.org"
+    reality-opts:
+      public-key: "Su5ULcRQKF-0DJIHZeTNEnXHBpyQtizmUrcNIYhZI0E"
+      short-id: "afee962d"
+    client-fingerprint: "edge"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "api"
+  - name: "proxy-7"
+    server: "201.24.121.243"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "32b5ca9b-3f81-4031-965d-e8b074216e8d"
+    tls: true
+    servername: "kk-ru24a1.testkknegr.online"
+    client-fingerprint: "ios"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "vlgrpc"
+  - name: "proxy-8"
+    server: "201.24.121.243"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "32b5ca9b-3f81-4031-965d-e8b074216e8d"
+    tls: true
+    servername: "kk-ru24a1.testkknegr.online"
+    client-fingerprint: "chrome"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "vlgrpc"
 
 proxy-groups:
   - name: Auto
@@ -23,6 +125,13 @@ proxy-groups:
     lazy: false
     proxies:
       - "proxy-1"
+      - "proxy-2"
+      - "proxy-3"
+      - "proxy-4"
+      - "proxy-5"
+      - "proxy-6"
+      - "proxy-7"
+      - "proxy-8"
 
 rules:
   - MATCH,Auto
