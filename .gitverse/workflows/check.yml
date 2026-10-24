@@ -4,7 +4,7 @@
 # Запуск по расписанию (минимум 15 минут для облачных раннеров) и вручную.
 on:
   schedule:
-    - cron: "0 */4 * * *"
+    - cron: "0 */3 * * *"
   workflow_dispatch:
 
 # Два прогона одновременно не нужны: они перезапишут друг друга.
@@ -48,6 +48,11 @@ jobs:
           MBPS=$(echo "$CONFIG" | python3 -c "import sys,json;print(json.load(sys.stdin).get('min_mbps') or 2)" 2>/dev/null || echo 2)
           echo "$MBPS" > "$PWD/min_mbps.txt"
           echo "порог скорости из бота: $MBPS Мбит/с"
+          TIMEOUT=$(echo "$CONFIG" | python3 -c "import sys,json;print(json.load(sys.stdin).get('timeout_ms') or 3000)" 2>/dev/null || echo 3000)
+          ONLY=$(echo "$CONFIG" | python3 -c "import sys,json;print('1' if json.load(sys.stdin).get('timeout_only') else '0')" 2>/dev/null || echo 0)
+          echo "$TIMEOUT" > "$PWD/timeout_ms.txt"
+          echo "$ONLY" > "$PWD/timeout_only.txt"
+          echo "таймаут из бота: $TIMEOUT мс, режим только-таймаут: $ONLY"
           if [ -z "$SOURCES" ]; then
             echo "не удалось получить список источников у бота — берём из конфига"
             rm -f "$PWD/sources.txt"
@@ -77,6 +82,8 @@ jobs:
             --work-dir /tmp/singbox \
             --cache-dir /tmp/sources \
             --min-mbps "$(cat "$PWD/min_mbps.txt" 2>/dev/null || echo 2)" \
+            --delay-timeout "$(cat "$PWD/timeout_ms.txt" 2>/dev/null || echo 3000)" \
+            $( [ "$(cat "$PWD/timeout_only.txt" 2>/dev/null)" = "1" ] && echo --timeout-only ) \
             --confirm \
             --core-check \
             --min-keep 1 \
