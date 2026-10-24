@@ -5,63 +5,14 @@ mode: rule
 log-level: warning
 
 proxies:
-  - name: "p00379"
-    server: "tk1.high-speed-test-56424.me"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "37615d66-5467-44a3-bc23-f2c3bef7f761"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "aws.amazon.com"
-    reality-opts:
-      public-key: "p8VhFzvFOBAhWAEAeWmwDxT3xBSRsGYixqi0qnLFnBM"
-      short-id: "21270a66"
-    client-fingerprint: "chrome"
-  - name: "p00136"
-    server: "84.17.41.2"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "p00315"
-    server: "95.215.201.18"
+  - name: "p00321"
+    server: "185.215.132.18"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00341"
-    server: "resources.findlocaljobnetworkandbuildcommunityconnections.com"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "f0eb8c92ce8946aaba856569cff1a16b"
-    sni: "resources.findlocaljobnetworkandbuildcommunityconnections.com"
-  - name: "p00339"
-    server: "216.106.186.32"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "dba20dcb635e430fa4d3bfc303a149d2"
-    sni: "blog.findlocaljobnetworkandbuildcommunityconnections.com"
-  - name: "p00334"
-    server: "www.findlocaljobnetworkandbuildcommunityconnections.com"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "242a3d8eee5e4ed1a6bfa4141d549a25"
-    sni: "www.findlocaljobnetworkandbuildcommunityconnections.com"
-  - name: "p00332"
-    server: "blog.findlocaljobnetworkandbuildcommunityconnections.com"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "dba20dcb635e430fa4d3bfc303a149d2"
-    sni: "blog.findlocaljobnetworkandbuildcommunityconnections.com"
-  - name: "p00252"
+  - name: "p00243"
     server: "188.164.248.216"
     port: 443
     udp: true
@@ -69,35 +20,13 @@ proxies:
     uuid: "d342d11e-d224-4463-b982-532309285094"
     tls: true
     servername: "ccc.010304.xyz"
-    client-fingerprint: "qq"
+    client-fingerprint: "safari"
     network: "ws"
     ws-opts:
       path: "/fp=chrome"
       headers:
         Host: "ccc.010304.xyz"
-  - name: "p00333"
-    server: "rib9jxayoqjgn2kw.v.3dns.vip"
-    port: 443
-    udp: true
-    type: "vmess"
-    uuid: "9b31490d-190e-4ef1-af0a-7ccab3e7c3b5"
-    alterId: 0
-    cipher: "auto"
-    tls: true
-    servername: "Rib9JXAYoqjGN2KW.v.3dns.vip"
-    network: "ws"
-    ws-opts:
-      path: "/ws-vmess"
-      headers:
-        Host: "Rib9JXAYoqjGN2KW.v.3dns.vip"
-  - name: "p00322"
-    server: "blog.findlocaljobnetworkandbuildcommunityconnections.com"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "dba20dcb635e430fa4d3bfc303a149d2"
-    sni: "blog.findlocaljobnetworkandbuildcommunityconnections.com"
-  - name: "p00251"
+  - name: "p00242"
     server: "188.164.248.216"
     port: 443
     udp: true
@@ -111,41 +40,21 @@ proxies:
       path: "/fp=chrome"
       headers:
         Host: "ccc.010304.xyz"
-  - name: "p00125"
-    server: "51.81.203.63"
+  - name: "p00241"
+    server: "188.164.248.216"
     port: 443
     udp: true
     type: "vless"
-    uuid: "cb2dbb6a-a1ea-4023-9ace-6466cee57241"
-    flow: "xtls-rprx-vision"
+    uuid: "d342d11e-d224-4463-b982-532309285094"
     tls: true
-    servername: "www.icloud.com"
-    reality-opts:
-      public-key: "nqwCf6oW49tEtmQ0EzxigZ0uu1pg0E30CS54G40Iti0"
-      short-id: "4477382ff6d3d41c"
-    client-fingerprint: "chrome"
-  - name: "p00327"
-    server: "185.215.132.9"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00323"
-    server: "147.45.60.160"
-    port: 8444
-    udp: true
-    type: "vless"
-    uuid: "f55e9aba-7b14-4f6f-b59a-d5b3d45c9309"
-    tls: true
-    servername: "github.com"
-    reality-opts:
-      public-key: "FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0"
-    client-fingerprint: "chrome"
-    network: "grpc"
-    grpc-opts:
-      grpc-service-name: "GunService"
-  - name: "p00248"
+    servername: "ccc.010304.xyz"
+    client-fingerprint: "edge"
+    network: "ws"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "ccc.010304.xyz"
+  - name: "p00240"
     server: "188.164.248.216"
     port: 443
     udp: true
@@ -159,232 +68,35 @@ proxies:
       path: "/fp=chrome"
       headers:
         Host: "ccc.010304.xyz"
-  - name: "p00253"
-    server: "188.164.248.216"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d342d11e-d224-4463-b982-532309285094"
-    tls: true
-    servername: "ccc.010304.xyz"
-    client-fingerprint: "safari"
-    network: "ws"
-    ws-opts:
-      path: "/fp=chrome"
-      headers:
-        Host: "ccc.010304.xyz"
-  - name: "p00250"
-    server: "188.164.248.216"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d342d11e-d224-4463-b982-532309285094"
-    tls: true
-    servername: "ccc.010304.xyz"
-    client-fingerprint: "edge"
-    network: "ws"
-    ws-opts:
-      path: "/fp=chrome"
-      headers:
-        Host: "ccc.010304.xyz"
-  - name: "p00249"
-    server: "188.164.248.216"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d342d11e-d224-4463-b982-532309285094"
-    tls: true
-    servername: "ccc.010304.xyz"
-    client-fingerprint: "chrome"
-    network: "ws"
-    ws-opts:
-      path: "/fp=chrome"
-      headers:
-        Host: "ccc.010304.xyz"
-  - name: "p00354"
-    server: "45.138.100.248"
-    port: 10443
-    udp: true
-    type: "vless"
-    uuid: "ae908ff5-f749-402c-af25-e6e9aef4d6bb"
-  - name: "p00120"
-    server: "44.248.233.99"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "37615d66-5467-44a3-bc23-f2c3bef7f761"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "aws.amazon.com"
-    reality-opts:
-      public-key: "p8VhFzvFOBAhWAEAeWmwDxT3xBSRsGYixqi0qnLFnBM"
-      short-id: "21270a66"
-    client-fingerprint: "chrome"
-  - name: "p00237"
-    server: "188.164.248.216"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d342d11e-d224-4463-b982-532309285094"
-    tls: true
-    servername: "ccc.010304.xyz"
-    client-fingerprint: "safari"
-    network: "ws"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "ccc.010304.xyz"
-  - name: "p00325"
-    server: "45.86.51.18"
+  - name: "p00315"
+    server: "193.151.160.9"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00280"
-    server: "195.123.240.65"
+  - name: "p00302"
+    server: "195.211.98.43"
     port: 443
     udp: true
     type: "vless"
-    uuid: "ce18d0eb-5c71-41f9-96e5-1632e22456e4"
+    uuid: "1b4b11d5-4c2d-4533-9a55-636757cdee94"
     flow: "xtls-rprx-vision"
     tls: true
     servername: "www.cloudflare.com"
     reality-opts:
-      public-key: "StPbcmBuzpuYUfa4oZ5SI3Bq1OSF_-oU1vp2AcyvQVE"
-      short-id: "19296c9f1bf9c7b1"
-    client-fingerprint: "ios"
-  - name: "p00258"
-    server: "188.164.248.216"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d342d11e-d224-4463-b982-532309285094"
-    tls: true
-    servername: "ccc.010304.xyz"
-    client-fingerprint: "ios"
-    network: "ws"
-    ws-opts:
-      path: "/fp=chrome"
-      headers:
-        Host: "ccc.010304.xyz"
-  - name: "p00236"
-    server: "188.164.248.216"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d342d11e-d224-4463-b982-532309285094"
-    tls: true
-    servername: "ccc.010304.xyz"
-    client-fingerprint: "qq"
-    network: "ws"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "ccc.010304.xyz"
-  - name: "p00324"
-    server: "193.151.163.18"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00235"
-    server: "188.164.248.216"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d342d11e-d224-4463-b982-532309285094"
-    tls: true
-    servername: "ccc.010304.xyz"
-    client-fingerprint: "ios"
-    network: "ws"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "ccc.010304.xyz"
-  - name: "p00358"
-    server: "66.70.179.198"
-    port: 2053
-    udp: true
-    type: "vless"
-    uuid: "dc620cd6-a9d8-4a0f-8f18-006b895db77e"
-    tls: true
-    servername: "www.cloudflare.com"
-    reality-opts:
-      public-key: "k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU"
-      short-id: "83f8317a948bb769"
+      public-key: "xPnpkXu5qfwIArlHKvJsqKJnGdGbJK1tT2GzWMyLohA"
+      short-id: "9c56fddf237e8eaf"
     client-fingerprint: "firefox"
-  - name: "p00234"
-    server: "188.164.248.216"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d342d11e-d224-4463-b982-532309285094"
-    tls: true
-    servername: "ccc.010304.xyz"
-    client-fingerprint: "firefox"
-    network: "ws"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "ccc.010304.xyz"
-  - name: "p00326"
-    server: "193.151.160.18"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00138"
-    server: "169.197.142.22"
+  - name: "p00134"
+    server: "84.17.41.2"
     port: 18000
     udp: true
     type: "vmess"
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
-  - name: "p00233"
-    server: "188.164.248.216"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d342d11e-d224-4463-b982-532309285094"
-    tls: true
-    servername: "ccc.010304.xyz"
-    client-fingerprint: "edge"
-    network: "ws"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "ccc.010304.xyz"
-  - name: "p00336"
-    server: "208.84.100.209"
-    port: 2112
-    udp: true
-    type: "vless"
-    uuid: "36c3dcc2-17b6-4478-b8a7-3978e6d5afe9"
-    tls: true
-    servername: "play.google.com"
-    reality-opts:
-      public-key: "p8pUe3hwND5rhAti-yRQ5qMaIkNdhxOV1K1jpbtJlEQ"
-      short-id: "125ba3"
-    client-fingerprint: "chrome"
-  - name: "p00232"
-    server: "188.164.248.216"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d342d11e-d224-4463-b982-532309285094"
-    tls: true
-    servername: "ccc.010304.xyz"
-    client-fingerprint: "chrome"
-    network: "ws"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "ccc.010304.xyz"
-  - name: "p00141"
+  - name: "p00137"
     server: "38.110.1.246"
     port: 18000
     udp: true
@@ -392,7 +104,19 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
-  - name: "p00139"
+  - name: "p00117"
+    server: "159.89.87.21"
+    port: 28190
+    udp: true
+    type: "vless"
+    uuid: "14c80e0e-f7ce-4991-94fc-99a1db4a9b1e"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "aws.amazon.com"
+    reality-opts:
+      public-key: "ZJRnFU-1s1JOnO8E9uZ7b00l1fPEh63fGRbdBANFRno"
+    client-fingerprint: "chrome"
+  - name: "p00136"
     server: "38.91.107.49"
     port: 18000
     udp: true
@@ -400,6 +124,77 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
+  - name: "p00123"
+    server: "51.81.203.63"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "cb2dbb6a-a1ea-4023-9ace-6466cee57241"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.icloud.com"
+    reality-opts:
+      public-key: "nqwCf6oW49tEtmQ0EzxigZ0uu1pg0E30CS54G40Iti0"
+      short-id: "4477382ff6d3d41c"
+    client-fingerprint: "chrome"
+  - name: "p00124"
+    server: "169.40.42.231"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "d65cc14c-f53f-4fe2-b262-97856601319c"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "yahoo.com"
+    reality-opts:
+      public-key: "e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg"
+      short-id: "c39cc7310a"
+    client-fingerprint: "chrome"
+  - name: "p00120"
+    server: "15.204.97.206"
+    port: 23576
+    udp: true
+    type: "vless"
+    uuid: "48ff2b70-e180-582f-8866-d9a2edeed5f5"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "fuck.rkn"
+    reality-opts:
+      public-key: "1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s"
+      short-id: "01"
+    client-fingerprint: "chrome"
+  - name: "p00135"
+    server: "169.197.142.22"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "p00296"
+    server: "195.123.221.36"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "9c60369d-e5f9-4cec-9e63-1560e88e119a"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "gateway.icloud.com"
+    reality-opts:
+      public-key: "dIv6pPS-x6IzbiPyHX8nNdRrwI2yZl4y3YCeRWy9UgE"
+      short-id: "3e67326f98ddb407"
+    client-fingerprint: "chrome"
+  - name: "p00303"
+    server: "138.124.70.41"
+    port: 14430
+    udp: true
+    type: "vless"
+    uuid: "6cc745e3-4eb9-46c8-a4a1-85dee7b87edc"
+    network: "ws"
+    ws-opts:
+      path: "/vless"
+      headers:
+        Host: "138.124.70.41"
 
 proxy-groups:
   - name: Auto
@@ -408,42 +203,23 @@ proxy-groups:
     interval: 60
     tolerance: 80
     proxies:
-      - "p00379"
-      - "p00136"
+      - "p00321"
+      - "p00243"
+      - "p00242"
+      - "p00241"
+      - "p00240"
       - "p00315"
-      - "p00341"
-      - "p00339"
-      - "p00334"
-      - "p00332"
-      - "p00252"
-      - "p00333"
-      - "p00322"
-      - "p00251"
-      - "p00125"
-      - "p00327"
-      - "p00323"
-      - "p00248"
-      - "p00253"
-      - "p00250"
-      - "p00249"
-      - "p00354"
+      - "p00302"
+      - "p00134"
+      - "p00137"
+      - "p00117"
+      - "p00136"
+      - "p00123"
+      - "p00124"
       - "p00120"
-      - "p00237"
-      - "p00325"
-      - "p00280"
-      - "p00258"
-      - "p00236"
-      - "p00324"
-      - "p00235"
-      - "p00358"
-      - "p00234"
-      - "p00326"
-      - "p00138"
-      - "p00233"
-      - "p00336"
-      - "p00232"
-      - "p00141"
-      - "p00139"
+      - "p00135"
+      - "p00296"
+      - "p00303"
 
 rules:
   - MATCH,Auto
