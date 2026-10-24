@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """Проверка VPN-конфигов ИЗ ВАШЕЙ СЕТИ и публикация результата.
 
 Зачем это отдельно от GitHub Actions: раннеры GitHub стоят в США/Европе, и
@@ -98,6 +98,30 @@ def find_sing_box(config: dict) -> str:
     log("распакуйте и укажите путь в config.local.json -> sing_box")
     sys.exit(1)
 
+
+def fetch_bot_sources(config: dict):
+    """Спрашивает у бота, какие источники сейчас включены.
+
+    Так домашняя проверка идёт по тем же источникам, что и облачная: если в
+    боте включены авто-источники — ПК проверяет их же, но из сети владельца.
+    """
+    base = str(config.get("worker_url") or "").rstrip("/")
+    key = str(config.get("publish_key") or "")
+    if not base or not key:
+        return None
+    try:
+        request = urllib.request.Request(
+            f"{base}/checker-sources?key={urllib.parse.quote(key)}",
+            headers={"user-agent": "vpn-filtered-local"},
+        )
+        with urllib.request.urlopen(request, timeout=30) as response:
+            data = json.loads(response.read() or b"{}")
+        sources = [str(item) for item in (data.get("sources") or []) if str(item).strip()]
+        log(f"источники из бота: {len(sources)}")
+        return sources or None
+    except Exception as exc:  # noqa: BLE001
+        log(f"  источники у бота не получены: {type(exc).__name__}: {exc}")
+        return None
 
 def fetch_cloud_list(config: dict) -> str:
     """Скачивает готовый список из облака — его и будем пинговать с ПК.
@@ -227,6 +251,7 @@ def publish(config: dict, out_dir: str) -> dict:
         "local-auto.json": open(os.path.join(out_dir, "auto.json"), "rb").read(),
         "local-auto.yaml": open(os.path.join(out_dir, "auto.yaml"), "rb").read(),
         "local-auto-legacy.json": open(os.path.join(out_dir, "auto-legacy.json"), "rb").read(),
+        "local-auto-client.json": open(os.path.join(out_dir, "auto-client.json"), "rb").read(),
         "local-status.json": (json.dumps(status, ensure_ascii=False, indent=2) + "\n").encode(),
     }
 
@@ -331,7 +356,13 @@ def main() -> int:
     log("")
 
     started = time.time()
-    sources_dir = fetch_cloud_list(config) if config.get("ping_cloud_list") else None
+    bot_sources = fetch_bot_sources(config) if config.get("use_bot_sources") else None
+    if bot_sources:
+        config = dict(config)
+        config["sources"] = bot_sources
+        sources_dir = None
+    else:
+        sources_dir = fetch_cloud_list(config) if config.get("ping_cloud_list") else None
     out_dir = run_checker(config, sing_box, sources_dir)
     result = publish(config, out_dir)
     status = result["status"]
