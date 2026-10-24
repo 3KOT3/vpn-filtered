@@ -1745,27 +1745,40 @@ def main(argv=None) -> int:
     min_speed_count = args.min_speed_count or int(
         cfg.get("speed", {}).get("min_speed_count") or 0
     )
+    # Ступенчатый порог: цель — 2 Мбит/с, но пустой список хуже медленного.
+    # Берём самый высокий порог, который даёт достаточно конфигов, и честно
+    # записываем, какой порог применён.
+    target = int(cfg.get("speed", {}).get("min_speed_count") or 8)
+    applied_threshold = threshold
     if threshold > 0:
-        # best-effort top-up so a slow day does not empty the list entirely
         ranked = sorted(survivors, key=lambda c: -(speeds.get(c["tag"]) or 0.0))
-        passed = [c for c in ranked if (speeds.get(c["tag"]) or 0.0) >= threshold]
-        if min_speed_count and len(passed) < min_speed_count:
-            # добираем только те, у которых замер вообще получился: конфиг с
-            # нулевой скоростью — это провалившийся замер, а не быстрый прокси
-            extra = [
-                c
-                for c in ranked
-                if c not in passed and (speeds.get(c["tag"]) or 0.0) > 0
-            ][: min_speed_count - len(passed)]
-            passed.extend(extra)
-            if extra:
-                log(f"topped up to {len(passed)} with slower proxies")
-        kept = passed
+        measured = [c for c in ranked if (speeds.get(c["tag"]) or 0.0) > 0]
+        tiers = [threshold, 1.0, 0.5, 0.3]
+        chosen = []
+        for tier in tiers:
+            group = [c for c in measured if (speeds.get(c["tag"]) or 0.0) >= tier]
+            if len(group) >= target:
+                chosen, applied_threshold = group, tier
+                break
+            if not chosen and group:
+                chosen, applied_threshold = group, tier
+        if not chosen:
+            chosen, applied_threshold = measured, 0.0
+        if applied_threshold < threshold:
+            log(
+                f"порог скорости снижен до {applied_threshold} Мбит/с: "
+                f"на {threshold} Мбит/с набралось слишком мало рабочих"
+            )
+        kept = chosen
+        counts["speed_tier"] = applied_threshold
     else:
         kept = survivors
     counts["speed_ok"] = (
-        sum(1 for c in kept if (speeds.get(c["tag"]) or 0.0) >= threshold) if threshold > 0 else 0
+        sum(1 for c in kept if (speeds.get(c["tag"]) or 0.0) >= applied_threshold)
+        if applied_threshold > 0
+        else len(kept)
     )
+    status["speed_threshold"] = applied_threshold
     counts["kept"] = len(kept)
     funnel["kept"] = per_source(kept)
 
@@ -1800,6 +1813,8 @@ def main(argv=None) -> int:
         item["mbps"] = round(speeds.get(item["tag"], 0.0), 3)
 
     status = build_status(cfg, cfg_overrides, stats, counts, kept)
+    # какой порог скорости реально применён (может быть снижен)
+    status["speed_threshold"] = applied_threshold
     status["by_source"] = build_by_source(sources_order, funnel)
     status["by_protocol"] = {}
     status["by_country"] = {}
