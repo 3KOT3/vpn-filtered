@@ -83,6 +83,7 @@ def main() -> int:
         log("прошлого списка нет — публикую как есть")
 
     auto = read("auto-legacy.json").strip()
+    client = read("auto-client.json").strip()
     status_raw = read("status.json")
     history_raw = read("history.json")
 
@@ -91,7 +92,7 @@ def main() -> int:
 
     code, body = post(
         f"/publish?quiet=1&key={urllib.parse.quote(CHECKER_KEY)}",
-        {"plain": plain + "\n", "auto": auto, "status": status_raw},
+        {"plain": plain + "\n", "auto": auto, "client": client, "status": status_raw},
     )
     log(f"  список -> HTTP {code} {body}")
 
