@@ -5,14 +5,34 @@ mode: rule
 log-level: warning
 
 proxies:
-  - name: "p00333"
-    server: "95.215.201.18"
-    port: 19999
+  - name: "proxy-1"
+    server: "195.123.240.65"
+    port: 443
     udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00236"
+    type: "vless"
+    uuid: "ce18d0eb-5c71-41f9-96e5-1632e22456e4"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.cloudflare.com"
+    reality-opts:
+      public-key: "StPbcmBuzpuYUfa4oZ5SI3Bq1OSF_-oU1vp2AcyvQVE"
+      short-id: "19296c9f1bf9c7b1"
+    client-fingerprint: "ios"
+  - name: "proxy-2"
+    server: "188.164.248.216"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "d342d11e-d224-4463-b982-532309285094"
+    tls: true
+    servername: "ccc.010304.xyz"
+    client-fingerprint: "safari"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "ccc.010304.xyz"
+  - name: "proxy-3"
     server: "188.164.248.216"
     port: 443
     udp: true
@@ -26,128 +46,7 @@ proxies:
       path: "/"
       headers:
         Host: "ccc.010304.xyz"
-  - name: "p00295"
-    server: "t12.qifei.app"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "b98d4c6e-6770-4a31-8256-a4750cdea0e7"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "www.amazon.com"
-    reality-opts:
-      public-key: "0i_xAxYgSNx5NMpK2lOaWGS-CvAiD_LneYPO0MF0owo"
-      short-id: "1a"
-    client-fingerprint: "random"
-  - name: "p00133"
-    server: "84.17.41.2"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "p00123"
-    server: "51.81.203.63"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "cb2dbb6a-a1ea-4023-9ace-6466cee57241"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "www.icloud.com"
-    reality-opts:
-      public-key: "nqwCf6oW49tEtmQ0EzxigZ0uu1pg0E30CS54G40Iti0"
-      short-id: "4477382ff6d3d41c"
-    client-fingerprint: "chrome"
-  - name: "p00327"
-    server: "185.230.230.18"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00147"
-    server: "us-23.hihu.net"
-    port: 80
-    udp: true
-    type: "vmess"
-    uuid: "8a9aaa70-ced9-11f1-b934-205c6d5f5d78"
-    alterId: 0
-    cipher: "auto"
-    network: "ws"
-    ws-opts:
-      path: "/870ao26f"
-      headers:
-        Host: "172.66.0.251"
-  - name: "p00119"
-    server: "44.248.233.99"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "37615d66-5467-44a3-bc23-f2c3bef7f761"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "aws.amazon.com"
-    reality-opts:
-      public-key: "p8VhFzvFOBAhWAEAeWmwDxT3xBSRsGYixqi0qnLFnBM"
-      short-id: "21270a66"
-    client-fingerprint: "chrome"
-  - name: "p00146"
-    server: "23.254.194.215"
-    port: 8080
-    udp: true
-    type: "vmess"
-    uuid: "3c75a551-81d6-46d0-876d-79519719bb22"
-    alterId: 0
-    cipher: "auto"
-    network: "ws"
-    ws-opts:
-      path: "3c75a551-81d6-46d0-876d-79519719bb22-vm"
-      headers:
-        Host: "www.bing.com"
-  - name: "p00141"
-    server: "us-23.hihu.net"
-    port: 80
-    udp: true
-    type: "vmess"
-    uuid: "8a9aaa70-ced9-11f1-b934-205c6d5f5d78"
-    alterId: 0
-    cipher: "auto"
-    network: "ws"
-    ws-opts:
-      path: "/870ao26f"
-      headers:
-        Host: "172.66.0.251"
-  - name: "p00125"
-    server: "38.110.1.246"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "p00120"
-    server: "15.204.97.206"
-    port: 23576
-    udp: true
-    type: "vless"
-    uuid: "48ff2b70-e180-582f-8866-d9a2edeed5f5"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "fuck.rkn"
-    reality-opts:
-      public-key: "1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s"
-      short-id: "01"
-    client-fingerprint: "chrome"
-  - name: "p00341"
-    server: "193.151.163.18"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00243"
+  - name: "proxy-4"
     server: "188.164.248.216"
     port: 443
     udp: true
@@ -155,13 +54,77 @@ proxies:
     uuid: "d342d11e-d224-4463-b982-532309285094"
     tls: true
     servername: "ccc.010304.xyz"
-    client-fingerprint: "ios"
+    client-fingerprint: "firefox"
     network: "ws"
     ws-opts:
       path: "/fp=chrome"
       headers:
         Host: "ccc.010304.xyz"
-  - name: "p00239"
+  - name: "proxy-5"
+    server: "188.164.248.216"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "d342d11e-d224-4463-b982-532309285094"
+    tls: true
+    servername: "ccc.010304.xyz"
+    client-fingerprint: "edge"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "ccc.010304.xyz"
+  - name: "proxy-6"
+    server: "188.164.248.216"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "d342d11e-d224-4463-b982-532309285094"
+    tls: true
+    servername: "ccc.010304.xyz"
+    client-fingerprint: "android"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "ccc.010304.xyz"
+  - name: "proxy-7"
+    server: "188.164.248.216"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "d342d11e-d224-4463-b982-532309285094"
+    tls: true
+    servername: "ccc.010304.xyz"
+    client-fingerprint: "qq"
+    network: "ws"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "ccc.010304.xyz"
+  - name: "proxy-8"
+    server: "188.164.248.216"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "d342d11e-d224-4463-b982-532309285094"
+    tls: true
+    servername: "ccc.010304.xyz"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "ccc.010304.xyz"
+  - name: "proxy-9"
+    server: "38.110.1.246"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-10"
     server: "188.164.248.216"
     port: 443
     udp: true
@@ -175,78 +138,7 @@ proxies:
       path: "/fp=chrome"
       headers:
         Host: "ccc.010304.xyz"
-  - name: "p00242"
-    server: "188.164.248.216"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d342d11e-d224-4463-b982-532309285094"
-    tls: true
-    servername: "ccc.010304.xyz"
-    client-fingerprint: "firefox"
-    network: "ws"
-    ws-opts:
-      path: "/fp=chrome"
-      headers:
-        Host: "ccc.010304.xyz"
-  - name: "p00244"
-    server: "188.164.248.216"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d342d11e-d224-4463-b982-532309285094"
-    tls: true
-    servername: "ccc.010304.xyz"
-    client-fingerprint: "qq"
-    network: "ws"
-    ws-opts:
-      path: "/fp=chrome"
-      headers:
-        Host: "ccc.010304.xyz"
-  - name: "p00135"
-    server: "169.197.142.22"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "p00235"
-    server: "188.164.248.216"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d342d11e-d224-4463-b982-532309285094"
-    tls: true
-    servername: "ccc.010304.xyz"
-    client-fingerprint: "edge"
-    network: "ws"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "ccc.010304.xyz"
-  - name: "p00322"
-    server: "193.151.160.9"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00241"
-    server: "188.164.248.216"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d342d11e-d224-4463-b982-532309285094"
-    tls: true
-    servername: "ccc.010304.xyz"
-    client-fingerprint: "edge"
-    network: "ws"
-    ws-opts:
-      path: "/fp=chrome"
-      headers:
-        Host: "ccc.010304.xyz"
-  - name: "p00238"
+  - name: "proxy-11"
     server: "188.164.248.216"
     port: 443
     udp: true
@@ -257,80 +149,22 @@ proxies:
     client-fingerprint: "safari"
     network: "ws"
     ws-opts:
-      path: "/"
+      path: "/fp=chrome"
       headers:
         Host: "ccc.010304.xyz"
-  - name: "p00118"
-    server: "176.122.158.11"
-    port: 443
+  - name: "proxy-12"
+    server: "66.70.179.198"
+    port: 2053
     udp: true
     type: "vless"
-    uuid: "154c54e0-028d-4c8a-9512-7ad1588cce2a"
-    flow: "xtls-rprx-vision"
+    uuid: "dc620cd6-a9d8-4a0f-8f18-006b895db77e"
     tls: true
     servername: "www.cloudflare.com"
     reality-opts:
-      public-key: "dV6-Xn1FCpiYvbJ1o79HjMr0IJg29xacSQcaD4jeKAM"
-      short-id: "f8d85e1a92219c3c"
-    client-fingerprint: "safari"
-  - name: "p00343"
-    server: "193.151.160.18"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00237"
-    server: "188.164.248.216"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d342d11e-d224-4463-b982-532309285094"
-    tls: true
-    servername: "ccc.010304.xyz"
-    client-fingerprint: "qq"
-    network: "ws"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "ccc.010304.xyz"
-  - name: "p00234"
-    server: "188.164.248.216"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d342d11e-d224-4463-b982-532309285094"
-    tls: true
-    servername: "ccc.010304.xyz"
-    client-fingerprint: "chrome"
-    network: "ws"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "ccc.010304.xyz"
-  - name: "p00005"
-    server: "134.195.196.211"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "p00245"
-    server: "188.164.248.216"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d342d11e-d224-4463-b982-532309285094"
-    tls: true
-    servername: "ccc.010304.xyz"
-    client-fingerprint: "safari"
-    network: "ws"
-    ws-opts:
-      path: "/fp=chrome"
-      headers:
-        Host: "ccc.010304.xyz"
-  - name: "p00137"
+      public-key: "k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU"
+      short-id: "83f8317a948bb769"
+    client-fingerprint: "firefox"
+  - name: "proxy-13"
     server: "38.110.1.246"
     port: 18000
     udp: true
@@ -338,77 +172,28 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
-  - name: "p00342"
-    server: "45.86.51.18"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00004"
-    server: "134.195.196.211"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "p00007"
-    server: "134.195.196.211"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "p00332"
-    server: "185.176.206.9"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
 
 proxy-groups:
   - name: Auto
     type: url-test
     url: https://www.youtube.com/generate_204
-    interval: 60
-    tolerance: 80
+    interval: 30
+    tolerance: 50
+    lazy: false
     proxies:
-      - "p00333"
-      - "p00236"
-      - "p00295"
-      - "p00133"
-      - "p00123"
-      - "p00327"
-      - "p00147"
-      - "p00119"
-      - "p00146"
-      - "p00141"
-      - "p00125"
-      - "p00120"
-      - "p00341"
-      - "p00243"
-      - "p00239"
-      - "p00242"
-      - "p00244"
-      - "p00135"
-      - "p00235"
-      - "p00322"
-      - "p00241"
-      - "p00238"
-      - "p00118"
-      - "p00343"
-      - "p00237"
-      - "p00234"
-      - "p00005"
-      - "p00245"
-      - "p00137"
-      - "p00342"
-      - "p00004"
-      - "p00007"
-      - "p00332"
+      - "proxy-1"
+      - "proxy-2"
+      - "proxy-3"
+      - "proxy-4"
+      - "proxy-5"
+      - "proxy-6"
+      - "proxy-7"
+      - "proxy-8"
+      - "proxy-9"
+      - "proxy-10"
+      - "proxy-11"
+      - "proxy-12"
+      - "proxy-13"
 
 rules:
   - MATCH,Auto
