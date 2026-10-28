@@ -99,13 +99,20 @@ jobs:
             echo "status.json не создан"
           fi
 
+      - name: Аварийный список «Последний шанс»
+        if: success()
+        run: |
+          if [ -f 1.txt ]; then
+            head -n 4 1.txt > last-chance.txt
+            echo "last-chance.txt строк: $(wc -l < last-chance.txt)"
+          fi
       - name: Закоммитить результат
         if: success()
         run: |
           set -euo pipefail
           git config user.name "vpn-checker[bot]"
           git config user.email "vpn-checker@users.noreply.github.com"
-          git add 1.txt 1-base64.txt universal.txt auto.json auto-legacy.json auto.yaml pool.txt pool.yaml pool-auto.json status.json history.json REPORT.md
+          git add 1.txt 1-base64.txt universal.txt auto.json auto-legacy.json auto.yaml pool.txt pool.yaml pool-auto.json status.json history.json REPORT.md last-chance.txt
           if git diff --cached --quiet; then
             echo "Список не изменился — коммит не нужен."
             exit 0
