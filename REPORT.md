@@ -1,6 +1,6 @@
 # Отфильтрованный список VPN-конфигов
 
-Обновлено: **2026-10-29T12:00:16Z** UTC (прогон занял 74 с)
+Обновлено: **2026-10-29T18:10:03Z** UTC (прогон занял 46 с)
 
 ## Что проверялось
 
@@ -16,61 +16,62 @@
 
 | Шаг | Осталось |
 | --- | ---: |
-| Строк в источниках | 380 |
-| Разобрано в конфиги | 347 |
-| Уникальных | 347 |
-| Endpoint отвечает по TCP | 329 |
-| YouTube доступен | 200 |
-| + Telegram (HTTP) доступен | 181 |
-| + дата-центр Telegram доступен | 181 |
-| + скорость ≥ 3.0 Мбит/с | 68 |
-| **В итоговом списке** | **68** |
+| Строк в источниках | 392 |
+| Разобрано в конфиги | 359 |
+| Уникальных | 359 |
+| Endpoint отвечает по TCP | 345 |
+| YouTube доступен | 205 |
+| + Telegram (HTTP) доступен | 175 |
+| + дата-центр Telegram доступен | 175 |
+| + скорость ≥ 3.0 Мбит/с | 50 |
+| **В итоговом списке** | **50** |
 
 ## По протоколам
 
 | Протокол | В списке |
 | --- | ---: |
-| vmess | 39 |
-| vless | 16 |
-| trojan | 8 |
-| shadowsocks | 5 |
+| vless | 23 |
+| vmess | 17 |
+| trojan | 7 |
+| shadowsocks | 3 |
 
 ## По странам
 
 | Страна | В списке |
 | --- | ---: |
-| US | 32 |
 | CA | 20 |
-| ?? | 8 |
+| US | 16 |
+| ?? | 5 |
 | GB | 2 |
-| IT | 2 |
-| MX | 1 |
+| ES | 2 |
+| NL | 1 |
+| IT | 1 |
 | AT | 1 |
 | CH | 1 |
-| NL | 1 |
+| DE | 1 |
 
 ## Самые быстрые
 
 | # | Имя | Протокол | Страна | Мбит/с | YouTube, мс | Telegram, мс |
 | ---: | --- | --- | --- | ---: | ---: | ---: |
-| 1 | 🏳[openproxylist.com] vmess- | vmess | ?? | 9.70 | 76 | 537 |
-| 2 | 🇺🇸[openproxylist.com] trojan-US | trojan | US | 7.32 | 94 | 523 |
-| 3 | [🇺🇸] [vm-no-ra] [261029-095912.853] | vmess | US | 7.22 | 131 | 443 |
-| 4 | [🇺🇸] [vm-no-ra] [261029-095912.983] | vmess | US | 6.67 | 144 | 468 |
-| 5 | [🇨🇦] [vm-no-ra] [261029-095910.547] | vmess | CA | 6.33 | 112 | 376 |
-| 6 | [🇨🇦] [vm-no-ra] [261029-095844.196] | vmess | CA | 6.30 | 114 | 358 |
-| 7 | 🌐 Anycast-IP | 🇨🇦 🇬🇧 🇷🇺 | [BL] | vless | CA | 6.21 | 64 | 583 |
-| 8 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 6.20 | 124 | 519 |
-| 9 | 🌐 Anycast-IP | 🇨🇦 🇬🇧 🇷🇺 | [BL] | vless | CA | 6.19 | 65 | 557 |
-| 10 | 🏳[openproxylist.com] trojan- | trojan | ?? | 5.97 | 78 | 404 |
+| 1 | 🏳[openproxylist.com] trojan- | trojan | ?? | 11.52 | 66 | 358 |
+| 2 | 🇺🇸[openproxylist.com] trojan-US | trojan | US | 11.14 | 81 | 407 |
+| 3 | 🏳[openproxylist.com] trojan- | trojan | ?? | 10.57 | 80 | 407 |
+| 4 | 🇺🇸[openproxylist.com] trojan-US | trojan | US | 10.35 | 82 | 394 |
+| 5 | 🌐 Anycast-IP | 🇨🇦 🇬🇧 🇷🇺 | [BL] | vless | CA | 10.16 | 104 | 681 |
+| 6 | 🇺🇸[openproxylist.com] trojan-US | trojan | US | 10.10 | 69 | 427 |
+| 7 | 🌐 Anycast-IP | 🇨🇦 🇬🇧 🇷🇺 | [BL] | vless | CA | 9.94 | 107 | 721 |
+| 8 | 🌐 Anycast-IP | 🇨🇦 🇬🇧 🇷🇺 | [BL] | vless | CA | 9.64 | 181 | 870 |
+| 9 | 🌐 Anycast-IP | 🇨🇦 🇬🇧 🇷🇺 | [BL] | vless | CA | 9.26 | 158 | 747 |
+| 10 | [🇨🇦] [vm-no-ra] [261029-171342.928] | vmess | CA | 9.19 | 2287 | 334 |
 
 ## Что не удалось проверить
 
 | Причина | Конфигов |
 | --- | ---: |
-| transport-xhttp-unsupported | 19 |
+| transport-xhttp-unsupported | 16 |
 | vmess-http-obfs | 3 |
-| vmess-header-type | 2 |
+| vmess-header-type | 1 |
 
 ## Ссылки
 
