@@ -1,4 +1,4 @@
-vless://d342d11e-d224-4463-b982-532309285094@188.164.248.216:443?security=tls&sni=ccc.010304.xyz&type=ws&host=ccc.010304.xyz&path=%2Ffp%3Dchrome&allowInsecure=0&fp=safari#Прокси 1
-vmess://eyJhZGQiOiI4NC4xNy40MS4yIiwiaWQiOiJmOGM4ZGMzZC0wZDM3LTQ2YjAtOGIzNC1hNzIzMjg4MmZjZmUiLCJwb3J0IjoiMTgwMDAiLCJzY3kiOiJhdXRvIiwidiI6IjIiLCJuZXQiOiJyYXciLCJ0eXBlIjoibm9uZSIsInRscyI6Im5vbmUiLCJwcyI6Ilvwn4e68J+HuF0gW3ZtLW5vLXJhXSBbMjYxMDMwLTE0MDUyOC42MTddIn0K#Прокси 2
-vmess://eyJhZGQiOiI4NC4xNy40MS4yIiwiaWQiOiJmOGM4ZGMzZC0wZDM3LTQ2YjAtOGIzNC1hNzIzMjg4MmZjZmUiLCJwb3J0IjoiMTgwMDAiLCJzY3kiOiJhdXRvIiwidiI6IjIiLCJuZXQiOiJyYXciLCJ0eXBlIjoibm9uZSIsInRscyI6Im5vbmUiLCJwcyI6Ilvwn4e68J+HuF0gW3ZtLW5vLXJhXSBbMjYxMDMwLTE0MDUyOC4xNTNdIn0K#Прокси 3
-vmess://eyJhZGQiOiI4NC4xNy40MS4yIiwiaWQiOiJmOGM4ZGMzZC0wZDM3LTQ2YjAtOGIzNC1hNzIzMjg4MmZjZmUiLCJwb3J0IjoiMTgwMDAiLCJzY3kiOiJhdXRvIiwidiI6IjIiLCJuZXQiOiJyYXciLCJ0eXBlIjoibm9uZSIsInRscyI6Im5vbmUiLCJwcyI6Ilvwn4e68J+HuF0gW3ZtLW5vLXJhXSBbMjYxMDMwLTE0MDUyOC4xMDhdIn0K#Прокси 4
+vless://d342d11e-d224-4463-b982-532309285094@188.164.248.216:443?security=tls&sni=ccc.010304.xyz&type=ws&host=ccc.010304.xyz&path=%2Ffp%3Dchrome&allowInsecure=0&fp=chrome#Прокси 1
+vless://d342d11e-d224-4463-b982-532309285094@188.164.248.216:443?security=tls&sni=ccc.010304.xyz&type=ws&host=ccc.010304.xyz&path=%2Ffp%3Dchrome&allowInsecure=0&fp=qq#Прокси 2
+vless://d342d11e-d224-4463-b982-532309285094@188.164.248.216:443?path=%2F&security=tls&encryption=none&insecure=0&host=ccc.010304.xyz&type=ws&allowInsecure=0&sni=ccc.010304.xyz&fp=qq#Прокси 3
+vless://d342d11e-d224-4463-b982-532309285094@188.164.248.216:443?path=%2F&security=tls&encryption=none&insecure=0&host=ccc.010304.xyz&type=ws&allowInsecure=0&sni=ccc.010304.xyz&fp=safari#Прокси 4
