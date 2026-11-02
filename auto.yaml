@@ -13,42 +13,381 @@ proxies:
     password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
     sni: "resources.nextjobopportunityandclaimyouridealrole.com"
   - name: "proxy-2"
+    server: "27.50.48.8"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "c98a16e4-0dc5-42f0-b3db-30f04525c123"
+    tls: true
+    servername: "vless2-8vx.pages.dev"
+    client-fingerprint: "ios"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "vless2-8vx.pages.dev"
+  - name: "proxy-3"
+    server: "216.152.155.158"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "resources.nextjobopportunityandclaimyouridealrole.com"
+  - name: "proxy-4"
+    server: "216.152.155.54"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "learn.nextjobopportunityandclaimyouridealrole.com"
+  - name: "proxy-5"
+    server: "66.163.114.45"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "cdn.findconnectwithemployersandbuildprofessionalnetwork.com"
+  - name: "proxy-6"
+    server: "216.152.155.176"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "blog.nextjobopportunityandclaimyouridealrole.com"
+  - name: "proxy-7"
     server: "216.152.155.23"
     port: 443
     udp: true
     type: "trojan"
     password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
     sni: "courses.nextjobopportunityandclaimyouridealrole.com"
-  - name: "proxy-3"
-    server: "134.195.196.211"
-    port: 18000
+  - name: "proxy-8"
+    server: "27.50.49.242"
+    port: 8443
     udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-4"
-    server: "216.152.156.65"
+    type: "vless"
+    uuid: "40af9131-d540-448a-bc56-5bba147a1dc3"
+    tls: true
+    servername: "proxy-1cu.pages.dev"
+    client-fingerprint: "random"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "proxy-1cu.pages.dev"
+  - name: "proxy-9"
+    server: "66.163.114.106"
     port: 443
     udp: true
     type: "trojan"
     password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "learn.healthcarejobshubenhancemedicalprofessionalskillstoday.com"
-  - name: "proxy-5"
-    server: "216.152.147.89"
+    sni: "www.findconnectwithemployersandbuildprofessionalnetwork.com"
+  - name: "proxy-10"
+    server: "27.50.48.13"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "c98a16e4-0dc5-42f0-b3db-30f04525c123"
+    tls: true
+    servername: "vless2-8vx.pages.dev"
+    client-fingerprint: "firefox"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "vless2-8vx.pages.dev"
+  - name: "proxy-11"
+    server: "66.163.114.126"
     port: 443
     udp: true
     type: "trojan"
     password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "www.connectingpeoplewithgreatjobs.com"
-  - name: "proxy-6"
+    sni: "resources.findconnectwithemployersandbuildprofessionalnetwork.com"
+  - name: "proxy-12"
+    server: "66.163.114.114"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "learn.findconnectwithemployersandbuildprofessionalnetwork.com"
+  - name: "proxy-13"
+    server: "27.50.48.13"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "c98a16e4-0dc5-42f0-b3db-30f04525c123"
+    tls: true
+    servername: "vless2-8vx.pages.dev"
+    client-fingerprint: "edge"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "vless2-8vx.pages.dev"
+  - name: "proxy-14"
+    server: "66.163.114.166"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "blog.findconnectwithemployersandbuildprofessionalnetwork.com"
+  - name: "proxy-15"
+    server: "216.152.156.81"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "www.healthcarejobshubenhancemedicalprofessionalskillstoday.com"
+  - name: "proxy-16"
+    server: "216.152.156.42"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "blog.healthcarejobshubenhancemedicalprofessionalskillstoday.com"
+  - name: "proxy-17"
     server: "66.163.114.132"
     port: 443
     udp: true
     type: "trojan"
     password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
     sni: "courses.findconnectwithemployersandbuildprofessionalnetwork.com"
-  - name: "proxy-7"
+  - name: "proxy-18"
+    server: "45.131.7.123"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "1d16c6e0-1bbe-435b-b661-90043fee999c"
+    tls: true
+    servername: "notls.lukongtou.eu.org"
+    network: "ws"
+    ws-opts:
+      path: "Telegram-WangCai2***🇨🇳***"
+      headers:
+        Host: "notls.lukongtou.eu.org"
+  - name: "proxy-19"
+    server: "216.152.156.81"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "www.healthcarejobshubenhancemedicalprofessionalskillstoday.com"
+  - name: "proxy-20"
+    server: "27.50.49.154"
+    port: 2083
+    udp: true
+    type: "vless"
+    uuid: "40af9131-d540-448a-bc56-5bba147a1dc3"
+    tls: true
+    servername: "proxy-34l.pages.dev"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "proxy-34l.pages.dev"
+  - name: "proxy-21"
+    server: "216.152.156.81"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "www.healthcarejobshubenhancemedicalprofessionalskillstoday.com"
+  - name: "proxy-22"
+    server: "216.152.156.65"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "learn.healthcarejobshubenhancemedicalprofessionalskillstoday.com"
+  - name: "proxy-23"
+    server: "216.152.156.65"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "learn.healthcarejobshubenhancemedicalprofessionalskillstoday.com"
+  - name: "proxy-24"
+    server: "216.152.156.49"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "cdn.healthcarejobshubenhancemedicalprofessionalskillstoday.com"
+  - name: "proxy-25"
+    server: "103.116.7.100"
+    port: 2087
+    udp: true
+    type: "vless"
+    uuid: "40af9131-d540-448a-bc56-5bba147a1dc3"
+    tls: true
+    servername: "proxy-1cu.pages.dev"
+    client-fingerprint: "firefox"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "proxy-1cu.pages.dev"
+  - name: "proxy-26"
+    server: "27.50.48.8"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "c98a16e4-0dc5-42f0-b3db-30f04525c123"
+    tls: true
+    servername: "vless2-8vx.pages.dev"
+    client-fingerprint: "qq"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "vless2-8vx.pages.dev"
+  - name: "proxy-27"
+    server: "47.251.25.74"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "18805ff3-b420-45de-af18-93be14024ae8"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.amazon.com"
+    reality-opts:
+      public-key: "H56cOJhw0xw76lDEpt7IuJJmVGemK6_CK34KtHwDMX8"
+    client-fingerprint: "firefox"
+  - name: "proxy-28"
+    server: "103.116.7.67"
+    port: 2083
+    udp: true
+    type: "vless"
+    uuid: "40af9131-d540-448a-bc56-5bba147a1dc3"
+    tls: true
+    servername: "proxy-1cu.pages.dev"
+    client-fingerprint: "android"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "proxy-1cu.pages.dev"
+  - name: "proxy-29"
+    server: "216.152.155.54"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "learn.nextjobopportunityandclaimyouridealrole.com"
+  - name: "proxy-30"
+    server: "167.68.4.131"
+    port: 8443
+    udp: true
+    type: "vless"
+    uuid: "40af9131-d540-448a-bc56-5bba147a1dc3"
+    tls: true
+    servername: "proxy-34l.pages.dev"
+    client-fingerprint: "safari"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "proxy-34l.pages.dev"
+  - name: "proxy-31"
+    server: "154.211.8.152"
+    port: 2053
+    udp: true
+    type: "vless"
+    uuid: "40af9131-d540-448a-bc56-5bba147a1dc3"
+    tls: true
+    servername: "proxy-1cu.pages.dev"
+    client-fingerprint: "qq"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "proxy-1cu.pages.dev"
+  - name: "proxy-32"
+    server: "66.163.112.121"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "www.unlockyourfuturefindyourperfectcareer.com"
+  - name: "proxy-33"
+    server: "185.193.29.123"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "1d16c6e0-1bbe-435b-b661-90043fee999c"
+    tls: true
+    servername: "notls.lukongtou.eu.org"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "Telegram-WangCai2🇨🇳"
+      headers:
+        Host: "notls.lukongtou.eu.org"
+  - name: "proxy-34"
+    server: "66.163.112.13"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "blog.unlockyourfuturefindyourperfectcareer.com"
+  - name: "proxy-35"
+    server: "154.211.8.152"
+    port: 2053
+    udp: true
+    type: "vless"
+    uuid: "40af9131-d540-448a-bc56-5bba147a1dc3"
+    tls: true
+    servername: "proxy-1cu.pages.dev"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "proxy-1cu.pages.dev"
+  - name: "proxy-36"
+    server: "27.50.48.8"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "c98a16e4-0dc5-42f0-b3db-30f04525c123"
+    tls: true
+    servername: "vless2-8vx.pages.dev"
+    client-fingerprint: "firefox"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "vless2-8vx.pages.dev"
+  - name: "proxy-37"
+    server: "103.116.7.100"
+    port: 2087
+    udp: true
+    type: "vless"
+    uuid: "40af9131-d540-448a-bc56-5bba147a1dc3"
+    tls: true
+    servername: "proxy-1cu.pages.dev"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "proxy-1cu.pages.dev"
+  - name: "proxy-38"
+    server: "66.163.112.242"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "resources.unlockyourfuturefindyourperfectcareer.com"
+  - name: "proxy-39"
+    server: "66.163.112.121"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "www.unlockyourfuturefindyourperfectcareer.com"
+  - name: "proxy-40"
     server: "23.162.200.198"
     port: 18000
     udp: true
@@ -56,7 +395,167 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
-  - name: "proxy-8"
+  - name: "proxy-41"
+    server: "27.50.48.8"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "c98a16e4-0dc5-42f0-b3db-30f04525c123"
+    tls: true
+    servername: "vless2-8vx.pages.dev"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "vless2-8vx.pages.dev"
+  - name: "proxy-42"
+    server: "103.116.7.100"
+    port: 2087
+    udp: true
+    type: "vless"
+    uuid: "40af9131-d540-448a-bc56-5bba147a1dc3"
+    tls: true
+    servername: "proxy-1cu.pages.dev"
+    client-fingerprint: "android"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "proxy-1cu.pages.dev"
+  - name: "proxy-43"
+    server: "66.163.112.147"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "courses.unlockyourfuturefindyourperfectcareer.com"
+  - name: "proxy-44"
+    server: "216.152.147.79"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "blog.connectingpeoplewithgreatjobs.com"
+  - name: "proxy-45"
+    server: "66.163.122.81"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "courses.searchnationwidecareerchangehelperandguidancetoday.com"
+  - name: "proxy-46"
+    server: "67.220.95.3"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-47"
+    server: "170.101.101.67"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "courses.explorecreativejobsandenhanceyourcareerportfolio.com"
+  - name: "proxy-48"
+    server: "84.17.41.2"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-49"
+    server: "216.238.80.100"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "connectwithtopemployersandfindidealjobs.com"
+  - name: "proxy-50"
+    server: "23.162.200.198"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-51"
+    server: "169.197.140.169"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "api.discoverfreshgraduatejobsstartyourprofessionaljourney.com"
+  - name: "proxy-52"
+    server: "84.17.41.2"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-53"
+    server: "185.193.29.123"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "1d16c6e0-1bbe-435b-b661-90043fee999c"
+    tls: true
+    servername: "notls.lukongtou.eu.org"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "notls.lukongtou.eu.org"
+  - name: "proxy-54"
+    server: "169.197.140.218"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "learn.discoverfreshgraduatejobsstartyourprofessionaljourney.com"
+  - name: "proxy-55"
+    server: "169.197.140.214"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "courses.discoverfreshgraduatejobsstartyourprofessionaljourney.com"
+  - name: "proxy-56"
+    server: "216.152.147.93"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "connectingpeoplewithgreatjobs.com"
+  - name: "proxy-57"
+    server: "38.91.107.49"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-58"
+    server: "170.101.101.19"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "learn.explorecreativejobsandenhanceyourcareerportfolio.com"
+  - name: "proxy-59"
+    server: "67.220.95.3"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-60"
     server: "134.195.196.211"
     port: 18000
     udp: true
@@ -64,7 +563,183 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
-  - name: "proxy-9"
+  - name: "proxy-61"
+    server: "23.162.200.198"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-62"
+    server: "216.152.147.89"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "www.connectingpeoplewithgreatjobs.com"
+  - name: "proxy-63"
+    server: "188.164.248.61"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "099244b9-2168-4dbd-870e-cbbe9d6eb573"
+    tls: true
+    servername: "whitecreeper.pages.dev"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/proxyip=ProxyIP.SG.CMLiussss.Net"
+      headers:
+        Host: "whitecreeper.pages.dev"
+  - name: "proxy-64"
+    server: "us3.shtil.io"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "86a83d11-d751-4b60-aa4e-1dca5cff7028"
+    tls: true
+    servername: "us3.shtil.io"
+    client-fingerprint: "firefox"
+  - name: "proxy-65"
+    server: "84.17.41.2"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-66"
+    server: "216.152.147.79"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "blog.connectingpeoplewithgreatjobs.com"
+  - name: "proxy-67"
+    server: "188.164.248.48"
+    port: 2083
+    udp: true
+    type: "vless"
+    uuid: "a21b9103-1693-49c1-8dc9-e8e8098ee969"
+    tls: true
+    servername: "helloapps.cc.cd"
+    client-fingerprint: "qq"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "helloapps.cc.cd"
+  - name: "proxy-68"
+    server: "188.164.248.169"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "9f534ac4-3c58-4a16-8b74-13dff09a0cf1"
+    tls: true
+    servername: "d39333476.pages.dev"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/dh"
+      headers:
+        Host: "d39333476.pages.dev"
+  - name: "proxy-69"
+    server: "185.193.29.123"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "1d16c6e0-1bbe-435b-b661-90043fee999c"
+    tls: true
+    servername: "notls.lukongtou.eu.org"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/Telegram-WangCai2🇨🇳"
+      headers:
+        Host: "notls.lukongtou.eu.org"
+  - name: "proxy-70"
+    server: "141.193.213.30"
+    port: 8880
+    udp: true
+    type: "vless"
+    uuid: "6202b230-417c-4d8e-b624-0f71afa9c75d"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "vms.lifetime23.workers.dev"
+  - name: "proxy-71"
+    server: "167.88.61.193"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "browseseniorrolesandenhanceyourcareertoday.com"
+  - name: "proxy-72"
+    server: "84.17.41.2"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-73"
+    server: "67.209.184.133"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "96ebc166-565c-474f-9712-7990b55c368a"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.bing.com"
+    reality-opts:
+      public-key: "Tp015Ga5LodBwKs4z7Wz4hTvqeh8-4q1EQPZqvZfWR0"
+      short-id: "ad09494d431b2b92"
+    client-fingerprint: "chrome"
+  - name: "proxy-74"
+    server: "38.91.107.49"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-75"
+    server: "216.152.147.79"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "blog.connectingpeoplewithgreatjobs.com"
+  - name: "proxy-76"
+    server: "27.50.48.8"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "c98a16e4-0dc5-42f0-b3db-30f04525c123"
+    tls: true
+    servername: "vless2-8vx.pages.dev"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "vless2-8vx.pages.dev"
+  - name: "proxy-77"
+    server: "27.50.48.13"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "c98a16e4-0dc5-42f0-b3db-30f04525c123"
+    tls: true
+    servername: "vless2-8vx.pages.dev"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "vless2-8vx.pages.dev"
+  - name: "proxy-78"
     server: "134.195.196.211"
     port: 18000
     udp: true
@@ -72,7 +747,28 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
-  - name: "proxy-10"
+  - name: "proxy-79"
+    server: "38.91.107.49"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-80"
+    server: "67.209.184.133"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "96ebc166-565c-474f-9712-7990b55c368a"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.bing.com"
+    reality-opts:
+      public-key: "Tp015Ga5LodBwKs4z7Wz4hTvqeh8-4q1EQPZqvZfWR0"
+      short-id: "ad09494d431b2b92"
+    client-fingerprint: "chrome"
+  - name: "proxy-81"
     server: "134.195.196.211"
     port: 18000
     udp: true
@@ -80,7 +776,28 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
-  - name: "proxy-11"
+  - name: "proxy-82"
+    server: "67.220.85.46"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-83"
+    server: "27.50.48.6"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "c98a16e4-0dc5-42f0-b3db-30f04525c123"
+    tls: true
+    servername: "vless2-8vx.pages.dev"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "vless2-8vx.pages.dev"
+  - name: "proxy-84"
     server: "134.195.196.211"
     port: 18000
     udp: true
@@ -88,7 +805,120 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
-  - name: "proxy-12"
+  - name: "proxy-85"
+    server: "134.195.196.211"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-86"
+    server: "27.50.49.154"
+    port: 2083
+    udp: true
+    type: "vless"
+    uuid: "40af9131-d540-448a-bc56-5bba147a1dc3"
+    tls: true
+    servername: "proxy-34l.pages.dev"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "proxy-34l.pages.dev"
+  - name: "proxy-87"
+    server: "www.windowsmsidownloads.com"
+    port: 443
+    udp: true
+    type: "vmess"
+    uuid: "80be2deb-3b27-4775-9bd1-7f2a2b9c261b"
+    alterId: 0
+    cipher: "auto"
+    tls: true
+    servername: "www.windowsmsidownloads.com"
+    network: "ws"
+    ws-opts:
+      path: "/truth"
+      headers:
+        Host: "www.windowsmsidownloads.com"
+  - name: "proxy-88"
+    server: "103.116.7.220"
+    port: 2096
+    udp: true
+    type: "vless"
+    uuid: "40af9131-d540-448a-bc56-5bba147a1dc3"
+    tls: true
+    servername: "proxy-34l.pages.dev"
+    client-fingerprint: "edge"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "proxy-34l.pages.dev"
+  - name: "proxy-89"
+    server: "38.110.1.246"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-90"
+    server: "27.50.49.154"
+    port: 2083
+    udp: true
+    type: "vless"
+    uuid: "40af9131-d540-448a-bc56-5bba147a1dc3"
+    tls: true
+    servername: "proxy-34l.pages.dev"
+    client-fingerprint: "ios"
+    network: "ws"
+    ws-opts:
+      path: "/?TELEGRAM--MARAMBASHI--MARAMBASHI?ed=512"
+      headers:
+        Host: "proxy-34l.pages.dev"
+  - name: "proxy-91"
+    server: "154.211.8.227"
+    port: 2087
+    udp: true
+    type: "vless"
+    uuid: "40af9131-d540-448a-bc56-5bba147a1dc3"
+    tls: true
+    servername: "proxy-34l.pages.dev"
+    client-fingerprint: "firefox"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "proxy-34l.pages.dev"
+  - name: "proxy-92"
+    server: "170.101.101.53"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "www.explorecreativejobsandenhanceyourcareerportfolio.com"
+  - name: "proxy-93"
+    server: "147.78.1.253"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "39a390af-1f90-4c0e-89e4-4e2023732e4b"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.apple.com"
+    reality-opts:
+      public-key: "TefL2KtNcNLPmUY8TKlu5pA7ffipqgmbBN6gpyzyklk"
+    client-fingerprint: "chrome"
+  - name: "proxy-94"
+    server: "170.101.101.131"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "blog.explorecreativejobsandenhanceyourcareerportfolio.com"
+  - name: "proxy-95"
     server: "66.70.179.198"
     port: 2053
     udp: true
@@ -100,226 +930,113 @@ proxies:
       public-key: "k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU"
       short-id: "83f8317a948bb769"
     client-fingerprint: "chrome"
-  - name: "proxy-13"
-    server: "66.163.112.147"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "courses.unlockyourfuturefindyourperfectcareer.com"
-  - name: "proxy-14"
-    server: "169.197.140.245"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "www.discoverfreshgraduatejobsstartyourprofessionaljourney.com"
-  - name: "proxy-15"
-    server: "66.163.114.245"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "findconnectwithemployersandbuildprofessionalnetwork.com"
-  - name: "proxy-16"
-    server: "216.152.155.131"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "www.nextjobopportunityandclaimyouridealrole.com"
-  - name: "proxy-17"
-    server: "169.197.140.169"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "api.discoverfreshgraduatejobsstartyourprofessionaljourney.com"
-  - name: "proxy-18"
-    server: "216.152.147.79"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "blog.connectingpeoplewithgreatjobs.com"
-  - name: "proxy-19"
-    server: "216.152.156.212"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "courses.healthcarejobshubenhancemedicalprofessionalskillstoday.com"
-  - name: "proxy-20"
-    server: "66.163.112.121"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "www.unlockyourfuturefindyourperfectcareer.com"
-  - name: "proxy-21"
-    server: "66.163.114.166"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "blog.findconnectwithemployersandbuildprofessionalnetwork.com"
-  - name: "proxy-22"
-    server: "66.163.112.13"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "blog.unlockyourfuturefindyourperfectcareer.com"
-  - name: "proxy-23"
-    server: "66.163.114.166"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "blog.findconnectwithemployersandbuildprofessionalnetwork.com"
-  - name: "proxy-24"
-    server: "84.17.41.2"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-25"
-    server: "38.91.107.49"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-26"
-    server: "47.251.25.74"
-    port: 443
+  - name: "proxy-96"
+    server: "167.68.4.131"
+    port: 8443
     udp: true
     type: "vless"
-    uuid: "18805ff3-b420-45de-af18-93be14024ae8"
-    flow: "xtls-rprx-vision"
+    uuid: "40af9131-d540-448a-bc56-5bba147a1dc3"
     tls: true
-    servername: "www.amazon.com"
-    reality-opts:
-      public-key: "H56cOJhw0xw76lDEpt7IuJJmVGemK6_CK34KtHwDMX8"
-    client-fingerprint: "chrome"
-  - name: "proxy-27"
-    server: "84.17.41.2"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-28"
-    server: "66.163.112.76"
+    servername: "proxy-34l.pages.dev"
+    client-fingerprint: "safari"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "proxy-34l.pages.dev"
+  - name: "proxy-97"
+    server: "66.163.122.7"
     port: 443
     udp: true
     type: "trojan"
     password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "api.unlockyourfuturefindyourperfectcareer.com"
-  - name: "proxy-29"
-    server: "47.251.108.158"
-    port: 443
+    sni: "www.searchnationwidecareerchangehelperandguidancetoday.com"
+  - name: "proxy-98"
+    server: "27.50.49.154"
+    port: 2083
     udp: true
     type: "vless"
-    uuid: "975fc322-6e38-434b-a53c-d39fed49b9a9"
-    flow: "xtls-rprx-vision"
+    uuid: "40af9131-d540-448a-bc56-5bba147a1dc3"
     tls: true
-    servername: "www.cloudflare.com"
-    reality-opts:
-      public-key: "SmgYcFIvvFXW3xh4gvGhIJuQsaZvWkAylcjB6TEddEs"
-      short-id: "896f52ba2cfca903"
-    client-fingerprint: "chrome"
-  - name: "proxy-30"
-    server: "84.17.41.2"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-31"
-    server: "66.163.114.126"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "resources.findconnectwithemployersandbuildprofessionalnetwork.com"
-  - name: "proxy-32"
-    server: "216.152.156.42"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "blog.healthcarejobshubenhancemedicalprofessionalskillstoday.com"
-  - name: "proxy-33"
-    server: "38.110.1.246"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-34"
-    server: "66.163.114.114"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "learn.findconnectwithemployersandbuildprofessionalnetwork.com"
-  - name: "proxy-35"
-    server: "66.163.114.106"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "www.findconnectwithemployersandbuildprofessionalnetwork.com"
-  - name: "proxy-36"
-    server: "216.152.155.158"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "resources.nextjobopportunityandclaimyouridealrole.com"
-  - name: "proxy-37"
-    server: "169.197.140.214"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "courses.discoverfreshgraduatejobsstartyourprofessionaljourney.com"
-  - name: "proxy-38"
-    server: "38.110.1.246"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-39"
-    server: "195.123.240.65"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "ce18d0eb-5c71-41f9-96e5-1632e22456e4"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "www.cloudflare.com"
-    reality-opts:
-      public-key: "StPbcmBuzpuYUfa4oZ5SI3Bq1OSF_-oU1vp2AcyvQVE"
-      short-id: "19296c9f1bf9c7b1"
+    servername: "proxy-34l.pages.dev"
     client-fingerprint: "ios"
-  - name: "proxy-40"
-    server: "66.163.112.13"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "proxy-34l.pages.dev"
+  - name: "proxy-99"
+    server: "188.164.248.151"
+    port: 2096
+    udp: true
+    type: "vless"
+    uuid: "9f534ac4-3c58-4a16-8b74-13dff09a0cf1"
+    tls: true
+    servername: "d39333476.pages.dev"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "d39333476.pages.dev"
+  - name: "proxy-100"
+    server: "188.164.248.81"
+    port: 2087
+    udp: true
+    type: "vless"
+    uuid: "099244b9-2168-4dbd-870e-cbbe9d6eb573"
+    tls: true
+    servername: "whitecreeper.pages.dev"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "whitecreeper.pages.dev"
+  - name: "proxy-101"
+    server: "66.163.122.7"
     port: 443
     udp: true
     type: "trojan"
     password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "blog.unlockyourfuturefindyourperfectcareer.com"
-  - name: "proxy-41"
+    sni: "www.searchnationwidecareerchangehelperandguidancetoday.com"
+  - name: "proxy-102"
+    server: "27.50.48.13"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "c98a16e4-0dc5-42f0-b3db-30f04525c123"
+    tls: true
+    servername: "vless2-8vx.pages.dev"
+    client-fingerprint: "firefox"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "vless2-8vx.pages.dev"
+  - name: "proxy-103"
+    server: "188.164.248.81"
+    port: 2087
+    udp: true
+    type: "vless"
+    uuid: "099244b9-2168-4dbd-870e-cbbe9d6eb573"
+    tls: true
+    servername: "whitecreeper.pages.dev"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "whitecreeper.pages.dev"
+  - name: "proxy-104"
+    server: "38.110.1.246"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-105"
     server: "67.220.85.46"
     port: 18000
     udp: true
@@ -327,28 +1044,7 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
-  - name: "proxy-42"
-    server: "169.197.140.218"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "learn.discoverfreshgraduatejobsstartyourprofessionaljourney.com"
-  - name: "proxy-43"
-    server: "216.238.80.100"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "connectwithtopemployersandfindidealjobs.com"
-  - name: "proxy-44"
-    server: "167.88.61.193"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "browseseniorrolesandenhanceyourcareertoday.com"
-  - name: "proxy-45"
+  - name: "proxy-106"
     server: "169.197.142.22"
     port: 18000
     udp: true
@@ -356,64 +1052,194 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
-  - name: "proxy-46"
-    server: "38.91.107.49"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-47"
-    server: "169.197.142.22"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-48"
-    server: "169.197.142.22"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-49"
-    server: "216.152.156.81"
-    port: 443
-    udp: true
-    type: "trojan"
-    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "www.healthcarejobshubenhancemedicalprofessionalskillstoday.com"
-  - name: "proxy-50"
-    server: "51.158.206.86"
-    port: 23576
+  - name: "proxy-107"
+    server: "27.50.49.154"
+    port: 2083
     udp: true
     type: "vless"
-    uuid: "48ff2b70-e180-582f-8866-d9a2edeed5f5"
-    flow: "xtls-rprx-vision"
+    uuid: "40af9131-d540-448a-bc56-5bba147a1dc3"
     tls: true
-    servername: "fuck.rkn"
-    reality-opts:
-      public-key: "1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s"
-      short-id: "01"
-    client-fingerprint: "chrome"
-  - name: "proxy-51"
-    server: "185.14.30.98"
+    servername: "proxy-34l.pages.dev"
+    network: "ws"
+    ws-opts:
+      path: "/fp=chrome"
+      headers:
+        Host: "proxy-34l.pages.dev"
+  - name: "proxy-108"
+    server: "167.68.4.131"
     port: 8443
     udp: true
     type: "vless"
-    uuid: "f5e70ce3-cfb4-4df1-b25c-d19bfae627c0"
+    uuid: "40af9131-d540-448a-bc56-5bba147a1dc3"
+    tls: true
+    servername: "proxy-34l.pages.dev"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "proxy-34l.pages.dev"
+  - name: "proxy-109"
+    server: "169.197.142.22"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-110"
+    server: "169.197.142.22"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-111"
+    server: "fast.145779.xyz"
+    port: 2053
+    udp: true
+    type: "vless"
+    uuid: "c83f15bf-1817-4ec8-a19f-6393d226434c"
+    tls: true
+    servername: "fast.145779.xyz"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/ws-tesla"
+      headers:
+        Host: "fast.145779.xyz"
+  - name: "proxy-112"
+    server: "23.81.36.148"
+    port: 1222
+    udp: true
+    type: "vless"
+    uuid: "36c3dcc2-17b6-4478-b8a7-3978e6d5afe9"
+    tls: true
+    servername: "play.google.com"
+    reality-opts:
+      public-key: "zpLKK8HuwXJDH9D0O3t5Z_tO3ajkj7VRtXdr6UGy1zE"
+      short-id: "a25d0f"
+    client-fingerprint: "chrome"
+  - name: "proxy-113"
+    server: "154.86.119.65"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "f8d52ece-fad4-478d-875d-df6eed3befa7"
     flow: "xtls-rprx-vision"
     tls: true
-    servername: "twitch.tv"
+    servername: "sw.golangwikito.cfd"
     reality-opts:
-      public-key: "Q0dPyF2hFWgxL7hxntJWJammcb6zcRCyA-NOiOFrsAo"
-      short-id: "1433a38abea1191c"
+      public-key: "Kb8SsVPprs46BJSUNp5JvWLI-TFEiHmlBOXLQd37Glg"
+      short-id: "a1037b25dcef6aa7"
+    client-fingerprint: "edge"
+  - name: "proxy-114"
+    server: "83.147.18.75"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "5de0c218-0138-45d8-94d2-c2c3f37a1a6d"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.bing.com"
+    reality-opts:
+      public-key: "tfFzmbVByvoZxxIEUiHMv22_k0-nQz00L0XjU0bd_Fc"
+      short-id: "7f1e29593aa94ad1"
+    client-fingerprint: "qq"
+  - name: "proxy-115"
+    server: "83.147.18.75"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "5de0c218-0138-45d8-94d2-c2c3f37a1a6d"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.bing.com"
+    reality-opts:
+      public-key: "tfFzmbVByvoZxxIEUiHMv22_k0-nQz00L0XjU0bd_Fc"
+      short-id: "7f1e29593aa94ad1"
     client-fingerprint: "chrome"
-  - name: "proxy-52"
+  - name: "proxy-116"
+    server: "fr.golangwikito.cfd"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "f8d52ece-fad4-478d-875d-df6eed3befa7"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "fr.golangwikito.cfd"
+    reality-opts:
+      public-key: "isYQuhKDrgc7IQ7G0LHywFnt57wffrkZ-er18DkVsBA"
+      short-id: "e6d589857d1cec5e"
+    client-fingerprint: "firefox"
+  - name: "proxy-117"
+    server: "sw.golangwikito.cfd"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "f8d52ece-fad4-478d-875d-df6eed3befa7"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "sw.golangwikito.cfd"
+    reality-opts:
+      public-key: "Kb8SsVPprs46BJSUNp5JvWLI-TFEiHmlBOXLQd37Glg"
+      short-id: "a1037b25dcef6aa7"
+    client-fingerprint: "edge"
+  - name: "proxy-118"
+    server: "77.220.213.244"
+    port: 8444
+    udp: true
+    type: "vless"
+    uuid: "a8321cfe-39a2-48a0-a918-f01f7d9006ed"
+    tls: true
+    servername: "nl11.meshbeat.online"
+    client-fingerprint: "firefox"
+    network: "ws"
+    ws-opts:
+      path: "/api/v1/devices/d63ac7ea89/telemetry"
+      headers:
+        Host: "nl11.meshbeat.online"
+  - name: "proxy-119"
+    server: "193.108.119.15"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "courses.iloverussia2026.com"
+  - name: "proxy-120"
+    server: "213.108.198.158"
+    port: 8442
+    udp: true
+    type: "vless"
+    uuid: "35352039-3820-4532-a031-303120313030"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "creativecommons.org"
+    reality-opts:
+      public-key: "pFRfJJDY6TYJq-OVgAqFXhdaeur7gJWJM-RZT8g8yAA"
+      short-id: "59b75803"
+    client-fingerprint: "chrome"
+  - name: "proxy-121"
+    server: "193.108.119.96"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "learn.iloverussia2026.com"
+  - name: "proxy-122"
+    server: "46.29.255.123"
+    port: 59539
+    udp: true
+    type: "vless"
+    uuid: "30572b57-f5ab-4eb8-82d4-a24d399b99f6"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "cloudflare-dns.com"
+    reality-opts:
+      public-key: "R6mPqCsjZMWauci4LHw7Qp1LGKmBd-sxMXplyOn9bSQ"
+    client-fingerprint: "firefox"
+  - name: "proxy-123"
     server: "2.26.255.215"
     port: 443
     udp: true
@@ -426,144 +1252,62 @@ proxies:
       public-key: "pOHbbyo_PlUwH4DjC6bKvC3jB8RPnCdu-nL8trAP8CI"
       short-id: "50"
     client-fingerprint: "chrome"
-  - name: "proxy-53"
-    server: "195.123.245.241"
+  - name: "proxy-124"
+    server: "fr.golangwikito.cfd"
     port: 443
     udp: true
     type: "vless"
-    uuid: "7c053ca8-38cc-45e2-930c-eda1fd66f903"
+    uuid: "f8d52ece-fad4-478d-875d-df6eed3befa7"
     flow: "xtls-rprx-vision"
     tls: true
-    servername: "gateway.icloud.com"
+    servername: "fr.golangwikito.cfd"
     reality-opts:
-      public-key: "hlY5ce1UsVIgE46y5PlEZhUsSaXUnCtoDLLaGrhInjw"
-      short-id: "23d0950d60bc0d5b"
-    client-fingerprint: "chrome"
-  - name: "proxy-54"
-    server: "195.123.221.36"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "9c60369d-e5f9-4cec-9e63-1560e88e119a"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "gateway.icloud.com"
-    reality-opts:
-      public-key: "dIv6pPS-x6IzbiPyHX8nNdRrwI2yZl4y3YCeRWy9UgE"
-      short-id: "3e67326f98ddb407"
-    client-fingerprint: "chrome"
-  - name: "proxy-55"
-    server: "46.28.69.123"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "b945f9aa-1b45-4912-aa7e-248509472bad"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "gateway.icloud.com"
-    reality-opts:
-      public-key: "7KnJYp2-sE3o35mnbSZzX3fNg-ns9n8xyNfkRSHCD3E"
-      short-id: "238e23c5150f02e4"
-    client-fingerprint: "chrome"
-  - name: "proxy-56"
-    server: "161.114.14.46"
-    port: 21899
-    udp: true
-    type: "vless"
-    uuid: "fb69a6b9-980c-48c2-a94f-5f95868a2d2a"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "yahoo.com"
-    reality-opts:
-      public-key: "kvLUYW6fwHXutu8Z4On6mi61kjslCyCc8ErFffUM1D0"
-      short-id: "dedce016e3671418"
-    client-fingerprint: "chrome"
-  - name: "proxy-57"
-    server: "5.252.179.15"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "0ab273e4-cea6-41d0-bbab-41071d2fc455"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "www.bing.com"
-    reality-opts:
-      public-key: "XQB2zIgrhD8AtxgYFM8UiiWYt1sLVBLhMg1M4-sGMAY"
-      short-id: "296f27de82dad7ff"
-    client-fingerprint: "qq"
-  - name: "proxy-58"
-    server: "191.217.245.10"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "2614a96d-e39f-4cca-a9c7-467a178c2c0a"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "pl.lenvex.cc"
-    reality-opts:
-      public-key: "OFmJtVi6OB9E6KIc5QV5YmoouimRFc-Se9hICjtV8hQ"
-    client-fingerprint: "ios"
-  - name: "proxy-59"
-    server: "193.233.253.180"
-    port: 8444
-    udp: true
-    type: "vless"
-    uuid: "a346c521-7a7f-452b-9356-a4893feb5982"
-    tls: true
-    servername: "github.com"
-    reality-opts:
-      public-key: "FWitre1jinQR7qz5HQ0q2Q4Gg9xA9B0SyizCziN7Ch0"
-    client-fingerprint: "firefox"
-    network: "grpc"
-    grpc-opts:
-      grpc-service-name: "GunService"
-  - name: "proxy-60"
-    server: "130.12.242.106"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "bc058e69-0444-4c7b-98da-bd67f0b143da"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "deepl.com"
-    reality-opts:
-      public-key: "vnjp7zIK2H3CGdjSis_79KXqS6IG-opmpbETPUD-EC8"
-      short-id: "15affa0af66dfc79"
-    client-fingerprint: "chrome"
-  - name: "proxy-61"
-    server: "43.153.121.144"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "df63ee5d-9530-464d-bb1c-ca1fa00e8b98"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "www.cloudflare.com"
-    reality-opts:
-      public-key: "-6_eN_0VKwqVaYN_jU9WdQ9yEpiLGvJQffhGThYLqGQ"
-      short-id: "c2f1c482d8d339a5"
-    client-fingerprint: "chrome"
-  - name: "proxy-62"
-    server: "66.163.118.244"
+      public-key: "isYQuhKDrgc7IQ7G0LHywFnt57wffrkZ-er18DkVsBA"
+      short-id: "e6d589857d1cec5e"
+    client-fingerprint: "safari"
+  - name: "proxy-125"
+    server: "66.163.118.166"
     port: 443
     udp: true
     type: "trojan"
     password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "api.discovergreatjobsandadvanceyourcareer.com"
-  - name: "proxy-63"
-    server: "191.44.108.31"
+    sni: "learn.discovergreatjobsandadvanceyourcareer.com"
+  - name: "proxy-126"
+    server: "64.176.7.205"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "advanceyouremploymentskillsandcareerdevelopmenthub.com"
+  - name: "proxy-127"
+    server: "www.ubuntuupdates.com"
+    port: 443
+    udp: true
+    type: "vmess"
+    uuid: "83b09a64-1eaf-4c4d-89ed-866d4b6b8115"
+    alterId: 0
+    cipher: "auto"
+    tls: true
+    servername: "www.ubuntuupdates.com"
+    network: "ws"
+    ws-opts:
+      path: "/truth"
+      headers:
+        Host: "www.ubuntuupdates.com"
+  - name: "proxy-128"
+    server: "212.102.38.25"
     port: 443
     udp: true
     type: "vless"
-    uuid: "558b26f6-061b-4079-9b84-ca13b3e90ae3"
+    uuid: "b34a52cb-cd52-49a8-9362-b8e97c151d49"
     flow: "xtls-rprx-vision"
     tls: true
-    servername: "www.google.com"
+    servername: "udemy.com"
     reality-opts:
-      public-key: "QLh2Y5Ig7pncEIvOYpZlLH2rUHZ3CRuyAo1A_emWZQU"
-      short-id: "3ba10d9ce34380c9"
-    client-fingerprint: "firefox"
-  - name: "proxy-64"
+      public-key: "23cb4W9THzBKsrECsLh-A_FcKZfkAtUONoDze8-GnQE"
+      short-id: "e90360ec7cc61b20"
+    client-fingerprint: "ios"
+  - name: "proxy-129"
     server: "144.31.140.125"
     port: 8443
     udp: true
@@ -575,28 +1319,35 @@ proxies:
     reality-opts:
       public-key: "wgyw3OxZw4HEzedNdY_eHdcVkrtT7GEeZSHfzcZ8iDo"
       short-id: "168c15efac9df5fd"
-    client-fingerprint: "chrome"
-  - name: "proxy-65"
-    server: "156.252.229.30"
-    port: 8443
-    udp: true
-    type: "vless"
-    uuid: "3e21e3d3-6d26-4155-b851-764dd8e8c6b5"
-    tls: true
-    servername: "play.googleapis.com"
-    reality-opts:
-      public-key: "7jPluypHwPilf_Mq7JOY96SwKkbK35WuIlN1HwGQ_0A"
-      short-id: "974f7f8f"
-    client-fingerprint: "chrome"
-  - name: "proxy-66"
-    server: "64.176.7.205"
+    client-fingerprint: "firefox"
+  - name: "proxy-130"
+    server: "66.163.118.244"
     port: 443
     udp: true
     type: "trojan"
     password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "advanceyouremploymentskillsandcareerdevelopmenthub.com"
-  - name: "proxy-67"
-    server: "45.90.57.119"
+    sni: "api.discovergreatjobsandadvanceyourcareer.com"
+  - name: "proxy-131"
+    server: "191.217.245.227"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "2614a96d-e39f-4cca-a9c7-467a178c2c0a"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "pl.lenvex.cc"
+    reality-opts:
+      public-key: "OFmJtVi6OB9E6KIc5QV5YmoouimRFc-Se9hICjtV8hQ"
+    client-fingerprint: "firefox"
+  - name: "proxy-132"
+    server: "66.163.118.251"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "resources.discovergreatjobsandadvanceyourcareer.com"
+  - name: "proxy-133"
+    server: "185.14.30.98"
     port: 8443
     udp: true
     type: "vless"
@@ -605,160 +1356,36 @@ proxies:
     tls: true
     servername: "twitch.tv"
     reality-opts:
-      public-key: "L6DeK_a25_ZjPKFOrQLoCPWuXi5KCIH_EcRpARmCwkI"
-      short-id: "16036bbef04d0509"
-    client-fingerprint: "firefox"
-  - name: "proxy-68"
-    server: "156.252.229.136"
-    port: 8443
-    udp: true
-    type: "vless"
-    uuid: "3e21e3d3-6d26-4155-b851-764dd8e8c6b5"
-    tls: true
-    servername: "play.googleapis.com"
-    reality-opts:
-      public-key: "7jPluypHwPilf_Mq7JOY96SwKkbK35WuIlN1HwGQ_0A"
-      short-id: "974f7f8f"
+      public-key: "Q0dPyF2hFWgxL7hxntJWJammcb6zcRCyA-NOiOFrsAo"
+      short-id: "1433a38abea1191c"
     client-fingerprint: "chrome"
-  - name: "proxy-69"
-    server: "46.29.255.123"
-    port: 59539
-    udp: true
-    type: "vless"
-    uuid: "30572b57-f5ab-4eb8-82d4-a24d399b99f6"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "cloudflare-dns.com"
-    reality-opts:
-      public-key: "R6mPqCsjZMWauci4LHw7Qp1LGKmBd-sxMXplyOn9bSQ"
-    client-fingerprint: "firefox"
-  - name: "proxy-70"
-    server: "82.118.16.187"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "dc2259c4-388e-4285-ba18-df619b6672b6"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "www.cloudflare.com"
-    reality-opts:
-      public-key: "R5ycsjJ-v024902dMSqTsSdqxUwCFEXMebdBEWFt9VU"
-      short-id: "cd6065902eea7a02"
-    client-fingerprint: "chrome"
-  - name: "proxy-71"
-    server: "212.227.235.66"
-    port: 2053
-    udp: true
-    type: "vless"
-    uuid: "ead0dd61-d398-40ad-80d6-a0e1e516d7d3"
-    tls: true
-    servername: "www.apple.com"
-    reality-opts:
-      public-key: "7Y6Xb5Ql_03K25x8yKUSOKI2JTOMyv2nyCcFza90uxk"
-      short-id: "29e8dcd2b37aaa7f"
-    client-fingerprint: "firefox"
-  - name: "proxy-72"
-    server: "31.77.13.22"
-    port: 2063
-    udp: true
-    type: "vless"
-    uuid: "b18d5990-96eb-4587-a386-7f8ef7591e6a"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "rusbid.de"
-    reality-opts:
-      public-key: "MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM"
-    client-fingerprint: "chrome"
-  - name: "proxy-73"
-    server: "156.252.229.136"
-    port: 8443
-    udp: true
-    type: "vless"
-    uuid: "3e21e3d3-6d26-4155-b851-764dd8e8c6b5"
-    tls: true
-    servername: "play.googleapis.com"
-    reality-opts:
-      public-key: "7jPluypHwPilf_Mq7JOY96SwKkbK35WuIlN1HwGQ_0A"
-      short-id: "974f7f8f"
-    client-fingerprint: "chrome"
-  - name: "proxy-74"
-    server: "191.44.108.31"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "558b26f6-061b-4079-9b84-ca13b3e90ae3"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "www.google.com"
-    reality-opts:
-      public-key: "QLh2Y5Ig7pncEIvOYpZlLH2rUHZ3CRuyAo1A_emWZQU"
-      short-id: "3ba10d9ce34380c9"
-    client-fingerprint: "firefox"
-  - name: "proxy-75"
-    server: "168.138.43.75"
-    port: 80
-    udp: true
-    type: "vmess"
-    uuid: "11c3627f-31e8-4695-dfbd-34076e2f1f5d"
-    alterId: 0
-    cipher: "auto"
-    network: "ws"
-    ws-opts:
-      path: "/cctv13.m3u8"
-      headers:
-        Host: "168.138.43.75"
-  - name: "proxy-76"
-    server: "216.152.155.23"
+  - name: "proxy-134"
+    server: "70.34.252.255"
     port: 443
     udp: true
     type: "trojan"
     password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
-    sni: "courses.nextjobopportunityandclaimyouridealrole.com"
-  - name: "proxy-77"
-    server: "156.252.229.11"
-    port: 8443
-    udp: true
-    type: "vless"
-    uuid: "3e21e3d3-6d26-4155-b851-764dd8e8c6b5"
-    tls: true
-    servername: "play.googleapis.com"
-    reality-opts:
-      public-key: "7jPluypHwPilf_Mq7JOY96SwKkbK35WuIlN1HwGQ_0A"
-      short-id: "974f7f8f"
-    client-fingerprint: "chrome"
-  - name: "proxy-78"
-    server: "43.174.193.1"
+    sni: "browseexecutivejobopeningsandenhanceleadershipcareer.com"
+  - name: "proxy-135"
+    server: "fr.golangwikito.cfd"
     port: 443
     udp: true
     type: "vless"
-    uuid: "d342d11e-d224-4463-b982-532309285094"
+    uuid: "f8d52ece-fad4-478d-875d-df6eed3befa7"
+    flow: "xtls-rprx-vision"
     tls: true
-    servername: "ccc.010304.xyz"
-    client-fingerprint: "edge"
-    network: "ws"
-    ws-opts:
-      path: "/fp"
-      headers:
-        Host: "ccc.010304.xyz"
-  - name: "proxy-79"
-    server: "168.138.43.75"
-    port: 80
+    servername: "fr.golangwikito.cfd"
+    reality-opts:
+      public-key: "isYQuhKDrgc7IQ7G0LHywFnt57wffrkZ-er18DkVsBA"
+      short-id: "e6d589857d1cec5e"
+    client-fingerprint: "qq"
+  - name: "proxy-136"
+    server: "208.69.78.19"
+    port: 443
     udp: true
-    type: "vmess"
-    uuid: "11c3627f-31e8-4695-dfbd-34076e2f1f5d"
-    alterId: 0
-    cipher: "auto"
-    network: "ws"
-    ws-opts:
-      path: "/cctv13.m3u8"
-  - name: "proxy-80"
-    server: "51.83.6.5"
-    port: 20250
-    udp: true
-    type: "vmess"
-    uuid: "de883d6d-4099-41bc-ba86-82ffed64a380"
-    alterId: 0
-    cipher: "auto"
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "www.yourultimateprofessionalcareerhub.com"
 
 proxy-groups:
   - name: Auto
@@ -848,6 +1475,62 @@ proxy-groups:
       - "proxy-78"
       - "proxy-79"
       - "proxy-80"
+      - "proxy-81"
+      - "proxy-82"
+      - "proxy-83"
+      - "proxy-84"
+      - "proxy-85"
+      - "proxy-86"
+      - "proxy-87"
+      - "proxy-88"
+      - "proxy-89"
+      - "proxy-90"
+      - "proxy-91"
+      - "proxy-92"
+      - "proxy-93"
+      - "proxy-94"
+      - "proxy-95"
+      - "proxy-96"
+      - "proxy-97"
+      - "proxy-98"
+      - "proxy-99"
+      - "proxy-100"
+      - "proxy-101"
+      - "proxy-102"
+      - "proxy-103"
+      - "proxy-104"
+      - "proxy-105"
+      - "proxy-106"
+      - "proxy-107"
+      - "proxy-108"
+      - "proxy-109"
+      - "proxy-110"
+      - "proxy-111"
+      - "proxy-112"
+      - "proxy-113"
+      - "proxy-114"
+      - "proxy-115"
+      - "proxy-116"
+      - "proxy-117"
+      - "proxy-118"
+      - "proxy-119"
+      - "proxy-120"
+      - "proxy-121"
+      - "proxy-122"
+      - "proxy-123"
+      - "proxy-124"
+      - "proxy-125"
+      - "proxy-126"
+      - "proxy-127"
+      - "proxy-128"
+      - "proxy-129"
+      - "proxy-130"
+      - "proxy-131"
+      - "proxy-132"
+      - "proxy-133"
+      - "proxy-134"
+      - "proxy-135"
+      - "proxy-136"
 
 rules:
   - MATCH,Auto
