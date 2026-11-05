@@ -82,11 +82,11 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "proxy-10"
-    server: "129.146.143.80"
-    port: 48111
+    server: "169.197.142.22"
+    port: 18000
     udp: true
     type: "vmess"
-    uuid: "d4603cc2-e0ee-4651-83f5-1db5b7168177"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
   - name: "proxy-11"
@@ -103,6 +103,19 @@ proxies:
       short-id: "35cd899f8de04801"
     client-fingerprint: "chrome"
   - name: "proxy-12"
+    server: "195.123.240.65"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "ce18d0eb-5c71-41f9-96e5-1632e22456e4"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.cloudflare.com"
+    reality-opts:
+      public-key: "StPbcmBuzpuYUfa4oZ5SI3Bq1OSF_-oU1vp2AcyvQVE"
+      short-id: "19296c9f1bf9c7b1"
+    client-fingerprint: "ios"
+  - name: "proxy-13"
     server: "169.197.142.22"
     port: 18000
     udp: true
@@ -110,79 +123,76 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
-  - name: "proxy-13"
-    server: "134.195.196.211"
-    port: 18000
+  - name: "proxy-14"
+    server: "195.211.98.43"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "1b4b11d5-4c2d-4533-9a55-636757cdee94"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.cloudflare.com"
+    reality-opts:
+      public-key: "xPnpkXu5qfwIArlHKvJsqKJnGdGbJK1tT2GzWMyLohA"
+      short-id: "9c56fddf237e8eaf"
+    client-fingerprint: "firefox"
+  - name: "proxy-15"
+    server: "us007.zestapp778.com"
+    port: 18580
+    udp: true
+    type: "vless"
+    uuid: "e9a8144e-5237-488a-afb1-9ca3d8d54c80"
+    tls: true
+    servername: "us007.zestapp778.com"
+    client-fingerprint: "chrome"
+  - name: "proxy-16"
+    server: "rib9jxayoqjgn2kw.v.3dns.vip"
+    port: 443
     udp: true
     type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    uuid: "9b31490d-190e-4ef1-af0a-7ccab3e7c3b5"
     alterId: 0
     cipher: "auto"
-  - name: "proxy-14"
+    tls: true
+    servername: "Rib9JXAYoqjGN2KW.v.3dns.vip"
+    network: "ws"
+    ws-opts:
+      path: "/ws-vmess"
+      headers:
+        Host: "Rib9JXAYoqjGN2KW.v.3dns.vip"
+  - name: "proxy-17"
     server: "172.111.38.72"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-15"
-    server: "134.195.196.211"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-16"
-    server: "134.195.196.211"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-17"
-    server: "151.241.88.81"
-    port: 19606
-    udp: true
-    type: "vless"
-    uuid: "782ba1d2-1241-418e-9054-463c08a424bc"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "zh-hk.vuejs.org"
-    reality-opts:
-      public-key: "4GIE6ygCBY4pqRPkQ3OLLo6inpNcbBUEYLIqjMoZ3n4"
-      short-id: "6ba85179e30d4fc2"
-    client-fingerprint: "chrome"
   - name: "proxy-18"
-    server: "134.195.196.211"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-19"
-    server: "23.162.200.198"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-20"
-    server: "169.40.42.231"
-    port: 443
+    server: "100.55.27.211"
+    port: 10413
     udp: true
     type: "vless"
-    uuid: "d65cc14c-f53f-4fe2-b262-97856601319c"
-    flow: "xtls-rprx-vision"
+    uuid: "fed54c61-b3f9-4d0c-aaf0-3628125966bc"
     tls: true
     servername: "yahoo.com"
     reality-opts:
-      public-key: "e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg"
-      short-id: "c39cc7310a"
-    client-fingerprint: "chrome"
+      public-key: "WfkCF0eEuIoO0MyJsKOddU89QrTzCZ4y2dzCJbH99CQ"
+      short-id: "79a1e14b"
+    client-fingerprint: "firefox"
+  - name: "proxy-19"
+    server: "66.163.112.121"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "www.unlockyourfuturefindyourperfectcareer.com"
+  - name: "proxy-20"
+    server: "170.101.101.53"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "www.explorecreativejobsandenhanceyourcareerportfolio.com"
   - name: "proxy-21"
     server: "23.162.200.198"
     port: 18000
@@ -192,23 +202,19 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "proxy-22"
-    server: "134.195.196.211"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-23"
-    server: "us007.zestapp778.com"
-    port: 18580
+    server: "167.17.69.171"
+    port: 443
     udp: true
     type: "vless"
-    uuid: "e9a8144e-5237-488a-afb1-9ca3d8d54c80"
+    uuid: "00144519-7e0d-476b-8d28-435576af9262"
+    flow: "xtls-rprx-vision"
     tls: true
-    servername: "us007.zestapp778.com"
+    servername: "www.cloudflare.com"
+    reality-opts:
+      public-key: "ALT8hIGeZEhi0sQFbXP_ntBg8Xo-v7i0YCLrqTnBxRk"
+      short-id: "0990d22f"
     client-fingerprint: "chrome"
-  - name: "proxy-24"
+  - name: "proxy-23"
     server: "23.162.200.198"
     port: 18000
     udp: true
@@ -216,6 +222,13 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
+  - name: "proxy-24"
+    server: "207.246.112.227"
+    port: 1080
+    udp: true
+    type: "ss"
+    cipher: "chacha20-ietf-poly1305"
+    password: "9AUVPZfOeSHmVCMyLvIvrl1wVLvZf7Jv"
   - name: "proxy-25"
     server: "23.162.200.198"
     port: 18000
@@ -225,7 +238,7 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "proxy-26"
-    server: "23.162.200.198"
+    server: "134.195.196.211"
     port: 18000
     udp: true
     type: "vmess"
@@ -233,6 +246,160 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "proxy-27"
+    server: "134.195.196.211"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-28"
+    server: "cdn.crackerbinam.org"
+    port: 2083
+    udp: true
+    type: "vless"
+    uuid: "47525ee4-b128-444a-bcc6-95917b5e2053"
+    tls: true
+    servername: "cdn.crackerbinam.org"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/connect-a7b2"
+      headers:
+        Host: "cdn.crackerbinam.org"
+  - name: "proxy-29"
+    server: "170.101.101.19"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "learn.explorecreativejobsandenhanceyourcareerportfolio.com"
+  - name: "proxy-30"
+    server: "38.110.1.246"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-31"
+    server: "38.110.1.246"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-32"
+    server: "172.86.108.79"
+    port: 42906
+    udp: true
+    type: "vmess"
+    uuid: "9bcfd3b5-5f71-4938-b1d2-f8fdd895095d"
+    alterId: 0
+    cipher: "auto"
+    network: "ws"
+    ws-opts:
+      path: "/9bcfd3b5-5f71-4938-b1d2-f8fdd895095d-vm"
+      headers:
+        Host: "www.bing.com"
+  - name: "proxy-33"
+    server: "38.110.1.246"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-34"
+    server: "38.110.1.246"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-35"
+    server: "cdn.crackerbinam.org"
+    port: 2083
+    udp: true
+    type: "vless"
+    uuid: "47525ee4-b128-444a-bcc6-95917b5e2053"
+    tls: true
+    servername: "cdn.crackerbinam.org"
+    client-fingerprint: "ios"
+    network: "ws"
+    ws-opts:
+      path: "/connect-a7b2"
+      headers:
+        Host: "cdn.crackerbinam.org"
+  - name: "proxy-36"
+    server: "23.162.200.198"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-37"
+    server: "169.197.140.218"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "learn.discoverfreshgraduatejobsstartyourprofessionaljourney.com"
+  - name: "proxy-38"
+    server: "cdn.crackerbinam.org"
+    port: 2083
+    udp: true
+    type: "vless"
+    uuid: "47525ee4-b128-444a-bcc6-95917b5e2053"
+    tls: true
+    servername: "cdn.crackerbinam.org"
+    client-fingerprint: "safari"
+    network: "ws"
+    ws-opts:
+      path: "/connect-a7b2"
+      headers:
+        Host: "cdn.crackerbinam.org"
+  - name: "proxy-39"
+    server: "134.195.196.211"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-40"
+    server: "134.195.196.211"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-41"
+    server: "23.162.200.198"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-42"
+    server: "23.95.115.116"
+    port: 2053
+    udp: true
+    type: "vless"
+    uuid: "2739258b-a278-4bed-bc5d-f88830824dce"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.cloudflare.com"
+    reality-opts:
+      public-key: "plwyjJZIVDt1OtwDAxfcLjDsR7dseVCe9Ia3HceIKEg"
+      short-id: "a1b2c3d4"
+    client-fingerprint: "chrome"
+  - name: "proxy-43"
     server: "fuji.etherhub.cc"
     port: 443
     udp: true
@@ -245,49 +412,96 @@ proxies:
       public-key: "ejx56dFtS4LK_Th6HSLFFdm7v7zqRpv8KfjrWAw4Sjg"
       short-id: "bd6f67b6b2152b45"
     client-fingerprint: "qq"
-  - name: "proxy-28"
-    server: "72.249.201.21"
-    port: 21899
+  - name: "proxy-44"
+    server: "151.241.88.81"
+    port: 19606
     udp: true
     type: "vless"
-    uuid: "fb69a6b9-980c-48c2-a94f-5f95868a2d2a"
+    uuid: "782ba1d2-1241-418e-9054-463c08a424bc"
     flow: "xtls-rprx-vision"
     tls: true
-    servername: "yahoo.com"
+    servername: "zh-hk.vuejs.org"
     reality-opts:
-      public-key: "kvLUYW6fwHXutu8Z4On6mi61kjslCyCc8ErFffUM1D0"
-      short-id: "dedce016e3671418"
+      public-key: "4GIE6ygCBY4pqRPkQ3OLLo6inpNcbBUEYLIqjMoZ3n4"
+      short-id: "6ba85179e30d4fc2"
     client-fingerprint: "chrome"
-  - name: "proxy-29"
-    server: "132.243.119.223"
+  - name: "proxy-45"
+    server: "cdn.crackerbinam.org"
+    port: 2083
+    udp: true
+    type: "vless"
+    uuid: "47525ee4-b128-444a-bcc6-95917b5e2053"
+    tls: true
+    servername: "cdn.crackerbinam.org"
+    client-fingerprint: "firefox"
+    network: "ws"
+    ws-opts:
+      path: "/connect-a7b2"
+      headers:
+        Host: "cdn.crackerbinam.org"
+  - name: "proxy-46"
+    server: "168.138.43.75"
+    port: 80
+    udp: true
+    type: "vmess"
+    uuid: "11c3627f-31e8-4695-dfbd-34076e2f1f5d"
+    alterId: 0
+    cipher: "auto"
+    network: "ws"
+    ws-opts:
+      path: "/cctv13.m3u8"
+      headers:
+        Host: "None"
+  - name: "proxy-47"
+    server: "134.195.196.211"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-48"
+    server: "51.15.16.68"
+    port: 2053
+    udp: true
+    type: "vless"
+    uuid: "7d0fd363-16d2-43ce-9d6d-ed2c15d2cb7c"
+    tls: true
+    servername: "www.apple.com"
+    reality-opts:
+      public-key: "Zotx4F9CI6_q9yeKCKIHDjwzCv_Aq7WSo7N0Zc1A6Sc"
+      short-id: "3c99c85cbb6b3b44"
+    client-fingerprint: "firefox"
+  - name: "proxy-49"
+    server: "134.195.196.211"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-50"
+    server: "129.154.61.196"
+    port: 800
+    udp: true
+    type: "vmess"
+    uuid: "a915b1d6-cf28-4dc8-e4b4-e09c48c37ec0"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-51"
+    server: "2.26.255.215"
     port: 443
     udp: true
     type: "vless"
-    uuid: "326c45d1-966c-4080-874f-ac73883c5e4a"
+    uuid: "69e41e64-a832-471a-b740-94577ca85520"
     flow: "xtls-rprx-vision"
     tls: true
-    servername: "www.techadvisor.com"
+    servername: "cloudflare.com"
     reality-opts:
-      public-key: "KjXapnfwZtRbZIKBDsP-5YOL1nsiHLds8Hw-JfzczDo"
-      short-id: "5e50b6c8fe883545"
-    client-fingerprint: "firefox"
-  - name: "proxy-30"
-    server: "149.88.23.202"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-31"
-    server: "149.88.23.202"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-32"
+      public-key: "pOHbbyo_PlUwH4DjC6bKvC3jB8RPnCdu-nL8trAP8CI"
+      short-id: "50"
+    client-fingerprint: "chrome"
+  - name: "proxy-52"
     server: "149.88.23.207"
     port: 18000
     udp: true
@@ -295,44 +509,22 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
-  - name: "proxy-33"
-    server: "151.241.19.36"
+  - name: "proxy-53"
+    server: "149.88.23.202"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-54"
+    server: "151.241.19.29"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-34"
-    server: "210.0.244.157"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "f3ff9bac-2904-4f38-bae1-54ab1a72891b"
-    tls: true
-    servername: "cloudflare.com"
-    reality-opts:
-      public-key: "T239VP3HbJ2KJCur7hDHJtrs6eKmKQfU_X1Xg6NmPgI"
-    client-fingerprint: "firefox"
-  - name: "proxy-35"
-    server: "210.0.244.227"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "ebc368f4-c13c-4bd2-849b-4d245615728f"
-    tls: true
-    servername: "cloudflare.com"
-    reality-opts:
-      public-key: "HhYjpNgNw0X_Qrjv9R5aHfV92hHbZmlY1u12DMTPrVw"
-    client-fingerprint: "firefox"
-  - name: "proxy-36"
-    server: "149.88.23.207"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-37"
+  - name: "proxy-55"
     server: "149.88.23.202"
     port: 18000
     udp: true
@@ -340,21 +532,24 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
-  - name: "proxy-38"
-    server: "51.158.206.103"
-    port: 23576
+  - name: "proxy-56"
+    server: "149.88.23.207"
+    port: 18000
     udp: true
-    type: "vless"
-    uuid: "48ff2b70-e180-582f-8866-d9a2edeed5f5"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "fuck.rkn"
-    reality-opts:
-      public-key: "1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s"
-      short-id: "01"
-    client-fingerprint: "chrome"
-  - name: "proxy-39"
-    server: "151.241.19.29"
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-57"
+    server: "zfd-boardv2.kunlun01dns.com"
+    port: 16298
+    udp: true
+    type: "vmess"
+    uuid: "0802ac03-7973-39ef-a019-ba02de6c01e1"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-58"
+    server: "202.50.253.54"
     port: 19999
     udp: true
     type: "ss"
@@ -408,6 +603,25 @@ proxy-groups:
       - "proxy-37"
       - "proxy-38"
       - "proxy-39"
+      - "proxy-40"
+      - "proxy-41"
+      - "proxy-42"
+      - "proxy-43"
+      - "proxy-44"
+      - "proxy-45"
+      - "proxy-46"
+      - "proxy-47"
+      - "proxy-48"
+      - "proxy-49"
+      - "proxy-50"
+      - "proxy-51"
+      - "proxy-52"
+      - "proxy-53"
+      - "proxy-54"
+      - "proxy-55"
+      - "proxy-56"
+      - "proxy-57"
+      - "proxy-58"
 
 rules:
   - MATCH,Auto
