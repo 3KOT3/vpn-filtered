@@ -1,6 +1,6 @@
 # Отфильтрованный список VPN-конфигов
 
-Обновлено: **2026-11-06T13:29:17Z** UTC (прогон занял 50 с)
+Обновлено: **2026-11-06T22:33:20Z** UTC (прогон занял 54 с)
 
 ## Что проверялось
 
@@ -16,56 +16,56 @@
 
 | Шаг | Осталось |
 | --- | ---: |
-| Строк в источниках | 428 |
-| Разобрано в конфиги | 412 |
-| Уникальных | 412 |
-| Endpoint отвечает по TCP | 382 |
-| YouTube доступен | 197 |
-| + Telegram (HTTP) доступен | 181 |
-| + дата-центр Telegram доступен | 181 |
-| + скорость ≥ 3.0 Мбит/с | 88 |
-| **В итоговом списке** | **88** |
+| Строк в источниках | 447 |
+| Разобрано в конфиги | 428 |
+| Уникальных | 428 |
+| Endpoint отвечает по TCP | 421 |
+| YouTube доступен | 233 |
+| + Telegram (HTTP) доступен | 214 |
+| + дата-центр Telegram доступен | 214 |
+| + скорость ≥ 3.0 Мбит/с | 77 |
+| **В итоговом списке** | **77** |
 
 ## По протоколам
 
 | Протокол | В списке |
 | --- | ---: |
-| vless | 42 |
-| vmess | 31 |
-| shadowsocks | 14 |
-| trojan | 1 |
+| vmess | 35 |
+| shadowsocks | 19 |
+| trojan | 18 |
+| vless | 5 |
 
 ## По странам
 
 | Страна | В списке |
 | --- | ---: |
-| US | 50 |
-| ?? | 10 |
-| CA | 9 |
-| DE | 7 |
-| NL | 4 |
-| GB | 2 |
-| FR | 1 |
-| AT | 1 |
+| US | 57 |
+| CA | 17 |
 | ES | 1 |
-| FI | 1 |
-| SE | 1 |
-| PL | 1 |
+| GB | 1 |
+| DE | 1 |
 
 ## Самые быстрые
 
 | # | Имя | Протокол | Страна | Мбит/с | YouTube, мс | Telegram, мс |
 | ---: | --- | --- | --- | ---: | ---: | ---: |
-| 1 | 🏳[openproxylist.com] ss- | shadowsocks | ?? | 11.94 | 70 | 408 |
-| 2 | 🇺🇸 United States, North Bergen | [BL] | vless | US | 9.13 | 457 | 405 |
-| 3 | 🇺🇸 United States, North Bergen | [BL] | vless | US | 8.35 | 166 | 414 |
-| 4 | 🇺🇸 United States, North Bergen | [BL] | vless | US | 7.77 | 284 | 409 |
-| 5 | 🇺🇸 United States, North Bergen | [BL] | vless | US | 7.75 | 286 | 398 |
-| 6 | [🇺🇸] [vm-no-ra] [261106-052557.711] | vmess | US | 7.35 | 110 | 332 |
-| 7 | [🇨🇦] [vm-no-ra] [261106-052614.510] | vmess | CA | 7.13 | 114 | 368 |
-| 8 | 🏳[openproxylist.com] vmess- | vmess | ?? | 7.04 | 148 | 430 |
-| 9 | [🇺🇸] [vm-no-ra] [261106-052623.519] | vmess | US | 6.84 | 108 | 526 |
-| 10 | 🇺🇸 United States, North Bergen | [BL] | vless | US | 6.81 | 448 | 414 |
+| 1 | [🇺🇸] [vm-no-ra] [261106-232036.498] | vmess | US | 16.92 | 76 | 565 |
+| 2 | [🇺🇸] [vl-re-ra] [261106-231419.349] | vless | US | 12.59 | 26 | 490 |
+| 3 | 🇺🇸[openproxylist.com] vmess-US | vmess | US | 11.59 | 56 | 529 |
+| 4 | 🇺🇸[openproxylist.com] trojan-US | trojan | US | 11.42 | 23 | 612 |
+| 5 | 🇺🇸[openproxylist.com] trojan-US | trojan | US | 10.92 | 29 | 432 |
+| 6 | [🇺🇸] [vl-re-ra] [261106-231539.737] | vless | US | 9.72 | 31 | 460 |
+| 7 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 9.71 | 75 | 493 |
+| 8 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 7.01 | 92 | 446 |
+| 9 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 6.93 | 32 | 489 |
+| 10 | [🇺🇸] [vm-no-ra] [261106-232059.694] | vmess | US | 6.86 | 50 | 448 |
+
+## Что не удалось проверить
+
+| Причина | Конфигов |
+| --- | ---: |
+| transport-xhttp-unsupported | 4 |
+| vmess-http-obfs | 1 |
 
 ## Ссылки
 
