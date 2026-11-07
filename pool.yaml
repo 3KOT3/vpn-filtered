@@ -5,6 +5,14 @@ mode: rule
 log-level: warning
 
 proxies:
+  - name: "p00001"
+    server: "134.195.196.211"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
   - name: "p00002"
     server: "134.195.196.211"
     port: 18000
@@ -53,46 +61,6 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
-  - name: "p00008"
-    server: "23.162.200.198"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "p00009"
-    server: "23.162.200.198"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "p00010"
-    server: "23.162.200.198"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "p00011"
-    server: "23.162.200.198"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "p00012"
-    server: "23.162.200.198"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
   - name: "p00016"
     server: "5.252.179.15"
     port: 443
@@ -106,7 +74,7 @@ proxies:
       public-key: "XQB2zIgrhD8AtxgYFM8UiiWYt1sLVBLhMg1M4-sGMAY"
       short-id: "296f27de82dad7ff"
     client-fingerprint: "qq"
-  - name: "p00020"
+  - name: "p00018"
     server: "82.39.171.12"
     port: 443
     udp: true
@@ -119,7 +87,7 @@ proxies:
       public-key: "e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg"
       short-id: "c39cc7310a"
     client-fingerprint: "chrome"
-  - name: "p00026"
+  - name: "p00019"
     server: "2.26.54.200"
     port: 8018
     udp: true
@@ -132,7 +100,35 @@ proxies:
       path: "/websocket/transfer/gayporn"
       headers:
         Host: "null"
-  - name: "p00047"
+  - name: "p00029"
+    server: "152.228.139.33"
+    port: 35108
+    udp: true
+    type: "vless"
+    uuid: "81dc0b61-f9fe-4ad6-8b4e-b8c067b73712"
+    tls: true
+    servername: "www.nvidia.com"
+    reality-opts:
+      public-key: "X_lOw5Zz4SJBa1cRHV4dAq5msYE-ClY5-WNcBmBWRxg"
+      short-id: "52add08b86a5ccea"
+    client-fingerprint: "firefox"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "grpc-common3"
+  - name: "p00030"
+    server: "82.148.255.201"
+    port: 8443
+    udp: true
+    type: "vless"
+    uuid: "49fdd350-6ffb-4343-b467-14e269bb95de"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "360.yandex.ru"
+    reality-opts:
+      public-key: "DvNpCmas0_0MO91s70vlkAxZxnnIt1NE0zqCC4trURQ"
+      short-id: "2bf10fc0a85601e5"
+    client-fingerprint: "firefox"
+  - name: "p00049"
     server: "57.129.132.223"
     port: 80
     udp: true
@@ -145,20 +141,15 @@ proxies:
       path: "/vmess/"
       headers:
         Host: "google.com"
-  - name: "p00057"
-    server: "47.244.120.197"
-    port: 23026
+  - name: "p00052"
+    server: "dog-hk.kunlun01dns.com"
+    port: 21021
     udp: true
     type: "vmess"
-    uuid: "b9de1bc9-baa7-41ac-86f7-ccd59695cb21"
+    uuid: "9464ca40-dd75-3742-a628-d931a9f413b2"
     alterId: 0
     cipher: "auto"
-    network: "ws"
-    ws-opts:
-      path: "/arki"
-      headers:
-        Host: "47.244.120.197"
-  - name: "p00061"
+  - name: "p00063"
     server: "47.244.120.197"
     port: 44867
     udp: true
@@ -171,7 +162,7 @@ proxies:
       path: "/arki"
       headers:
         Host: "47.244.120.197"
-  - name: "p00062"
+  - name: "p00064"
     server: "47.244.120.197"
     port: 36703
     udp: true
@@ -184,7 +175,48 @@ proxies:
       path: "/arki"
       headers:
         Host: "google.com"
+  - name: "p00065"
+    server: "156.245.232.239"
+    port: 35043
+    udp: true
+    type: "vmess"
+    uuid: "b15e481d-17e4-41a8-84c2-23d4f0514d9a"
+    alterId: 0
+    cipher: "auto"
+    network: "ws"
+    ws-opts:
+      path: "/"
   - name: "p00066"
+    server: "156.245.232.239"
+    port: 35043
+    udp: true
+    type: "vmess"
+    uuid: "b15e481d-17e4-41a8-84c2-23d4f0514d9a"
+    alterId: 0
+    cipher: "auto"
+    network: "ws"
+    ws-opts:
+      path: "/"
+  - name: "p00067"
+    server: "156.245.232.239"
+    port: 35043
+    udp: true
+    type: "vmess"
+    uuid: "b15e481d-17e4-41a8-84c2-23d4f0514d9a"
+    alterId: 0
+    cipher: "auto"
+    network: "ws"
+    ws-opts:
+      path: "/"
+  - name: "p00068"
+    server: "zfd-boardv2.kunlun01dns.com"
+    port: 16298
+    udp: true
+    type: "vmess"
+    uuid: "0802ac03-7973-39ef-a019-ba02de6c01e1"
+    alterId: 0
+    cipher: "auto"
+  - name: "p00069"
     server: "in.smrtai.top"
     port: 443
     udp: true
@@ -196,7 +228,7 @@ proxies:
       public-key: "3LbVuwKpQv55GngyRhvGl9KyAHIDAgvJx_VRM5mUD2Q"
       short-id: "6bdc8320"
     client-fingerprint: "chrome"
-  - name: "p00074"
+  - name: "p00077"
     server: "3.114.220.22"
     port: 10583
     udp: true
@@ -210,6 +242,54 @@ proxies:
       short-id: "48050fab"
     client-fingerprint: "chrome"
   - name: "p00079"
+    server: "168.138.43.75"
+    port: 80
+    udp: true
+    type: "vmess"
+    uuid: "11c3627f-31e8-4695-dfbd-34076e2f1f5d"
+    alterId: 0
+    cipher: "auto"
+    network: "ws"
+    ws-opts:
+      path: "/cctv13.m3u8"
+      headers:
+        Host: "168.138.43.75"
+  - name: "p00080"
+    server: "168.138.43.75"
+    port: 80
+    udp: true
+    type: "vmess"
+    uuid: "11c3627f-31e8-4695-dfbd-34076e2f1f5d"
+    alterId: 0
+    cipher: "auto"
+    network: "ws"
+    ws-opts:
+      path: "/cctv13.m3u8"
+      headers:
+        Host: "None"
+  - name: "p00081"
+    server: "168.138.43.75"
+    port: 80
+    udp: true
+    type: "vmess"
+    uuid: "11c3627f-31e8-4695-dfbd-34076e2f1f5d"
+    alterId: 0
+    cipher: "auto"
+    network: "ws"
+    ws-opts:
+      path: "/cctv13.m3u8"
+  - name: "p00082"
+    server: "8.220.241.33"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "6dd58a09-430e-4ecf-81eb-95ca94f8b765"
+    tls: true
+    servername: "cloudflare.com"
+    reality-opts:
+      public-key: "jSvhKKNVMhMQOCERpOyPwfNkzMnHQExIua0oWRdbuB8"
+    client-fingerprint: "firefox"
+  - name: "p00083"
     server: "8.220.241.33"
     port: 443
     udp: true
@@ -220,20 +300,97 @@ proxies:
     reality-opts:
       public-key: "jSvhKKNVMhMQOCERpOyPwfNkzMnHQExIua0oWRdbuB8"
     client-fingerprint: "firefox"
-  - name: "p00086"
-    server: "51.158.206.19"
-    port: 23576
+  - name: "p00089"
+    server: "138.124.180.137"
+    port: 443
     udp: true
     type: "vless"
-    uuid: "48ff2b70-e180-582f-8866-d9a2edeed5f5"
+    uuid: "5234b2b7-5e07-422c-8159-d62a676c00c6"
     flow: "xtls-rprx-vision"
     tls: true
-    servername: "fuck.rkn"
+    servername: "www.apple.com"
     reality-opts:
-      public-key: "1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s"
-      short-id: "01"
+      public-key: "GBdkyDLfr0LIZo_94Xv8ycAKOmkjArYzwJAEMhuXX2c"
+      short-id: "33acba1b"
+    client-fingerprint: "chrome"
+  - name: "p00092"
+    server: "server.slavkiti.monster"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "4d017db2-7655-4276-9557-e2ec25b04ee7"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.tradingview.com"
+    reality-opts:
+      public-key: "J-dv-HrWfQ_IOoyutv0Kg-rO8QwoRwc02dS1dS_tblk"
+      short-id: "ee1716767f9b"
     client-fingerprint: "chrome"
   - name: "p00093"
+    server: "87.199.205.28"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "501a2da5-cb22-4a3f-915e-e3b821d1d62d"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "vkvd754.okcdn.ru"
+    reality-opts:
+      public-key: "W-9zyiOq287RtXVTZlTFbSDJ0Mx8joyBLJoA7ZE7eBw"
+      short-id: "ef1d3554c652a436"
+    client-fingerprint: "chrome"
+  - name: "p00094"
+    server: "server.slavkiti.monster"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "68cf8d29-5aa0-44b3-88a9-f1a576b6e84c"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.microsoft.com"
+    reality-opts:
+      public-key: "J-dv-HrWfQ_IOoyutv0Kg-rO8QwoRwc02dS1dS_tblk"
+      short-id: "73a9e631a09b"
+    client-fingerprint: "chrome"
+  - name: "p00096"
+    server: "152.70.58.201"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "8892e34a-339b-4526-b88d-cf68c516231c"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.nvidia.com"
+    reality-opts:
+      public-key: "Hg_ivwbClYmR-SEHdoGgq4yEk6ltbjS5c4yiQRa4_28"
+      short-id: "52c723e0fad49689"
+    client-fingerprint: "firefox"
+  - name: "p00097"
+    server: "15d7fft.nl11.h1clayd.click"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "b7b8ee80-db83-4276-8c68-87dc88b0b0b5"
+    tls: true
+    servername: "15d7fft.nl11.h1clayd.click"
+    reality-opts:
+      public-key: "xv6OUZcyzEHXFMTfumuJH-1Rd4NQ0cdmWikek4mm0m4"
+      short-id: "c71118d9399fb8c2"
+    client-fingerprint: "chrome"
+  - name: "p00098"
+    server: "193.124.17.190"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "fad0b9a6-187d-4fcc-96fc-498bc5b3135a"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.foxsports.com"
+    reality-opts:
+      public-key: "J-dv-HrWfQ_IOoyutv0Kg-rO8QwoRwc02dS1dS_tblk"
+      short-id: "8325360e8bd2"
+    client-fingerprint: "firefox"
+  - name: "p00099"
     server: "95.142.32.42"
     port: 8444
     udp: true
@@ -247,40 +404,20 @@ proxies:
       path: "/api/v1/devices/86f81c4330/telemetry"
       headers:
         Host: "nl18.meshbeat.online"
-  - name: "p00099"
-    server: "149.88.23.207"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "p00101"
-    server: "149.88.23.207"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "p00102"
-    server: "149.88.23.202"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
   - name: "p00103"
-    server: "149.88.23.202"
-    port: 18000
+    server: "511.150333.xyz"
+    port: 21001
     udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
+    type: "vless"
+    uuid: "41b1c169-5905-4d98-b6a6-56896c25737c"
+    tls: true
+    servername: "www.cloudflare.com"
+    reality-opts:
+      public-key: "HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU"
+      short-id: "ab39fc68ab3dee81"
+    client-fingerprint: "chrome"
   - name: "p00104"
-    server: "149.88.23.202"
+    server: "149.88.23.207"
     port: 18000
     udp: true
     type: "vmess"
@@ -288,7 +425,7 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "p00105"
-    server: "ww11.levikogjgfdd.ir"
+    server: "149.88.23.207"
     port: 18000
     udp: true
     type: "vmess"
@@ -296,7 +433,15 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "p00106"
-    server: "ww11.levikogjgfdd.ir"
+    server: "149.88.23.207"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "p00107"
+    server: "149.88.23.202"
     port: 18000
     udp: true
     type: "vmess"
@@ -304,6 +449,38 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "p00108"
+    server: "149.88.23.202"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "p00109"
+    server: "149.88.23.202"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "p00110"
+    server: "ww11.levikogjgfdd.ir"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "p00111"
+    server: "ww11.levikogjgfdd.ir"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "p00113"
     server: "152.32.167.33"
     port: 443
     udp: true
@@ -316,7 +493,20 @@ proxies:
       public-key: "Q8QwBSGN6J-FqgDV1pYNm0VThS_xNRyQ3DPPa9YZ3j4"
       short-id: "cff998a4"
     client-fingerprint: "chrome"
-  - name: "p00109"
+  - name: "p00114"
+    server: "167.17.69.171"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "00144519-7e0d-476b-8d28-435576af9262"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.cloudflare.com"
+    reality-opts:
+      public-key: "ALT8hIGeZEhi0sQFbXP_ntBg8Xo-v7i0YCLrqTnBxRk"
+      short-id: "0990d22f"
+    client-fingerprint: "chrome"
+  - name: "p00115"
     server: "47.253.226.114"
     port: 443
     udp: true
@@ -328,20 +518,7 @@ proxies:
     reality-opts:
       public-key: "Svl81isn16RPAFnjtmYw7A6TPnsEPLHuYYaJht65Rzc"
     client-fingerprint: "chrome"
-  - name: "p00110"
-    server: "23.95.115.116"
-    port: 2053
-    udp: true
-    type: "vless"
-    uuid: "2739258b-a278-4bed-bc5d-f88830824dce"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "www.cloudflare.com"
-    reality-opts:
-      public-key: "plwyjJZIVDt1OtwDAxfcLjDsR7dseVCe9Ia3HceIKEg"
-      short-id: "a1b2c3d4"
-    client-fingerprint: "chrome"
-  - name: "p00111"
+  - name: "p00116"
     server: "148.135.86.162"
     port: 10000
     udp: true
@@ -354,14 +531,6 @@ proxies:
       public-key: "DCbnS4mIPc1W2-wI0MGHhykwzf2nVuZvBadErSE6MxU"
       short-id: "a1b2c3d4"
     client-fingerprint: "chrome"
-  - name: "p00117"
-    server: "67.220.85.46"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
   - name: "p00118"
     server: "67.220.85.46"
     port: 18000
@@ -371,7 +540,7 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "p00119"
-    server: "67.220.95.3"
+    server: "67.220.85.46"
     port: 18000
     udp: true
     type: "vmess"
@@ -411,7 +580,7 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "p00124"
-    server: "84.17.41.2"
+    server: "67.220.95.3"
     port: 18000
     udp: true
     type: "vmess"
@@ -451,6 +620,14 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "p00129"
+    server: "84.17.41.2"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "p00130"
     server: "84.17.41.2"
     port: 18000
     udp: true
@@ -515,7 +692,7 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "p00140"
-    server: "38.110.1.246"
+    server: "38.91.107.49"
     port: 18000
     udp: true
     type: "vmess"
@@ -546,357 +723,264 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
-  - name: "p00216"
-    server: "fr.golangwikito.cfd"
+  - name: "p00144"
+    server: "dog-us.kunlun01dns.com"
+    port: 21010
+    udp: true
+    type: "vmess"
+    uuid: "9464ca40-dd75-3742-a628-d931a9f413b2"
+    alterId: 0
+    cipher: "auto"
+  - name: "p00148"
+    server: "172.67.187.145"
+    port: 80
+    udp: true
+    type: "vmess"
+    uuid: "0cf6d970-3f1d-4aae-a989-92a8f76ae3db"
+    alterId: 0
+    cipher: "auto"
+    network: "ws"
+    ws-opts:
+      path: "/ws"
+      headers:
+        Host: "vmess.lbw666.dpdns.org"
+  - name: "p00163"
+    server: "230b29t.es8.h1clayd.click"
     port: 443
     udp: true
     type: "vless"
-    uuid: "f8d52ece-fad4-478d-875d-df6eed3befa7"
-    flow: "xtls-rprx-vision"
+    uuid: "95c2ba1e-a330-4e6b-bd81-bf9c0f647b2f"
     tls: true
-    servername: "fr.golangwikito.cfd"
+    servername: "230b29t.es8.h1clayd.click"
     reality-opts:
-      public-key: "isYQuhKDrgc7IQ7G0LHywFnt57wffrkZ-er18DkVsBA"
-      short-id: "e6d589857d1cec5e"
-    client-fingerprint: "safari"
-  - name: "p00217"
-    server: "fr.golangwikito.cfd"
+      public-key: "JvnTbjxkV9nXKoDRA_tmeY6aeOTnJXSBU3yNp9ZUnH0"
+      short-id: "91313fc9f7571857"
+    client-fingerprint: "edge"
+  - name: "p00164"
+    server: "230b29t.es8.h1clayd.click"
     port: 443
     udp: true
     type: "vless"
-    uuid: "f8d52ece-fad4-478d-875d-df6eed3befa7"
-    flow: "xtls-rprx-vision"
+    uuid: "95c2ba1e-a330-4e6b-bd81-bf9c0f647b2f"
     tls: true
-    servername: "fr.golangwikito.cfd"
+    servername: "230b29t.es8.h1clayd.click"
     reality-opts:
-      public-key: "isYQuhKDrgc7IQ7G0LHywFnt57wffrkZ-er18DkVsBA"
-      short-id: "e6d589857d1cec5e"
-    client-fingerprint: "chrome"
-  - name: "p00218"
-    server: "fr.golangwikito.cfd"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "f8d52ece-fad4-478d-875d-df6eed3befa7"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "fr.golangwikito.cfd"
-    reality-opts:
-      public-key: "isYQuhKDrgc7IQ7G0LHywFnt57wffrkZ-er18DkVsBA"
-      short-id: "e6d589857d1cec5e"
-    client-fingerprint: "random"
-  - name: "p00219"
-    server: "34.39.80.57"
-    port: 50818
-    udp: true
-    type: "vless"
-    uuid: "408c814e-f70a-4d16-b3b3-8182bb70211d"
-    tls: true
-    servername: "yingguo.rymaker.cn"
+      public-key: "JvnTbjxkV9nXKoDRA_tmeY6aeOTnJXSBU3yNp9ZUnH0"
+      short-id: "91313fc9f7571857"
     client-fingerprint: "firefox"
-    network: "ws"
-    ws-opts:
-      path: "/GunService"
-      headers:
-        Host: "yingguo.rymaker.cn"
-  - name: "p00220"
-    server: "34.39.80.57"
-    port: 50818
+  - name: "p00165"
+    server: "49930ag.es8.h1clayd.click"
+    port: 443
     udp: true
     type: "vless"
-    uuid: "408c814e-f70a-4d16-b3b3-8182bb70211d"
+    uuid: "95c2ba1e-a330-4e6b-bd81-bf9c0f647b2f"
     tls: true
-    servername: "yingguo.rymaker.cn"
+    servername: "49930ag.es8.h1clayd.click"
+    reality-opts:
+      public-key: "H_sPS4IJjHa4Wd7WLAtp_eamROtKBAj-G0UcMBHLHQw"
+      short-id: "2437eeeb791b6d80"
+    client-fingerprint: "firefox"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "61c20be08f4f"
+  - name: "p00166"
+    server: "49930ag.es8.h1clayd.click"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "95c2ba1e-a330-4e6b-bd81-bf9c0f647b2f"
+    tls: true
+    servername: "49930ag.es8.h1clayd.click"
+    reality-opts:
+      public-key: "H_sPS4IJjHa4Wd7WLAtp_eamROtKBAj-G0UcMBHLHQw"
+      short-id: "2437eeeb791b6d80"
+    client-fingerprint: "ios"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "61c20be08f4f"
+  - name: "p00167"
+    server: "49930ag.es8.h1clayd.click"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "95c2ba1e-a330-4e6b-bd81-bf9c0f647b2f"
+    tls: true
+    servername: "49930ag.es8.h1clayd.click"
+    reality-opts:
+      public-key: "H_sPS4IJjHa4Wd7WLAtp_eamROtKBAj-G0UcMBHLHQw"
+      short-id: "2437eeeb791b6d80"
+    client-fingerprint: "safari"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "61c20be08f4f"
+  - name: "p00177"
+    server: "base.hosamobenl.co.uk"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "667016ca-f02e-4b5f-bfc3-3d8ed81e9bec"
+    tls: true
+    servername: "base.hosamobenl.co.uk"
+    client-fingerprint: "edge"
+  - name: "p00178"
+    server: "base.hosamobenl.co.uk"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "667016ca-f02e-4b5f-bfc3-3d8ed81e9bec"
+    tls: true
+    servername: "base.hosamobenl.co.uk"
+    client-fingerprint: "ios"
+  - name: "p00179"
+    server: "base.hosamobenl.co.uk"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "667016ca-f02e-4b5f-bfc3-3d8ed81e9bec"
+    tls: true
+    servername: "base.hosamobenl.co.uk"
+    client-fingerprint: "qq"
+  - name: "p00180"
+    server: "www.agahiya.ir"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "57e089a8-0cd1-48d0-b572-105c4804f6b8"
+    tls: true
+    servername: "soliconf-gghosin4-cell.dormhost.app"
+    client-fingerprint: "android"
+    network: "ws"
+    ws-opts:
+      path: "/jx-y8179aild6rsmj"
+      headers:
+        Host: "soliconf-gghosin4-cell.dormhost.app"
+  - name: "p00181"
+    server: "www.agahiya.ir"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "57e089a8-0cd1-48d0-b572-105c4804f6b8"
+    tls: true
+    servername: "soliconf-gghosin4-cell.dormhost.app"
+    client-fingerprint: "edge"
+    network: "ws"
+    ws-opts:
+      path: "/jx-y8179aild6rsmj"
+      headers:
+        Host: "soliconf-gghosin4-cell.dormhost.app"
+  - name: "p00182"
+    server: "www.agahiya.ir"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "57e089a8-0cd1-48d0-b572-105c4804f6b8"
+    tls: true
+    servername: "soliconf-gghosin4-cell.dormhost.app"
     client-fingerprint: "safari"
     network: "ws"
     ws-opts:
-      path: "/GunService"
+      path: "/jx-y8179aild6rsmj"
       headers:
-        Host: "yingguo.rymaker.cn"
-  - name: "p00281"
-    server: "46.19.138.214"
+        Host: "soliconf-gghosin4-cell.dormhost.app"
+  - name: "p00183"
+    server: "www.agahiya.ir"
     port: 443
     udp: true
     type: "vless"
-    uuid: "90157e25-cee1-4217-921e-91f300bc1a24"
-    flow: "xtls-rprx-vision"
+    uuid: "57e089a8-0cd1-48d0-b572-105c4804f6b8"
     tls: true
-    servername: "perevodchiki.su"
-    reality-opts:
-      public-key: "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs"
-      short-id: "428ef87fd47a3a32"
-    client-fingerprint: "ios"
-  - name: "p00282"
-    server: "us2.japancase.site"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "db80088c-32a1-4cb8-a907-0f3cb7844152"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "us2.japancase.site"
-    reality-opts:
-      public-key: "zEntiD6D81wY__YHPvIw78e09CBIgYkyQ5meIo7c_hg"
-      short-id: "41ae8e266bc3346f"
-    client-fingerprint: "chrome"
-  - name: "p00294"
-    server: "43.163.112.174"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "0dedd47d-47b9-4ed1-9c9f-cbeecad57a68"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "www.cloudflare.com"
-    reality-opts:
-      public-key: "mXQudYHNu0pebcdk1_qn-UgcmwhjaV7y9UrYu3HX7Rg"
-      short-id: "0123456789abcdef"
-    client-fingerprint: "chrome"
-  - name: "p00295"
-    server: "149.40.57.134"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00297"
-    server: "23.95.115.116"
-    port: 2053
-    udp: true
-    type: "vless"
-    uuid: "2739258b-a278-4bed-bc5d-f88830824dce"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "www.cloudflare.com"
-    reality-opts:
-      public-key: "plwyjJZIVDt1OtwDAxfcLjDsR7dseVCe9Ia3HceIKEg"
-      short-id: "a1b2c3d4"
-    client-fingerprint: "chrome"
-  - name: "p00298"
-    server: "34.39.80.57"
-    port: 50818
-    udp: true
-    type: "vless"
-    uuid: "408c814e-f70a-4d16-b3b3-8182bb70211d"
-    tls: true
-    servername: "yingguo.rymaker.cn"
+    servername: "soliconf-gghosin4-cell.dormhost.app"
     client-fingerprint: "chrome"
     network: "ws"
     ws-opts:
-      path: "/GunService"
+      path: "/jx-y8179aild6rsmj"
       headers:
-        Host: "yingguo.rymaker.cn"
-  - name: "p00299"
-    server: "134.185.81.5"
-    port: 47881
-    udp: true
-    type: "vless"
-    uuid: "59b203b2-b1bc-4e9c-a9e5-ccb8f691bf72"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "www.tesla.com"
-    reality-opts:
-      public-key: "6XmXX1QXGodmtqU37Zx9CDHnCnPtonRdq8ieLmt__g4"
-      short-id: "38d72071"
-    client-fingerprint: "chrome"
-  - name: "p00300"
-    server: "94.183.234.245"
+        Host: "soliconf-gghosin4-cell.dormhost.app"
+  - name: "p00184"
+    server: "www.agahiya.ir"
     port: 443
     udp: true
     type: "vless"
-    uuid: "5de0c218-0138-45d8-94d2-c2c3f37a1a6d"
-    flow: "xtls-rprx-vision"
+    uuid: "57e089a8-0cd1-48d0-b572-105c4804f6b8"
     tls: true
-    servername: "www.bing.com"
-    reality-opts:
-      public-key: "tfFzmbVByvoZxxIEUiHMv22_k0-nQz00L0XjU0bd_Fc"
-      short-id: "7f1e29593aa94ad1"
+    servername: "soliconf-gghosin4-cell.dormhost.app"
+    client-fingerprint: "edge"
+    network: "ws"
+    ws-opts:
+      path: "/jx-y8179aild6rsmj"
+      headers:
+        Host: "soliconf-gghosin4-cell.dormhost.app"
+  - name: "p00185"
+    server: "www.agahiya.ir"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "57e089a8-0cd1-48d0-b572-105c4804f6b8"
+    tls: true
+    servername: "soliconf-gghosin4-cell.dormhost.app"
     client-fingerprint: "qq"
-  - name: "p00302"
-    server: "88.216.254.18"
-    port: 1080
+    network: "ws"
+    ws-opts:
+      path: "/jx-y8179aild6rsmj"
+      headers:
+        Host: "soliconf-gghosin4-cell.dormhost.app"
+  - name: "p00188"
+    server: "www.farahghanizadeh.ir"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "57e089a8-0cd1-48d0-b572-105c4804f6b8"
+    tls: true
+    servername: "soliconf-gghosin4-cell.dormhost.app"
+    client-fingerprint: "safari"
+    network: "ws"
+    ws-opts:
+      path: "/jx-y8179aild6rsmj"
+      headers:
+        Host: "soliconf-gghosin4-cell.dormhost.app"
+  - name: "p00191"
+    server: "www.sarzaminaryan.ir"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "57e089a8-0cd1-48d0-b572-105c4804f6b8"
+    tls: true
+    servername: "soliconf-gghosin4-cell.dormhost.app"
+    client-fingerprint: "safari"
+    network: "ws"
+    ws-opts:
+      path: "/jx-y8179aild6rsmj"
+      headers:
+        Host: "soliconf-gghosin4-cell.dormhost.app"
+  - name: "p00193"
+    server: "www.sarzaminaryan.ir"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "57e089a8-0cd1-48d0-b572-105c4804f6b8"
+    tls: true
+    servername: "soliconf-gghosin4-cell.dormhost.app"
+    client-fingerprint: "ios"
+    network: "ws"
+    ws-opts:
+      path: "/jx-y8179aild6rsmj"
+      headers:
+        Host: "soliconf-gghosin4-cell.dormhost.app"
+  - name: "p00250"
+    server: "82.152.132.211"
+    port: 8044
     udp: true
     type: "ss"
     cipher: "chacha20-ietf-poly1305"
-    password: "V7WLaYdujkwnj6xxXq-2BSxGWEcSJtTA"
-  - name: "p00309"
-    server: "ca001.zestapp778.com"
-    port: 46977
-    udp: true
-    type: "trojan"
-    password: "5t6i121em5lkmsmk"
-    sni: "ca001.zestapp778.com"
-  - name: "p00310"
-    server: "213.182.201.18"
-    port: 3090
-    udp: true
-    type: "vless"
-    uuid: "8bac7917-b4d2-4338-bbfc-5d47bda8c5ab"
-    network: "grpc"
-    grpc-opts:
-      grpc-service-name: "vless"
-  - name: "p00311"
-    server: "at1.japancase.site"
+    password: "dCamglzrORaopqbpBlptzbt9QdiH4CSN"
+  - name: "p00251"
+    server: "167.179.108.225"
     port: 443
     udp: true
-    type: "vless"
-    uuid: "db80088c-32a1-4cb8-a907-0f3cb7844152"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "at1.japancase.site"
-    reality-opts:
-      public-key: "zEntiD6D81wY__YHPvIw78e09CBIgYkyQ5meIo7c_hg"
-      short-id: "41ae8e266bc3346f"
-    client-fingerprint: "edge"
-  - name: "p00314"
-    server: "th001.zestapp778.com"
-    port: 33079
-    udp: true
     type: "trojan"
-    password: "5t6i121em5lkmsmk"
-    sni: "th001.zestapp778.com"
-  - name: "p00316"
-    server: "23.147.56.181"
-    port: 52843
-    udp: true
-    type: "vmess"
-    uuid: "88be793c-c368-4eb1-8809-057e5df96606"
-    alterId: 0
-    cipher: "auto"
-  - name: "p00317"
-    server: "57.129.76.233"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00318"
-    server: "149.50.215.234"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00319"
-    server: "62.93.179.97"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00320"
-    server: "167.88.63.39"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00321"
-    server: "38.91.107.188"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00322"
-    server: "62.93.179.117"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00323"
-    server: "38.145.220.193"
-    port: 8443
-    udp: true
-    type: "ss"
-    cipher: "2022-blake3-aes-128-gcm"
-    password: "jUbDNsFamcyDfpm+rI3Zyw=="
-  - name: "p00324"
-    server: "167.88.62.56"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00325"
-    server: "23.166.88.127"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00326"
-    server: "23.162.152.22"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00327"
-    server: "193.108.116.98"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00328"
-    server: "38.64.138.135"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00329"
-    server: "57.129.83.85"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00330"
-    server: "51.79.228.131"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00332"
-    server: "198.244.202.215"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00333"
-    server: "149.40.57.135"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00334"
-    server: "193.108.118.247"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00335"
-    server: "23.150.152.38"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00336"
-    server: "15.235.182.183"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00337"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "discoverparttimepositionsandsupplementyourincomeguide.com"
+  - name: "p00253"
     server: "sw.golangwikito.cfd"
     port: 443
     udp: true
@@ -909,14 +993,244 @@ proxies:
       public-key: "Kb8SsVPprs46BJSUNp5JvWLI-TFEiHmlBOXLQd37Glg"
       short-id: "a1037b25dcef6aa7"
     client-fingerprint: "chrome"
-  - name: "p00338"
+  - name: "p00258"
+    server: "149.40.57.134"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00259"
+    server: "136.0.197.99"
+    port: 49520
+    udp: true
+    type: "vless"
+    uuid: "ca4cb252-3fcb-4937-9d08-c39683e46e42"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.ebay.com"
+    reality-opts:
+      public-key: "c4S7RKiXGJElV2F5_cPCUc_NDZzjpcPHTEs-OwO6A2c"
+    client-fingerprint: "chrome"
+  - name: "p00260"
+    server: "23.95.115.116"
+    port: 2053
+    udp: true
+    type: "vless"
+    uuid: "2739258b-a278-4bed-bc5d-f88830824dce"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.cloudflare.com"
+    reality-opts:
+      public-key: "plwyjJZIVDt1OtwDAxfcLjDsR7dseVCe9Ia3HceIKEg"
+      short-id: "a1b2c3d4"
+    client-fingerprint: "chrome"
+  - name: "p00263"
+    server: "88.216.254.18"
+    port: 1080
+    udp: true
+    type: "ss"
+    cipher: "chacha20-ietf-poly1305"
+    password: "V7WLaYdujkwnj6xxXq-2BSxGWEcSJtTA"
+  - name: "p00264"
+    server: "ca001.zestapp778.com"
+    port: 46977
+    udp: true
+    type: "trojan"
+    password: "5t6i121em5lkmsmk"
+    sni: "ca001.zestapp778.com"
+  - name: "p00266"
+    server: "213.182.201.18"
+    port: 3090
+    udp: true
+    type: "vless"
+    uuid: "8bac7917-b4d2-4338-bbfc-5d47bda8c5ab"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "vless"
+  - name: "p00267"
+    server: "178.22.31.72"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "db80088c-32a1-4cb8-a907-0f3cb7844152"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "at1.japancase.site"
+    reality-opts:
+      public-key: "zEntiD6D81wY__YHPvIw78e09CBIgYkyQ5meIo7c_hg"
+      short-id: "41ae8e266bc3346f"
+    client-fingerprint: "firefox"
+  - name: "p00268"
+    server: "77.221.132.206"
+    port: 24759
+    udp: true
+    type: "ss"
+    cipher: "chacha20-ietf-poly1305"
+    password: "hCgbUnMaoAfSgvE8IKdnGu"
+  - name: "p00269"
+    server: "th001.zestapp778.com"
+    port: 33079
+    udp: true
+    type: "trojan"
+    password: "5t6i121em5lkmsmk"
+    sni: "th001.zestapp778.com"
+  - name: "p00270"
+    server: "23.147.56.181"
+    port: 52843
+    udp: true
+    type: "vmess"
+    uuid: "88be793c-c368-4eb1-8809-057e5df96606"
+    alterId: 0
+    cipher: "auto"
+  - name: "p00271"
+    server: "us001.zestapp778.com"
+    port: 57277
+    udp: true
+    type: "trojan"
+    password: "5t6i121em5lkmsmk"
+    sni: "us001.zestapp778.com"
+  - name: "p00272"
+    server: "57.129.76.233"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00273"
+    server: "149.50.215.234"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00274"
+    server: "62.93.179.97"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00275"
+    server: "167.88.63.39"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00276"
+    server: "38.91.107.188"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00277"
+    server: "62.93.179.117"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00278"
+    server: "38.145.220.193"
+    port: 8443
+    udp: true
+    type: "ss"
+    cipher: "2022-blake3-aes-128-gcm"
+    password: "jUbDNsFamcyDfpm+rI3Zyw=="
+  - name: "p00279"
+    server: "167.88.62.56"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00280"
+    server: "23.166.88.127"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00281"
+    server: "23.162.152.22"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00282"
+    server: "193.108.116.98"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00283"
+    server: "57.129.83.85"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00284"
+    server: "51.79.228.131"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00285"
+    server: "198.244.201.129"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00286"
+    server: "198.244.202.215"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00287"
+    server: "149.40.57.135"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00288"
+    server: "193.108.118.247"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00289"
+    server: "23.150.152.38"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00290"
+    server: "15.235.182.183"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "p00291"
     server: "167.17.67.171"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00339"
+  - name: "p00292"
     server: "95.142.32.42"
     port: 8444
     udp: true
@@ -930,237 +1244,210 @@ proxies:
       path: "/api/v1/devices/86f81c4330/telemetry"
       headers:
         Host: "nl18.meshbeat.online"
-  - name: "p00340"
+  - name: "p00293"
     server: "38.22.17.139"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00341"
+  - name: "p00294"
     server: "67.220.73.178"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00342"
+  - name: "p00295"
     server: "158.51.121.221"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00343"
+  - name: "p00296"
     server: "167.88.62.203"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00344"
+  - name: "p00297"
     server: "38.91.107.57"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00345"
+  - name: "p00298"
     server: "167.88.63.99"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00346"
+  - name: "p00299"
     server: "38.91.107.19"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00347"
+  - name: "p00300"
     server: "38.121.43.231"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00348"
-    server: "38.143.66.146"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00349"
+  - name: "p00302"
     server: "138.199.55.243"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00350"
+  - name: "p00303"
     server: "169.197.140.247"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00351"
+  - name: "p00304"
     server: "15.235.164.133"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00352"
+  - name: "p00305"
     server: "149.40.57.138"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00353"
+  - name: "p00306"
     server: "38.121.43.225"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00354"
+  - name: "p00307"
     server: "38.22.17.219"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00355"
+  - name: "p00308"
     server: "149.40.57.133"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00356"
-    server: "216.106.178.169"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00357"
-    server: "151.241.88.81"
-    port: 19606
-    udp: true
-    type: "vless"
-    uuid: "782ba1d2-1241-418e-9054-463c08a424bc"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "zh-hk.vuejs.org"
-    reality-opts:
-      public-key: "4GIE6ygCBY4pqRPkQ3OLLo6inpNcbBUEYLIqjMoZ3n4"
-      short-id: "6ba85179e30d4fc2"
-    client-fingerprint: "chrome"
-  - name: "p00358"
+  - name: "p00311"
     server: "193.108.119.3"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00359"
+  - name: "p00312"
     server: "169.197.142.68"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00360"
+  - name: "p00313"
     server: "149.88.106.74"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00361"
+  - name: "p00314"
     server: "162.251.62.31"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00362"
+  - name: "p00315"
     server: "38.121.43.18"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00363"
+  - name: "p00316"
     server: "137.184.89.151"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00364"
+  - name: "p00317"
     server: "38.109.228.110"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00365"
+  - name: "p00318"
     server: "186.190.215.251"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00366"
+  - name: "p00319"
     server: "38.91.100.39"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00367"
+  - name: "p00320"
     server: "149.88.107.74"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00368"
+  - name: "p00321"
     server: "142.202.51.22"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00369"
+  - name: "p00322"
     server: "38.128.66.32"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00370"
+  - name: "p00323"
     server: "167.17.64.27"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00371"
+  - name: "p00324"
     server: "66.163.118.103"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00372"
+  - name: "p00325"
     server: "music.3apes.online"
     port: 443
     udp: true
@@ -1172,42 +1459,42 @@ proxies:
     reality-opts:
       public-key: "q4_o7NvD6vQg4hYsyO29Q6PVufjTJHDUbQTqstre9EQ"
     client-fingerprint: "qq"
-  - name: "p00373"
+  - name: "p00326"
     server: "84.20.27.183"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00374"
+  - name: "p00327"
     server: "172.99.189.142"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00376"
+  - name: "p00329"
     server: "79.127.184.104"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00377"
+  - name: "p00330"
     server: "167.17.64.175"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00378"
+  - name: "p00331"
     server: "193.108.117.84"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00379"
+  - name: "p00332"
     server: "198.2.251.107"
     port: 45197
     udp: true
@@ -1219,113 +1506,113 @@ proxies:
     reality-opts:
       public-key: "LqXTJ-JXo1CgjUQT8trI3OEhY2qOr1YAin2YLuLZFx0"
     client-fingerprint: "chrome"
-  - name: "p00380"
+  - name: "p00333"
     server: "172.111.36.123"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00381"
+  - name: "p00334"
     server: "193.108.117.111"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00382"
+  - name: "p00335"
     server: "23.157.88.43"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00384"
+  - name: "p00336"
     server: "79.137.99.183"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00385"
+  - name: "p00337"
     server: "23.166.88.189"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00386"
+  - name: "p00338"
     server: "193.108.119.2"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00387"
+  - name: "p00339"
     server: "ph001.zestapp778.com"
     port: 46298
     udp: true
     type: "trojan"
     password: "5t6i121em5lkmsmk"
     sni: "ph001.zestapp778.com"
-  - name: "p00388"
+  - name: "p00340"
     server: "66.163.125.120"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00389"
+  - name: "p00341"
     server: "38.22.17.214"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00390"
+  - name: "p00342"
     server: "79.127.139.242"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00391"
+  - name: "p00343"
     server: "38.114.120.221"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00392"
+  - name: "p00344"
     server: "149.88.107.47"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00393"
+  - name: "p00345"
     server: "149.88.106.73"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00394"
+  - name: "p00346"
     server: "167.17.64.22"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00395"
+  - name: "p00347"
     server: "38.22.17.129"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00396"
-    server: "se3.shtil.io"
+  - name: "p00348"
+    server: "194.104.94.141"
     port: 443
     udp: true
     type: "vless"
@@ -1333,33 +1620,7 @@ proxies:
     tls: true
     servername: "se3.shtil.io"
     client-fingerprint: "firefox"
-  - name: "p00397"
-    server: "83.147.18.75"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "5de0c218-0138-45d8-94d2-c2c3f37a1a6d"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "www.bing.com"
-    reality-opts:
-      public-key: "tfFzmbVByvoZxxIEUiHMv22_k0-nQz00L0XjU0bd_Fc"
-      short-id: "7f1e29593aa94ad1"
-    client-fingerprint: "chrome"
-  - name: "p00398"
-    server: "194.104.9.44"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "1d1eda2e-0bd7-4478-877b-1c5425c6c4dd"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "tradingview.com"
-    reality-opts:
-      public-key: "yr_opKG6DGTppNDXkk-DhGSYJZXbb9o-caexk2FZO38"
-      short-id: "8f3c6e2a1b5d4f09"
-    client-fingerprint: "firefox"
-  - name: "p00399"
+  - name: "p00349"
     server: "8.220.241.33"
     port: 443
     udp: true
@@ -1370,47 +1631,39 @@ proxies:
     reality-opts:
       public-key: "jSvhKKNVMhMQOCERpOyPwfNkzMnHQExIua0oWRdbuB8"
     client-fingerprint: "firefox"
-  - name: "p00400"
-    server: "th001.zestapp778.com"
-    port: 33079
-    udp: true
-    type: "trojan"
-    password: "5t6i121em5lkmsmk"
-    sni: "th001.zestapp778.com"
-  - name: "p00401"
+  - name: "p00350"
     server: "70.34.207.14"
     port: 443
     udp: true
     type: "trojan"
     password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
     sni: "searchhealthcarejobsandbuildmedicalcareerpathway.com"
-  - name: "p00402"
-    server: "94.249.180.86"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "0de1d303-d7de-0001-8679-c4cb67e2e2cc"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "amd.com"
-    reality-opts:
-      public-key: "WWeAHWUVD-phmnjNJ823cer0c4CMIbEs08AhsuEZmDc"
-      short-id: "a696de84963656de"
-    client-fingerprint: "chrome"
-  - name: "p00403"
+  - name: "p00352"
     server: "188.116.27.6"
     port: 443
     udp: true
     type: "vless"
-    uuid: "407d047a-d9b4-41f3-8a02-ebc53854efca"
+    uuid: "7e81eba3-28fe-4cf6-b397-d5c08fea38ab"
     flow: "xtls-rprx-vision"
     tls: true
     servername: "www.sony.co.uk"
     reality-opts:
       public-key: "mprwTEsQ9nJ78qG7BJskAWXaVfDxeMHBkQHbReVfMnc"
       short-id: "1174"
+    client-fingerprint: "firefox"
+  - name: "p00354"
+    server: "217.144.188.185"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "8d954cbe-7ca9-402d-bfaf-aca6c92c04c3"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.nordea.fi"
+    reality-opts:
+      public-key: "_ZRqqX7UVPTq--m8Lk8YHhrfElad2dIIpTh3D59f8zk"
     client-fingerprint: "chrome"
-  - name: "p00405"
+  - name: "p00355"
     server: "138.124.86.230"
     port: 48115
     udp: true
@@ -1422,8 +1675,8 @@ proxies:
     network: "grpc"
     grpc-opts:
       grpc-service-name: "138-124-86-230-sslip-io"
-  - name: "p00406"
-    server: "fr.golangwikito.cfd"
+  - name: "p00356"
+    server: "154.86.119.123"
     port: 443
     udp: true
     type: "vless"
@@ -1435,50 +1688,81 @@ proxies:
       public-key: "isYQuhKDrgc7IQ7G0LHywFnt57wffrkZ-er18DkVsBA"
       short-id: "e6d589857d1cec5e"
     client-fingerprint: "firefox"
-  - name: "p00410"
-    server: "rib9jxayoqjgn2kw.v.3dns.vip"
+  - name: "p00358"
+    server: "45.129.242.56"
     port: 443
     udp: true
+    type: "vless"
+    uuid: "ebdfaf99-41d8-4e48-8196-d54510ffb556"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "www.cloudflare.com"
+    reality-opts:
+      public-key: "YURKlEQ3rap4KOXXGsVFZyYev2oDU2gCEbNTXPdKWRY"
+      short-id: "abcdef"
+    client-fingerprint: "chrome"
+  - name: "p00361"
+    server: "138.199.55.230"
+    port: 1270
+    udp: true
     type: "vmess"
-    uuid: "9b31490d-190e-4ef1-af0a-7ccab3e7c3b5"
+    uuid: "5c040f1d-45db-43bd-8d46-e4950e433735"
     alterId: 0
     cipher: "auto"
     tls: true
-    servername: "Rib9JXAYoqjGN2KW.v.3dns.vip"
-    network: "ws"
-    ws-opts:
-      path: "/ws-vmess"
-      headers:
-        Host: "Rib9JXAYoqjGN2KW.v.3dns.vip"
-  - name: "p00411"
+    servername: "xmfhlpy.com"
+  - name: "p00362"
+    server: "149.7.16.228"
+    port: 1270
+    udp: true
+    type: "vmess"
+    uuid: "5c040f1d-45db-43bd-8d46-e4950e433735"
+    alterId: 0
+    cipher: "auto"
+    tls: true
+    servername: "xmfhlpy.com"
+  - name: "p00363"
+    server: "152.53.1.57"
+    port: 8388
+    udp: true
+    type: "ss"
+    cipher: "chacha20-ietf-poly1305"
+    password: "AdawffFMHymlasRb0VOP3HFf7sTG5sJx"
+  - name: "p00364"
     server: "151.241.19.36"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00412"
+  - name: "p00365"
     server: "151.241.19.29"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00413"
+  - name: "p00366"
     server: "193.108.119.83"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00414"
+  - name: "p00367"
     server: "172.111.38.72"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "p00418"
+  - name: "p00368"
+    server: "45.86.60.174"
+    port: 16443
+    udp: true
+    type: "vless"
+    uuid: "13e541f3-d09d-4633-89df-8513db0ced20"
+  - name: "p00370"
     server: "119.46.51.45"
     port: 37515
     udp: true
@@ -1486,20 +1770,7 @@ proxies:
     uuid: "9b76bc31-17a5-4454-934a-8d5fb602cd70"
     alterId: 0
     cipher: "auto"
-  - name: "p00419"
-    server: "153.56.210.61"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "0de1d303-d7de-0001-8679-c4cb67e2e2cc"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "amd.com"
-    reality-opts:
-      public-key: "WWeAHWUVD-phmnjNJ823cer0c4CMIbEs08AhsuEZmDc"
-      short-id: "a696de84963656de"
-    client-fingerprint: "chrome"
-  - name: "p00420"
+  - name: "p00372"
     server: "2.26.255.215"
     port: 443
     udp: true
@@ -1512,7 +1783,7 @@ proxies:
       public-key: "pOHbbyo_PlUwH4DjC6bKvC3jB8RPnCdu-nL8trAP8CI"
       short-id: "50"
     client-fingerprint: "chrome"
-  - name: "p00421"
+  - name: "p00373"
     server: "191.44.108.6"
     port: 443
     udp: true
@@ -1525,21 +1796,36 @@ proxies:
       public-key: "A0QL_j-ReX7AotEj1w8qX9rHRgN2WycTZ43gUvuvZ00"
       short-id: "3cf8d11aa0415d29"
     client-fingerprint: "firefox"
-  - name: "p00422"
+  - name: "p00374"
     server: "138.197.89.234"
     port: 28960
     udp: true
     type: "ss"
     cipher: "chacha20-ietf-poly1305"
     password: "DZRy4Q3QH0jUGfKFl2jDCZ"
-  - name: "p00423"
-    server: "ph001.zestapp778.com"
-    port: 46298
+  - name: "p00375"
+    server: "79.141.164.81"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "cff462b8-bf0e-41ee-8d45-13048c463a0f"
+    tls: true
+    servername: "nla.kosmosapp.net"
+    reality-opts:
+      public-key: "pR39Vv5qhk8r6akOicoy6mMs4-ppSWUez8MyAXG7wwQ"
+      short-id: "27350908de933e09"
+    client-fingerprint: "firefox"
+    network: "grpc"
+    grpc-opts:
+      grpc-service-name: "neurex"
+  - name: "p00376"
+    server: "167.88.61.52"
+    port: 443
     udp: true
     type: "trojan"
-    password: "5t6i121em5lkmsmk"
-    sni: "ph001.zestapp778.com"
-  - name: "p00424"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "courses.browseseniorrolesandenhanceyourcareertoday.com"
+  - name: "p00377"
     server: "d2.anonix.cloud"
     port: 8018
     udp: true
@@ -1552,7 +1838,14 @@ proxies:
       path: "/websocket/transfer/gayporn"
       headers:
         Host: "shit.67133767.xyz"
-  - name: "p00425"
+  - name: "p00378"
+    server: "167.88.61.20"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "api.browseseniorrolesandenhanceyourcareertoday.com"
+  - name: "p00379"
     server: "45.38.143.210"
     port: 30584
     udp: true
@@ -1564,7 +1857,7 @@ proxies:
       public-key: "2hV4TY2ygvQ7ISa5o4u_FUKXzlIhLgbsScE8M1h0m3Y"
       short-id: "67ece882d65d0f1a"
     client-fingerprint: "chrome"
-  - name: "p00426"
+  - name: "p00380"
     server: "191.44.108.30"
     port: 443
     udp: true
@@ -1577,6 +1870,47 @@ proxies:
       public-key: "3pBHfffYFRPpe8Lt47cLSSgCgwNR-70blFzpEbm11AE"
       short-id: "b2baf331493d3de1"
     client-fingerprint: "chrome"
+  - name: "p00381"
+    server: "66.154.101.36"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "c166ca49-4af0-416d-8411-2100f7bde9fe"
+    tls: true
+    servername: "www.tesla.com"
+    reality-opts:
+      public-key: "t_aj99mkcVXDY_7xI9RhWyEY3khupiGiDsGKEJ7EajM"
+      short-id: "5590a9bae52e0586"
+    client-fingerprint: "chrome"
+  - name: "p00382"
+    server: "144.31.140.125"
+    port: 8443
+    udp: true
+    type: "vless"
+    uuid: "f5e70ce3-cfb4-4df1-b25c-d19bfae627c0"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "twitch.tv"
+    reality-opts:
+      public-key: "wgyw3OxZw4HEzedNdY_eHdcVkrtT7GEeZSHfzcZ8iDo"
+      short-id: "168c15efac9df5fd"
+    client-fingerprint: "firefox"
+  - name: "p00384"
+    server: "152.175.6.229"
+    port: 31884
+    udp: true
+    type: "vless"
+    uuid: "e9a8144e-5237-488a-afb1-9ca3d8d54c80"
+    tls: true
+    servername: "hk010.zestapp778.com"
+    client-fingerprint: "chrome"
+  - name: "p00385"
+    server: "208.69.78.33"
+    port: 443
+    udp: true
+    type: "trojan"
+    password: "0ab6c98dae3b48e8b9c4a776b6c9c19a"
+    sni: "courses.yourultimateprofessionalcareerhub.com"
 
 proxy-groups:
   - name: Auto
@@ -1586,41 +1920,54 @@ proxy-groups:
     tolerance: 50
     lazy: false
     proxies:
+      - "p00001"
       - "p00002"
       - "p00003"
       - "p00004"
       - "p00005"
       - "p00006"
       - "p00007"
-      - "p00008"
-      - "p00009"
-      - "p00010"
-      - "p00011"
-      - "p00012"
       - "p00016"
-      - "p00020"
-      - "p00026"
-      - "p00047"
-      - "p00057"
-      - "p00061"
-      - "p00062"
+      - "p00018"
+      - "p00019"
+      - "p00029"
+      - "p00030"
+      - "p00049"
+      - "p00052"
+      - "p00063"
+      - "p00064"
+      - "p00065"
       - "p00066"
-      - "p00074"
+      - "p00067"
+      - "p00068"
+      - "p00069"
+      - "p00077"
       - "p00079"
-      - "p00086"
+      - "p00080"
+      - "p00081"
+      - "p00082"
+      - "p00083"
+      - "p00089"
+      - "p00092"
       - "p00093"
+      - "p00094"
+      - "p00096"
+      - "p00097"
+      - "p00098"
       - "p00099"
-      - "p00101"
-      - "p00102"
       - "p00103"
       - "p00104"
       - "p00105"
       - "p00106"
+      - "p00107"
       - "p00108"
       - "p00109"
       - "p00110"
       - "p00111"
-      - "p00117"
+      - "p00113"
+      - "p00114"
+      - "p00115"
+      - "p00116"
       - "p00118"
       - "p00119"
       - "p00120"
@@ -1633,6 +1980,7 @@ proxy-groups:
       - "p00127"
       - "p00128"
       - "p00129"
+      - "p00130"
       - "p00132"
       - "p00133"
       - "p00134"
@@ -1644,24 +1992,80 @@ proxy-groups:
       - "p00141"
       - "p00142"
       - "p00143"
-      - "p00216"
-      - "p00217"
-      - "p00218"
-      - "p00219"
-      - "p00220"
+      - "p00144"
+      - "p00148"
+      - "p00163"
+      - "p00164"
+      - "p00165"
+      - "p00166"
+      - "p00167"
+      - "p00177"
+      - "p00178"
+      - "p00179"
+      - "p00180"
+      - "p00181"
+      - "p00182"
+      - "p00183"
+      - "p00184"
+      - "p00185"
+      - "p00188"
+      - "p00191"
+      - "p00193"
+      - "p00250"
+      - "p00251"
+      - "p00253"
+      - "p00258"
+      - "p00259"
+      - "p00260"
+      - "p00263"
+      - "p00264"
+      - "p00266"
+      - "p00267"
+      - "p00268"
+      - "p00269"
+      - "p00270"
+      - "p00271"
+      - "p00272"
+      - "p00273"
+      - "p00274"
+      - "p00275"
+      - "p00276"
+      - "p00277"
+      - "p00278"
+      - "p00279"
+      - "p00280"
       - "p00281"
       - "p00282"
+      - "p00283"
+      - "p00284"
+      - "p00285"
+      - "p00286"
+      - "p00287"
+      - "p00288"
+      - "p00289"
+      - "p00290"
+      - "p00291"
+      - "p00292"
+      - "p00293"
       - "p00294"
       - "p00295"
+      - "p00296"
       - "p00297"
       - "p00298"
       - "p00299"
       - "p00300"
       - "p00302"
-      - "p00309"
-      - "p00310"
+      - "p00303"
+      - "p00304"
+      - "p00305"
+      - "p00306"
+      - "p00307"
+      - "p00308"
       - "p00311"
+      - "p00312"
+      - "p00313"
       - "p00314"
+      - "p00315"
       - "p00316"
       - "p00317"
       - "p00318"
@@ -1674,9 +2078,9 @@ proxy-groups:
       - "p00325"
       - "p00326"
       - "p00327"
-      - "p00328"
       - "p00329"
       - "p00330"
+      - "p00331"
       - "p00332"
       - "p00333"
       - "p00334"
@@ -1696,16 +2100,11 @@ proxy-groups:
       - "p00348"
       - "p00349"
       - "p00350"
-      - "p00351"
       - "p00352"
-      - "p00353"
       - "p00354"
       - "p00355"
       - "p00356"
-      - "p00357"
       - "p00358"
-      - "p00359"
-      - "p00360"
       - "p00361"
       - "p00362"
       - "p00363"
@@ -1714,12 +2113,11 @@ proxy-groups:
       - "p00366"
       - "p00367"
       - "p00368"
-      - "p00369"
       - "p00370"
-      - "p00371"
       - "p00372"
       - "p00373"
       - "p00374"
+      - "p00375"
       - "p00376"
       - "p00377"
       - "p00378"
@@ -1729,40 +2127,6 @@ proxy-groups:
       - "p00382"
       - "p00384"
       - "p00385"
-      - "p00386"
-      - "p00387"
-      - "p00388"
-      - "p00389"
-      - "p00390"
-      - "p00391"
-      - "p00392"
-      - "p00393"
-      - "p00394"
-      - "p00395"
-      - "p00396"
-      - "p00397"
-      - "p00398"
-      - "p00399"
-      - "p00400"
-      - "p00401"
-      - "p00402"
-      - "p00403"
-      - "p00405"
-      - "p00406"
-      - "p00410"
-      - "p00411"
-      - "p00412"
-      - "p00413"
-      - "p00414"
-      - "p00418"
-      - "p00419"
-      - "p00420"
-      - "p00421"
-      - "p00422"
-      - "p00423"
-      - "p00424"
-      - "p00425"
-      - "p00426"
 
 rules:
   - MATCH,Auto

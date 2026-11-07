@@ -1,60 +1,59 @@
 {
   "schema": 1,
-  "run_id": "1794053348-1ee85db4ae09",
-  "finished_at": "2026-11-07T12:09:08Z",
-  "finished_epoch": 1794053348,
-  "duration_sec": 59.2,
+  "run_id": "1794086109-8d21cd1bf7c6",
+  "finished_at": "2026-11-07T21:15:09Z",
+  "finished_epoch": 1794086109,
+  "duration_sec": 42.5,
   "sources": [
     "DarkRoyalty/shnajder-vpn-configs/githubmirror/6.txt",
     "DarkRoyalty/shnajder-vpn-configs/githubmirror/23.txt",
     "DarkRoyalty/shnajder-vpn-configs/githubmirror/22.txt"
   ],
   "counts": {
-    "lines": 445,
-    "parsed": 438,
-    "unsupported": 4,
-    "duplicates": 0,
-    "unique": 438,
-    "tcp_alive": 426,
-    "youtube_ok": 194,
-    "telegram_ok": 177,
-    "telegram_dc_ok": 177,
-    "latency_ok": 177,
-    "speed_ok": 116,
-    "kept": 116,
+    "lines": 418,
+    "parsed": 395,
+    "unsupported": 17,
+    "duplicates": 1,
+    "unique": 395,
+    "tcp_alive": 386,
+    "youtube_ok": 260,
+    "telegram_ok": 207,
+    "telegram_dc_ok": 207,
+    "latency_ok": 207,
+    "speed_ok": 104,
+    "kept": 104,
     "speed_tier": 3.0
   },
   "by_protocol": {
-    "shadowsocks": 69,
-    "vmess": 29,
-    "vless": 16,
-    "trojan": 2
+    "shadowsocks": 59,
+    "trojan": 3,
+    "vmess": 26,
+    "vless": 16
   },
   "by_country": {
-    "US": 55,
-    "??": 5,
-    "CA": 12,
-    "ES": 5,
+    "US": 52,
+    "??": 4,
+    "CA": 8,
+    "ES": 7,
+    "GB": 2,
+    "DE": 14,
     "NL": 4,
-    "GB": 5,
-    "DE": 13,
+    "JP": 1,
     "FR": 6,
-    "IT": 1,
-    "CH": 5,
-    "SE": 3,
+    "CH": 4,
     "PL": 1,
-    "FI": 1
+    "AT": 1
   },
   "unsupported_reasons": {
-    "transport-xhttp-unsupported": 3,
+    "transport-xhttp-unsupported": 16,
     "vmess-http-obfs": 1
   },
   "link_plain": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1.txt",
-  "link_plain_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1.txt?t=1794053348",
+  "link_plain_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1.txt?t=1794086109",
   "link_auto": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/auto.json",
-  "link_auto_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/auto.json?t=1794053348",
+  "link_auto_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/auto.json?t=1794086109",
   "link_base64": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1-base64.txt",
-  "link_base64_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1-base64.txt?t=1794053348",
+  "link_base64_bust": "https://github.com/3KOT3/vpn-filtered/raw/refs/heads/main/1-base64.txt?t=1794086109",
   "html_plain": "https://github.com/3KOT3/vpn-filtered/blob/main/1.txt",
   "params": {
     "min_mbps": 3.0,
@@ -69,91 +68,91 @@
       "name": "🇺🇸[openproxylist.com] ss-US",
       "protocol": "shadowsocks",
       "country": "US",
-      "server": "67.220.73.178",
-      "mbps": 19.352,
-      "youtube_ms": 75,
-      "telegram_ms": 349
+      "server": "38.145.220.193",
+      "mbps": 17.837,
+      "youtube_ms": 28,
+      "telegram_ms": 478
+    },
+    {
+      "name": "🇺🇸[openproxylist.com] trojan-US",
+      "protocol": "trojan",
+      "country": "US",
+      "server": "167.88.61.52",
+      "mbps": 11.917,
+      "youtube_ms": 56,
+      "telegram_ms": 480
     },
     {
       "name": "🇺🇸[openproxylist.com] ss-US",
       "protocol": "shadowsocks",
       "country": "US",
+      "server": "137.184.89.151",
+      "mbps": 11.163,
+      "youtube_ms": 54,
+      "telegram_ms": 504
+    },
+    {
+      "name": "🇺🇸[openproxylist.com] trojan-US",
+      "protocol": "trojan",
+      "country": "US",
+      "server": "167.88.61.20",
+      "mbps": 11.038,
+      "youtube_ms": 55,
+      "telegram_ms": 477
+    },
+    {
+      "name": "🇺🇸[openproxylist.com] ss-US",
+      "protocol": "shadowsocks",
+      "country": "US",
+      "server": "23.150.152.38",
+      "mbps": 11.009,
+      "youtube_ms": 34,
+      "telegram_ms": 441
+    },
+    {
+      "name": "🏳[openproxylist.com] ss-",
+      "protocol": "shadowsocks",
+      "country": "??",
       "server": "167.17.67.171",
-      "mbps": 17.343,
-      "youtube_ms": 37,
-      "telegram_ms": 405
+      "mbps": 10.988,
+      "youtube_ms": 64,
+      "telegram_ms": 411
+    },
+    {
+      "name": "[🇺🇸] [vm-no-ra] [261107-213137.618]",
+      "protocol": "vmess",
+      "country": "US",
+      "server": "84.17.41.2",
+      "mbps": 10.758,
+      "youtube_ms": 102,
+      "telegram_ms": 673
+    },
+    {
+      "name": "🇺🇸[openproxylist.com] vless-US",
+      "protocol": "vless",
+      "country": "US",
+      "server": "198.2.251.107",
+      "mbps": 10.344,
+      "youtube_ms": 57,
+      "telegram_ms": 526
     },
     {
       "name": "🇺🇸[openproxylist.com] ss-US",
       "protocol": "shadowsocks",
       "country": "US",
-      "server": "38.121.43.225",
-      "mbps": 12.161,
+      "server": "167.88.62.56",
+      "mbps": 10.235,
       "youtube_ms": 71,
-      "telegram_ms": 367
-    },
-    {
-      "name": "🇺🇸[openproxylist.com] ss-US",
-      "protocol": "shadowsocks",
-      "country": "US",
-      "server": "216.106.178.169",
-      "mbps": 11.6,
-      "youtube_ms": 49,
-      "telegram_ms": 356
+      "telegram_ms": 399
     },
     {
       "name": "🇺🇸[openproxylist.com] ss-US",
       "protocol": "shadowsocks",
       "country": "US",
       "server": "38.121.43.231",
-      "mbps": 11.307,
-      "youtube_ms": 72,
-      "telegram_ms": 366
-    },
-    {
-      "name": "🏳[openproxylist.com] ss-",
-      "protocol": "shadowsocks",
-      "country": "??",
-      "server": "167.88.63.99",
-      "mbps": 11.053,
-      "youtube_ms": 70,
-      "telegram_ms": 365
-    },
-    {
-      "name": "🇺🇸[openproxylist.com] ss-US",
-      "protocol": "shadowsocks",
-      "country": "US",
-      "server": "172.111.38.72",
-      "mbps": 10.933,
-      "youtube_ms": 115,
-      "telegram_ms": 315
-    },
-    {
-      "name": "🇺🇸[openproxylist.com] ss-US",
-      "protocol": "shadowsocks",
-      "country": "US",
-      "server": "38.91.107.57",
-      "mbps": 9.678,
-      "youtube_ms": 100,
-      "telegram_ms": 438
-    },
-    {
-      "name": "🇺🇸[openproxylist.com] ss-US",
-      "protocol": "shadowsocks",
-      "country": "US",
-      "server": "38.64.138.135",
-      "mbps": 8.543,
-      "youtube_ms": 68,
-      "telegram_ms": 361
-    },
-    {
-      "name": "[🇺🇸] [vm-no-ra] [261107-044634.310]",
-      "protocol": "vmess",
-      "country": "US",
-      "server": "38.110.1.246",
-      "mbps": 8.438,
-      "youtube_ms": 150,
-      "telegram_ms": 469
+      "mbps": 10.111,
+      "youtube_ms": 97,
+      "telegram_ms": 419
     }
   ],
   "speed_threshold": 3.0,
@@ -161,34 +160,34 @@
     {
       "source": "22",
       "parsed": 150,
-      "alive": 149,
-      "youtube": 68,
-      "telegram": 58,
-      "dc": 58,
-      "kept": 31
+      "alive": 150,
+      "youtube": 84,
+      "telegram": 74,
+      "dc": 74,
+      "kept": 26
     },
     {
       "source": "23",
-      "parsed": 143,
-      "alive": 143,
-      "youtube": 8,
-      "telegram": 7,
-      "dc": 7,
-      "kept": 3
+      "parsed": 100,
+      "alive": 100,
+      "youtube": 58,
+      "telegram": 17,
+      "dc": 17,
+      "kept": 5
     },
     {
       "source": "6",
       "parsed": 145,
-      "alive": 134,
+      "alive": 136,
       "youtube": 118,
-      "telegram": 112,
-      "dc": 112,
-      "kept": 82
+      "telegram": 116,
+      "dc": 116,
+      "kept": 73
     }
   ],
   "invariant": {
     "description": "в списке только те конфиги, где работают И YouTube, И Telegram",
-    "kept": 116,
+    "kept": 104,
     "kept_without_youtube": 0,
     "kept_without_telegram": 0,
     "all_pass_both": true
