@@ -1,6 +1,6 @@
 # Отфильтрованный список VPN-конфигов
 
-Обновлено: **2026-11-08T12:30:23Z** UTC (прогон занял 77 с)
+Обновлено: **2026-11-08T21:29:52Z** UTC (прогон занял 48 с)
 
 ## Что проверялось
 
@@ -16,60 +16,63 @@
 
 | Шаг | Осталось |
 | --- | ---: |
-| Строк в источниках | 447 |
-| Разобрано в конфиги | 437 |
-| Уникальных | 437 |
-| Endpoint отвечает по TCP | 418 |
-| YouTube доступен | 195 |
-| + Telegram (HTTP) доступен | 176 |
-| + дата-центр Telegram доступен | 176 |
-| + скорость ≥ 3.0 Мбит/с | 111 |
-| **В итоговом списке** | **111** |
+| Строк в источниках | 432 |
+| Разобрано в конфиги | 392 |
+| Уникальных | 392 |
+| Endpoint отвечает по TCP | 381 |
+| YouTube доступен | 273 |
+| + Telegram (HTTP) доступен | 248 |
+| + дата-центр Telegram доступен | 248 |
+| + скорость ≥ 3.0 Мбит/с | 124 |
+| **В итоговом списке** | **124** |
 
 ## По протоколам
 
 | Протокол | В списке |
 | --- | ---: |
-| shadowsocks | 54 |
+| shadowsocks | 65 |
 | vmess | 47 |
-| vless | 10 |
+| vless | 11 |
+| trojan | 1 |
 
 ## По странам
 
 | Страна | В списке |
 | --- | ---: |
-| US | 56 |
-| DE | 15 |
-| CA | 14 |
+| US | 67 |
+| CA | 13 |
+| DE | 12 |
+| FR | 6 |
+| GB | 5 |
 | ?? | 4 |
-| FR | 4 |
-| ES | 4 |
 | CH | 4 |
-| IT | 4 |
-| GB | 3 |
-| SE | 2 |
+| SE | 4 |
+| ES | 3 |
+| NL | 2 |
+| IT | 2 |
 | AT | 1 |
+| IL | 1 |
 
 ## Самые быстрые
 
 | # | Имя | Протокол | Страна | Мбит/с | YouTube, мс | Telegram, мс |
 | ---: | --- | --- | --- | ---: | ---: | ---: |
-| 1 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 23.24 | 59 | 358 |
-| 2 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 22.06 | 68 | 345 |
-| 3 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 16.46 | 36 | 371 |
-| 4 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 15.91 | 72 | 351 |
-| 5 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 15.17 | 46 | 350 |
-| 6 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 13.80 | 71 | 369 |
-| 7 | 🌐 Anycast-IP | 🇨🇦 🇬🇧 🇷🇺 | [BL] | vless | CA | 12.34 | 117 | 659 |
-| 8 | [🇨🇦] [vm-no-ra] [261108-101318.939] | vmess | CA | 12.26 | 77 | 320 |
-| 9 | 🇺🇸[openproxylist.com] vmess-US | vmess | US | 11.84 | 85 | 336 |
-| 10 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 11.70 | 73 | 370 |
+| 1 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 14.07 | 72 | 360 |
+| 2 | [🇨🇦] [vm-no-ra] [261108-195436.250] | vmess | CA | 13.50 | 90 | 376 |
+| 3 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 13.13 | 73 | 366 |
+| 4 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 13.07 | 72 | 382 |
+| 5 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 12.79 | 107 | 325 |
+| 6 | [🇨🇦] [vm-no-ra] [261108-195436.343] | vmess | CA | 12.77 | 86 | 374 |
+| 7 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 12.75 | 68 | 359 |
+| 8 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 12.50 | 77 | 339 |
+| 9 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 12.44 | 74 | 362 |
+| 10 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 12.24 | 73 | 385 |
 
 ## Что не удалось проверить
 
 | Причина | Конфигов |
 | --- | ---: |
-| transport-xhttp-unsupported | 6 |
+| transport-xhttp-unsupported | 31 |
 
 ## Ссылки
 
