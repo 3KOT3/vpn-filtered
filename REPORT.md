@@ -1,6 +1,6 @@
 # Отфильтрованный список VPN-конфигов
 
-Обновлено: **2026-11-14T21:50:58Z** UTC (прогон занял 58 с)
+Обновлено: **2026-11-15T03:54:32Z** UTC (прогон занял 38 с)
 
 ## Что проверялось
 
@@ -16,57 +16,64 @@
 
 | Шаг | Осталось |
 | --- | ---: |
-| Строк в источниках | 431 |
-| Разобрано в конфиги | 419 |
-| Уникальных | 419 |
-| Endpoint отвечает по TCP | 410 |
-| YouTube доступен | 221 |
-| + Telegram (HTTP) доступен | 194 |
-| + дата-центр Telegram доступен | 194 |
-| + скорость ≥ 3.0 Мбит/с | 75 |
-| **В итоговом списке** | **75** |
+| Строк в источниках | 446 |
+| Разобрано в конфиги | 438 |
+| Уникальных | 438 |
+| Endpoint отвечает по TCP | 432 |
+| YouTube доступен | 282 |
+| + Telegram (HTTP) доступен | 268 |
+| + дата-центр Telegram доступен | 268 |
+| + скорость ≥ 3.0 Мбит/с | 166 |
+| **В итоговом списке** | **166** |
 
 ## По протоколам
 
 | Протокол | В списке |
 | --- | ---: |
-| shadowsocks | 40 |
-| vmess | 29 |
-| vless | 6 |
+| vless | 78 |
+| vmess | 56 |
+| shadowsocks | 32 |
 
 ## По странам
 
 | Страна | В списке |
 | --- | ---: |
-| US | 48 |
-| CA | 9 |
-| ?? | 5 |
-| DE | 5 |
+| CA | 70 |
+| US | 50 |
+| ?? | 11 |
+| IT | 11 |
+| DE | 4 |
+| SE | 4 |
+| GB | 3 |
 | FR | 3 |
-| JP | 2 |
-| CH | 2 |
-| GB | 1 |
+| CH | 3 |
+| ES | 2 |
+| BY | 2 |
+| EE | 1 |
+| AT | 1 |
+| BE | 1 |
 
 ## Самые быстрые
 
 | # | Имя | Протокол | Страна | Мбит/с | YouTube, мс | Telegram, мс |
 | ---: | --- | --- | --- | ---: | ---: | ---: |
-| 1 | [🇺🇸] [vm-no-ra] [261114-220851.757] | vmess | US | 10.59 | 104 | 560 |
-| 2 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 10.39 | 68 | 413 |
-| 3 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 10.10 | 71 | 405 |
-| 4 | [🇺🇸] [vm-no-ra] [261114-220851.709] | vmess | US | 9.88 | 128 | 519 |
-| 5 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 9.18 | 110 | 409 |
-| 6 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 8.87 | 145 | 454 |
-| 7 | [🇺🇸] [vm-no-ra] [261114-220851.560] | vmess | US | 8.43 | 103 | 555 |
-| 8 | [🇺🇸] [vm-no-ra] [261114-220851.906] | vmess | US | 8.42 | 113 | 517 |
-| 9 | [🇺🇸] [vm-no-ra] [261114-220851.806] | vmess | US | 8.20 | 125 | 522 |
-| 10 | 🇺🇸[openproxylist.com] ss-US | shadowsocks | US | 7.88 | 62 | 427 |
+| 1 | 🇺🇸[openproxylist.com] vmess-US | vmess | US | 16.90 | 48 | 347 |
+| 2 | 🇺🇸[openproxylist.com] vmess-US | vmess | US | 16.60 | 58 | 412 |
+| 3 | 🇺🇸[openproxylist.com] vmess-US | vmess | US | 16.13 | 49 | 370 |
+| 4 | 🇺🇸[openproxylist.com] vmess-US | vmess | US | 15.91 | 49 | 369 |
+| 5 | 🇨🇦[openproxylist.com] ss-CA | shadowsocks | CA | 13.13 | 91 | 473 |
+| 6 | 🇺🇸[openproxylist.com] vmess-US | vmess | US | 12.56 | 83 | 373 |
+| 7 | 🏳[openproxylist.com] vmess- | vmess | ?? | 12.18 | 75 | 352 |
+| 8 | 🇨🇦[openproxylist.com] vmess-CA | vmess | CA | 10.50 | 118 | 324 |
+| 9 | 🇺🇸[openproxylist.com] vless-US | vless | US | 10.39 | 117 | 404 |
+| 10 | 🇺🇸[openproxylist.com] vmess-US | vmess | US | 10.37 | 109 | 379 |
 
 ## Что не удалось проверить
 
 | Причина | Конфигов |
 | --- | ---: |
-| transport-xhttp-unsupported | 7 |
+| transport-xhttp-unsupported | 6 |
+| vmess-header-type | 1 |
 
 ## Ссылки
 
