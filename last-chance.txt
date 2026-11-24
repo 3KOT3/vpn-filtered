@@ -1,4 +1,4 @@
-vless://53bbdad4-2f4e-45db-8df4-fa491a6a7227@172.64.154.113:8443?type=ws&security=tls&sni=freeceshi6.frii.site&host=freeceshi6.frii.site&packetEncoding=none&fp=firefox#Прокси 1
-vless://53bbdad4-2f4e-45db-8df4-fa491a6a7227@172.64.154.113:8443?path=%2Fproxyip&security=tls&encryption=none&insecure=0&host=freeceshi6.frii.site&type=ws&allowInsecure=0&sni=freeceshi6.frii.site&fp=edge#Прокси 2
-vless://53bbdad4-2f4e-45db-8df4-fa491a6a7227@172.64.154.113:8443?security=tls&sni=freeceshi6.frii.site&type=ws&headerType=none&host=freeceshi6.frii.site&path=%2Fproxyip%3DProxyIP.JP.CMLiussss.netfp%3Dchrome&fp=qq#Прокси 3
-vless://53bbdad4-2f4e-45db-8df4-fa491a6a7227@172.64.154.113:8443?path=/?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=512&security=tls&encryption=none&insecure=0&host=freeceshi6.frii.site&fp=chrome&type=ws&allowInsecure=0&sni=freeceshi6.frii.site#Прокси 4
+vmess://eyJhZGQiOiI2Ny4yMjAuODUuNDYiLCJpZCI6ImY4YzhkYzNkLTBkMzctNDZiMC04YjM0LWE3MjMyODgyZmNmZSIsInBvcnQiOiIxODAwMCIsInNjeSI6ImF1dG8iLCJ2IjoiMiIsIm5ldCI6InJhdyIsInR5cGUiOiJub25lIiwidGxzIjoibm9uZSIsInBzIjoiW/Cfh7rwn4e4XSBbdm0tbm8tcmFdIFsyNjExMjMtMTcxMTAwLjUyMV0ifQo=#Прокси 1
+vmess://eyJhZGQiOiI2Ny4yMjAuOTUuMyIsImlkIjoiZjhjOGRjM2QtMGQzNy00NmIwLThiMzQtYTcyMzI4ODJmY2ZlIiwicG9ydCI6IjE4MDAwIiwic2N5IjoiYWVzLTEyOC1nY20iLCJ2IjoiMiIsIm5ldCI6InJhdyIsInR5cGUiOiJub25lIiwidGxzIjoibm9uZSIsInBzIjoiW/Cfh7rwn4e4XSBbdm0tbm8tcmFdIFsyNjExMjMtMTcxMTAwLjc4OF0ifQo=#Прокси 2
+ss://YWVzLTI1Ni1nY206ekROVmVkUkZQUWV4Rzl2@51.222.141.125:445#Прокси 3
+vless://53bbdad4-2f4e-45db-8df4-fa491a6a7227@172.64.154.113:8443?type=ws&security=tls&sni=freeceshi6.frii.site&host=freeceshi6.frii.site&packetEncoding=none&fp=firefox#Прокси 4
