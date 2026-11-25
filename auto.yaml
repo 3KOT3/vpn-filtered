@@ -6,55 +6,90 @@ log-level: warning
 
 proxies:
   - name: "proxy-1"
-    server: "67.220.95.3"
-    port: 18000
+    server: "172.64.154.113"
+    port: 8443
     udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
+    type: "vless"
+    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
+    tls: true
+    servername: "freeceshi6.frii.site"
+    client-fingerprint: "qq"
+    network: "ws"
+    ws-opts:
+      path: "/proxyip=ProxyIP.JP.CMLiussss.netfp=chrome"
+      headers:
+        Host: "freeceshi6.frii.site"
   - name: "proxy-2"
-    server: "67.220.95.3"
-    port: 18000
+    server: "172.64.154.113"
+    port: 8443
     udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
+    type: "vless"
+    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
+    tls: true
+    servername: "freeceshi6.frii.site"
+    client-fingerprint: "firefox"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "freeceshi6.frii.site"
   - name: "proxy-3"
-    server: "67.220.95.3"
-    port: 18000
+    server: "172.64.154.113"
+    port: 8443
     udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
+    type: "vless"
+    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
+    tls: true
+    servername: "freeceshi6.frii.site"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=512"
+      headers:
+        Host: "freeceshi6.frii.site"
   - name: "proxy-4"
-    server: "67.220.95.3"
-    port: 18000
+    server: "172.64.154.113"
+    port: 8443
     udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
+    type: "vless"
+    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
+    tls: true
+    servername: "freeceshi6.frii.site"
+    client-fingerprint: "qq"
+    network: "ws"
+    ws-opts:
+      path: "/?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET"
+      headers:
+        Host: "freeceshi6.frii.site"
   - name: "proxy-5"
-    server: "67.220.95.3"
-    port: 18000
+    server: "188.114.98.0"
+    port: 443
     udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
+    type: "vless"
+    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
+    tls: true
+    servername: "freeceshi6.frii.site"
+    network: "ws"
+    ws-opts:
+      path: "/proxyip=ProxyIP.JP.CMLiussss.net"
+      headers:
+        Host: "freeceshi6.frii.site"
   - name: "proxy-6"
-    server: "67.220.95.3"
-    port: 18000
+    server: "172.64.154.113"
+    port: 8443
     udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
+    type: "vless"
+    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
+    tls: true
+    servername: "freeceshi6.frii.site"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/"
+      headers:
+        Host: "freeceshi6.frii.site"
   - name: "proxy-7"
-    server: "23.162.200.198"
+    server: "67.220.85.46"
     port: 18000
     udp: true
     type: "vmess"
@@ -62,7 +97,7 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "proxy-8"
-    server: "134.195.196.211"
+    server: "67.220.85.46"
     port: 18000
     udp: true
     type: "vmess"
@@ -70,15 +105,21 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "proxy-9"
-    server: "23.162.200.198"
-    port: 18000
+    server: "172.64.154.113"
+    port: 8443
     udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
+    type: "vless"
+    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
+    tls: true
+    servername: "freeceshi6.frii.site"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET"
+      headers:
+        Host: "freeceshi6.frii.site"
   - name: "proxy-10"
-    server: "23.162.200.198"
+    server: "134.195.196.211"
     port: 18000
     udp: true
     type: "vmess"
@@ -86,7 +127,7 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "proxy-11"
-    server: "67.220.95.3"
+    server: "134.195.196.211"
     port: 18000
     udp: true
     type: "vmess"
@@ -110,20 +151,15 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "proxy-14"
-    server: "167.17.69.171"
-    port: 443
+    server: "134.195.196.211"
+    port: 18000
     udp: true
-    type: "vless"
-    uuid: "00144519-7e0d-476b-8d28-435576af9262"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "www.cloudflare.com"
-    reality-opts:
-      public-key: "ALT8hIGeZEhi0sQFbXP_ntBg8Xo-v7i0YCLrqTnBxRk"
-      short-id: "0990d22f"
-    client-fingerprint: "chrome"
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
   - name: "proxy-15"
-    server: "23.162.200.198"
+    server: "134.195.196.211"
     port: 18000
     udp: true
     type: "vmess"
@@ -139,7 +175,7 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "proxy-17"
-    server: "134.195.196.211"
+    server: "84.17.41.2"
     port: 18000
     udp: true
     type: "vmess"
@@ -147,7 +183,7 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "proxy-18"
-    server: "134.195.196.211"
+    server: "84.17.41.2"
     port: 18000
     udp: true
     type: "vmess"
@@ -155,7 +191,7 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "proxy-19"
-    server: "67.220.85.46"
+    server: "84.17.41.2"
     port: 18000
     udp: true
     type: "vmess"
@@ -163,21 +199,15 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "proxy-20"
-    server: "172.64.154.113"
-    port: 8443
+    server: "84.17.41.2"
+    port: 18000
     udp: true
-    type: "vless"
-    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
-    tls: true
-    servername: "freeceshi6.frii.site"
-    client-fingerprint: "chrome"
-    network: "ws"
-    ws-opts:
-      path: "/?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET"
-      headers:
-        Host: "freeceshi6.frii.site"
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
   - name: "proxy-21"
-    server: "67.220.85.46"
+    server: "84.17.41.2"
     port: 18000
     udp: true
     type: "vmess"
@@ -185,7 +215,7 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "proxy-22"
-    server: "67.220.85.46"
+    server: "84.17.41.2"
     port: 18000
     udp: true
     type: "vmess"
@@ -201,157 +231,14 @@ proxies:
     alterId: 0
     cipher: "auto"
   - name: "proxy-24"
-    server: "51.222.141.125"
-    port: 445
+    server: "84.17.41.2"
+    port: 18000
     udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "zDNVedRFPQexG9v"
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
   - name: "proxy-25"
-    server: "172.64.154.113"
-    port: 8443
-    udp: true
-    type: "vless"
-    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
-    tls: true
-    servername: "freeceshi6.frii.site"
-    client-fingerprint: "qq"
-    network: "ws"
-    ws-opts:
-      path: "/proxyip=ProxyIP.JP.CMLiussss.netfp=chrome"
-      headers:
-        Host: "freeceshi6.frii.site"
-  - name: "proxy-26"
-    server: "169.40.42.89"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d65cc14c-f53f-4fe2-b262-97856601319c"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "yahoo.com"
-    reality-opts:
-      public-key: "e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg"
-      short-id: "c39cc7310a"
-    client-fingerprint: "ios"
-  - name: "proxy-27"
-    server: "188.114.98.0"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
-    tls: true
-    servername: "freeceshi6.frii.site"
-    network: "ws"
-    ws-opts:
-      path: "/?TELEGRAM---MARAMBASHI---MARAMBASHI---MARAMBASHI---MARAMBASHI"
-      headers:
-        Host: "freeceshi6.frii.site"
-  - name: "proxy-28"
-    server: "84.17.41.2"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-29"
-    server: "172.64.154.113"
-    port: 8443
-    udp: true
-    type: "vless"
-    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
-    tls: true
-    servername: "freeceshi6.frii.site"
-    network: "ws"
-    ws-opts:
-      path: "/proxyip=ProxyIP.JP.CMLiussss.netfp=chrome"
-      headers:
-        Host: "freeceshi6.frii.site"
-  - name: "proxy-30"
-    server: "84.17.41.2"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-31"
-    server: "188.114.98.0"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
-    tls: true
-    servername: "freeceshi6.frii.site"
-    network: "ws"
-    ws-opts:
-      path: "/proxyip=ProxyIP.JP.CMLiussss.netfp=chrome"
-      headers:
-        Host: "freeceshi6.frii.site"
-  - name: "proxy-32"
-    server: "172.64.154.113"
-    port: 8443
-    udp: true
-    type: "vless"
-    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
-    tls: true
-    servername: "freeceshi6.frii.site"
-    client-fingerprint: "chrome"
-    network: "ws"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "freeceshi6.frii.site"
-  - name: "proxy-33"
-    server: "188.114.98.0"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
-    tls: true
-    servername: "freeceshi6.frii.site"
-    network: "ws"
-    ws-opts:
-      path: "/proxyip=ProxyIP.JP.CMLiussss.net"
-      headers:
-        Host: "freeceshi6.frii.site"
-  - name: "proxy-34"
-    server: "172.64.154.113"
-    port: 8443
-    udp: true
-    type: "vless"
-    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
-    tls: true
-    servername: "freeceshi6.frii.site"
-    client-fingerprint: "chrome"
-    network: "ws"
-    ws-opts:
-      path: "/?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=512"
-      headers:
-        Host: "freeceshi6.frii.site"
-  - name: "proxy-35"
-    server: "38.110.1.246"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-36"
-    server: "188.114.98.0"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
-    tls: true
-    servername: "freeceshi6.frii.site"
-    network: "ws"
-    ws-opts:
-      path: "/proxyip=ProxyIP.JP.CMLiussss.net"
-      headers:
-        Host: "freeceshi6.frii.site"
-  - name: "proxy-37"
     server: "172.64.154.113"
     port: 8443
     udp: true
@@ -365,97 +252,7 @@ proxies:
       path: "/?TELEGRAM—MARAMBASHI—MARAMBASHI—MARAMBASHI—MARAMBASHI?ed=512"
       headers:
         Host: "freeceshi6.frii.site"
-  - name: "proxy-38"
-    server: "172.64.154.113"
-    port: 8443
-    udp: true
-    type: "vless"
-    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
-    tls: true
-    servername: "freeceshi6.frii.site"
-    client-fingerprint: "ios"
-    network: "ws"
-    ws-opts:
-      path: "/proxyip"
-      headers:
-        Host: "freeceshi6.frii.site"
-  - name: "proxy-39"
-    server: "38.110.1.246"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-40"
-    server: "172.64.154.113"
-    port: 8443
-    udp: true
-    type: "vless"
-    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
-    tls: true
-    servername: "freeceshi6.frii.site"
-    client-fingerprint: "qq"
-    network: "ws"
-    ws-opts:
-      path: "/?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=512"
-      headers:
-        Host: "freeceshi6.frii.site"
-  - name: "proxy-41"
-    server: "84.17.41.2"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-42"
-    server: "84.17.41.2"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-43"
-    server: "172.64.154.113"
-    port: 8443
-    udp: true
-    type: "vless"
-    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
-    tls: true
-    servername: "freeceshi6.frii.site"
-    client-fingerprint: "ios"
-    network: "ws"
-    ws-opts:
-      path: "/?Telegram---Safewebsbot"
-      headers:
-        Host: "freeceshi6.frii.site"
-  - name: "proxy-44"
-    server: "84.17.41.2"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-45"
-    server: "84.17.41.2"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-46"
-    server: "38.110.1.246"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-47"
+  - name: "proxy-26"
     server: "169.197.142.22"
     port: 18000
     udp: true
@@ -463,9 +260,45 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
-  - name: "proxy-48"
-    server: "188.114.98.0"
-    port: 443
+  - name: "proxy-27"
+    server: "23.162.200.198"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-28"
+    server: "38.114.120.221"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "proxy-29"
+    server: "172.64.154.113"
+    port: 8443
+    udp: true
+    type: "vless"
+    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
+    tls: true
+    servername: "freeceshi6.frii.site"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/proxyip=ProxyIP.JP.CMLiussss.net"
+      headers:
+        Host: "freeceshi6.frii.site"
+  - name: "proxy-30"
+    server: "167.17.64.22"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "proxy-31"
+    server: "172.64.154.113"
+    port: 8443
     udp: true
     type: "vless"
     uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
@@ -473,10 +306,10 @@ proxies:
     servername: "freeceshi6.frii.site"
     network: "ws"
     ws-opts:
-      path: "/?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560"
+      path: "/?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET"
       headers:
         Host: "freeceshi6.frii.site"
-  - name: "proxy-49"
+  - name: "proxy-32"
     server: "169.197.142.22"
     port: 18000
     udp: true
@@ -484,227 +317,51 @@ proxies:
     uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
     alterId: 0
     cipher: "auto"
-  - name: "proxy-50"
-    server: "23.162.152.22"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-51"
-    server: "169.197.142.22"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-52"
-    server: "51.222.12.127"
-    port: 445
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "zDNVedRFPQexG9v"
-  - name: "proxy-53"
-    server: "202.50.253.36"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-54"
-    server: "202.50.253.63"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-55"
+  - name: "proxy-33"
     server: "142.202.51.22"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-56"
-    server: "152.53.120.90"
-    port: 50955
-    udp: true
-    type: "vless"
-    uuid: "5ab065b0-2c7a-45a0-829d-9af9af7d8e05"
-  - name: "proxy-57"
-    server: "38.109.228.110"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-58"
-    server: "202.50.253.72"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-59"
-    server: "169.197.142.22"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-60"
-    server: "169.197.142.22"
-    port: 18000
-    udp: true
-    type: "vmess"
-    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
-    alterId: 0
-    cipher: "auto"
-  - name: "proxy-61"
-    server: "202.50.253.81"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-62"
-    server: "172.99.189.142"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-63"
-    server: "185.164.175.81"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-64"
+  - name: "proxy-34"
     server: "167.17.64.175"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-65"
-    server: "202.50.253.45"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-66"
-    server: "172.111.36.147"
-    port: 1270
-    udp: true
-    type: "vmess"
-    uuid: "5c040f1d-45db-43bd-8d46-e4950e433735"
-    alterId: 0
-    cipher: "auto"
-    tls: true
-    servername: "xmfhlpy.com"
-  - name: "proxy-67"
-    server: "82.110.60.9"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-68"
+  - name: "proxy-35"
     server: "167.17.64.27"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-69"
-    server: "147.224.54.25"
-    port: 2053
+  - name: "proxy-36"
+    server: "169.197.142.22"
+    port: 18000
     udp: true
-    type: "vless"
-    uuid: "cdb7fa1d-6e7a-467c-da9c-da363c7bf779"
-    tls: true
-    servername: "www.cloudflare.com"
-    reality-opts:
-      public-key: "DEFJSLdILrvauMpwtpvFZddadpt3rNtv03Dui2EkmRk"
-      short-id: "68"
-    client-fingerprint: "chrome"
-  - name: "proxy-70"
-    server: "fr-free.fastestrelay.com"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "364D2D52-E61E-4E52-80EC-2BC6BDF15349"
-    tls: true
-    servername: "fr-free.fastestrelay.com"
-    client-fingerprint: "chrome"
-    network: "ws"
-    ws-opts:
-      path: "/700gvl"
-      headers:
-        Host: "fr-free.fastestrelay.com"
-  - name: "proxy-71"
-    server: "151.241.19.29"
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-37"
+    server: "172.99.189.142"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-72"
+  - name: "proxy-38"
     server: "151.241.19.36"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-73"
-    server: "186.190.215.251"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-74"
-    server: "79.127.139.242"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-75"
-    server: "202.50.253.27"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-76"
-    server: "23.166.88.127"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-77"
-    server: "87.199.205.28"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "501a2da5-cb22-4a3f-915e-e3b821d1d62d"
-    flow: "xtls-rprx-vision"
-    tls: true
-    servername: "vkvd754.okcdn.ru"
-    reality-opts:
-      public-key: "W-9zyiOq287RtXVTZlTFbSDJ0Mx8joyBLJoA7ZE7eBw"
-      short-id: "ef1d3554c652a436"
-    client-fingerprint: "chrome"
-  - name: "proxy-78"
-    server: "51.158.206.20"
+  - name: "proxy-39"
+    server: "51.158.206.12"
     port: 23576
     udp: true
     type: "vless"
@@ -714,77 +371,145 @@ proxies:
     servername: "fuck.rkn"
     reality-opts:
       public-key: "1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s"
+      short-id: "01"
     client-fingerprint: "chrome"
-  - name: "proxy-79"
-    server: "94.183.167.172"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "d7121b33-e335-4921-bb00-4c0b157e7fc1"
-    tls: true
-    servername: "s8k4.scan-cdn.com"
-    client-fingerprint: "chrome"
-  - name: "proxy-80"
-    server: "138.199.55.243"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-81"
-    server: "172.64.155.209"
-    port: 443
-    udp: true
-    type: "vless"
-    uuid: "55b3fd10-3658-40a2-8951-ec90932d1d30"
-    tls: true
-    servername: "sinavm2.soft10.ir"
-    client-fingerprint: "chrome"
-    network: "ws"
-    ws-opts:
-      path: "/SiNAVM-SiNAVM-SiNAVM-SiNAVM"
-      headers:
-        Host: "sinavm2.soft10.ir"
-  - name: "proxy-82"
-    server: "202.50.253.90"
-    port: 19999
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-83"
-    server: "129.146.77.248"
-    port: 39495
-    udp: true
-    type: "vmess"
-    uuid: "f836c736-87fc-4fde-aabc-00857ecdff3e"
-    alterId: 0
-    cipher: "auto"
-    network: "ws"
-    ws-opts:
-      path: "/cctv13.m3u8"
-  - name: "proxy-84"
+  - name: "proxy-40"
     server: "202.50.253.54"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-85"
-    server: "104.17.145.43"
-    port: 2083
+  - name: "proxy-41"
+    server: "202.50.253.90"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "proxy-42"
+    server: "23.162.152.22"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "proxy-43"
+    server: "79.127.139.242"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "proxy-44"
+    server: "23.162.200.198"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-45"
+    server: "202.50.253.27"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "proxy-46"
+    server: "202.50.253.81"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "proxy-47"
+    server: "202.50.253.99"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "proxy-48"
+    server: "202.50.253.45"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "proxy-49"
+    server: "169.197.142.22"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-50"
+    server: "151.241.19.29"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "proxy-51"
+    server: "202.50.253.63"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "proxy-52"
+    server: "202.50.253.72"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "proxy-53"
+    server: "169.197.142.22"
+    port: 18000
+    udp: true
+    type: "vmess"
+    uuid: "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe"
+    alterId: 0
+    cipher: "auto"
+  - name: "proxy-54"
+    server: "202.50.253.36"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "proxy-55"
+    server: "179.254.94.184"
+    port: 443
     udp: true
     type: "vless"
-    uuid: "bd6c11e0-0233-4fb1-ba97-8d5f16d7155f"
+    uuid: "2f12e5b5-6ce7-47ab-88b9-6110c1a3fc60"
+    flow: "xtls-rprx-vision"
     tls: true
-    servername: "site.check-looks.space"
-    network: "ws"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "site.check-looks.space"
-  - name: "proxy-86"
-    server: "ws.liuzedong.ltd"
+    servername: "www.bing.com"
+    reality-opts:
+      public-key: "q49v36UVMNsNION3nn-cQU6_8VwgM_psm1s5z7XVaWc"
+      short-id: "e6052385636f0700"
+    client-fingerprint: "firefox"
+  - name: "proxy-56"
+    server: "186.190.215.251"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "proxy-57"
+    server: "23.166.88.127"
+    port: 19999
+    udp: true
+    type: "ss"
+    cipher: "aes-256-gcm"
+    password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+  - name: "proxy-58"
+    server: "188.114.98.0"
     port: 443
     udp: true
     type: "vless"
@@ -796,78 +521,85 @@ proxies:
       path: "/ws"
       headers:
         Host: "ws.liuzedong.ltd"
-  - name: "proxy-87"
+  - name: "proxy-59"
+    server: "172.64.154.113"
+    port: 8443
+    udp: true
+    type: "vless"
+    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
+    tls: true
+    servername: "freeceshi6.frii.site"
+    client-fingerprint: "chrome"
+    network: "ws"
+    ws-opts:
+      path: "/?TELEGRAM--MARAMBASHI--MARAMBASHI--MARAMBASHI--MARAMBASHI?ed=2560"
+      headers:
+        Host: "freeceshi6.frii.site"
+  - name: "proxy-60"
+    server: "157.180.98.124"
+    port: 49659
+    udp: true
+    type: "vless"
+    uuid: "88a558b1-9645-42f3-89e5-341570d8486d"
+    flow: "xtls-rprx-vision"
+    tls: true
+    servername: "apple.com"
+    reality-opts:
+      public-key: "bBVqro8tG6swTNoAkjwUzcu4Ew4N4VcyDHzADcGviCs"
+      short-id: "81959fce"
+    client-fingerprint: "chrome"
+  - name: "proxy-61"
+    server: "188.114.98.0"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "53bbdad4-2f4e-45db-8df4-fa491a6a7227"
+    tls: true
+    servername: "freeceshi6.frii.site"
+    network: "ws"
+    ws-opts:
+      path: "/proxyip=ProxyIP.JP.CMLiussss.netfp=chrome"
+      headers:
+        Host: "freeceshi6.frii.site"
+  - name: "proxy-62"
     server: "202.50.253.18"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-88"
-    server: "104.26.14.111"
-    port: 2083
+  - name: "proxy-63"
+    server: "84.32.209.54"
+    port: 443
     udp: true
     type: "vless"
-    uuid: "bd6c11e0-0233-4fb1-ba97-8d5f16d7155f"
+    uuid: "f69e272f-e0e5-4e9d-b180-5be63930cde9"
+    flow: "xtls-rprx-vision"
     tls: true
-    servername: "site.check-looks.space"
-    network: "ws"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "site.check-looks.space"
-  - name: "proxy-89"
-    server: "202.50.253.99"
+    servername: "lt.memepn.com"
+    reality-opts:
+      public-key: "drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ"
+      short-id: "868419504747f6de"
+    client-fingerprint: "firefox"
+  - name: "proxy-64"
+    server: "84.32.209.118"
+    port: 443
+    udp: true
+    type: "vless"
+    uuid: "a30903dc-1bf0-4be5-8b1b-603a3a56211c"
+    tls: true
+    servername: "api-dns-gw.galioncc.com"
+    reality-opts:
+      public-key: "drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ"
+      short-id: "a7d309e4c16b825f"
+    client-fingerprint: "chrome"
+  - name: "proxy-65"
+    server: "138.199.55.243"
     port: 19999
     udp: true
     type: "ss"
     cipher: "aes-256-gcm"
     password: "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-  - name: "proxy-90"
-    server: "172.64.150.13"
-    port: 2083
-    udp: true
-    type: "vless"
-    uuid: "bd6c11e0-0233-4fb1-ba97-8d5f16d7155f"
-    tls: true
-    servername: "site.check-looks.space"
-    network: "ws"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "site.check-looks.space"
-  - name: "proxy-91"
-    server: "172.67.74.177"
-    port: 2083
-    udp: true
-    type: "vless"
-    uuid: "bd6c11e0-0233-4fb1-ba97-8d5f16d7155f"
-    tls: true
-    servername: "site.check-looks.space"
-    network: "ws"
-    ws-opts:
-      path: "/"
-      headers:
-        Host: "site.check-looks.space"
-  - name: "proxy-92"
-    server: "179.254.126.86"
-    port: 25135
-    udp: true
-    type: "vless"
-    uuid: "e89a2a0e-7803-447e-b050-3ba67962ed95"
-    tls: true
-    servername: "s-25452.nl18.h1clayd.click"
-    reality-opts:
-      public-key: "zJI16_ywLd4clshY0IQQPxQ_YBbIq2b0XTO_dnTJOy4"
-      short-id: "fe51f413b9646e97"
-    client-fingerprint: "firefox"
-  - name: "proxy-93"
-    server: "51.222.136.236"
-    port: 8882
-    udp: true
-    type: "ss"
-    cipher: "aes-256-gcm"
-    password: "kDWvXYZoTBcGkC4"
 
 proxy-groups:
   - name: Auto
@@ -942,34 +674,6 @@ proxy-groups:
       - "proxy-63"
       - "proxy-64"
       - "proxy-65"
-      - "proxy-66"
-      - "proxy-67"
-      - "proxy-68"
-      - "proxy-69"
-      - "proxy-70"
-      - "proxy-71"
-      - "proxy-72"
-      - "proxy-73"
-      - "proxy-74"
-      - "proxy-75"
-      - "proxy-76"
-      - "proxy-77"
-      - "proxy-78"
-      - "proxy-79"
-      - "proxy-80"
-      - "proxy-81"
-      - "proxy-82"
-      - "proxy-83"
-      - "proxy-84"
-      - "proxy-85"
-      - "proxy-86"
-      - "proxy-87"
-      - "proxy-88"
-      - "proxy-89"
-      - "proxy-90"
-      - "proxy-91"
-      - "proxy-92"
-      - "proxy-93"
 
 rules:
   - MATCH,Auto
